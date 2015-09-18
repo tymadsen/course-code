@@ -1,0 +1,7 @@
+INFILE=E:\ECEN427\RealTimeClockLab\implementation\system.ncd
+OUTFILE=E:\ECEN427\RealTimeClockLab\implementation\system.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=E:\ECEN427\RealTimeClockLab\implementation
+LICENSE=ISE
+USER_INFO=174672765_175170704_210573231_041
