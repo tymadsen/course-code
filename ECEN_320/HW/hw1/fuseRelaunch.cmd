@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/HW/hw1/thousand_counter_isim_beh.exe" -prj "J:/Courses/ECEN_320/HW/hw1/thousand_counter_beh.prj" "work.thousand_counter" 

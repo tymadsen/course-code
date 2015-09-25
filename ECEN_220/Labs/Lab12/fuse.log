@@ -1,0 +1,48 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o J:/Courses/ECEN 220/Labs/Lab12/FullLC3_isim_beh.exe -prj J:/Courses/ECEN 220/Labs/Lab12/FullLC3_beh.prj work.FullLC3 work.glbl 
+ISim P.68d (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 24
+Turning on mult-threading, number of parallel sub-compilation jobs: 48 
+Determining compilation order of HDL files
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/register.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/ff_dce.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/ts_driver.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/register_15.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/RegFile.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/PC.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/NZP.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/Memory.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/MARMux.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/IR.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/EAB.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/ALU.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/LC3Controller.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/Datapath.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab12/FullLC3.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 147568 KB
+Fuse CPU Usage: 1091 ms
+Compiling module register_15
+Compiling module LC3Controller
+Compiling module register
+Compiling module PC
+Compiling module ts_driver
+Compiling module EAB
+Compiling module IR
+Compiling module MARMux
+Compiling module ALU
+Compiling module RegFile
+Compiling module ff_dce
+Compiling module NZP
+Compiling module MAR
+Compiling module MDR
+Compiling module Memory
+Compiling module Datapath
+Compiling module FullLC3
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 18 Verilog Units
+Built simulation executable J:/Courses/ECEN 220/Labs/Lab12/FullLC3_isim_beh.exe
+Fuse Memory Usage: 183136 KB
+Fuse CPU Usage: 2230 ms

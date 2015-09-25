@@ -1,0 +1,20 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm_isim_beh.exe -prj J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm_beh.prj work.Car_Alarm work.glbl 
+ISim P.68d (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 24
+Turning on mult-threading, number of parallel sub-compilation jobs: 48 
+Determining compilation order of HDL files
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm.vf" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 147888 KB
+Fuse CPU Usage: 639 ms
+Compiling module AND2
+Compiling module OR2B2
+Compiling module Car_Alarm
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 4 Verilog Units
+Built simulation executable J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm_isim_beh.exe
+Fuse Memory Usage: 181408 KB
+Fuse CPU Usage: 919 ms

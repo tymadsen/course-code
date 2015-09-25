@@ -1,0 +1,28 @@
+Command line:
+   charGen_top_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  53633
+
+Tue Mar 24 18:43:25 2015
+
+
+ Elaboration Time: 0.249602 sec
+
+ Current Memory Usage: 865.116 Meg
+
+ Total Signals          : 89
+ Total Nets             : 33067
+ Total Signal Drivers   : 50
+ Total Blocks           : 8
+ Total Primitive Blocks : 6
+ Total Processes        : 37
+ Total Traceable Variables  : 34
+ Total Scalar Nets and Variables : 49954
+
+ Total Simulation Time: 0.639604 sec
+
+ Current Memory Usage: 708.616 Meg
+
+Tue Mar 24 19:12:18 2015
+

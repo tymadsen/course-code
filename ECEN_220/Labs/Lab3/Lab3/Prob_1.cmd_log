@@ -1,0 +1,13 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Prob_1.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Prob_1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Prob_1.ucf" -p xc3s500e-fg320-4 "Prob_1.ngc" Prob_1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Prob_1_map.ncd Prob_1.ngd Prob_1.pcf 
+par -w -intstyle ise -ol high -t 1 Prob_1_map.ncd Prob_1.ncd Prob_1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Prob_1.twx Prob_1.ncd -o Prob_1.twr Prob_1.pcf 
+bitgen -intstyle ise -f Prob_1.ut Prob_1.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Prob_1.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Prob_1.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Prob_1.ucf" -p xc3s500e-fg320-4 "Prob_1.ngc" Prob_1.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Prob_1_map.ncd Prob_1.ngd Prob_1.pcf 
+par -w -intstyle ise -ol high -t 1 Prob_1_map.ncd Prob_1.ncd Prob_1.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Prob_1.twx Prob_1.ncd -o Prob_1.twr Prob_1.pcf 
+bitgen -intstyle ise -f Prob_1.ut Prob_1.ncd 
+bitgen -intstyle ise -f Prob_1.ut Prob_1.ncd 

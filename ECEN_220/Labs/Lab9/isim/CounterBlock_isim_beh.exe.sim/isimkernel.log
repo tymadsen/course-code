@@ -1,0 +1,10 @@
+Command line:
+   CounterBlock_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  55039
+
+Thu Nov 14 18:48:42 2013
+
+
+ Elaboration Time: 0.374402 sec

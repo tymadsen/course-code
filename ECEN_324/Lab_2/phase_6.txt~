@@ -1,0 +1,23 @@
+   0x08048ceb <+0>:	push   %ebp
+   0x08048cec <+1>:	mov    %esp,%ebp
+   0x08048cee <+3>:	push   %ebx
+   0x08048cef <+4>:	sub    $0x14,%esp
+   0x08048cf2 <+7>:	movl   $0xa,0x8(%esp)
+   0x08048cfa <+15>:	movl   $0x0,0x4(%esp)
+   0x08048d02 <+23>:	mov    0x8(%ebp),%eax
+   0x08048d05 <+26>:	mov    %eax,(%esp)
+   0x08048d08 <+29>:	call   0x804883c <strtol@plt>
+   0x08048d0d <+34>:	mov    $0x804b7ec,%ebx
+   0x08048d12 <+39>:	mov    %eax,(%ebx)
+   0x08048d14 <+41>:	mov    %ebx,(%esp)
+   0x08048d17 <+44>:	call   0x8048bd8 <fun6>
+   0x08048d1c <+49>:	mov    0x8(%eax),%eax
+   0x08048d1f <+52>:	mov    0x8(%eax),%eax
+   0x08048d22 <+55>:	mov    (%eax),%eax
+   0x08048d24 <+57>:	cmp    (%ebx),%eax
+   0x08048d26 <+59>:	je     0x8048d2d <phase_6+66>
+   0x08048d28 <+61>:	call   0x80492fb <explode_bomb>
+   0x08048d2d <+66>:	add    $0x14,%esp
+   0x08048d30 <+69>:	pop    %ebx
+   0x08048d31 <+70>:	pop    %ebp
+   0x08048d32 <+71>:	ret  

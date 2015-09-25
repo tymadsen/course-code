@@ -1,0 +1,28 @@
+Command line:
+   sramController_top_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49784
+
+Tue Mar 10 21:33:43 2015
+
+
+ Elaboration Time: 0.171601 sec
+
+ Current Memory Usage: 1316.47 Meg
+
+ Total Signals          : 86
+ Total Nets             : 432
+ Total Signal Drivers   : 54
+ Total Blocks           : 5
+ Total Primitive Blocks : 4
+ Total Processes        : 32
+ Total Traceable Variables  : 22
+ Total Scalar Nets and Variables : 924
+
+ Total Simulation Time: 0.436803 sec
+
+ Current Memory Usage: 687.297 Meg
+
+Tue Mar 10 22:32:14 2015
+

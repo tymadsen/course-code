@@ -1,0 +1,78 @@
+                      | #
+                      | # Include your name and ID here.
+                      | #
+                      | # 	Ty Madsen 
+                      | #	ID: tmadsen2
+                      | #
+                      | # -To avoid potential problems with yas,
+                      | # leave some comments before .pos0
+                      | #
+                      | # Initial code
+  0x000:              | .pos 0
+  0x000: 308400020000 | 	irmovl Stack,%esp		#set stack
+  0x006: 2045         | 	rrmovl %esp,%ebp		#set base pointer
+  0x008: 308003000000 | 	irmovl $3,%eax			#move len (3) into eax
+  0x00e: 308134000000 | 	irmovl dest,%ecx		#move dest block into ecx
+  0x014: 308228000000 | 	irmovl src,%edx			#move src block into edx
+  0x01a: a008         | 	pushl %eax				#push len onto stack
+  0x01c: a018         | 	pushl %ecx				#push dest block onto stack
+  0x01e: a028         | 	pushl %edx				#push src block onto stack
+  0x020: 8040000000   | 	call copy_block			#call copy_block
+  0x025: 10           | 	halt					#end
+  0x028:              | .align 4
+                      | # Source block
+  0x028:              | src:
+  0x028: 0a000000     | .long 0x00a
+  0x02c: b0000000     | .long 0x0b0
+  0x030: 000c0000     | .long 0xc00
+                      | # Destination block
+  0x034:              | dest:
+  0x034: 11010000     | .long 0x111
+  0x038: 22020000     | .long 0x222
+  0x03c: 33030000     | .long 0x333
+                      | 	
+  0x040:              | copy_block:
+  0x040: a058         | 	pushl	%ebp			#save base pointer
+  0x042: 6322         | 	xorl	%edx, %edx		#clear edx
+  0x044: 2045         | 	rrmovl	%esp, %ebp		#set new base pointer
+  0x046: 6300         | 	xorl	%eax, %eax		#clear eax
+  0x048: 501510000000 | 	mrmovl	16(%ebp), %ecx	#copy len into ecx
+  0x04e: a078         | 	pushl	%edi			#save edi onto stack
+  0x050: 507508000000 | 	mrmovl	8(%ebp), %edi	#copy src block into edi 
+  0x056: a068         | 	pushl	%esi			#save esi onto stack
+  0x058: 50650c000000 | 	mrmovl	12(%ebp), %esi	#copy dest block into esi
+  0x05e: a038         | 	pushl	%ebx			#save ebx onto stack
+  0x060: 6211         | 	andl	%ecx, %ecx		#set condition codes
+  0x062: a058         | 	pushl	%ebp
+  0x064: 7196000000   | 	jle	End 				#jump to end if less than 0
+  0x069:              | Loop:
+  0x069: 2025         | 	rrmovl	%edx, %ebp
+  0x06b: 6072         | 	addl	%edi,%edx		#add edi and edx and store into edx
+  0x06d: 503200000000 | 	mrmovl	(%edx), %ebx	#copy value at edx in memory (one of the src block elements) into ebx
+  0x073: 2052         | 	rrmovl	%ebp, %edx
+  0x075: 6062         | 	addl	%esi,%edx		#add esi and edx and store into edx
+  0x077: 403200000000 | 	rmmovl	%ebx, (%edx)	#move previously copied value(a value from src block) into memoery at address edx (one of dest addresses)
+  0x07d: 2052         | 	rrmovl	%ebp, %edx
+  0x07f: 6330         | 	xorl	%ebx, %eax		#xor eax with ebx and store into ebx (update checksum)
+  0x081: 308204000000 | 	irmovl	$4, %edx		#move 4 into edx
+  0x087: 6052         | 	addl	%ebp,%edx		#move 4 + ebp(edx) into edx
+  0x089: 308501000000 | 	irmovl	$1, %ebp		#move 1 into ebp
+  0x08f: 6151         | 	subl	%ebp,%ecx		#move decrement len counter, set condition codes
+  0x091: 7469000000   | 	jne	Loop				#loop again if len is not 0
+                      | 
+  0x096:              | End:
+  0x096: b058         | 	popl	%ebp
+  0x098: b038         | 	popl	%ebx			#restore all previously saved registers
+  0x09a: b068         | 	popl	%esi			#
+  0x09c: b078         | 	popl	%edi			#
+  0x09e: b058         | 	popl	%ebp			#			Same for these
+  0x0a0: b028         | 	popl	%edx			#
+  0x0a2: b018         | 	popl	%ecx			#
+  0x0a4: b008         | 	popl	%eax			#
+  0x0a6: 90           | 	ret
+                      | 
+  0x200:              | .pos 0x200
+  0x200:              | Stack:
+                      | #Make sure to have newline after last line of code
+                      | 
+                      | 

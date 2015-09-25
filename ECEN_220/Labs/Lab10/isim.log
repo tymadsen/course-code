@@ -1,0 +1,61 @@
+ISim log file
+Running: J:\Courses\ECEN 220\Labs\Lab10\NZP_isim_beh.exe -intstyle ise -gui -tclbatch J:/Courses/ECEN 220/Labs/Lab10/NZP.tcl -wdb J:/Courses/ECEN 220/Labs/Lab10/NZP_isim_beh.wdb 
+ISim P.68d (signature 0x8ef4fb42)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# wave add / -radix hex
+# isim force add clk 0 -time 0 -value 1 -time 5ns -repeat 10ns
+# isim force add reset 1 -time 0 -value 0 -time 15ns
+# isim force add Buss A5A5 -radix hex
+# isim force add flagWE 0
+# run 20ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# test N 0
+HDL object N has same value as 0
+# test Z 0
+HDL object Z has same value as 0
+# test P 0
+HDL object P has same value as 0
+# isim force add flagWE 1
+# run 20ns
+# test N 1
+HDL object N has same value as 1
+# test Z 0
+HDL object Z has same value as 0
+# test P 0
+HDL object P has same value as 0
+# isim force add Buss 0001 -radix hex
+# isim force add flagWE 0
+# run 20ns
+# test N 1
+HDL object N has same value as 1
+# test Z 0
+HDL object Z has same value as 0
+# test P 0
+HDL object P has same value as 0
+# isim force add flagWE 1
+# run 20ns
+# test N 0
+HDL object N has same value as 0
+# test Z 0
+HDL object Z has same value as 0
+# test P 1
+HDL object P has same value as 1
+# isim force add Buss 0000 -radix hex
+# isim force add flagWE 0
+# run 20ns
+# test N 0
+HDL object N has same value as 0
+# test Z 0
+HDL object Z has same value as 0
+# test P 1
+HDL object P has same value as 1
+# isim force add flagWE 1
+# run 20ns
+# test N 0
+HDL object N has same value as 0
+# test Z 1
+HDL object Z has same value as 1
+# test P 0
+HDL object P has same value as 0

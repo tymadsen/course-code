@@ -1,0 +1,6 @@
+AR seven_segment_control behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/seven_segment_control.vhd" sub00/vhpl03 1425183572
+EN seven_segment_control NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/seven_segment_control.vhd" sub00/vhpl02 1425183571
+EN rx_top NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx_top.vhd" sub00/vhpl04 1425183573
+AR rx_top behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx_top.vhd" sub00/vhpl05 1425183574
+EN rx NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx.vhd" sub00/vhpl00 1425183569
+AR rx archie "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx.vhd" sub00/vhpl01 1425183570

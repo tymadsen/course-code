@@ -1,0 +1,28 @@
+Command line:
+   tb_seven_segment_control_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  52904
+
+Thu Jan 29 18:38:52 2015
+
+
+ Elaboration Time: 0.171602 sec
+
+ Current Memory Usage: 847.815 Meg
+
+ Total Signals          : 20
+ Total Nets             : 92
+ Total Signal Drivers   : 13
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 13
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 1101
+
+ Total Simulation Time: 3.33842 sec
+
+ Current Memory Usage: 690.266 Meg
+
+Thu Jan 29 18:50:01 2015
+

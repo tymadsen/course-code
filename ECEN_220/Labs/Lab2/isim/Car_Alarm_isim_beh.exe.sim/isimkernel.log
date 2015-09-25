@@ -1,0 +1,28 @@
+Command line:
+   Car_Alarm_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50095
+
+Fri Sep 20 14:03:57 2013
+
+
+ Elaboration Time: 0.265202 sec
+
+ Current Memory Usage: 840.618 Meg
+
+ Total Signals          : 26
+ Total Nets             : 20
+ Total Signal Drivers   : 9
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 10
+ Total Traceable Variables  : 18
+ Total Scalar Nets and Variables : 100
+
+ Total Simulation Time: 0.296403 sec
+
+ Current Memory Usage: 684.839 Meg
+
+Fri Sep 20 14:11:57 2013
+

@@ -1,0 +1,148 @@
+Ty Madsen
+ECEN 324
+HW #4
+3.58, 3.62, 3.68
+
+Problem 3.58:
+
+compile options:
+gcc -O2 -S 3_58.c
+Run on Red Hat Linux Server x86_64 
+GNOME 2.28.2
+
+typedef enum {MODE_A, MODE_B, MODE_C, MODE_D, MODE_E} mode_t;
+
+int switch3(int *p1, int *p2, mode_t action){
+	
+	int result = 0;
+
+	switch(action) {
+	case MODE_A:
+		result = *p1;
+		*p1 = *p2;
+		break;
+	case MODE_B:
+		result = *p1 + *p2;
+		*p2 = result;
+		break;
+	case MODE_C:
+		result = *p1;
+		*p2 = 15;
+		break;		
+	case MODE_D:
+		*p2 = *p1;
+		result = 17;
+		break;
+	case MODE_E:
+		result = 17;
+		break;
+	default:
+		break;
+	}
+	return result;
+}
+
+switch3:
+.LFB1:
+	.cfi_startproc
+	xorl	%eax, %eax
+	cmpl	$4, %edx
+	ja	.L9
+	mov	%edx, %edx
+	jmp	*.L8(,%rdx,8)
+	.section	.rodata
+	.align 8
+	.align 4
+.L8:
+	.quad	.L3
+	.quad	.L4
+	.quad	.L5
+	.quad	.L6
+	.quad	.L7
+	.text
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	movl	(%rdi), %eax
+	movl	%eax, (%rsi)
+	movl	$17, %eax
+.L9:
+	rep
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L7:
+	movl	$17, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L3:
+	movl	(%rsi), %edx
+	movl	(%rdi), %eax
+	movl	%edx, (%rdi)
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movl	(%rsi), %eax
+	addl	(%rdi), %eax
+	movl	%eax, (%rsi)
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L5:
+	movl	(%rdi), %eax
+	movl	$15, (%rsi)
+	ret
+
+
+Problem 3.62:
+
+
+#include <stdio.h>
+#define M 4
+typedef int Marray_t[M][M];
+
+void print_matrix(Marray_t A) {
+	int i,j;
+	for (i = 0; i < M; i++) {
+		for (j = 0; j < M; j++) {
+			printf("%8d   ", A[i][j]);
+		}
+		printf("\n");
+	}	
+}
+
+void transpose(Marray_t A) {
+	int i, j;
+	for(i = 0; i < M; i++) {
+		for (j = 0; j < i; j++) {
+			int t = A[i][j];
+			A[i][j] = A[j][i];
+			A[j][i] = t;
+		}	
+	}
+}
+
+void transpose_optimized(Marray_t A) {
+	// fill your code in here
+	int i, j;
+	for(i = 1; i < M; i++) {
+		for (j = 0; j < i; j++) {
+			int *t = A+(j*M+i);
+			*((int)(A+(j*M+i))) = *((int)(A+(i*M+j)));
+			*((int)(A+(i*M+j))) = *t;
+		}	
+	}
+}
+
+int main() {
+	int i, j;
+	Marray_t A = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
+	print_matrix(A);
+	printf("\n");
+	transpose(A);
+	transpose_optimized(A);
+	print_matrix(A);
+}
+	

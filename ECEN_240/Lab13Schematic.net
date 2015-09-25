@@ -1,0 +1,17 @@
+* J:\Courses\ECEN_240\Lab13Schematic.asc
+XU1 0 N002 P001 P002 N003 LT1001
+V1 N001 0 AC 1V
+V2 P001 0 14
+V3 0 P002 14
+R1 P003 N001 4700
+R2 N002 P003 {1+Rtotal*position}
+R3 P004 N002 {1+Rtotal*(1-position)}
+R4 N003 P004 4700
+C2 N003 N002 100nF
+C1 N002 N001 100nF
+.param Rtotal = 10k
+.step param position 0 1 .1
+.ac dec 101 10 100000
+.lib LTC.lib
+.backanno
+.end

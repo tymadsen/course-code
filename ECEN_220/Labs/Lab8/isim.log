@@ -1,0 +1,9 @@
+ISim log file
+Running: J:\Courses\ECEN_220\Labs\Lab8\myTimer_isim_beh.exe -intstyle ise -gui -tclbatch J:/Courses/ECEN_220/Labs/Lab8/Mod4.tcl -wdb J:/Courses/ECEN_220/Labs/Lab8/myTimer_isim_beh.wdb 
+ISim P.68d (signature 0x8ef4fb42)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# wave add / -radix hex
+# isim force add CLK 0 -time 0 -value 1 -time 10ns -repeat 20ns
+CLK: No such HDL object
+TCL batch file "J:/Courses/ECEN_220/Labs/Lab8/Mod4.tcl" encountered an error in line 4. Simulator is exiting.

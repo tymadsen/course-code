@@ -1,0 +1,458 @@
+Release 14.6 - xst P.68d (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Reading design: Register4Word4Bit.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Register4Word4Bit.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Register4Word4Bit"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : Register4Word4Bit
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "MUX21.v" in library work
+Compiling verilog file "fd_c.v" in library work
+Module <MUX21> compiled
+Compiling verilog file "Register1Bit.v" in library work
+Module <fd_c> compiled
+Compiling verilog file "mux2_1.v" in library work
+Module <Register1Bit> compiled
+Compiling verilog file "Register4Bit.v" in library work
+Module <mux2_1> compiled
+Compiling verilog file "mux4_1.v" in library work
+Module <Register4Bit> compiled
+Compiling verilog file "Decoder2_4.v" in library work
+Module <mux4_1> compiled
+Compiling verilog file "Register4Word.v" in library work
+Module <Decoder2_4> compiled
+Compiling verilog file "mux16_4.v" in library work
+Module <Register4Word> compiled
+Compiling verilog file "Register4Word4Bit.v" in library work
+Module <mux16_4> compiled
+Module <Register4Word4Bit> compiled
+No errors in compilation
+Analysis of file <"Register4Word4Bit.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Register4Word4Bit> in library <work>.
+
+Analyzing hierarchy for module <Register4Word> in library <work>.
+
+Analyzing hierarchy for module <mux16_4> in library <work>.
+
+Analyzing hierarchy for module <Decoder2_4> in library <work>.
+
+Analyzing hierarchy for module <Register4Bit> in library <work>.
+
+Analyzing hierarchy for module <mux4_1> in library <work>.
+
+Analyzing hierarchy for module <Register1Bit> in library <work>.
+
+Analyzing hierarchy for module <mux2_1> in library <work>.
+
+Analyzing hierarchy for module <fd_c> in library <work>.
+
+Analyzing hierarchy for module <MUX21> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Register4Word4Bit>.
+Module <Register4Word4Bit> is correct for synthesis.
+ 
+Analyzing module <Register4Word> in library <work>.
+Module <Register4Word> is correct for synthesis.
+ 
+Analyzing module <Decoder2_4> in library <work>.
+Module <Decoder2_4> is correct for synthesis.
+ 
+Analyzing module <Register4Bit> in library <work>.
+Module <Register4Bit> is correct for synthesis.
+ 
+Analyzing module <Register1Bit> in library <work>.
+Module <Register1Bit> is correct for synthesis.
+ 
+Analyzing module <fd_c> in library <work>.
+Module <fd_c> is correct for synthesis.
+ 
+Analyzing module <MUX21> in library <work>.
+Module <MUX21> is correct for synthesis.
+ 
+Analyzing module <mux16_4> in library <work>.
+Module <mux16_4> is correct for synthesis.
+ 
+Analyzing module <mux4_1> in library <work>.
+Module <mux4_1> is correct for synthesis.
+ 
+Analyzing module <mux2_1> in library <work>.
+Module <mux2_1> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Decoder2_4>.
+    Related source file is "Decoder2_4.v".
+Unit <Decoder2_4> synthesized.
+
+
+Synthesizing Unit <fd_c>.
+    Related source file is "fd_c.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <fd_c> synthesized.
+
+
+Synthesizing Unit <MUX21>.
+    Related source file is "MUX21.v".
+Unit <MUX21> synthesized.
+
+
+Synthesizing Unit <mux2_1>.
+    Related source file is "mux2_1.v".
+Unit <mux2_1> synthesized.
+
+
+Synthesizing Unit <Register1Bit>.
+    Related source file is "Register1Bit.v".
+Unit <Register1Bit> synthesized.
+
+
+Synthesizing Unit <mux4_1>.
+    Related source file is "mux4_1.v".
+Unit <mux4_1> synthesized.
+
+
+Synthesizing Unit <mux16_4>.
+    Related source file is "mux16_4.v".
+Unit <mux16_4> synthesized.
+
+
+Synthesizing Unit <Register4Bit>.
+    Related source file is "Register4Bit.v".
+Unit <Register4Bit> synthesized.
+
+
+Synthesizing Unit <Register4Word>.
+    Related source file is "Register4Word.v".
+Unit <Register4Word> synthesized.
+
+
+Synthesizing Unit <Register4Word4Bit>.
+    Related source file is "Register4Word4Bit.v".
+Unit <Register4Word4Bit> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 16
+ 1-bit register                                        : 16
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 16
+ Flip-Flops                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Register4Word4Bit> ...
+
+Optimizing unit <Register4Word> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Register4Word4Bit, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 16
+ Flip-Flops                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Register4Word4Bit.ngr
+Top Level Output File Name         : Register4Word4Bit
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 19
+
+Cell Usage :
+# BELS                             : 16
+#      LUT3                        : 12
+#      MUXF5                       : 4
+# FlipFlops/Latches                : 16
+#      FDRE_1                      : 16
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 18
+#      IBUF                        : 10
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       13  out of   4656     0%  
+ Number of Slice Flip Flops:             16  out of   9312     0%  
+ Number of 4 input LUTs:                 12  out of   9312     0%  
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of    232     8%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Clk                                | BUFGP                  | 16    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 3.351ns
+   Maximum output required time after clock: 5.356ns
+   Maximum combinational path delay: 6.317ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
+  Total number of paths / destination ports: 80 / 48
+-------------------------------------------------------------------------
+Offset:              3.351ns (Levels of Logic = 2)
+  Source:            Addr1 (PAD)
+  Destination:       fourWordReg/reg3/r3/flipflop/q (FF)
+  Destination Clock: Clk falling
+
+  Data Path: Addr1 to fourWordReg/reg3/r3/flipflop/q
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   1.106   0.651  Addr1_IBUF (Addr1_IBUF)
+     LUT3:I0->O            4   0.612   0.499  fourWordReg/wReg31 (fourWordReg/wReg3)
+     FDRE_1:CE                 0.483          fourWordReg/reg3/r3/flipflop/q
+    ----------------------------------------
+    Total                      3.351ns (2.201ns logic, 1.150ns route)
+                                       (65.7% logic, 34.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
+  Total number of paths / destination ports: 16 / 4
+-------------------------------------------------------------------------
+Offset:              5.356ns (Levels of Logic = 3)
+  Source:            fourWordReg/reg0/r3/flipflop/q (FF)
+  Destination:       RegFile_out<3> (PAD)
+  Source Clock:      Clk falling
+
+  Data Path: fourWordReg/reg0/r3/flipflop/q to RegFile_out<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE_1:C->Q           1   0.514   0.426  fourWordReg/reg0/r3/flipflop/q (fourWordReg/reg0/r3/flipflop/q)
+     LUT3:I1->O            1   0.612   0.000  mux/M3/m2/q31_F (N8)
+     MUXF5:I0->O           1   0.278   0.357  mux/M3/m2/q31 (RegFile_out_3_OBUF)
+     OBUF:I->O                 3.169          RegFile_out_3_OBUF (RegFile_out<3>)
+    ----------------------------------------
+    Total                      5.356ns (4.573ns logic, 0.783ns route)
+                                       (85.4% logic, 14.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 16 / 8
+-------------------------------------------------------------------------
+Delay:               6.317ns (Levels of Logic = 4)
+  Source:            ReadAddr<1> (PAD)
+  Destination:       RegFile_out<3> (PAD)
+
+  Data Path: ReadAddr<1> to RegFile_out<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   1.106   0.795  ReadAddr_1_IBUF (ReadAddr_1_IBUF)
+     LUT3:I0->O            1   0.612   0.000  mux/M3/m2/q31_F (N8)
+     MUXF5:I0->O           1   0.278   0.357  mux/M3/m2/q31 (RegFile_out_3_OBUF)
+     OBUF:I->O                 3.169          RegFile_out_3_OBUF (RegFile_out<3>)
+    ----------------------------------------
+    Total                      6.317ns (5.165ns logic, 1.152ns route)
+                                       (81.8% logic, 18.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.76 secs
+ 
+--> 
+
+Total memory usage is 232692 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

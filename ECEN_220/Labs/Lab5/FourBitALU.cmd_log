@@ -1,0 +1,17 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab5/FourBitALU.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab5/FourBitALU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FourBitALU.ucf -p xc3s500e-fg320-5 "FourBitALU.ngc" FourBitALU.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o FourBitALU_map.ncd FourBitALU.ngd FourBitALU.pcf 
+par -w -intstyle ise -ol high -t 1 FourBitALU_map.ncd FourBitALU.ncd FourBitALU.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml FourBitALU.twx FourBitALU.ncd -o FourBitALU.twr FourBitALU.pcf -ucf FourBitALU.ucf 
+bitgen -intstyle ise -f FourBitALU.ut FourBitALU.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab5/FourBitALU.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab5/FourBitALU.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FourBitALU.ucf -p xc3s500e-fg320-5 "FourBitALU.ngc" FourBitALU.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o FourBitALU_map.ncd FourBitALU.ngd FourBitALU.pcf 
+par -w -intstyle ise -ol high -t 1 FourBitALU_map.ncd FourBitALU.ncd FourBitALU.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml FourBitALU.twx FourBitALU.ncd -o FourBitALU.twr FourBitALU.pcf -ucf FourBitALU.ucf 
+bitgen -intstyle ise -f FourBitALU.ut FourBitALU.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc FourBitALU.ucf -p xc3s500e-fg320-5 "FourBitALU.ngc" FourBitALU.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o FourBitALU_map.ncd FourBitALU.ngd FourBitALU.pcf 
+par -w -intstyle ise -ol high -t 1 FourBitALU_map.ncd FourBitALU.ncd FourBitALU.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml FourBitALU.twx FourBitALU.ncd -o FourBitALU.twr FourBitALU.pcf -ucf FourBitALU.ucf 
+bitgen -intstyle ise -f FourBitALU.ut FourBitALU.ncd 

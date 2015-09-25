@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object_beh.prj" "work.vga_object" 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="and4b3">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2000-1-1T10:10:10</timestamp>
+    <attr value="AND4B3" name="VeriModel" />
+    <attr value="AND" name="Device" />
+    <attr value="Copy Of Symbol With Level: XILINX" name="Level" />
+    <attr value="AND4B3" name="VhdlModel" />
+    <attr value="2.0.0" name="Libver" />
+    <pin polarity="Input" x="0" y="-64" name="I0" />
+    <pin polarity="Input" x="0" y="-128" name="I1" />
+    <pin polarity="Input" x="0" y="-192" name="I2" />
+    <pin polarity="Input" x="0" y="-256" name="I3" />
+    <pin polarity="Output" x="256" y="-160" name="O" />
+    <graph>
+        <line x2="40" y1="-64" y2="-64" x1="0" />
+        <circle r="12" cx="52" cy="-64" />
+        <line x2="40" y1="-128" y2="-128" x1="0" />
+        <circle r="12" cx="52" cy="-128" />
+        <line x2="40" y1="-192" y2="-192" x1="0" />
+        <circle r="12" cx="52" cy="-192" />
+        <line x2="64" y1="-256" y2="-256" x1="0" />
+        <line x2="192" y1="-160" y2="-160" x1="256" />
+        <line x2="64" y1="-64" y2="-256" x1="64" />
+        <line x2="64" y1="-112" y2="-112" x1="144" />
+        <arc ex="144" ey="-208" sx="144" sy="-112" r="48" cx="144" cy="-160" />
+        <line x2="144" y1="-208" y2="-208" x1="64" />
+        <text style="fontsize:24;fontname:Arial" x="32" y="-32">AND4B3</text>
+    </graph>
+</symbol>

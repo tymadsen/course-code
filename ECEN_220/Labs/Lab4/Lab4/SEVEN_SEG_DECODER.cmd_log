@@ -1,0 +1,1 @@
+sch2sym -intstyle ise -family spartan3e -refsym SEVEN_SEG_DECODER {J:/Courses/ECEN 220/Labs/Lab4/Lab4/SEVEN_SEG_DECODER.sch} {J:/Courses/ECEN 220/Labs/Lab4/Lab4/SEVEN_SEG_DECODER.sym} 

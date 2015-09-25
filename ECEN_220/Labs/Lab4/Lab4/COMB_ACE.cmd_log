@@ -1,0 +1,1 @@
+sch2sym -intstyle ise -family spartan3e -refsym COMB_ACE {J:/Courses/ECEN 220/Labs/Lab4/Lab4/COMB_ACE.sch} {J:/Courses/ECEN 220/Labs/Lab4/Lab4/COMB_ACE.sym} 

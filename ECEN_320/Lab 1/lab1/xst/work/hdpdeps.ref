@@ -1,0 +1,8 @@
+V3 3
+FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 1/lab1/listing2_1.vhd" 2015/01/08.16:40:18 P.20131013
+EN work/even_detector 1420760421 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 1/lab1/listing2_1.vhd" \
+      PB ieee/std_logic_1164 1381692176
+AR work/even_detector/sop_arch 1420760422 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 1/lab1/listing2_1.vhd" \
+      EN work/even_detector 1420760421

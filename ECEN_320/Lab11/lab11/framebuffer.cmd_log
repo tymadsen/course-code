@@ -1,0 +1,66 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.xst" -ofn "J:/Courses/ECEN_320/Lab11/lab11/framebuffer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc framebuffer.ucf -p xc3s500e-fg320-4 framebuffer.ngc framebuffer.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o framebuffer_map.ncd framebuffer.ngd framebuffer.pcf 
+par -w -intstyle ise -ol high -t 1 framebuffer_map.ncd framebuffer.ncd framebuffer.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml framebuffer.twx framebuffer.ncd -o framebuffer.twr framebuffer.pcf -ucf framebuffer.ucf 
+bitgen -intstyle ise -f framebuffer.ut framebuffer.ncd 

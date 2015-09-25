@@ -1,0 +1,13 @@
+ISim log file
+Running: J:\Courses\ECEN 220\Labs\Lab4\Lab4\SEVEN_SEG_DECODER_isim_beh.exe -intstyle ise -gui -tclbatch J:/Courses/ECEN 220/Labs/Lab4/Lab4/SEVEN_SEG_DECODER.tcl -wdb J:/Courses/ECEN 220/Labs/Lab4/Lab4/SEVEN_SEG_DECODER_isim_beh.wdb 
+ISim P.68d (signature 0x8ef4fb42)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# wave add / -radix hex
+# isim force add N0 0 -time 0 -value 1 -time 10ns -repeat 20ns
+# isim force add N1 0 -time 0 -value 1 -time 20ns -repeat 40ns
+# isim force add N2 0 -time 0 -value 1 -time 40ns -repeat 80ns
+# isim force add N3 0 -time 0 -value 1 -time 80ns -repeat 160ns
+# run 160ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.

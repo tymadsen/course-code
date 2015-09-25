@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab 4/Lab4/tb_seven_segment_control_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab 4/Lab4/tb_seven_segment_control_beh.prj" "work.tb_seven_segment_control" 

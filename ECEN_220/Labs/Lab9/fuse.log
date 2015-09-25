@@ -1,0 +1,25 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o J:/Courses/ECEN 220/Labs/Lab9/CounterBlock_isim_beh.exe -prj J:/Courses/ECEN 220/Labs/Lab9/CounterBlock_beh.prj work.CounterBlock work.glbl 
+ISim P.68d (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab9/FF_DCE.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab9/MOD6.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab9/MOD10.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab9/CounterBlock.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 148848 KB
+Fuse CPU Usage: 1294 ms
+Compiling module FF_DCE
+Compiling module MOD10
+Compiling module MOD6
+Compiling module CounterBlock
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 5 Verilog Units
+Built simulation executable J:/Courses/ECEN 220/Labs/Lab9/CounterBlock_isim_beh.exe
+Fuse Memory Usage: 173280 KB
+Fuse CPU Usage: 2011 ms

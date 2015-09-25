@@ -1,0 +1,1 @@
+sch2sym -intstyle ise -family spartan3e -refsym ROM_BDFG {J:/Courses/ECEN 220/Labs/Lab4/Lab4/ROM_BDFG.sch} {J:/Courses/ECEN 220/Labs/Lab4/Lab4/ROM_BDFG.sym} 

@@ -1,0 +1,12 @@
+
+level2ass.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	bb ec 08 c6 58       	mov    $0x58c608ec,%ebx
+   5:	b9 dc a1 04 08       	mov    $0x804a1dc,%ecx
+   a:	89 19                	mov    %ebx,(%ecx)
+   c:	68 a2 89 04 08       	push   $0x80489a2
+  11:	c3                   	ret    

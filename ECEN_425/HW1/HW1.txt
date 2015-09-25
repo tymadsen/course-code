@@ -1,0 +1,37 @@
+Ty Madsen
+ECEN 425
+Prof. Archibald
+HW 1
+
+1. Write a short C function named IsLeapYear()
+	int IsLeapYear(int year){
+		return (!(year%400) || (!(year%4) && year%100));
+	}
+
+2. int main(){
+	int x = 10;
+	int y = 3;
+	float result;
+	result = x / y;
+	printf("result: %.2f", result);
+	return 0;
+}
+/*
+It appears that the result should be 3.333 but after closer examination or running the code it ends up being 
+3.00 because the division if two integers results in an integer value. Thus the float is assigned the value 3, 
+and not 3.333.
+*/
+
+3. t2 = ((t1 << 8) & 0xFF000000) | (~(t1 >> 8) & 0xFF0000) | ((t1 << 8) & 0xFF00) | ((t1 >> 8) & 0xFF);
+
+4.
+    a. x + y * z	=> x + (y * z)		= 2
+    b. x == 0 && y != 4 => (x == 0) && (y != 4)	= 1 
+    c. y < x < z	=> (y < x) < z		= 1
+    d. y+-z	        => y + (-z)		= -1
+    e. !z||y		=> (!z)||y		= 1
+    f. y ? x : z	=> y ? x : z		= 0
+    g. x - y < z	=> (x - y) < z		= 1
+    h. x = 0 || z <= y	=> (x = 0) || (z <= y)	= 0, x = 0
+    i. z & 3 == 2	=> z & (3 == 2)		= 0
+

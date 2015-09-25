@@ -1,0 +1,538 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.27 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
+ 
+--> Reading design: framebuffer.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "framebuffer.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "framebuffer"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : framebuffer
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/sramController.vhd" in Library work.
+Architecture behavioral of Entity sramcontroller is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/vga_timing.vhd" in Library work.
+Architecture behavioral of Entity vga_timing is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/framebuffer.vhd" in Library work.
+Entity <framebuffer> compiled.
+Entity <framebuffer> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <framebuffer> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sramController> in library <work> (architecture <Behavioral>) with generics.
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+
+Analyzing hierarchy for entity <vga_timing> in library <work> (architecture <Behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <framebuffer> in library <work> (Architecture <behavioral>).
+Entity <framebuffer> analyzed. Unit <framebuffer> generated.
+
+Analyzing generic Entity <sramController> in library <work> (Architecture <Behavioral>).
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+Entity <sramController> analyzed. Unit <sramController> generated.
+
+Analyzing Entity <vga_timing> in library <work> (Architecture <Behavioral>).
+Entity <vga_timing> analyzed. Unit <vga_timing> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <sramController>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/sramController.vhd".
+INFO:Xst:1799 - State w2 is never reached in FSM <state_reg>.
+INFO:Xst:1799 - State w1 is never reached in FSM <state_reg>.
+INFO:Xst:1799 - State w3 is never reached in FSM <state_reg>.
+INFO:Xst:1799 - State w4 is never reached in FSM <state_reg>.
+    Found finite state machine <FSM_0> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | power_up                                       |
+    | Power Up State     | power_up                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <data_valid>.
+    Found 16-bit tristate buffer for signal <MemDB>.
+    Found 1-bit register for signal <MemOE>.
+    Found 1-bit register for signal <MemWR>.
+    Found 13-bit up counter for signal <counter>.
+    Found 23-bit register for signal <Raddr>.
+    Found 16-bit register for signal <Rm2s>.
+    Found 16-bit register for signal <Rs2m>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  58 D-type flip-flop(s).
+	inferred  16 Tristate(s).
+Unit <sramController> synthesized.
+
+
+Synthesizing Unit <vga_timing>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/vga_timing.vhd".
+    Found 10-bit comparator greatequal for signal <blank$cmp_ge0000> created at line 118.
+    Found 10-bit comparator greatequal for signal <blank$cmp_ge0001> created at line 118.
+    Found 10-bit comparator greater for signal <HS$cmp_gt0000> created at line 88.
+    Found 10-bit comparator less for signal <HS$cmp_lt0000> created at line 88.
+    Found 10-bit adder for signal <r_next_HPC$addsub0000> created at line 82.
+    Found 10-bit adder for signal <r_next_VPC$addsub0000> created at line 104.
+    Found 1-bit register for signal <r_reg>.
+    Found 10-bit register for signal <r_reg_HPC>.
+    Found 10-bit register for signal <r_reg_VPC>.
+    Found 10-bit comparator greater for signal <VS$cmp_gt0000> created at line 111.
+    Found 10-bit comparator less for signal <VS$cmp_lt0000> created at line 111.
+    Summary:
+	inferred  21 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <vga_timing> synthesized.
+
+
+Synthesizing Unit <framebuffer>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/framebuffer.vhd".
+WARNING:Xst:646 - Signal <pixel_y<9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 23-bit register for signal <addr>.
+    Found 5-bit register for signal <blank_reg>.
+    Found 5-bit register for signal <HS_buf>.
+    Found 1-bit register for signal <mem>.
+    Found 8-bit register for signal <pixel_data>.
+    Summary:
+	inferred  42 D-type flip-flop(s).
+Unit <framebuffer> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 10-bit adder                                          : 2
+# Counters                                             : 1
+ 13-bit up counter                                     : 1
+# Registers                                            : 14
+ 1-bit register                                        : 5
+ 10-bit register                                       : 2
+ 16-bit register                                       : 2
+ 23-bit register                                       : 2
+ 5-bit register                                        : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+# Tristates                                            : 1
+ 16-bit tristate buffer                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <sram_control/state_reg/FSM> on signal <state_reg[1:6]> with one-hot encoding.
+----------------------
+ State    | Encoding
+----------------------
+ power_up | 000001
+ idle     | 000010
+ r1       | 000100
+ r2       | 001000
+ r3       | 010000
+ r4       | 100000
+ w1       | unreached
+ w2       | unreached
+ w3       | unreached
+ w4       | unreached
+----------------------
+WARNING:Xst:1710 - FF/Latch <Rm2s_0> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_1> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_2> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_3> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_4> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_5> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_6> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_7> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_8> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_9> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_10> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_11> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_12> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_13> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_14> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <Rm2s_15> (without init value) has a constant value of 0 in block <sram_control>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 2
+ 10-bit adder                                          : 2
+# Counters                                             : 1
+ 13-bit up counter                                     : 1
+# Registers                                            : 121
+ Flip-Flops                                            : 121
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <Rm2s_0> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_1> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_2> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_3> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_4> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_5> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_6> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_7> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_8> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_9> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_10> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_11> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_12> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_13> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_14> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <Rm2s_15> (without init value) has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <framebuffer> ...
+
+Optimizing unit <vga_timing> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block framebuffer, actual ratio is 1.
+FlipFlop sram_control/state_reg_FSM_FFd1 has been replicated 1 time(s)
+FlipFlop sram_control/state_reg_FSM_FFd5 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <framebuffer> :
+	Found 4-bit shift register for signal <blank_reg_4>.
+	Found 4-bit shift register for signal <HS_buf_4>.
+Unit <framebuffer> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 118
+ Flip-Flops                                            : 118
+# Shift Registers                                      : 2
+ 4-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : framebuffer.ngr
+Top Level Output File Name         : framebuffer
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 65
+
+Cell Usage :
+# BELS                             : 195
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 30
+#      LUT2                        : 31
+#      LUT2_L                      : 1
+#      LUT3                        : 13
+#      LUT3_L                      : 2
+#      LUT4                        : 43
+#      LUT4_D                      : 5
+#      LUT4_L                      : 1
+#      MUXCY                       : 30
+#      VCC                         : 1
+#      XORCY                       : 33
+# FlipFlops/Latches                : 128
+#      FD                          : 2
+#      FDC                         : 68
+#      FDCE                        : 49
+#      FDP                         : 7
+#      FDPE                        : 2
+# Shift Registers                  : 2
+#      SRL16                       : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 64
+#      IBUF                        : 6
+#      IOBUF                       : 16
+#      OBUF                        : 42
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       88  out of   4656     1%  
+ Number of Slice Flip Flops:            128  out of   9312     1%  
+ Number of 4 input LUTs:                132  out of   9312     1%  
+    Number used as logic:               130
+    Number used as Shift registers:       2
+ Number of IOs:                          65
+ Number of bonded IOBs:                  65  out of    232    28%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 130   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+------------------------------------------------------------------+------------------------+-------+
+Control Signal                                                    | Buffer(FF name)        | Load  |
+------------------------------------------------------------------+------------------------+-------+
+btn0                                                              | IBUF                   | 105   |
+sram_control/state_reg_FSM_FFd5(sram_control/state_reg_FSM_FFd5:Q)| NONE(vga_control/r_reg)| 21    |
+------------------------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.485ns (Maximum Frequency: 182.315MHz)
+   Minimum input arrival time before clock: 1.946ns
+   Maximum output required time after clock: 9.030ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.485ns (frequency: 182.315MHz)
+  Total number of paths / destination ports: 961 / 156
+-------------------------------------------------------------------------
+Delay:               5.485ns (Levels of Logic = 3)
+  Source:            sram_control/state_reg_FSM_FFd1_1 (FF)
+  Destination:       sram_control/Raddr_22 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: sram_control/state_reg_FSM_FFd1_1 to sram_control/Raddr_22
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             17   0.591   1.086  sram_control/state_reg_FSM_FFd1_1 (sram_control/state_reg_FSM_FFd1_1)
+     LUT4:I2->O            2   0.704   0.451  sram_control/Raddr_mux0000<0>1_SW0 (N4)
+     LUT4_D:I3->O         11   0.704   0.937  sram_control/Raddr_mux0000<0>1_1 (sram_control/Raddr_mux0000<0>1)
+     LUT4:I3->O            1   0.704   0.000  sram_control/Raddr_mux0000<8>1 (sram_control/Raddr_mux0000<8>)
+     FDC:D                     0.308          sram_control/Raddr_8
+    ----------------------------------------
+    Total                      5.485ns (3.011ns logic, 2.474ns route)
+                                       (54.9% logic, 45.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 21 / 21
+-------------------------------------------------------------------------
+Offset:              1.946ns (Levels of Logic = 1)
+  Source:            sw<0> (PAD)
+  Destination:       addr_18 (FF)
+  Destination Clock: clk rising
+
+  Data Path: sw<0> to addr_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.218   0.420  sw_0_IBUF (sw_0_IBUF)
+     FDC:D                     0.308          addr_18
+    ----------------------------------------
+    Total                      1.946ns (1.526ns logic, 0.420ns route)
+                                       (78.4% logic, 21.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 73 / 37
+-------------------------------------------------------------------------
+Offset:              9.030ns (Levels of Logic = 5)
+  Source:            vga_control/r_reg_HPC_3 (FF)
+  Destination:       led (PAD)
+  Source Clock:      clk rising
+
+  Data Path: vga_control/r_reg_HPC_3 to led
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.591   0.706  vga_control/r_reg_HPC_3 (vga_control/r_reg_HPC_3)
+     LUT4_D:I0->LO         1   0.704   0.104  vga_control/last_column_cmp_eq00001_SW0 (N55)
+     LUT4:I3->O            2   0.704   0.622  vga_control/last_column_cmp_eq00001 (vga_control/N01)
+     LUT3:I0->O            1   0.704   0.499  led_and000045_SW0 (N52)
+     LUT4:I1->O            1   0.704   0.420  led_and000045 (led_OBUF)
+     OBUF:I->O                 3.272          led_OBUF (led)
+    ----------------------------------------
+    Total                      9.030ns (6.679ns logic, 2.351ns route)
+                                       (74.0% logic, 26.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.78 secs
+ 
+--> 
+
+Total memory usage is 278008 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   33 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

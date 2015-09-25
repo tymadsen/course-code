@@ -1,0 +1,53 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat Feb 28 21:28:08 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "an<0>" LOCATE = SITE "F17" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "H17" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "C18" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "F15" LEVEL 1;
+COMP "dp" LOCATE = SITE "C17" LEVEL 1;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "rx_in" LOCATE = SITE "U6" LEVEL 1;
+COMP "seg<0>" LOCATE = SITE "L18" LEVEL 1;
+COMP "seg<1>" LOCATE = SITE "F18" LEVEL 1;
+COMP "seg<2>" LOCATE = SITE "D17" LEVEL 1;
+COMP "seg<3>" LOCATE = SITE "D16" LEVEL 1;
+COMP "seg<4>" LOCATE = SITE "G14" LEVEL 1;
+COMP "seg<5>" LOCATE = SITE "J17" LEVEL 1;
+COMP "seg<6>" LOCATE = SITE "H14" LEVEL 1;
+COMP "rst" LOCATE = SITE "D18" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk = BEL "rx_s1" BEL "rx_s2" BEL "r_reg_0" BEL "r_reg_1" BEL
+        "r_reg_2" BEL "r_reg_3" BEL "r_reg_4" BEL "r_reg_5" BEL "r_reg_6" BEL
+        "r_reg_7" BEL "l_reg_0" BEL "l_reg_1" BEL "l_reg_2" BEL "l_reg_3" BEL
+        "l_reg_4" BEL "l_reg_5" BEL "l_reg_6" BEL "l_reg_7" BEL
+        "seven_seg_ctl/r_reg_0" BEL "seven_seg_ctl/r_reg_1" BEL
+        "seven_seg_ctl/r_reg_2" BEL "seven_seg_ctl/r_reg_3" BEL
+        "seven_seg_ctl/r_reg_4" BEL "seven_seg_ctl/r_reg_5" BEL
+        "seven_seg_ctl/r_reg_6" BEL "seven_seg_ctl/r_reg_7" BEL
+        "seven_seg_ctl/r_reg_8" BEL "seven_seg_ctl/r_reg_9" BEL
+        "seven_seg_ctl/r_reg_10" BEL "seven_seg_ctl/r_reg_11" BEL
+        "seven_seg_ctl/r_reg_12" BEL "seven_seg_ctl/r_reg_13" BEL
+        "seven_seg_ctl/r_reg_14" BEL "receiver/state_reg_FSM_FFd12" BEL
+        "receiver/state_reg_FSM_FFd11" BEL "receiver/state_reg_FSM_FFd2" BEL
+        "receiver/state_reg_FSM_FFd1" BEL "receiver/bit_timer_11" BEL
+        "receiver/bit_timer_10" BEL "receiver/bit_timer_9" BEL
+        "receiver/bit_timer_8" BEL "receiver/bit_timer_7" BEL
+        "receiver/bit_timer_6" BEL "receiver/bit_timer_5" BEL
+        "receiver/bit_timer_4" BEL "receiver/bit_timer_3" BEL
+        "receiver/bit_timer_2" BEL "receiver/bit_timer_1" BEL
+        "receiver/bit_timer_0" BEL "receiver/shift_reg_7" BEL
+        "receiver/shift_reg_6" BEL "receiver/shift_reg_5" BEL
+        "receiver/shift_reg_4" BEL "receiver/shift_reg_3" BEL
+        "receiver/shift_reg_2" BEL "receiver/shift_reg_1" BEL
+        "receiver/shift_reg_0" BEL "receiver/state_reg_FSM_FFd13" BEL
+        "receiver/state_reg_FSM_FFd9" BEL "receiver/state_reg_FSM_FFd8" BEL
+        "receiver/state_reg_FSM_FFd10" BEL "receiver/state_reg_FSM_FFd6" BEL
+        "receiver/state_reg_FSM_FFd5" BEL "receiver/state_reg_FSM_FFd7" BEL
+        "receiver/state_reg_FSM_FFd4" BEL "receiver/state_reg_FSM_FFd3" BEL
+        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;
+

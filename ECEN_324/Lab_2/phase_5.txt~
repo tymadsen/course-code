@@ -1,0 +1,40 @@
+   0x08048d33 <+0>:  	push   %ebp
+   0x08048d34 <+1>:  	mov    %esp,%ebp
+   0x08048d36 <+3>:  	push   %esi
+   0x08048d37 <+4>:  	push   %ebx
+   0x08048d38 <+5>:  	sub    $0x20,%esp
+   0x08048d3b <+8>:  	lea    -0x10(%ebp),%eax
+   0x08048d3e <+11>: 	mov    %eax,0xc(%esp)
+   0x08048d42 <+15>: 	lea    -0xc(%ebp),%eax
+   0x08048d45 <+18>: 	mov    %eax,0x8(%esp)
+   0x08048d49 <+22>: 	movl   $0x8049c01,0x4(%esp)
+   0x08048d51 <+30>: 	mov    0x8(%ebp),%eax
+   0x08048d54 <+33>: 	mov    %eax,(%esp)
+   0x08048d57 <+36>: 	call   0x80487dc <__isoc99_sscanf@plt>
+   0x08048d5c <+41>: 	cmp    $0x1,%eax
+   0x08048d5f <+44>: 	jg     0x8048d66 <phase_5+51>
+   0x08048d61 <+46>: 	call   0x80492fb <explode_bomb>
+   0x08048d66 <+51>: 	mov    -0xc(%ebp),%eax			//put first digit into eax
+   0x08048d69 <+54>: 	and    $0xf,%eax			//get lowest 4 bits(x <= 15)
+   0x08048d6c <+57>: 	mov    %eax,-0xc(%ebp)			//put back into memory
+   0x08048d6f <+60>: 	cmp    $0xf,%eax			//compare eax to 15
+   0x08048d72 <+63>: 	je     0x8048d9d <phase_5+106>		//explode if 15	
+   0x08048d74 <+65>: 	mov    $0x0,%ecx			//ecx = 0
+   0x08048d79 <+70>: 	mov    $0x0,%edx
+   0x08048d7e <+75>: 	mov    $0x8049a40,%ebx
+   0x08048d83 <+80>: 	add    $0x1,%edx			//increment count need 8 times
+   0x08048d86 <+83>: 	mov    (%ebx,%eax,4),%eax		//eax = 10+4*x
+   0x08048d89 <+86>: 	add    %eax,%ecx			//ecx = ecx + eax
+   0x08048d8b <+88>: 	cmp    $0xf,%eax			//eax - 15
+   0x08048d8e <+91>: 	jne    0x8048d83 <phase_5+80>		//jump if not 15 to increment (8x)
+   0x08048d90 <+93>: 	mov    %eax,-0xc(%ebp)
+   0x08048d93 <+96>: 	cmp    $0x8,%edx			//count =8
+   0x08048d96 <+99>: 	jne    0x8048d9d <phase_5+106>
+   0x08048d98 <+101>:	cmp    -0x10(%ebp),%ecx
+   0x08048d9b <+104>:	je     0x8048da2 <phase_5+111>
+   0x08048d9d <+106>:	call   0x80492fb <explode_bomb>
+   0x08048da2 <+111>:	add    $0x20,%esp
+   0x08048da5 <+114>:	pop    %ebx
+   0x08048da6 <+115>:	pop    %esi
+   0x08048da7 <+116>:	pop    %ebp
+   0x08048da8 <+117>:	ret 

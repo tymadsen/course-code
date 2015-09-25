@@ -1,0 +1,533 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml charGen_top.twx charGen_top.ncd -o charGen_top.twr
+charGen_top.pcf -ucf charGen_top.ucf
+
+Design file:              charGen_top.ncd
+Physical constraint file: charGen_top.pcf
+Device,package,speed:     xc3s500e,fg320,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1912 paths analyzed, 275 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   7.170ns.
+--------------------------------------------------------------------------------
+
+Paths for end point vga_control/r_reg_VPC_9 (SLICE_X53Y51.CE), 11 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     12.830ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_3 (FF)
+  Destination:          vga_control/r_reg_VPC_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.170ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_3 to vga_control/r_reg_VPC_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.XQ      Tcko                  0.592   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_3
+    SLICE_X50Y50.G4      net (fanout=4)        1.019   vga_control/r_reg_HPC<3>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_9
+    -------------------------------------------------  ---------------------------
+    Total                                      7.170ns (4.183ns logic, 2.987ns route)
+                                                       (58.3% logic, 41.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.055ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_2 (FF)
+  Destination:          vga_control/r_reg_VPC_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.945ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_2 to vga_control/r_reg_VPC_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.YQ      Tcko                  0.652   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_2
+    SLICE_X50Y50.G1      net (fanout=3)        0.734   vga_control/r_reg_HPC<2>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_9
+    -------------------------------------------------  ---------------------------
+    Total                                      6.945ns (4.243ns logic, 2.702ns route)
+                                                       (61.1% logic, 38.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.301ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_4 (FF)
+  Destination:          vga_control/r_reg_VPC_9 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.699ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_4 to vga_control/r_reg_VPC_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X49Y48.YQ      Tcko                  0.587   vga_control/r_reg_HPC<5>
+                                                       vga_control/r_reg_HPC_4
+    SLICE_X50Y50.G2      net (fanout=5)        0.553   vga_control/r_reg_HPC<4>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_9
+    -------------------------------------------------  ---------------------------
+    Total                                      6.699ns (4.178ns logic, 2.521ns route)
+                                                       (62.4% logic, 37.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga_control/r_reg_VPC_8 (SLICE_X53Y51.CE), 11 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     12.830ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_3 (FF)
+  Destination:          vga_control/r_reg_VPC_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.170ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_3 to vga_control/r_reg_VPC_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.XQ      Tcko                  0.592   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_3
+    SLICE_X50Y50.G4      net (fanout=4)        1.019   vga_control/r_reg_HPC<3>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_8
+    -------------------------------------------------  ---------------------------
+    Total                                      7.170ns (4.183ns logic, 2.987ns route)
+                                                       (58.3% logic, 41.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.055ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_2 (FF)
+  Destination:          vga_control/r_reg_VPC_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.945ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_2 to vga_control/r_reg_VPC_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.YQ      Tcko                  0.652   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_2
+    SLICE_X50Y50.G1      net (fanout=3)        0.734   vga_control/r_reg_HPC<2>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_8
+    -------------------------------------------------  ---------------------------
+    Total                                      6.945ns (4.243ns logic, 2.702ns route)
+                                                       (61.1% logic, 38.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.301ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_4 (FF)
+  Destination:          vga_control/r_reg_VPC_8 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.699ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_4 to vga_control/r_reg_VPC_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X49Y48.YQ      Tcko                  0.587   vga_control/r_reg_HPC<5>
+                                                       vga_control/r_reg_HPC_4
+    SLICE_X50Y50.G2      net (fanout=5)        0.553   vga_control/r_reg_HPC<4>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X53Y51.CE      net (fanout=6)        1.460   vga_control/r_reg_VPC_and0001
+    SLICE_X53Y51.CLK     Tceck                 0.555   vga_control/r_reg_VPC<9>
+                                                       vga_control/r_reg_VPC_8
+    -------------------------------------------------  ---------------------------
+    Total                                      6.699ns (4.178ns logic, 2.521ns route)
+                                                       (62.4% logic, 37.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point vga_control/r_reg_VPC_5 (SLICE_X52Y49.CE), 11 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     12.833ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_3 (FF)
+  Destination:          vga_control/r_reg_VPC_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.167ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_3 to vga_control/r_reg_VPC_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.XQ      Tcko                  0.592   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_3
+    SLICE_X50Y50.G4      net (fanout=4)        1.019   vga_control/r_reg_HPC<3>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X52Y49.CE      net (fanout=6)        1.457   vga_control/r_reg_VPC_and0001
+    SLICE_X52Y49.CLK     Tceck                 0.555   vga_control/r_reg_VPC<5>
+                                                       vga_control/r_reg_VPC_5
+    -------------------------------------------------  ---------------------------
+    Total                                      7.167ns (4.183ns logic, 2.984ns route)
+                                                       (58.4% logic, 41.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.058ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_2 (FF)
+  Destination:          vga_control/r_reg_VPC_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.942ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_2 to vga_control/r_reg_VPC_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y44.YQ      Tcko                  0.652   vga_control/r_reg_HPC<3>
+                                                       vga_control/r_reg_HPC_2
+    SLICE_X50Y50.G1      net (fanout=3)        0.734   vga_control/r_reg_HPC<2>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X52Y49.CE      net (fanout=6)        1.457   vga_control/r_reg_VPC_and0001
+    SLICE_X52Y49.CLK     Tceck                 0.555   vga_control/r_reg_VPC<5>
+                                                       vga_control/r_reg_VPC_5
+    -------------------------------------------------  ---------------------------
+    Total                                      6.942ns (4.243ns logic, 2.699ns route)
+                                                       (61.1% logic, 38.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     13.304ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vga_control/r_reg_HPC_4 (FF)
+  Destination:          vga_control/r_reg_VPC_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      6.696ns (Levels of Logic = 4)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: vga_control/r_reg_HPC_4 to vga_control/r_reg_VPC_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X49Y48.YQ      Tcko                  0.587   vga_control/r_reg_HPC<5>
+                                                       vga_control/r_reg_HPC_4
+    SLICE_X50Y50.G2      net (fanout=5)        0.553   vga_control/r_reg_HPC<4>
+    SLICE_X50Y50.Y       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001_SW0
+    SLICE_X50Y50.F4      net (fanout=1)        0.023   vga_control/last_column_cmp_eq00001_SW0/O
+    SLICE_X50Y50.X       Tilo                  0.759   vga_control/N01
+                                                       vga_control/last_column_cmp_eq00001
+    SLICE_X52Y51.G2      net (fanout=2)        0.441   vga_control/N01
+    SLICE_X52Y51.Y       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_next_HPC_cmp_eq00001
+    SLICE_X52Y51.F3      net (fanout=11)       0.044   vga_control/r_next_HPC_cmp_eq0000
+    SLICE_X52Y51.X       Tilo                  0.759   vga_control/r_reg_VPC_and0001
+                                                       vga_control/r_reg_VPC_and00011
+    SLICE_X52Y49.CE      net (fanout=6)        1.457   vga_control/r_reg_VPC_and0001
+    SLICE_X52Y49.CLK     Tceck                 0.555   vga_control/r_reg_VPC<5>
+                                                       vga_control/r_reg_VPC_5
+    -------------------------------------------------  ---------------------------
+    Total                                      6.696ns (4.178ns logic, 2.518ns route)
+                                                       (62.4% logic, 37.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point char/mem/Mram_char_ram1.A (RAMB16_X1Y7.ADDRA2), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.940ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               x_addr_0 (FF)
+  Destination:          char/mem/Mram_char_ram1.A (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.951ns (Levels of Logic = 0)
+  Clock Path Skew:      0.011ns (0.034 - 0.023)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: x_addr_0 to char/mem/Mram_char_ram1.A
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X54Y64.XQ      Tcko                  0.474   x_addr<0>
+                                                       x_addr_0
+    RAMB16_X1Y7.ADDRA2   net (fanout=8)        0.608   x_addr<0>
+    RAMB16_X1Y7.CLKA     Tbcka       (-Th)     0.131   char/mem/Mram_char_ram1
+                                                       char/mem/Mram_char_ram1.A
+    -------------------------------------------------  ---------------------------
+    Total                                      0.951ns (0.343ns logic, 0.608ns route)
+                                                       (36.1% logic, 63.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char/mem/Mram_char_ram1.A (RAMB16_X1Y7.ADDRA5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.029ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               x_addr_3 (FF)
+  Destination:          char/mem/Mram_char_ram1.A (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      1.040ns (Levels of Logic = 0)
+  Clock Path Skew:      0.011ns (0.034 - 0.023)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: x_addr_3 to char/mem/Mram_char_ram1.A
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X55Y65.XQ      Tcko                  0.473   x_addr<3>
+                                                       x_addr_3
+    RAMB16_X1Y7.ADDRA5   net (fanout=5)        0.698   x_addr<3>
+    RAMB16_X1Y7.CLKA     Tbcka       (-Th)     0.131   char/mem/Mram_char_ram1
+                                                       char/mem/Mram_char_ram1.A
+    -------------------------------------------------  ---------------------------
+    Total                                      1.040ns (0.342ns logic, 0.698ns route)
+                                                       (32.9% logic, 67.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char/mem/Mram_char_ram1.A (RAMB16_X1Y7.ADDRA3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.030ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               x_addr_1 (FF)
+  Destination:          char/mem/Mram_char_ram1.A (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      1.041ns (Levels of Logic = 0)
+  Clock Path Skew:      0.011ns (0.034 - 0.023)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: x_addr_1 to char/mem/Mram_char_ram1.A
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X54Y64.YQ      Tcko                  0.522   x_addr<0>
+                                                       x_addr_1
+    RAMB16_X1Y7.ADDRA3   net (fanout=7)        0.650   x_addr<1>
+    RAMB16_X1Y7.CLKA     Tbcka       (-Th)     0.131   char/mem/Mram_char_ram1
+                                                       char/mem/Mram_char_ram1.A
+    -------------------------------------------------  ---------------------------
+    Total                                      1.041ns (0.391ns logic, 0.650ns route)
+                                                       (37.6% logic, 62.4% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 1.596ns (Trpw)
+  Physical resource: vga_control/r_reg_VPC<0>/SR
+  Logical resource: vga_control/r_reg_VPC_0/SR
+  Location pin: SLICE_X52Y46.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 1.596ns (Trpw)
+  Physical resource: vga_control/r_reg_VPC<0>/SR
+  Logical resource: vga_control/r_reg_VPC_0/SR
+  Location pin: SLICE_X52Y46.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 1.596ns (Trpw)
+  Physical resource: vga_control/r_reg_HPC<1>/SR
+  Logical resource: vga_control/r_reg_HPC_1/SR
+  Location pin: SLICE_X50Y48.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.170|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 1912 paths, 0 nets, and 477 connections
+
+Design statistics:
+   Minimum period:   7.170ns{1}   (Maximum frequency: 139.470MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Mar 24 18:28:26 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 166 MB
+
+
+

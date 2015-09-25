@@ -1,0 +1,96 @@
+Ty Madsen
+ECEN 425 
+Dr. Archibald
+HW 2
+
+Problem 1.
+The else is associated with the second if (if (a < b))
+#include <stdio.h>
+char* test(int a, int b){
+if (a != b)
+	if (a < b)
+		return ("a is less than b\n");
+	else
+		return ("a is not less than b\n");
+return "a is equal to b\n";
+}
+
+int main(){
+	printf("test(1,2): %s", test(1,2));
+	printf("test(3,2): %s", test(3,2));
+	printf("test(2,2): %s", test(2,2));
+	return 0;
+}
+
+Problem 2.
+Does the compiler give you any indication that something is wrong? No
+Does the program execute without any indication that something is wrong? Yes
+/*OUTPUT: 
+arr: [0x7fff9d865fe0: 2, 0x7fff9d865fe4: 5, 0x7fff9d865fe8: 7, 0x7fff9d865fec: 9]
+v: 0x7fff9d865fdc: 12
+
+new v: 0x7fff9d865fdc: 2
+new arr: [0x7fff9d865fe0: 5, 0x7fff9d865fe4: 7, 0x7fff9d865fe8: 9, 0x7fff9d865fec: 0]
+*/
+#include <stdio.h>
+#define LENGTH 4
+
+int main(){
+	int arr [LENGTH] = {2,5,7,9};
+	int v = 12;
+	printf("\narr: [%p: %d, %p: %d, %p: %d, %p: %d]\n", &arr[0], arr[0], &arr[1], arr[1], &arr[2], arr[2], &arr[3], arr[3]);
+	printf("v: %p: %d\n\n", &v, v);
+	int i;
+	for (i = -1; i <= LENGTH+1; i++)
+		arr[i] = arr[i+1];
+	printf("new v: %p: %d\n", &v, v);
+	printf("new arr: [%p: %d, %p: %d, %p: %d, %p: %d]\n", &arr[0], arr[0], &arr[1], arr[1], &arr[2], arr[2], &arr[3], arr[3]);
+	return 0;
+}
+
+Problem 3
+//Problem 3a
+int subtract(int a, int b)
+	return a-b;
+
+int _3a(){
+	int a = 100;
+	int b = 27;
+	char *str = "Hello";
+	printf("subtract(%d,%d): %d", a, b, subtract(a,b));
+	printf("subtract(%d,%s): %d", a, str, subtract(a,str));
+	printf("subtract(%d,%d,%s): %d", a, b, str, subtract(a,b, str));
+	return 0;
+}
+
+/*
+Using GCC on RHEL 6.7 (Santiago) x86_64 GNOME 2.28.2
+prob3.c: In function ‘main’:
+prob3.c:12: warning: passing argument 2 of ‘subtract’ makes integer from pointer without a cast
+prob3.c:3: note: expected ‘int’ but argument is of type ‘char *’
+prob3.c:13: error: too many arguments to function ‘subtract’
+*/
+
+//Problem 3b
+int _3b(){
+	int i;
+	scanf("%d", i);
+	/* The '&' was "accidentally" left out before the i */
+	// Causes: Segmentation fault (core dumped) at runtime (No compiler issues)
+	
+	int arr [4] = {1,2,3,4};
+	printf("arr: [%d, %d, %d, %d, %d]", arr[0], arr[1], arr[2], arr[3]);
+	/* printf expects a fifth input after the format string, only 4 are passed */
+	// Causes: Segmentation fault (core dumped) at runtime (No compiler issues)
+
+	int x = 64;
+	printf("x: %s", x);
+	/* the function is expecting a char * as the second parameter, but an integer is passed. */
+	// Causes: Segmentation fault (core dumped) at runtime (No compiler issues)
+}
+
+Problem 4.
+ax = 0x1514
+bx = 0x0015
+cx = 0x1110
+dx = 0x2524

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "J:/Courses/ECEN 220/Labs/Lab12/FullLC3_isim_beh.exe" -prj "J:/Courses/ECEN 220/Labs/Lab12/FullLC3_beh.prj" "work.FullLC3" "work.glbl" 

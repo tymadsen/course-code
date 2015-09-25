@@ -1,0 +1,505 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
+-n 3 -fastpaths -xml tx_top.twx tx_top.ncd -o tx_top.twr tx_top.pcf -ucf tx.ucf
+
+Design file:              tx_top.ncd
+Physical constraint file: tx_top.pcf
+Device,package,speed:     xc3s500e,fg320,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1279 paths analyzed, 175 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   8.680ns.
+--------------------------------------------------------------------------------
+
+Paths for end point uart/shift_reg_7 (SLICE_X66Y38.CE), 22 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     11.320ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_8 (FF)
+  Destination:          uart/shift_reg_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.680ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_8 to uart/shift_reg_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.YQ      Tcko                  0.652   uart/bit_timer<9>
+                                                       uart/bit_timer_8
+    SLICE_X48Y61.F2      net (fanout=3)        0.805   uart/bit_timer<8>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_7
+    -------------------------------------------------  ---------------------------
+    Total                                      8.680ns (3.429ns logic, 5.251ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.386ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_9 (FF)
+  Destination:          uart/shift_reg_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.614ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_9 to uart/shift_reg_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.XQ      Tcko                  0.592   uart/bit_timer<9>
+                                                       uart/bit_timer_9
+    SLICE_X48Y61.F4      net (fanout=3)        0.799   uart/bit_timer<9>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_7
+    -------------------------------------------------  ---------------------------
+    Total                                      8.614ns (3.369ns logic, 5.245ns route)
+                                                       (39.1% logic, 60.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.455ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/state_reg_FSM_FFd9 (FF)
+  Destination:          uart/shift_reg_7 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.545ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/state_reg_FSM_FFd9 to uart/shift_reg_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y56.YQ      Tcko                  0.652   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.F2      net (fanout=2)        1.315   uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.X       Tilo                  0.704   uart/shift_reg_not00014
+                                                       uart/shift_reg_not00014
+    SLICE_X51Y56.F2      net (fanout=1)        0.428   uart/shift_reg_not00014
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_7
+    -------------------------------------------------  ---------------------------
+    Total                                      8.545ns (3.374ns logic, 5.171ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/shift_reg_6 (SLICE_X66Y38.CE), 22 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     11.320ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_8 (FF)
+  Destination:          uart/shift_reg_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.680ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_8 to uart/shift_reg_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.YQ      Tcko                  0.652   uart/bit_timer<9>
+                                                       uart/bit_timer_8
+    SLICE_X48Y61.F2      net (fanout=3)        0.805   uart/bit_timer<8>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_6
+    -------------------------------------------------  ---------------------------
+    Total                                      8.680ns (3.429ns logic, 5.251ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.386ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_9 (FF)
+  Destination:          uart/shift_reg_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.614ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_9 to uart/shift_reg_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.XQ      Tcko                  0.592   uart/bit_timer<9>
+                                                       uart/bit_timer_9
+    SLICE_X48Y61.F4      net (fanout=3)        0.799   uart/bit_timer<9>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_6
+    -------------------------------------------------  ---------------------------
+    Total                                      8.614ns (3.369ns logic, 5.245ns route)
+                                                       (39.1% logic, 60.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.455ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/state_reg_FSM_FFd9 (FF)
+  Destination:          uart/shift_reg_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.545ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/state_reg_FSM_FFd9 to uart/shift_reg_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y56.YQ      Tcko                  0.652   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.F2      net (fanout=2)        1.315   uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.X       Tilo                  0.704   uart/shift_reg_not00014
+                                                       uart/shift_reg_not00014
+    SLICE_X51Y56.F2      net (fanout=1)        0.428   uart/shift_reg_not00014
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y38.CE      net (fanout=4)        3.019   uart/shift_reg_not0001
+    SLICE_X66Y38.CLK     Tceck                 0.555   uart/shift_reg<7>
+                                                       uart/shift_reg_6
+    -------------------------------------------------  ---------------------------
+    Total                                      8.545ns (3.374ns logic, 5.171ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/shift_reg_5 (SLICE_X66Y42.CE), 22 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     11.571ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_8 (FF)
+  Destination:          uart/shift_reg_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.429ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_8 to uart/shift_reg_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.YQ      Tcko                  0.652   uart/bit_timer<9>
+                                                       uart/bit_timer_8
+    SLICE_X48Y61.F2      net (fanout=3)        0.805   uart/bit_timer<8>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y42.CE      net (fanout=4)        2.768   uart/shift_reg_not0001
+    SLICE_X66Y42.CLK     Tceck                 0.555   uart/shift_reg<5>
+                                                       uart/shift_reg_5
+    -------------------------------------------------  ---------------------------
+    Total                                      8.429ns (3.429ns logic, 5.000ns route)
+                                                       (40.7% logic, 59.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.637ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/bit_timer_9 (FF)
+  Destination:          uart/shift_reg_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.363ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/bit_timer_9 to uart/shift_reg_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X50Y60.XQ      Tcko                  0.592   uart/bit_timer<9>
+                                                       uart/bit_timer_9
+    SLICE_X48Y61.F4      net (fanout=3)        0.799   uart/bit_timer<9>
+    SLICE_X48Y61.X       Tilo                  0.759   uart/tx_bit_cmp_eq000030
+                                                       uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.F1      net (fanout=2)        1.018   uart/tx_bit_cmp_eq000030
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y42.CE      net (fanout=4)        2.768   uart/shift_reg_not0001
+    SLICE_X66Y42.CLK     Tceck                 0.555   uart/shift_reg<5>
+                                                       uart/shift_reg_5
+    -------------------------------------------------  ---------------------------
+    Total                                      8.363ns (3.369ns logic, 4.994ns route)
+                                                       (40.3% logic, 59.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     11.706ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               uart/state_reg_FSM_FFd9 (FF)
+  Destination:          uart/shift_reg_5 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      8.294ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: uart/state_reg_FSM_FFd9 to uart/shift_reg_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y56.YQ      Tcko                  0.652   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.F2      net (fanout=2)        1.315   uart/state_reg_FSM_FFd9
+    SLICE_X53Y56.X       Tilo                  0.704   uart/shift_reg_not00014
+                                                       uart/shift_reg_not00014
+    SLICE_X51Y56.F2      net (fanout=1)        0.428   uart/shift_reg_not00014
+    SLICE_X51Y56.X       Tilo                  0.704   N2
+                                                       uart/shift_reg_not000128_SW0
+    SLICE_X50Y59.F1      net (fanout=1)        0.409   N2
+    SLICE_X50Y59.X       Tilo                  0.759   uart/shift_reg_not0001
+                                                       uart/shift_reg_not000128
+    SLICE_X66Y42.CE      net (fanout=4)        2.768   uart/shift_reg_not0001
+    SLICE_X66Y42.CLK     Tceck                 0.555   uart/shift_reg<5>
+                                                       uart/shift_reg_5
+    -------------------------------------------------  ---------------------------
+    Total                                      8.294ns (3.374ns logic, 4.920ns route)
+                                                       (40.7% logic, 59.3% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point uart/state_reg_FSM_FFd10 (SLICE_X52Y56.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.026ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/state_reg_FSM_FFd11 (FF)
+  Destination:          uart/state_reg_FSM_FFd10 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.030ns (Levels of Logic = 0)
+  Clock Path Skew:      0.004ns (0.022 - 0.018)
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/state_reg_FSM_FFd11 to uart/state_reg_FSM_FFd10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X51Y54.YQ      Tcko                  0.470   uart/state_reg_FSM_FFd12
+                                                       uart/state_reg_FSM_FFd11
+    SLICE_X52Y56.BX      net (fanout=3)        0.426   uart/state_reg_FSM_FFd11
+    SLICE_X52Y56.CLK     Tckdi       (-Th)    -0.134   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd10
+    -------------------------------------------------  ---------------------------
+    Total                                      1.030ns (0.604ns logic, 0.426ns route)
+                                                       (58.6% logic, 41.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point debounced (SLICE_X66Y72.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.027ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               en_sample (FF)
+  Destination:          debounced (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.027ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: en_sample to debounced
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X67Y73.YQ      Tcko                  0.470   en_sample
+                                                       en_sample
+    SLICE_X66Y72.CE      net (fanout=1)        0.488   en_sample
+    SLICE_X66Y72.CLK     Tckce       (-Th)    -0.069   debounced
+                                                       debounced
+    -------------------------------------------------  ---------------------------
+    Total                                      1.027ns (0.539ns logic, 0.488ns route)
+                                                       (52.5% logic, 47.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/state_reg_FSM_FFd9 (SLICE_X52Y56.BY), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.058ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/state_reg_FSM_FFd10 (FF)
+  Destination:          uart/state_reg_FSM_FFd9 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      1.058ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 20.000ns
+  Destination Clock:    clk_BUFGP rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/state_reg_FSM_FFd10 to uart/state_reg_FSM_FFd9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X52Y56.XQ      Tcko                  0.474   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd10
+    SLICE_X52Y56.BY      net (fanout=2)        0.432   uart/state_reg_FSM_FFd10
+    SLICE_X52Y56.CLK     Tckdi       (-Th)    -0.152   uart/state_reg_FSM_FFd10
+                                                       uart/state_reg_FSM_FFd9
+    -------------------------------------------------  ---------------------------
+    Total                                      1.058ns (0.626ns logic, 0.432ns route)
+                                                       (59.2% logic, 40.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 1.596ns (Trpw)
+  Physical resource: uart/bit_timer<1>/SR
+  Logical resource: uart/bit_timer_1/SR
+  Location pin: SLICE_X50Y57.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 20.000ns
+  High pulse: 10.000ns
+  High pulse limit: 1.596ns (Trpw)
+  Physical resource: uart/bit_timer<1>/SR
+  Logical resource: uart/bit_timer_1/SR
+  Location pin: SLICE_X50Y57.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+Slack: 16.808ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 20.000ns
+  Low pulse: 10.000ns
+  Low pulse limit: 1.596ns (Trpw)
+  Physical resource: uart/bit_timer<1>/SR
+  Logical resource: uart/bit_timer_0/SR
+  Location pin: SLICE_X50Y57.SR
+  Clock network: rst_IBUF
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.680|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 1279 paths, 0 nets, and 308 connections
+
+Design statistics:
+   Minimum period:   8.680ns{1}   (Maximum frequency: 115.207MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Wed Feb 25 16:02:23 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 164 MB
+
+
+

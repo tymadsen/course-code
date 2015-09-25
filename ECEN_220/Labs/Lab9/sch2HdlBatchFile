@@ -1,0 +1,3 @@
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,J:/Courses/ECEN 220/Labs/Lab9/ROM_BDFG.vf,-w,J:/Courses/ECEN 220/Labs/Lab9/ROM_BDFG.sch
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,J:/Courses/ECEN 220/Labs/Lab9/COMB_ACE.vf,-w,J:/Courses/ECEN 220/Labs/Lab9/COMB_ACE.sch
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,J:/Courses/ECEN 220/Labs/Lab9/SEVEN_SEG_DECODER.vf,-w,J:/Courses/ECEN 220/Labs/Lab9/SEVEN_SEG_DECODER.sch

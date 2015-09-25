@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/prog_timer.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/prog_timer.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timer.ucf -p xc3s500e-fg320-5 "prog_timer.ngc" prog_timer.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o prog_timer_map.ncd prog_timer.ngd prog_timer.pcf 
+par -w -intstyle ise -ol high -t 1 prog_timer_map.ncd prog_timer.ncd prog_timer.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml prog_timer.twx prog_timer.ncd -o prog_timer.twr prog_timer.pcf -ucf timer.ucf 
+bitgen -intstyle ise -f prog_timer.ut prog_timer.ncd 

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=J:\Courses\ECEN_320\Lab3\Lab3\seven_seg_decode.ncd
+OUTFILE=J:\Courses\ECEN_320\Lab3\Lab3\seven_seg_decode.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=J:\Courses\ECEN_320\Lab3\Lab3
+LICENSE=ISE
+USER_INFO=174672765_175170704_210573231_041

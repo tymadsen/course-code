@@ -1,0 +1,53 @@
+Ty Madsen
+ECEN 425
+Dr. Archibald
+HW 3
+
+Problem 1
+	No. The iHoursTemp gets a copy of iHours, and makes changes on that variable, but if the iHours changes during that subroutine, then we may overwrite the correct hour with an incorrect value.
+
+Problem 2
+	If the registers are 16 bits, then the most we could be off is 2^16 - 1 (65,535) seconds. This could occur if the lSecondsToday was 0x0000FFFF when the first (least significant) word is read into R1 (R1 = 0xFFFF) at which point the interrupt vUpdateTimem could occur, incrementing the lSecondsToday to 0x00010000. Once the second (most significant) word is read it will have the value 0x0001, thus leaving the value between R1 and R2 as 0x0001FFFF, which is 0xFFFF (2^16-1) higher than it should be. 
+	With 8 bit registers the value returned could be off by the same amount (2^16-1). This is because the interrupt could happen after R1 and R2 are written but before R3 is written between lSecondsToday being updated from 0x0000FFFF to 0x00010000.
+ 
+Problem 3
+	If a higher priority interrupt occurs that changes lSecondsToday after it is incremented in the vUpdateToday interrupt, the if statement may not evaluate to true when it should and vice versa, thus throwing off the value of lSecondsToday, and the proper rollover functionality of the lower priority interrupt.
+To fix this we just need to make the section of the vUpdateTime interrupt that changes and reads lSecondsToday atomic by disabling interrupts before those lines of code and reenabling them afterwards.
+
+Problem 4
+a)
+	push	bp
+	mov		bp, sp
+	mov		al, 2
+	push	ax
+	mov		ax, 1
+	push	ax
+	call	MyFunction
+	add		sp, 4
+	xor		ax, ax
+	mov		sp, bp
+	pop		bp
+	ret
+
+b)	argWord = word [bp+4]
+	argByte = byte [bp+6]
+	localWord = word [bp-2]
+	localByte = byte [bp-3]
+
+c) The instruction sub sp, 4 would allocate 4 bytes of memory on the stack for the localWord and localByte variables.
+
+Problem 5
+
+if(prog1's dependencies (src1.o, src2.o, src3.o) are outdated){
+	if(src1.o's dependencies (ops.h, def.h, src1.c) are outdated)
+		recompile (ops.h, def.h, src1.c);
+	if(src2.o's dependencies (ops.h, def.h, src2.c) are outdated)
+		recompile (ops.h, def.h, src2.c);
+	if(src3.o's dependencies (ops.h, def2.h, src3.c) are outdate)
+		recompile (ops.h, def2.h, src3.c);
+
+	recompile (src1.o, src2.h, src3.h);
+}
+
+run command "cc -g -Aa src1.o src2.o src3.o -o prog1"
+

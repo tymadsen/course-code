@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.6
+//  \   \         Application : sch2hdl
+//  /   /         Filename : comb_c.vf
+// /___/   /\     Timestamp : 10/04/2013 17:26:00
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog "J:/Courses/ECEN 220/Labs/Lab4/Lab4/comb_c.vf" -w "J:/Courses/ECEN 220/Labs/Lab4/Lab4/comb_c.sch"
+//Design Name: comb_c
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module comb_c(N0, 
+              N1, 
+              N2, 
+              N3, 
+              C);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output C;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_3;
+   
+   AND3B1  XLXI_2 (.I0(N0), 
+                  .I1(N2), 
+                  .I2(N3), 
+                  .O(XLXN_3));
+   AND3  XLXI_3 (.I0(N1), 
+                .I1(N2), 
+                .I2(N3), 
+                .O(XLXN_1));
+   OR3  XLXI_4 (.I0(XLXN_3), 
+               .I1(XLXN_1), 
+               .I2(XLXN_2), 
+               .O(C));
+   AND4B3  XLXI_5 (.I0(N3), 
+                  .I1(N2), 
+                  .I2(N0), 
+                  .I3(N1), 
+                  .O(XLXN_2));
+endmodule

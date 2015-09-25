@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/HW/HW9/hw9/stack_isim_beh.exe" -prj "J:/Courses/ECEN_320/HW/HW9/hw9/stack_beh.prj" "work.stack" 

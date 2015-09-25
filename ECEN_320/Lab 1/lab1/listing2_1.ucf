@@ -1,0 +1,8 @@
+# Attach a(0) to the switch 0 (SW0)
+NET "a<0>" LOC=G18;
+# Attach a(1) to the switch 1 (SW1)
+NET "a<1>" LOC=H18;
+# Attach a(2) to the switch 2 (SW2)
+NET "a<2>" LOC=K18;
+# Attach even output to the LED 0 (LD0)
+NET "even" LOC=J14;

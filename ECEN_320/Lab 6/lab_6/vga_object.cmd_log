@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab 6/lab_6/vga_object.xst" -ofn "J:/Courses/ECEN_320/Lab 6/lab_6/vga_object.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga_object.ucf -p xc3s500e-fg320-4 "vga_object.ngc" vga_object.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o vga_object_map.ncd vga_object.ngd vga_object.pcf 
+par -w -intstyle ise -ol high -t 1 vga_object_map.ncd vga_object.ncd vga_object.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml vga_object.twx vga_object.ncd -o vga_object.twr vga_object.pcf -ucf vga_object.ucf 
+bitgen -intstyle ise -f vga_object.ut vga_object.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab 6/lab_6/vga_object.xst" -ofn "J:/Courses/ECEN_320/Lab 6/lab_6/vga_object.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc vga_object.ucf -p xc3s500e-fg320-4 "vga_object.ngc" vga_object.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o vga_object_map.ncd vga_object.ngd vga_object.pcf 
+par -w -intstyle ise -ol high -t 1 vga_object_map.ncd vga_object.ncd vga_object.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml vga_object.twx vga_object.ncd -o vga_object.twr vga_object.pcf -ucf vga_object.ucf 
+bitgen -intstyle ise -f vga_object.ut vga_object.ncd 

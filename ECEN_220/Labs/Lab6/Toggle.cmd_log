@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab6/Toggle.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab6/Toggle.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Toggle.ucf -p xc3s500e-fg320-5 "Toggle.ngc" Toggle.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o Toggle_map.ncd Toggle.ngd Toggle.pcf 
+par -w -intstyle ise -ol high -t 1 Toggle_map.ncd Toggle.ncd Toggle.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml Toggle.twx Toggle.ncd -o Toggle.twr Toggle.pcf -ucf Toggle.ucf 
+bitgen -intstyle ise -f Toggle.ut Toggle.ncd 

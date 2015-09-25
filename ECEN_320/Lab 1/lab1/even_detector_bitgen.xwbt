@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=J:\Courses\ECEN_320\Lab 1\lab1\even_detector.ncd
+OUTFILE=J:\Courses\ECEN_320\Lab 1\lab1\even_detector.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=J:\Courses\ECEN_320\Lab 1\lab1
+LICENSE=ISE
+USER_INFO=174672765_175170704_210573231_041

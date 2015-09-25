@@ -1,0 +1,8 @@
+isim force add CORD 0;isim force add LOW_BATT 0;isim force add HIGH_TEMP 0;run 10ns;
+isim force add CORD 0;isim force add LOW_BATT 0;isim force add HIGH_TEMP 1;run 10ns;
+isim force add CORD 0;isim force add LOW_BATT 1;isim force add HIGH_TEMP 0;run 10ns;
+isim force add CORD 0;isim force add LOW_BATT 1;isim force add HIGH_TEMP 1;run 10ns;
+isim force add CORD 1;isim force add LOW_BATT 0;isim force add HIGH_TEMP 0;run 10ns;
+isim force add CORD 1;isim force add LOW_BATT 0;isim force add HIGH_TEMP 1;run 10ns;
+isim force add CORD 1;isim force add LOW_BATT 1;isim force add HIGH_TEMP 0;run 10ns;
+isim force add CORD 1;isim force add LOW_BATT 1;isim force add HIGH_TEMP 1;run 10ns;

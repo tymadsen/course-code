@@ -1,0 +1,6 @@
+AR tx behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/tx.vhd" sub00/vhpl01 1424905176
+AR tx_top behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/tx_top.vhd" sub00/vhpl05 1424905180
+AR seven_segment_control behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/seven_segment_control.vhd" sub00/vhpl03 1424905178
+EN seven_segment_control NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/seven_segment_control.vhd" sub00/vhpl02 1424905177
+EN tx NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/tx.vhd" sub00/vhpl00 1424905175
+EN tx_top NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 7/lab7/tx_top.vhd" sub00/vhpl04 1424905179

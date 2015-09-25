@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/Lab 8/lab8/rx_top.xst" -ofn "J:/Courses/ECEN_320/Lab 8/lab8/rx_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-4 "rx_top.ngc" rx_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o rx_top_map.ncd rx_top.ngd rx_top.pcf 
+par -w -intstyle ise -ol high -t 1 rx_top_map.ncd rx_top.ncd rx_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml rx_top.twx rx_top.ncd -o rx_top.twr rx_top.pcf 
+bitgen -intstyle ise -f rx_top.ut rx_top.ncd 
+bitgen -intstyle ise -f rx_top.ut rx_top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc rx_top.ucf -p xc3s500e-fg320-4 "rx_top.ngc" rx_top.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o rx_top_map.ncd rx_top.ngd rx_top.pcf 
+par -w -intstyle ise -ol high -t 1 rx_top_map.ncd rx_top.ncd rx_top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml rx_top.twx rx_top.ncd -o rx_top.twr rx_top.pcf -ucf rx_top.ucf 
+bitgen -intstyle ise -f rx_top.ut rx_top.ncd 

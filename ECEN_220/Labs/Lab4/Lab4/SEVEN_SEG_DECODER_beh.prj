@@ -1,0 +1,4 @@
+verilog work "ROM_BDFG.vf"
+verilog work "COMB_ACE.vf"
+verilog work "SEVEN_SEG_DECODER.vf"
+verilog work "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"

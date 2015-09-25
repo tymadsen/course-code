@@ -1,0 +1,4 @@
+verilog work "MUX41.v"
+verilog work "FullAdder.v"
+verilog work "OneBitALU.v"
+verilog work "FourBitALU.v"

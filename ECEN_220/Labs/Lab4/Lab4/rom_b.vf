@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.6
+//  \   \         Application : sch2hdl
+//  /   /         Filename : rom_b.vf
+// /___/   /\     Timestamp : 10/04/2013 17:50:20
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog "J:/Courses/ECEN 220/Labs/Lab4/Lab4/rom_b.vf" -w "J:/Courses/ECEN 220/Labs/Lab4/Lab4/rom_b.sch"
+//Design Name: rom_b
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module rom_b(N0, 
+             N1, 
+             N2, 
+             N3, 
+             B);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output B;
+   
+   
+   ROM16X1 #( .INIT(16'hD860) ) XLXI_1 (.A0(N0), 
+                   .A1(N1), 
+                   .A2(N2), 
+                   .A3(N3), 
+                   .O(B));
+endmodule

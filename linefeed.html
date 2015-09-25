@@ -1,0 +1,30 @@
+<html>
+<head>
+<script>
+	var newImage = new Image();
+	newImage.src = "https://testing.byu.edu/sites/all/scripts/linecamfeed.php";
+	
+	function updateImage()
+	{
+	if(newImage.complete) {
+		
+		newImage = new Image();
+		//number++;
+		newImage.src = "https://testing.byu.edu/sites/all/scripts/linecamfeed.php?" + new Date().getTime();
+		document.getElementById("line").src = newImage.src;
+	}
+
+		
+	}
+	window.onload = function(){
+		setInterval(function(){updateImage()}, 100);
+	}
+</script>
+</head>
+<body>
+	<div>
+		<img id="line" width="50%" src="https://testing.byu.edu/sites/all/scripts/linecamfeed.php">
+	</div>
+</body>
+
+</html>

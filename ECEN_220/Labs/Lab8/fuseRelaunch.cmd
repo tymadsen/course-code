@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "J:/Courses/ECEN_220/Labs/Lab8/myTimer_isim_beh.exe" -prj "J:/Courses/ECEN_220/Labs/Lab8/myTimer_beh.prj" "work.myTimer" "work.glbl" 

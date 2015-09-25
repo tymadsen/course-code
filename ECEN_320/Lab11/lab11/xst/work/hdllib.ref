@@ -1,0 +1,6 @@
+AR framebuffer behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/framebuffer.vhd sub00/vhpl05 1428634594
+EN vga_timing NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/vga_timing.vhd sub00/vhpl02 1428634591
+EN framebuffer NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/framebuffer.vhd sub00/vhpl04 1428634593
+AR sramcontroller behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/sramController.vhd sub00/vhpl01 1428634590
+AR vga_timing behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/vga_timing.vhd sub00/vhpl03 1428634592
+EN sramcontroller NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab11/lab11/sramController.vhd sub00/vhpl00 1428634589

@@ -1,0 +1,28 @@
+Command line:
+   seven_seg_decode_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  65450
+
+Thu Jan 22 17:34:08 2015
+
+
+ Elaboration Time: 0.124801 sec
+
+ Current Memory Usage: 848.278 Meg
+
+ Total Signals          : 6
+ Total Nets             : 28
+ Total Signal Drivers   : 4
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 4
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 388
+
+ Total Simulation Time: 0.187201 sec
+
+ Current Memory Usage: 848.278 Meg
+
+Thu Jan 22 17:35:05 2015
+

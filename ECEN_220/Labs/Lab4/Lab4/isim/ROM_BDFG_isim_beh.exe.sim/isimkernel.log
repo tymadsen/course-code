@@ -1,0 +1,28 @@
+Command line:
+   ROM_BDFG_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  64120
+
+Fri Oct 04 18:28:58 2013
+
+
+ Elaboration Time: 0.140402 sec
+
+ Current Memory Usage: 839.5 Meg
+
+ Total Signals          : 41
+ Total Nets             : 21
+ Total Signal Drivers   : 9
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 14
+ Total Traceable Variables  : 26
+ Total Scalar Nets and Variables : 229
+
+ Total Simulation Time: 0.187202 sec
+
+ Current Memory Usage: 1155.32 Meg
+
+Fri Oct 04 18:31:19 2013
+

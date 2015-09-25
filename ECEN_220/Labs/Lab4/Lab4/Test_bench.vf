@@ -1,0 +1,243 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.6
+//  \   \         Application : sch2hdl
+//  /   /         Filename : Test_bench.vf
+// /___/   /\     Timestamp : 10/04/2013 18:17:30
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog "J:/Courses/ECEN 220/Labs/Lab4/Lab4/Test_bench.vf" -w "J:/Courses/ECEN 220/Labs/Lab4/Lab4/Test_bench.sch"
+//Design Name: Test_bench
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module ROM_BDFG_MUSER_Test_bench(N0, 
+                                 N1, 
+                                 N2, 
+                                 N3, 
+                                 B, 
+                                 D, 
+                                 F, 
+                                 G);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output B;
+   output D;
+   output F;
+   output G;
+   
+   
+   ROM16X1 #( .INIT(16'hD860) ) XLXI_1 (.A0(N0), 
+                   .A1(N1), 
+                   .A2(N2), 
+                   .A3(N3), 
+                   .O(B));
+   ROM16X1 #( .INIT(16'h8492) ) XLXI_2 (.A0(N0), 
+                   .A1(N1), 
+                   .A2(N2), 
+                   .A3(N3), 
+                   .O(D));
+   ROM16X1 #( .INIT(16'h208E) ) XLXI_3 (.A0(N0), 
+                   .A1(N1), 
+                   .A2(N2), 
+                   .A3(N3), 
+                   .O(F));
+   ROM16X1 #( .INIT(16'h1083) ) XLXI_4 (.A0(N0), 
+                   .A1(N1), 
+                   .A2(N2), 
+                   .A3(N3), 
+                   .O(G));
+endmodule
+`timescale 1ns / 1ps
+
+module COMB_ACE_MUSER_Test_bench(N0, 
+                                 N1, 
+                                 N2, 
+                                 N3, 
+                                 A, 
+                                 C, 
+                                 E);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output A;
+   output C;
+   output E;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_3;
+   wire XLXN_4;
+   wire XLXN_17;
+   wire XLXN_22;
+   wire XLXN_23;
+   wire XLXN_24;
+   wire XLXN_25;
+   wire XLXN_26;
+   
+   AND4B3  XLXI_1 (.I0(N0), 
+                  .I1(N1), 
+                  .I2(N3), 
+                  .I3(N2), 
+                  .O(XLXN_25));
+   AND3  XLXI_2 (.I0(N1), 
+                .I1(N2), 
+                .I2(N3), 
+                .O(XLXN_1));
+   AND3B1  XLXI_3 (.I0(N0), 
+                  .I1(N2), 
+                  .I2(N3), 
+                  .O(XLXN_3));
+   OR3  XLXI_4 (.I0(XLXN_3), 
+               .I1(XLXN_1), 
+               .I2(XLXN_2), 
+               .O(C));
+   AND4B3  XLXI_5 (.I0(N3), 
+                  .I1(N2), 
+                  .I2(N0), 
+                  .I3(N1), 
+                  .O(XLXN_2));
+   AND3B2  XLXI_6 (.I0(N3), 
+                  .I1(N1), 
+                  .I2(N2), 
+                  .O(XLXN_17));
+   AND3B2  XLXI_7 (.I0(N2), 
+                  .I1(N1), 
+                  .I2(N0), 
+                  .O(XLXN_22));
+   AND2B1  XLXI_8 (.I0(N3), 
+                  .I1(N0), 
+                  .O(XLXN_23));
+   OR3  XLXI_10 (.I0(XLXN_17), 
+                .I1(XLXN_22), 
+                .I2(XLXN_23), 
+                .O(E));
+   AND4B1  XLXI_12 (.I0(N1), 
+                   .I1(N0), 
+                   .I2(N2), 
+                   .I3(N3), 
+                   .O(XLXN_26));
+   AND4B1  XLXI_13 (.I0(N2), 
+                   .I1(N0), 
+                   .I2(N1), 
+                   .I3(N3), 
+                   .O(XLXN_4));
+   OR4  XLXI_14 (.I0(XLXN_4), 
+                .I1(XLXN_26), 
+                .I2(XLXN_25), 
+                .I3(XLXN_24), 
+                .O(A));
+   AND4B3  XLXI_15 (.I0(N3), 
+                   .I1(N2), 
+                   .I2(N1), 
+                   .I3(N0), 
+                   .O(XLXN_24));
+endmodule
+`timescale 1ns / 1ps
+
+module SEVEN_SEG_DECODER_MUSER_Test_bench(N0, 
+                                          N1, 
+                                          N2, 
+                                          N3, 
+                                          A, 
+                                          B, 
+                                          C, 
+                                          D, 
+                                          E, 
+                                          F, 
+                                          G);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output A;
+   output B;
+   output C;
+   output D;
+   output E;
+   output F;
+   output G;
+   
+   
+   COMB_ACE_MUSER_Test_bench  XLXI_1 (.N0(N0), 
+                                     .N1(N1), 
+                                     .N2(N2), 
+                                     .N3(N3), 
+                                     .A(A), 
+                                     .C(C), 
+                                     .E(E));
+   ROM_BDFG_MUSER_Test_bench  XLXI_2 (.N0(N0), 
+                                     .N1(N1), 
+                                     .N2(N2), 
+                                     .N3(N3), 
+                                     .B(B), 
+                                     .D(D), 
+                                     .F(F), 
+                                     .G(G));
+endmodule
+`timescale 1ns / 1ps
+
+module Test_bench(N0, 
+                  N1, 
+                  N2, 
+                  N3, 
+                  A, 
+                  AN0, 
+                  AN1, 
+                  AN2, 
+                  AN3, 
+                  B, 
+                  C, 
+                  D, 
+                  E, 
+                  F, 
+                  G);
+
+    input N0;
+    input N1;
+    input N2;
+    input N3;
+   output A;
+   output AN0;
+   output AN1;
+   output AN2;
+   output AN3;
+   output B;
+   output C;
+   output D;
+   output E;
+   output F;
+   output G;
+   
+   
+   SEVEN_SEG_DECODER_MUSER_Test_bench  XLXI_1 (.N0(N0), 
+                                              .N1(N1), 
+                                              .N2(N2), 
+                                              .N3(N3), 
+                                              .A(A), 
+                                              .B(B), 
+                                              .C(C), 
+                                              .D(D), 
+                                              .E(E), 
+                                              .F(F), 
+                                              .G(G));
+   GND  XLXI_2 (.G(AN3));
+   VCC  XLXI_3 (.P(AN2));
+   VCC  XLXI_4 (.P(AN1));
+   VCC  XLXI_5 (.P(AN0));
+endmodule

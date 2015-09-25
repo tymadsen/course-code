@@ -1,0 +1,20 @@
+V3 11
+FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx.vhd" 2015/02/28.20:06:33 P.20131013
+EN work/rx 1425183569 FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/rx/archie 1425183570 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx.vhd" EN work/rx 1425183569
+FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx_top.vhd" 2015/02/28.21:18:30 P.20131013
+EN work/rx_top 1425183573 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx_top.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/rx_top/Behavioral 1425183574 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/rx_top.vhd" \
+      EN work/rx_top 1425183573 CP rx CP seven_segment_control
+FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/seven_segment_control.vhd" 2015/01/29.18:30:01 P.20131013
+EN work/seven_segment_control 1425183571 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/seven_segment_control.vhd" \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/seven_segment_control/Behavioral 1425183572 \
+      FL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 8/lab8/seven_segment_control.vhd" \
+      EN work/seven_segment_control 1425183571

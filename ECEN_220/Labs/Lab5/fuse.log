@@ -1,0 +1,24 @@
+Running: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o J:/Courses/ECEN 220/Labs/Lab5/FourBitALU_isim_beh.exe -prj J:/Courses/ECEN 220/Labs/Lab5/FourBitALU_beh.prj work.FourBitALU work.glbl 
+ISim P.68d (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 24
+Turning on mult-threading, number of parallel sub-compilation jobs: 48 
+Determining compilation order of HDL files
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab5/MUX41.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab5/FullAdder.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab5/OneBitALU.v" into library work
+Analyzing Verilog file "J:/Courses/ECEN 220/Labs/Lab5/FourBitALU.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 148336 KB
+Fuse CPU Usage: 654 ms
+Compiling module FullAdder
+Compiling module MUX41
+Compiling module OneBitALU
+Compiling module FourBitALU
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 5 Verilog Units
+Built simulation executable J:/Courses/ECEN 220/Labs/Lab5/FourBitALU_isim_beh.exe
+Fuse Memory Usage: 180832 KB
+Fuse CPU Usage: 1044 ms

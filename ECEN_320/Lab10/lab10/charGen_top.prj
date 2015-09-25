@@ -1,0 +1,6 @@
+vhdl work "font_rom.vhd"
+vhdl work "char_mem.vhd"
+vhdl work "vga_timing.vhd"
+vhdl work "seven_segment_control.vhd"
+vhdl work "charGen.vhd"
+vhdl work "charGen_top.vhd"

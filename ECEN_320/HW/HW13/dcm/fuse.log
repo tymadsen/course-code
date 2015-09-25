@@ -1,0 +1,29 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o J:/Courses/ECEN_320/HW/HW13/dcm/dcm_hw_isim_beh.exe -prj J:/Courses/ECEN_320/HW/HW13/dcm/dcm_hw_beh.prj work.dcm_hw 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "J:/Courses/ECEN_320/HW/HW13/dcm/dcm.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture dcm_clock_divide_by_2_v of entity dcm_clock_divide_by_2 [dcm_clock_divide_by_2_default]
+Compiling architecture dcm_maximum_period_check_v of entity dcm_maximum_period_check [\dcm_maximum_period_check("CLKIN...]
+Compiling architecture dcm_maximum_period_check_v of entity dcm_maximum_period_check [\dcm_maximum_period_check("PSCLK...]
+Compiling architecture dcm_clock_lost_v of entity dcm_clock_lost [dcm_clock_lost_default]
+Compiling architecture dcm_v of entity DCM [\DCM(2.0,1,4,false,10.0,"NONE","...]
+Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture behavioral of entity dcm_hw
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 22 VHDL Units
+Built simulation executable J:/Courses/ECEN_320/HW/HW13/dcm/dcm_hw_isim_beh.exe
+Fuse Memory Usage: 54316 KB
+Fuse CPU Usage: 967 ms

@@ -1,0 +1,27 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -o J:/Courses/ECEN_320/Lab 6/Lab6/vga_object_isim_beh.exe -prj J:/Courses/ECEN_320/Lab 6/Lab6/vga_object_beh.prj work.vga_object 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 24
+Turning on mult-threading, number of parallel sub-compilation jobs: 48 
+Determining compilation order of HDL files
+Parsing VHDL file "J:/Courses/ECEN_320/Lab 6/Lab6/vga_timing.vhd" into library work
+Parsing VHDL file "J:/Courses/ECEN_320/Lab 6/Lab6/seven_segment_control.vhd" into library work
+Parsing VHDL file "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:89 - "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object.vhd" Line 116: <chipscope_icon> remains a black-box since it has no binding entity.
+WARNING:HDLCompiler:89 - "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object.vhd" Line 119: <chipscope_ila> remains a black-box since it has no binding entity.
+Completed static elaboration
+Fuse Memory Usage: 147484 KB
+Fuse CPU Usage: 639 ms
+WARNING:Simulator:648 - "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object.vhd" Line 116. Instance chipscope_icon is unbound
+WARNING:Simulator:648 - "J:/Courses/ECEN_320/Lab 6/Lab6/vga_object.vhd" Line 119. Instance chipscope_ila is unbound
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling architecture behavioral of entity vga_timing [vga_timing_default]
+Compiling architecture behavioral of entity seven_segment_control [\seven_segment_control(15)\]
+Compiling architecture behavioral of entity vga_object
+Time Resolution for simulation is 1ps.
+Compiled 8 VHDL Units
+Built simulation executable J:/Courses/ECEN_320/Lab 6/Lab6/vga_object_isim_beh.exe
+Fuse Memory Usage: 189644 KB
+Fuse CPU Usage: 1200 ms

@@ -1,0 +1,61 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Feb 25 16:00:29 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "btn0" LOCATE = SITE "B18" LEVEL 1;
+COMP "an<0>" LOCATE = SITE "F17" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "H17" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "C18" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "F15" LEVEL 1;
+COMP "dp" LOCATE = SITE "C17" LEVEL 1;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "tx_out" LOCATE = SITE "P9" LEVEL 1;
+COMP "seg<0>" LOCATE = SITE "L18" LEVEL 1;
+COMP "seg<1>" LOCATE = SITE "F18" LEVEL 1;
+COMP "seg<2>" LOCATE = SITE "D17" LEVEL 1;
+COMP "sw<0>" LOCATE = SITE "G18" LEVEL 1;
+COMP "seg<3>" LOCATE = SITE "D16" LEVEL 1;
+COMP "sw<1>" LOCATE = SITE "H18" LEVEL 1;
+COMP "seg<4>" LOCATE = SITE "G14" LEVEL 1;
+COMP "sw<2>" LOCATE = SITE "K18" LEVEL 1;
+COMP "seg<5>" LOCATE = SITE "J17" LEVEL 1;
+COMP "sw<3>" LOCATE = SITE "K17" LEVEL 1;
+COMP "seg<6>" LOCATE = SITE "H14" LEVEL 1;
+COMP "sw<4>" LOCATE = SITE "L14" LEVEL 1;
+COMP "sw<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "sw<6>" LOCATE = SITE "N17" LEVEL 1;
+COMP "sw<7>" LOCATE = SITE "R17" LEVEL 1;
+COMP "rst" LOCATE = SITE "D18" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk = BEL "en_sample" BEL "count_reg_0" BEL "count_reg_1" BEL
+        "count_reg_2" BEL "count_reg_3" BEL "count_reg_4" BEL "count_reg_5"
+        BEL "count_reg_6" BEL "count_reg_7" BEL "count_reg_8" BEL
+        "count_reg_9" BEL "count_reg_10" BEL "count_reg_11" BEL "count_reg_12"
+        BEL "count_reg_13" BEL "count_reg_14" BEL "count_reg_15" BEL
+        "count_reg_16" BEL "count_reg_17" BEL "count_reg_18" BEL "debounced"
+        BEL "seven_seg_ctl/r_reg_0" BEL "seven_seg_ctl/r_reg_1" BEL
+        "seven_seg_ctl/r_reg_2" BEL "seven_seg_ctl/r_reg_3" BEL
+        "seven_seg_ctl/r_reg_4" BEL "seven_seg_ctl/r_reg_5" BEL
+        "seven_seg_ctl/r_reg_6" BEL "seven_seg_ctl/r_reg_7" BEL
+        "seven_seg_ctl/r_reg_8" BEL "seven_seg_ctl/r_reg_9" BEL
+        "seven_seg_ctl/r_reg_10" BEL "seven_seg_ctl/r_reg_11" BEL
+        "seven_seg_ctl/r_reg_12" BEL "seven_seg_ctl/r_reg_13" BEL
+        "seven_seg_ctl/r_reg_14" BEL "uart/state_reg_FSM_FFd11" BEL
+        "uart/state_reg_FSM_FFd12" BEL "uart/state_reg_FSM_FFd1" BEL
+        "uart/tx_o" BEL "uart/bit_timer_11" BEL "uart/bit_timer_10" BEL
+        "uart/bit_timer_9" BEL "uart/bit_timer_8" BEL "uart/bit_timer_7" BEL
+        "uart/bit_timer_6" BEL "uart/bit_timer_5" BEL "uart/bit_timer_4" BEL
+        "uart/bit_timer_3" BEL "uart/bit_timer_2" BEL "uart/bit_timer_1" BEL
+        "uart/bit_timer_0" BEL "uart/shift_reg_7" BEL "uart/shift_reg_6" BEL
+        "uart/shift_reg_5" BEL "uart/shift_reg_4" BEL "uart/shift_reg_3" BEL
+        "uart/shift_reg_2" BEL "uart/shift_reg_1" BEL "uart/shift_reg_0" BEL
+        "uart/state_reg_FSM_FFd10" BEL "uart/state_reg_FSM_FFd8" BEL
+        "uart/state_reg_FSM_FFd7" BEL "uart/state_reg_FSM_FFd9" BEL
+        "uart/state_reg_FSM_FFd5" BEL "uart/state_reg_FSM_FFd4" BEL
+        "uart/state_reg_FSM_FFd6" BEL "uart/state_reg_FSM_FFd2" BEL
+        "uart/state_reg_FSM_FFd3" BEL "clk_BUFGP/BUFG.GCLKMUX" BEL
+        "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;
+

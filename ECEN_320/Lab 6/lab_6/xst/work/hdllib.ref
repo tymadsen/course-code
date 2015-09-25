@@ -1,0 +1,6 @@
+AR seven_segment_control behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/seven_segment_control.vhd" sub00/vhpl03 1424294049
+EN vga_object NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/vga_object.vhd" sub00/vhpl04 1424294050
+AR vga_object behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/vga_object.vhd" sub00/vhpl05 1424294051
+AR vga_timing behavioral "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/vga_timing.vhd" sub00/vhpl01 1424294047
+EN vga_timing NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/vga_timing.vhd" sub00/vhpl00 1424294046
+EN seven_segment_control NULL "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 6/lab_6/seven_segment_control.vhd" sub00/vhpl02 1424294048

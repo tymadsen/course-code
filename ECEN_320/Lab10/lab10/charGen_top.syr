@@ -1,0 +1,630 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Reading design: charGen_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "charGen_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "charGen_top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : charGen_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/char_mem.vhd" in Library work.
+Architecture arch of Entity char_mem is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom.vhd" in Library work.
+Architecture arch of Entity font_rom is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/vga_timing.vhd" in Library work.
+Architecture behavioral of Entity vga_timing is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen.vhd" in Library work.
+Architecture behavioral of Entity chargen is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/seven_segment_control.vhd" in Library work.
+Architecture behavioral of Entity seven_segment_control is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen_top.vhd" in Library work.
+Entity <chargen_top> compiled.
+Entity <chargen_top> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <charGen_top> in library <work> (architecture <behavioral>) with generics.
+	CLK_RATE = 50000000
+
+Analyzing hierarchy for entity <vga_timing> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <charGen> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <seven_segment_control> in library <work> (architecture <Behavioral>) with generics.
+	COUNTER_BITS = 15
+
+Analyzing hierarchy for entity <char_mem> in library <work> (architecture <arch>).
+
+Analyzing hierarchy for entity <font_rom> in library <work> (architecture <arch>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <charGen_top> in library <work> (Architecture <behavioral>).
+	CLK_RATE = 50000000
+Entity <charGen_top> analyzed. Unit <charGen_top> generated.
+
+Analyzing Entity <vga_timing> in library <work> (Architecture <Behavioral>).
+Entity <vga_timing> analyzed. Unit <vga_timing> generated.
+
+Analyzing Entity <charGen> in library <work> (Architecture <Behavioral>).
+Entity <charGen> analyzed. Unit <charGen> generated.
+
+Analyzing Entity <char_mem> in library <work> (Architecture <arch>).
+Entity <char_mem> analyzed. Unit <char_mem> generated.
+
+Analyzing Entity <font_rom> in library <work> (Architecture <arch>).
+Entity <font_rom> analyzed. Unit <font_rom> generated.
+
+Analyzing generic Entity <seven_segment_control> in library <work> (Architecture <Behavioral>).
+	COUNTER_BITS = 15
+Entity <seven_segment_control> analyzed. Unit <seven_segment_control> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <vga_timing>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/vga_timing.vhd".
+    Found 10-bit comparator greatequal for signal <blank$cmp_ge0000> created at line 118.
+    Found 10-bit comparator greatequal for signal <blank$cmp_ge0001> created at line 118.
+    Found 10-bit comparator greater for signal <HS$cmp_gt0000> created at line 88.
+    Found 10-bit comparator less for signal <HS$cmp_lt0000> created at line 88.
+    Found 10-bit adder for signal <r_next_HPC$addsub0000> created at line 82.
+    Found 10-bit adder for signal <r_next_VPC$addsub0000> created at line 104.
+    Found 1-bit register for signal <r_reg>.
+    Found 10-bit register for signal <r_reg_HPC>.
+    Found 10-bit register for signal <r_reg_VPC>.
+    Found 10-bit comparator greater for signal <VS$cmp_gt0000> created at line 111.
+    Found 10-bit comparator less for signal <VS$cmp_lt0000> created at line 111.
+    Summary:
+	inferred  21 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <vga_timing> synthesized.
+
+
+Synthesizing Unit <seven_segment_control>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/seven_segment_control.vhd".
+WARNING:Xst:646 - Signal <q<12:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 16x7-bit ROM for signal <seg>.
+    Found 1-of-4 decoder for signal <an_temp>.
+    Found 4-bit 4-to-1 multiplexer for signal <decoder_in>.
+    Found 15-bit up counter for signal <r_reg>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred   4 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <seven_segment_control> synthesized.
+
+
+Synthesizing Unit <char_mem>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/char_mem.vhd".
+    Found 4096x8-bit dual-port RAM <Mram_char_ram> for signal <char_ram>.
+    Found 12-bit register for signal <read_a>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  12 D-type flip-flop(s).
+Unit <char_mem> synthesized.
+
+
+Synthesizing Unit <font_rom>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom.vhd".
+    Found 2048x8-bit ROM for signal <data$rom0000> created at line 2213.
+    Found 11-bit register for signal <addr_reg>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  11 D-type flip-flop(s).
+Unit <font_rom> synthesized.
+
+
+Synthesizing Unit <charGen>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen.vhd".
+WARNING:Xst:647 - Input <pixel_y<9>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <crv<7>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit 8-to-1 multiplexer for signal <pixel_out>.
+    Found 3-bit register for signal <pixel_x_d>.
+    Found 3-bit register for signal <pixel_x_dd>.
+    Found 4-bit register for signal <pixel_y_d>.
+    Summary:
+	inferred  10 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <charGen> synthesized.
+
+
+Synthesizing Unit <charGen_top>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen_top.vhd".
+WARNING:Xst:1780 - Signal <we> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Register <vgaRed> equivalent to <vgaGreen> has been removed
+    Found 1-bit register for signal <Hsync>.
+    Found 1-bit register for signal <Vsync>.
+    Found 3-bit register for signal <vgaGreen>.
+    Found 2-bit register for signal <vgaBlue>.
+    Found 23-bit adder for signal <count_next$addsub0000> created at line 138.
+    Found 23-bit register for signal <count_reg>.
+    Found 1-bit register for signal <debounced>.
+    Found 1-bit register for signal <HS_d>.
+    Found 1-bit register for signal <VS_d>.
+    Found 7-bit register for signal <x_addr>.
+    Found 7-bit adder for signal <x_addr_next$addsub0000> created at line 133.
+    Found 5-bit up counter for signal <y_addr>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  40 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <charGen_top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 4096x8-bit dual-port RAM                              : 1
+# ROMs                                                 : 2
+ 16x7-bit ROM                                          : 1
+ 2048x8-bit ROM                                        : 1
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 2
+ 23-bit adder                                          : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 2
+ 15-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+# Registers                                            : 17
+ 1-bit register                                        : 6
+ 10-bit register                                       : 2
+ 11-bit register                                       : 1
+ 12-bit register                                       : 1
+ 2-bit register                                        : 1
+ 23-bit register                                       : 1
+ 3-bit register                                        : 3
+ 4-bit register                                        : 1
+ 7-bit register                                        : 1
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+# Multiplexers                                         : 2
+ 1-bit 8-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <char_mem>.
+INFO:Xst:3226 - The RAM <Mram_char_ram> will be implemented as a BLOCK RAM, absorbing the following register(s): <read_a>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <char_we>       | high     |
+    |     addrA          | connected to signal <char_write_addr> |          |
+    |     diA            | connected to signal <char_write_value> |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <char_read_addr> |          |
+    |     doB            | connected to signal <char_read_value> |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <char_mem> synthesized (advanced).
+
+Synthesizing (advanced) Unit <font_rom>.
+INFO:Xst:3044 - The ROM <Mrom_data_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <addr_reg>.
+INFO:Xst:3225 - The RAM <Mrom_data_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 2048-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <font_rom> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 2048x8-bit single-port block RAM                      : 1
+ 4096x8-bit dual-port block RAM                        : 1
+# ROMs                                                 : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 2
+ 23-bit adder                                          : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 2
+ 15-bit up counter                                     : 1
+ 5-bit up counter                                      : 1
+# Registers                                            : 71
+ Flip-Flops                                            : 71
+# Comparators                                          : 6
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+# Multiplexers                                         : 2
+ 1-bit 8-to-1 multiplexer                              : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <vgaBlue_0> in Unit <charGen_top> is equivalent to the following 4 FFs/Latches, which will be removed : <vgaBlue_1> <vgaGreen_0> <vgaGreen_1> <vgaGreen_2> 
+
+Optimizing unit <charGen_top> ...
+
+Optimizing unit <vga_timing> ...
+
+Optimizing unit <charGen> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block charGen_top, actual ratio is 1.
+
+Final Macro Processing ...
+
+Processing Unit <charGen_top> :
+	Found 2-bit shift register for signal <char/pixel_x_dd_2>.
+	Found 2-bit shift register for signal <char/pixel_x_dd_1>.
+	Found 2-bit shift register for signal <char/pixel_x_dd_0>.
+Unit <charGen_top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 81
+ Flip-Flops                                            : 81
+# Shift Registers                                      : 3
+ 2-bit shift register                                  : 3
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : charGen_top.ngr
+Top Level Output File Name         : charGen_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 35
+
+Cell Usage :
+# BELS                             : 289
+#      GND                         : 1
+#      INV                         : 8
+#      LUT1                        : 54
+#      LUT2                        : 49
+#      LUT2_D                      : 1
+#      LUT3                        : 11
+#      LUT3_L                      : 1
+#      LUT4                        : 38
+#      LUT4_D                      : 3
+#      LUT4_L                      : 2
+#      MUXCY                       : 60
+#      MUXF5                       : 2
+#      VCC                         : 1
+#      XORCY                       : 58
+# FlipFlops/Latches                : 84
+#      FD                          : 22
+#      FDC                         : 26
+#      FDCE                        : 33
+#      FDE                         : 3
+# RAMS                             : 3
+#      RAMB16_S4_S4                : 2
+#      RAMB16_S9                   : 1
+# Shift Registers                  : 3
+#      SRL16                       : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 34
+#      IBUF                        : 10
+#      OBUF                        : 24
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       90  out of   4656     1%  
+ Number of Slice Flip Flops:             84  out of   9312     0%  
+ Number of 4 input LUTs:                170  out of   9312     1%  
+    Number used as logic:               167
+    Number used as Shift registers:       3
+ Number of IOs:                          35
+ Number of bonded IOBs:                  35  out of    232    15%  
+ Number of BRAMs:                         3  out of     20    15%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 90    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 59    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.284ns (Maximum Frequency: 159.134MHz)
+   Minimum input arrival time before clock: 4.279ns
+   Maximum output required time after clock: 7.687ns
+   Maximum combinational path delay: 7.727ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.284ns (frequency: 159.134MHz)
+  Total number of paths / destination ports: 1915 / 180
+-------------------------------------------------------------------------
+Delay:               6.284ns (Levels of Logic = 4)
+  Source:            vga_control/r_reg_HPC_1 (FF)
+  Destination:       vga_control/r_reg_VPC_9 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: vga_control/r_reg_HPC_1 to vga_control/r_reg_VPC_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.591   0.706  vga_control/r_reg_HPC_1 (vga_control/r_reg_HPC_1)
+     LUT4_L:I0->LO         1   0.704   0.104  vga_control/last_column_cmp_eq00001_SW0 (N23)
+     LUT4:I3->O            2   0.704   0.451  vga_control/last_column_cmp_eq00001 (vga_control/N01)
+     LUT4_D:I3->LO         1   0.704   0.179  vga_control/r_next_HPC_cmp_eq00001 (N35)
+     LUT2:I1->O           10   0.704   0.882  vga_control/r_reg_VPC_and00011 (vga_control/r_reg_VPC_and0001)
+     FDCE:CE                   0.555          vga_control/r_reg_VPC_0
+    ----------------------------------------
+    Total                      6.284ns (3.962ns logic, 2.322ns route)
+                                       (63.0% logic, 37.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 24 / 24
+-------------------------------------------------------------------------
+Offset:              4.279ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       vgaBlue_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to vgaBlue_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            60   1.218   1.271  rst_IBUF (rst_IBUF)
+     INV:I->O              3   0.704   0.531  rst_inv1_INV_0 (rst_inv)
+     FDE:CE                    0.555          vgaBlue_0
+    ----------------------------------------
+    Total                      4.279ns (2.477ns logic, 1.802ns route)
+                                       (57.9% logic, 42.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 90 / 21
+-------------------------------------------------------------------------
+Offset:              7.687ns (Levels of Logic = 4)
+  Source:            vga_control/r_reg_HPC_1 (FF)
+  Destination:       last_column (PAD)
+  Source Clock:      clk rising
+
+  Data Path: vga_control/r_reg_HPC_1 to last_column
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.591   0.706  vga_control/r_reg_HPC_1 (vga_control/r_reg_HPC_1)
+     LUT4_L:I0->LO         1   0.704   0.104  vga_control/last_column_cmp_eq00001_SW0 (N23)
+     LUT4:I3->O            2   0.704   0.482  vga_control/last_column_cmp_eq00001 (vga_control/N01)
+     LUT4:I2->O            1   0.704   0.420  vga_control/last_column_cmp_eq00002 (last_column_OBUF)
+     OBUF:I->O                 3.272          last_column_OBUF (last_column)
+    ----------------------------------------
+    Total                      7.687ns (5.975ns logic, 1.712ns route)
+                                       (77.7% logic, 22.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 56 / 7
+-------------------------------------------------------------------------
+Delay:               7.727ns (Levels of Logic = 4)
+  Source:            sw<1> (PAD)
+  Destination:       seg<6> (PAD)
+
+  Data Path: sw<1> to seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.218   0.526  sw_1_IBUF (sw_1_IBUF)
+     LUT4:I1->O            7   0.704   0.883  seg_ctl/Mmux_decoder_in41 (seg_ctl/decoder_in<1>)
+     LUT4:I0->O            1   0.704   0.420  seg_ctl/Mrom_seg21 (seg_2_OBUF)
+     OBUF:I->O                 3.272          seg_2_OBUF (seg<2>)
+    ----------------------------------------
+    Total                      7.727ns (5.898ns logic, 1.829ns route)
+                                       (76.3% logic, 23.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 15.08 secs
+ 
+--> 
+
+Total memory usage is 248120 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

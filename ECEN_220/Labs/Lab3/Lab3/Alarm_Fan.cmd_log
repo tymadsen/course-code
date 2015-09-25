@@ -1,0 +1,17 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Alarm_Fan.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Alarm_Fan.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Alarm_Fan.ucf" -p xc3s500e-fg320-4 "Alarm_Fan.ngc" Alarm_Fan.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Alarm_Fan_map.ncd Alarm_Fan.ngd Alarm_Fan.pcf 
+par -w -intstyle ise -ol high -t 1 Alarm_Fan_map.ncd Alarm_Fan.ncd Alarm_Fan.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Alarm_Fan.twx Alarm_Fan.ncd -o Alarm_Fan.twr Alarm_Fan.pcf 
+bitgen -intstyle ise -f Alarm_Fan.ut Alarm_Fan.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Alarm_Fan.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Alarm_Fan.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Alarm_Fan.ucf" -p xc3s500e-fg320-4 "Alarm_Fan.ngc" Alarm_Fan.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Alarm_Fan_map.ncd Alarm_Fan.ngd Alarm_Fan.pcf 
+par -w -intstyle ise -ol high -t 1 Alarm_Fan_map.ncd Alarm_Fan.ncd Alarm_Fan.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Alarm_Fan.twx Alarm_Fan.ncd -o Alarm_Fan.twr Alarm_Fan.pcf 
+bitgen -intstyle ise -f Alarm_Fan.ut Alarm_Fan.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Alarm_Fan.ucf" -p xc3s500e-fg320-4 "Alarm_Fan.ngc" Alarm_Fan.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Alarm_Fan_map.ncd Alarm_Fan.ngd Alarm_Fan.pcf 
+par -w -intstyle ise -ol high -t 1 Alarm_Fan_map.ncd Alarm_Fan.ncd Alarm_Fan.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Alarm_Fan.twx Alarm_Fan.ncd -o Alarm_Fan.twr Alarm_Fan.pcf 
+bitgen -intstyle ise -f Alarm_Fan.ut Alarm_Fan.ncd 

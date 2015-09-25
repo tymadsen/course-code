@@ -1,0 +1,49 @@
+                      | #
+                      | # Include your name and ID here.
+                      | #
+                      | # 	Ty Madsen 
+                      | #	BYU_ID: 220943606
+                      | #
+                      | # -To avoid potential problems with yas,
+                      | # leave some comments before .pos0
+                      | #
+                      | # Initial code
+  0x000:              | .pos 0
+  0x000: 308400020000 | 	irmovl Stack,%esp		#set stack
+  0x006: 2045         | 	rrmovl %esp,%ebp		#set base pointer
+  0x008: 308218000000 | 	irmovl ele1,%edx		#move first element of linked list into edx
+  0x00e: a028         | 	pushl %edx				#push linked list onto stack
+  0x010: 8030000000   | 	call sum_list			#call sum stack function
+  0x015: 10           | 	halt					#end
+                      | # Sample linked list
+  0x018:              | .align 4
+  0x018:              | ele1:
+  0x018: 0a000000     | 	.long 0x00a
+  0x01c: 20000000     | 	.long ele2
+  0x020:              | ele2:
+  0x020: b0000000     | 	.long 0x0b0
+  0x024: 28000000     | 	.long ele3
+  0x028:              | ele3:
+  0x028: 000c0000     | 	.long 0xc00
+  0x02c: 00000000     | 	.long 0
+                      | 
+  0x030:              | sum_list:
+  0x030: a058         | 	pushl	%ebp			#push base pointer onto stack
+  0x032: 6300         | 	xorl	%eax,%eax		#clear eax
+  0x034: 2045         | 	rrmovl	%esp,%ebp		#set basepointer to stack pointer
+                      | 	#mrmovl	8(%ebp),%edx	#put address of ele1 into edx
+  0x036: 6222         | 	andl	%edx,%edx		#set condition codes
+  0x038: 7352000000   | 	je 		End 			#end loop if equal
+  0x03d:              | Loop:
+  0x03d: 506200000000 | 	mrmovl	(%edx), %esi
+  0x043: 6060         | 	addl	%esi, %eax
+  0x045: 502204000000 | 	mrmovl	4(%edx), %edx
+  0x04b: 6222         | 	andl	%edx, %edx
+  0x04d: 743d000000   | 	jne	Loop
+  0x052:              | End:
+  0x052: b058         | 	popl	%ebp
+  0x054: 90           | 	ret
+                      | 
+  0x200:              | .pos 0x200
+  0x200:              | Stack:
+                      | #Make sure to have newline after last line of code

@@ -1,0 +1,19 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -o J:/Courses/ECEN_320/HW/hw1/thousand_counter_isim_beh.exe -prj J:/Courses/ECEN_320/HW/hw1/thousand_counter_beh.prj work.thousand_counter 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 24
+Turning on mult-threading, number of parallel sub-compilation jobs: 48 
+Determining compilation order of HDL files
+Parsing VHDL file "J:/Courses/ECEN_320/HW/hw1/13.1_dec.vhd" into library work
+Parsing VHDL file "J:/Courses/ECEN_320/HW/hw1/13.1.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 144108 KB
+Fuse CPU Usage: 639 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling architecture up_arch of entity dec_counter [dec_counter_default]
+Compiling architecture arch of entity thousand_counter
+Time Resolution for simulation is 1ps.
+ERROR:Simulator:754 - Signal EXCEPTION_ACCESS_VIOLATION received
+ERROR:Simulator:754 - Signal EXCEPTION_ACCESS_VIOLATION received

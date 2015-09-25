@@ -1,0 +1,7 @@
+<!DOCTYPE Materials>
+<Materials>
+    <Conductors/>
+    <Dielectrics/>
+    <Semiconductors/>
+    <roughness/>
+</Materials>

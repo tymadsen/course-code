@@ -1,0 +1,41 @@
+ISim log file
+Running: J:\Courses\ECEN 220\Labs\Lab2\Car_Alarm_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm_isim_beh.wdb 
+ISim P.68d (signature 0x8ef4fb42)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# isim force add Door 0
+# isim force add Key 0
+# isim force add Seat 0
+# run 10ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# isim force add Door 0
+# isim force add Key 0
+# isim force add Seat 1
+# run 10ns
+# isim force add Door 0
+# isim force add Key 1
+# isim force add Seat 0
+# run 10ns
+# isim force add Door 0
+# isim force add Key 1
+# isim force add Seat 1
+# run 10ns
+# isim force add Door 1
+# isim force add Key 0
+# isim force add Seat 0
+# run 10ns
+# isim force add Door 1
+# isim force add Key 0
+# isim force add Seat 1
+# run 10ns
+# isim force add Door 1
+# isim force add Key 1
+# isim force add Seat 0
+# run 10ns
+# isim force add Door 1
+# isim force add Key 1
+# isim force add Seat 1
+# run 10ns

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN_320/HW/HW13/dcm/dcm.xst" -ofn "J:/Courses/ECEN_320/HW/HW13/dcm/dcm.syr" 

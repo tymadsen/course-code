@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.6
+//  \   \         Application : sch2hdl
+//  /   /         Filename : Alarm_Fan.vf
+// /___/   /\     Timestamp : 09/18/2013 16:18:25
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog "C:/Users/tmadsen2/Documents/ECEN 220/Labs/Lab2/Alarm_Fan.vf" -w "C:/Users/tmadsen2/Documents/ECEN 220/Labs/Lab2/Alarm_Fan.sch"
+//Design Name: Alarm_Fan
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Alarm_Fan(CORD, 
+                 HIGH_TEMP, 
+                 LOW_BATT, 
+                 ALARM, 
+                 FAN);
+
+    input CORD;
+    input HIGH_TEMP;
+    input LOW_BATT;
+   output ALARM;
+   output FAN;
+   
+   wire XLXN_1;
+   wire XLXN_2;
+   wire XLXN_4;
+   wire XLXN_5;
+   
+   AND2  XLXI_1 (.I0(HIGH_TEMP), 
+                .I1(CORD), 
+                .O(XLXN_4));
+   AND2  XLXI_2 (.I0(HIGH_TEMP), 
+                .I1(XLXN_1), 
+                .O(XLXN_5));
+   INV  XLXI_3 (.I(LOW_BATT), 
+               .O(XLXN_1));
+   OR2  XLXI_4 (.I0(XLXN_5), 
+               .I1(XLXN_4), 
+               .O(FAN));
+   AND2  XLXI_5 (.I0(LOW_BATT), 
+                .I1(XLXN_2), 
+                .O(ALARM));
+   INV  XLXI_6 (.I(CORD), 
+               .O(XLXN_2));
+endmodule

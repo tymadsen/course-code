@@ -1,0 +1,41 @@
+   0x08048da9 <+0>:	push   %ebp
+   0x08048daa <+1>:	mov    %esp,%ebp
+   0x08048dac <+3>:	sub    $0x28,%esp
+   0x08048daf <+6>:	lea    -0xc(%ebp),%eax
+   0x08048db2 <+9>:	mov    %eax,0x8(%esp)
+   0x08048db6 <+13>:	movl   $0x8049c04,0x4(%esp)
+   0x08048dbe <+21>:	mov    0x8(%ebp),%eax
+   0x08048dc1 <+24>:	mov    %eax,(%esp)
+   0x08048dc4 <+27>:	call   0x80487dc <__isoc99_sscanf@plt>
+   0x08048dc9 <+32>:	cmp    $0x1,%eax
+   0x08048dcc <+35>:	jne    0x8048dd4 <phase_4+43>
+   0x08048dce <+37>:	cmpl   $0x0,-0xc(%ebp)
+   0x08048dd2 <+41>:	jg     0x8048dd9 <phase_4+48>
+   0x08048dd4 <+43>:	call   0x80492fb <explode_bomb>
+   0x08048dd9 <+48>:	mov    -0xc(%ebp),%eax
+   0x08048ddc <+51>:	mov    %eax,(%esp)
+   0x08048ddf <+54>:	call   0x8048bb0 <func4>
+   0x08048de4 <+59>:	cmp    $0x2d0,%eax
+   0x08048de9 <+64>:	je     0x8048df0 <phase_4+71>
+   0x08048deb <+66>:	call   0x80492fb <explode_bomb>
+   0x08048df0 <+71>:	leave  
+   0x08048df1 <+72>:	ret  
+
+func4:
+
+   0x08048bb0 <+0>:	push   %ebp
+   0x08048bb1 <+1>:	mov    %esp,%ebp
+   0x08048bb3 <+3>:	push   %ebx
+   0x08048bb4 <+4>:	sub    $0x14,%esp
+   0x08048bb7 <+7>:	mov    0x8(%ebp),%ebx
+   0x08048bba <+10>:	mov    $0x1,%eax
+   0x08048bbf <+15>:	cmp    $0x1,%ebx
+   0x08048bc2 <+18>:	jle    0x8048bd2 <func4+34>
+   0x08048bc4 <+20>:	lea    -0x1(%ebx),%eax
+   0x08048bc7 <+23>:	mov    %eax,(%esp)
+   0x08048bca <+26>:	call   0x8048bb0 <func4>
+   0x08048bcf <+31>:	imul   %ebx,%eax
+   0x08048bd2 <+34>:	add    $0x14,%esp
+   0x08048bd5 <+37>:	pop    %ebx
+   0x08048bd6 <+38>:	pop    %ebp
+   0x08048bd7 <+39>:	ret    

@@ -1,0 +1,58 @@
+/*.L3:
+	movl (%ebx), %eax  		//(t=(eax)) = A[i][j]
+	movl (%esi,%ecx,4), %edx	//(edx)=A[i][j] = A[j][i]
+	movl %eax, (%esi,%ecx,4)	//A[j][i] = (t=(eax)=(A[i][j]))
+	addl $1, %ecx			//j++
+	movl %edx, (%ebx)		//*ebx = edx=(A[j][i])
+	addl $52, %ebx			// ebx+=52 ==> M = 13 (52/4)
+	cmpl %edi, %ecx			//compare edi(i) to ecx(j)
+	jl .L3				//repeat if j < i
+*/
+
+#include <stdio.h>
+#define M 4
+typedef int Marray_t[M][M];
+
+void print_matrix(Marray_t A) {
+	int i,j;
+	for (i = 0; i < M; i++) {
+		for (j = 0; j < M; j++) {
+			printf("%8d   ", A[i][j]);
+		}
+		printf("\n");
+	}	
+}
+
+void transpose(Marray_t A) {
+	int i, j;
+	for(i = 0; i < M; i++) {
+		for (j = 0; j < i; j++) {
+			int t = A[i][j];
+			A[i][j] = A[j][i];
+			A[j][i] = t;
+		}	
+	}
+}
+
+void transpose_optimized(Marray_t A) {
+	// fill your code in here
+	int i, j;
+	for(i = 0; i < M; i++) {
+		for (j = 0; j < i; j++) {
+			int t = *(A+(j*M + i)*4);
+			*(A+(j*M + i)*4) = *(A+(i*M + j)*4);
+			*(A+(i*M + j)*4) = t;
+		}	
+	}
+}
+
+int main() {
+	int i, j;
+	Marray_t A = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
+	print_matrix(A);
+	printf("\n");
+	transpose(A);
+	transpose_optimized(A);
+	print_matrix(A);
+}
+

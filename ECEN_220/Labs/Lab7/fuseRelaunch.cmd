@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "J:/Courses/ECEN 220/Labs/Lab7/Register4Word_isim_beh.exe" -prj "J:/Courses/ECEN 220/Labs/Lab7/Register4Word_beh.prj" "work.Register4Word" "work.glbl" 

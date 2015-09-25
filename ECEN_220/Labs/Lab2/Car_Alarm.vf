@@ -1,0 +1,41 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.6
+//  \   \         Application : sch2hdl
+//  /   /         Filename : Car_Alarm.vf
+// /___/   /\     Timestamp : 09/20/2013 14:03:41
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3e -verilog "J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm.vf" -w "J:/Courses/ECEN 220/Labs/Lab2/Car_Alarm.sch"
+//Design Name: Car_Alarm
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module Car_Alarm(Door, 
+                 Key, 
+                 Seat, 
+                 Alarm);
+
+    input Door;
+    input Key;
+    input Seat;
+   output Alarm;
+   
+   wire XLXN_1;
+   
+   AND2  XLXI_1 (.I0(XLXN_1), 
+                .I1(Key), 
+                .O(Alarm));
+   OR2B2  XLXI_2 (.I0(Seat), 
+                 .I1(Door), 
+                 .O(XLXN_1));
+endmodule

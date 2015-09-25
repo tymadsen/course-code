@@ -1,0 +1,14 @@
+ISim log file
+Running: J:\Courses\ECEN 220\Labs\Lab9\CounterBlock_isim_beh.exe -intstyle ise -gui -tclbatch J:/Courses/ECEN 220/Labs/Lab9/CounterBlock.tcl -wdb J:/Courses/ECEN 220/Labs/Lab9/CounterBlock_isim_beh.wdb 
+ISim P.68d (signature 0x8ef4fb42)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# wave add / -radix hex
+# isim force add CLK 0 -time 0 -value 1 -time 10ns -repeat 20ns
+# isim force add Reset 1
+# run 23 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# isim force add INC 0 -time 0 -value 1 -time 10ns
+# isim force add Reset 0
+# run 130000ns

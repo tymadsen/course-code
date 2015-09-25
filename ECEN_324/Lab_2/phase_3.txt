@@ -1,0 +1,50 @@
+   0x08048df2 <+0>:	   push   %ebp
+   0x08048df3 <+1>:	   mov    %esp,%ebp
+   0x08048df5 <+3>:	   sub    $0x28,%esp
+   0x08048df8 <+6>:	   lea    -0x10(%ebp),%eax
+   0x08048dfb <+9>:	   mov    %eax,0xc(%esp)
+   0x08048dff <+13>:	   lea    -0xc(%ebp),%eax
+   0x08048e02 <+16>:	   mov    %eax,0x8(%esp)
+   0x08048e06 <+20>:	   movl   $0x8049c01,0x4(%esp)
+   0x08048e0e <+28>:	   mov    0x8(%ebp),%eax
+   0x08048e11 <+31>:	   mov    %eax,(%esp)
+   0x08048e14 <+34>:	   call   0x80487dc <__isoc99_sscanf@plt>
+   0x08048e19 <+39>:	   cmp    $0x1,%eax
+   0x08048e1c <+42>:	   jg     0x8048e23 <phase_3+49>             //input string must contain 2 digits
+   0x08048e1e <+44>:	   call   0x80492fb <explode_bomb>
+   0x08048e23 <+49>:	   cmpl   $0x7,-0xc(%ebp)                    
+   0x08048e27 <+53>:	   ja     0x8048e8a <phase_3+152>            //0xc(%ebp) (first digit?) must be < 7
+   0x08048e29 <+55>:	   mov    -0xc(%ebp),%eax
+   0x08048e2c <+58>:	   jmp    *0x8049a20(,%eax,4)                //jumps dependent upon 0xc(%ebp) x:
+   0x08048e33 <+65>:	   mov    $0x0,%eax                          //x = 7
+   0x08048e38 <+70>:	   jmp    0x8048e83 <phase_3+145>
+   0x08048e3a <+72>:	   mov    $0x0,%eax                          //x = 6
+   0x08048e3f <+77>:	   jmp    0x8048e80 <phase_3+142>
+   0x08048e41 <+79>:	   mov    $0x0,%eax                          //x = 5
+   0x08048e46 <+84>:	   jmp    0x8048e7d <phase_3+139>
+   0x08048e48 <+86>:	   mov    $0x0,%eax                          //x = 4
+   0x08048e4d <+91>:	   jmp    0x8048e78 <phase_3+134>
+   0x08048e4f <+93>:	   mov    $0x0,%eax                          //x = 3
+   0x08048e54 <+98>:	   jmp    0x8048e73 <phase_3+129>
+   0x08048e56 <+100>:	mov    $0x0,%eax                          //x = 2
+   0x08048e5b <+105>:	jmp    0x8048e6e <phase_3+124>
+   0x08048e5d <+107>:	mov    $0x3b0,%eax                        //x = 0
+   0x08048e62 <+112>:	jmp    0x8048e69 <phase_3+119>
+   0x08048e64 <+114>:	mov    $0x0,%eax                          //x = 1
+   0x08048e69 <+119>:	sub    $0xba,%eax
+   0x08048e6e <+124>:	add    $0x1f7,%eax
+   0x08048e73 <+129>:	sub    $0x96,%eax
+   0x08048e78 <+134>:	add    $0x23f,%eax
+   0x08048e7d <+139>:	sub    $0x72,%eax
+   0x08048e80 <+142>:	add    $0x72,%eax
+   0x08048e83 <+145>:	sub    $0x399,%eax                       //%eax = 7 if 0xba is excluded (x = 2)
+   0x08048e88 <+150>:	jmp    0x8048e94 <phase_3+162>
+   0x08048e8a <+152>:	call   0x80492fb <explode_bomb>
+   0x08048e8f <+157>:	mov    $0x0,%eax
+   0x08048e94 <+162>:	cmpl   $0x5,-0xc(%ebp)                   //0xc(%ebp) <= 5
+   0x08048e98 <+166>:	jg     0x8048e9f <phase_3+173>
+   0x08048e9a <+168>:	cmp    -0x10(%ebp),%eax                  //y must be equal to eax (7)
+   0x08048e9d <+171>:	je     0x8048ea4 <phase_3+178>
+   0x08048e9f <+173>:	call   0x80492fb <explode_bomb>
+   0x08048ea4 <+178>:	leave  
+   0x08048ea5 <+179>:	ret   

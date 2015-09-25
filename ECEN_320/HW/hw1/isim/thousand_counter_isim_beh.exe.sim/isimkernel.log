@@ -1,0 +1,28 @@
+Command line:
+   thousand_counter_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  59628
+
+Tue Jan 27 15:35:03 2015
+
+
+ Elaboration Time: 0.140401 sec
+
+ Current Memory Usage: 848.695 Meg
+
+ Total Signals          : 31
+ Total Nets             : 43
+ Total Signal Drivers   : 13
+ Total Blocks           : 6
+ Total Primitive Blocks : 5
+ Total Processes        : 13
+ Total Traceable Variables  : 16
+ Total Scalar Nets and Variables : 529
+
+ Total Simulation Time: 0.171601 sec
+
+ Current Memory Usage: 691.802 Meg
+
+Tue Jan 27 15:52:41 2015
+

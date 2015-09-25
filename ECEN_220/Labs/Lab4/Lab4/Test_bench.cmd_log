@@ -1,0 +1,8 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab4/Lab4/Test_bench.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab4/Lab4/Test_bench.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SEVEN_SEG_DECODER.UCF -p xc3s500e-fg320-5 "Test_bench.ngc" Test_bench.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SEVEN_SEG_DECODER.UCF -p xc3s500e-fg320-5 "Test_bench.ngc" Test_bench.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SEVEN_SEG_DECODER.ucf -p xc3s500e-fg320-5 "Test_bench.ngc" Test_bench.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o Test_bench_map.ncd Test_bench.ngd Test_bench.pcf 
+par -w -intstyle ise -ol high -t 1 Test_bench_map.ncd Test_bench.ncd Test_bench.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml Test_bench.twx Test_bench.ncd -o Test_bench.twr Test_bench.pcf -ucf SEVEN_SEG_DECODER.ucf 
+bitgen -intstyle ise -f Test_bench.ut Test_bench.ncd 

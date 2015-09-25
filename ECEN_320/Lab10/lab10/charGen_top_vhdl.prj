@@ -1,0 +1,6 @@
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\font_rom.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\char_mem.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\vga_timing.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\seven_segment_control.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\charGen.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab10\lab10\charGen_top.vhd"

@@ -1,0 +1,37 @@
+Release 14.6 ngdbuild P.68d (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\ngdbuild.exe -intstyle
+ise -dd _ngo -nt timestamp -uc J:/Courses/ECEN 220/Labs/Lab3/Prob_2.ucf -p
+xc3s500e-fg320-4 Prob_2.ngc Prob_2.ngd
+
+Reading NGO file "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Prob_2.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "J:/Courses/ECEN
+220/Labs/Lab3/Prob_2.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 148716 kilobytes
+
+Writing NGD file "Prob_2.ngd" ...
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   4 sec
+
+Writing NGDBUILD log file "Prob_2.bld"...

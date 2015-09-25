@@ -1,0 +1,2 @@
+vhdl isim_temp "sram15ns.vhd"
+vhdl isim_temp "sram50ns.vhd"

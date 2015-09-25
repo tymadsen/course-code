@@ -1,0 +1,12 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Car_Alarm.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Car_Alarm.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Car_Alarm.ucf" -p xc3s500e-fg320-4 "Car_Alarm.ngc" Car_Alarm.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Car_Alarm_map.ncd Car_Alarm.ngd Car_Alarm.pcf 
+par -w -intstyle ise -ol high -t 1 Car_Alarm_map.ncd Car_Alarm.ncd Car_Alarm.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Car_Alarm.twx Car_Alarm.ncd -o Car_Alarm.twr Car_Alarm.pcf 
+bitgen -intstyle ise -f Car_Alarm.ut Car_Alarm.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Car_Alarm.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab3/Lab3/Car_Alarm.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc "J:/Courses/ECEN 220/Labs/Lab3/Car_Alarm.ucf" -p xc3s500e-fg320-4 "Car_Alarm.ngc" Car_Alarm.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o Car_Alarm_map.ncd Car_Alarm.ngd Car_Alarm.pcf 
+par -w -intstyle ise -ol high -t 1 Car_Alarm_map.ncd Car_Alarm.ncd Car_Alarm.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml Car_Alarm.twx Car_Alarm.ncd -o Car_Alarm.twr Car_Alarm.pcf 
+bitgen -intstyle ise -f Car_Alarm.ut Car_Alarm.ncd 

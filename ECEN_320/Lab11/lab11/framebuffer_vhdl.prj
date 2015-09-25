@@ -1,0 +1,3 @@
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab11\lab11\vga_timing.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab11\lab11\sramController.vhd"
+vhdl work "\\fs-caedm\tmadsen2\Courses\ECEN_320\Lab11\lab11\framebuffer.vhd"

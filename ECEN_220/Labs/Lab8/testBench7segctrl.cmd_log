@@ -1,0 +1,67 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.syr" 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 "testBench7segctrl.ngc" testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 "testBench7segctrl.ngc" testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 "testBench7segctrl.ngc" testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.xst" -ofn "J:/Courses/ECEN_220/Labs/Lab8/testBench7segctrl.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc SegController47testbench.ucf -p xc3s500e-fg320-5 testBench7segctrl.ngc testBench7segctrl.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o testBench7segctrl_map.ncd testBench7segctrl.ngd testBench7segctrl.pcf 
+par -w -intstyle ise -ol high -t 1 testBench7segctrl_map.ncd testBench7segctrl.ncd testBench7segctrl.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml testBench7segctrl.twx testBench7segctrl.ncd -o testBench7segctrl.twr testBench7segctrl.pcf -ucf SegController47testbench.ucf 
+bitgen -intstyle ise -f testBench7segctrl.ut testBench7segctrl.ncd 

@@ -1,0 +1,154 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 4 -n
+3 -fastpaths -xml seven_seg_decode.twx seven_seg_decode.ncd -o
+seven_seg_decode.twr seven_seg_decode.pcf -ucf seven_seg_decode.ucf
+
+Design file:              seven_seg_decode.ncd
+Physical constraint file: seven_seg_decode.pcf
+Device,package,speed:     xc3s500e,fg320,-4 (PRODUCTION 1.27 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+btn<0>         |an<0>          |    6.830|
+btn<0>         |an<1>          |    7.135|
+btn<0>         |an<2>          |    7.735|
+btn<0>         |an<3>          |    6.851|
+btn<0>         |seg<0>         |   10.276|
+btn<0>         |seg<1>         |   10.950|
+btn<0>         |seg<2>         |   11.905|
+btn<0>         |seg<3>         |   12.127|
+btn<0>         |seg<4>         |   11.723|
+btn<0>         |seg<5>         |   11.242|
+btn<0>         |seg<6>         |   11.037|
+btn<1>         |an<0>          |    6.292|
+btn<1>         |an<1>          |    6.655|
+btn<1>         |an<2>          |    6.993|
+btn<1>         |an<3>          |    6.124|
+btn<1>         |seg<0>         |    9.955|
+btn<1>         |seg<1>         |   10.578|
+btn<1>         |seg<2>         |   11.149|
+btn<1>         |seg<3>         |   11.364|
+btn<1>         |seg<4>         |   11.274|
+btn<1>         |seg<5>         |   10.800|
+btn<1>         |seg<6>         |   10.117|
+btn<2>         |an<0>          |    6.133|
+btn<2>         |an<1>          |    6.469|
+btn<2>         |an<2>          |    6.970|
+btn<2>         |an<3>          |    6.063|
+btn<3>         |an<0>          |    6.104|
+btn<3>         |an<1>          |    6.402|
+btn<3>         |an<2>          |    7.427|
+btn<3>         |an<3>          |    6.585|
+btn<3>         |dp             |    5.840|
+btn<3>         |seg<0>         |   10.121|
+btn<3>         |seg<1>         |   10.802|
+btn<3>         |seg<2>         |   11.581|
+btn<3>         |seg<3>         |   11.796|
+btn<3>         |seg<4>         |   11.668|
+btn<3>         |seg<5>         |   11.187|
+btn<3>         |seg<6>         |   10.549|
+sw<0>          |seg<0>         |    8.927|
+sw<0>          |seg<1>         |    9.608|
+sw<0>          |seg<2>         |   10.387|
+sw<0>          |seg<3>         |   10.602|
+sw<0>          |seg<4>         |   10.474|
+sw<0>          |seg<5>         |    9.993|
+sw<0>          |seg<6>         |    9.355|
+sw<1>          |seg<0>         |    8.310|
+sw<1>          |seg<1>         |    8.998|
+sw<1>          |seg<2>         |    9.739|
+sw<1>          |seg<3>         |    9.961|
+sw<1>          |seg<4>         |    8.945|
+sw<1>          |seg<5>         |    8.502|
+sw<1>          |seg<6>         |    8.871|
+sw<2>          |seg<0>         |    8.416|
+sw<2>          |seg<1>         |    9.097|
+sw<2>          |seg<2>         |    9.876|
+sw<2>          |seg<3>         |   10.091|
+sw<2>          |seg<4>         |    9.963|
+sw<2>          |seg<5>         |    9.482|
+sw<2>          |seg<6>         |    8.844|
+sw<3>          |seg<0>         |    8.440|
+sw<3>          |seg<1>         |    9.128|
+sw<3>          |seg<2>         |    9.861|
+sw<3>          |seg<3>         |   10.083|
+sw<3>          |seg<4>         |    9.067|
+sw<3>          |seg<5>         |    8.624|
+sw<3>          |seg<6>         |    8.993|
+sw<4>          |seg<0>         |    8.863|
+sw<4>          |seg<1>         |    9.486|
+sw<4>          |seg<2>         |    9.480|
+sw<4>          |seg<3>         |    9.733|
+sw<4>          |seg<4>         |   10.182|
+sw<4>          |seg<5>         |    9.708|
+sw<4>          |seg<6>         |    8.655|
+sw<5>          |seg<0>         |    8.460|
+sw<5>          |seg<1>         |    9.110|
+sw<5>          |seg<2>         |   10.155|
+sw<5>          |seg<3>         |   10.377|
+sw<5>          |seg<4>         |    9.361|
+sw<5>          |seg<5>         |    8.918|
+sw<5>          |seg<6>         |    9.287|
+sw<6>          |seg<0>         |    9.183|
+sw<6>          |seg<1>         |    9.864|
+sw<6>          |seg<2>         |   10.643|
+sw<6>          |seg<3>         |   10.858|
+sw<6>          |seg<4>         |   10.730|
+sw<6>          |seg<5>         |   10.249|
+sw<6>          |seg<6>         |    9.611|
+sw<7>          |seg<0>         |    9.429|
+sw<7>          |seg<1>         |   10.117|
+sw<7>          |seg<2>         |    9.967|
+sw<7>          |seg<3>         |   10.247|
+sw<7>          |seg<4>         |    9.859|
+sw<7>          |seg<5>         |    9.443|
+sw<7>          |seg<6>         |    8.990|
+---------------+---------------+---------+
+
+
+Analysis completed Thu Jan 22 17:11:12 2015 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 159 MB
+
+
+

@@ -1,0 +1,671 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.57 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.59 secs
+ 
+--> Reading design: sramController_top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "sramController_top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "sramController_top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : sramController_top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController.vhd" in Library work.
+Architecture behavioral of Entity sramcontroller is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/seven_segment_control.vhd" in Library work.
+Architecture behavioral of Entity seven_segment_control is up to date.
+Compiling vhdl file "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController_top.vhd" in Library work.
+Entity <sramcontroller_top> compiled.
+Entity <sramcontroller_top> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <sramController_top> in library <work> (architecture <behavioral>) with generics.
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+
+Analyzing hierarchy for entity <sramController> in library <work> (architecture <Behavioral>) with generics.
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+
+Analyzing hierarchy for entity <seven_segment_control> in library <work> (architecture <Behavioral>) with generics.
+	COUNTER_BITS = 15
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <sramController_top> in library <work> (Architecture <behavioral>).
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+WARNING:Xst:2211 - "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController_top.vhd" line 111: Instantiating black box module <chipscope_icon>.
+WARNING:Xst:2211 - "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController_top.vhd" line 114: Instantiating black box module <chipscope_ila>.
+Entity <sramController_top> analyzed. Unit <sramController_top> generated.
+
+Analyzing generic Entity <sramController> in library <work> (Architecture <Behavioral>).
+	CLK_RATE = 50000000
+	POWER_DELAY = 150
+Entity <sramController> analyzed. Unit <sramController> generated.
+
+Analyzing generic Entity <seven_segment_control> in library <work> (Architecture <Behavioral>).
+	COUNTER_BITS = 15
+Entity <seven_segment_control> analyzed. Unit <seven_segment_control> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <sramController>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController.vhd".
+    Found finite state machine <FSM_0> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 13                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | power_up                                       |
+    | Power Up State     | power_up                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <data_valid>.
+    Found 16-bit tristate buffer for signal <MemDB>.
+    Found 1-bit register for signal <MemOE>.
+    Found 1-bit register for signal <MemWR>.
+    Found 13-bit up counter for signal <counter>.
+    Found 23-bit register for signal <Raddr>.
+    Found 16-bit register for signal <Rm2s>.
+    Found 16-bit register for signal <Rs2m>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  58 D-type flip-flop(s).
+	inferred  16 Tristate(s).
+Unit <sramController> synthesized.
+
+
+Synthesizing Unit <seven_segment_control>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/seven_segment_control.vhd".
+WARNING:Xst:646 - Signal <q<12:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 16x7-bit ROM for signal <seg>.
+    Found 1-of-4 decoder for signal <an_temp>.
+    Found 4-bit 4-to-1 multiplexer for signal <decoder_in>.
+    Found 15-bit up counter for signal <r_reg>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   1 Counter(s).
+	inferred   4 Multiplexer(s).
+	inferred   1 Decoder(s).
+Unit <seven_segment_control> synthesized.
+
+
+Synthesizing Unit <sramController_top>.
+    Related source file is "//fs-caedm/tmadsen2/Courses/ECEN_320/Lab 9/lab9/sramController_top.vhd".
+    Found 8-bit register for signal <AR>.
+    Found 19-bit adder for signal <count_next$addsub0000> created at line 144.
+    Found 19-bit register for signal <count_reg>.
+    Found 4-bit register for signal <debounced>.
+    Found 8-bit register for signal <IDR>.
+    Summary:
+	inferred  39 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <sramController_top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 1
+ 19-bit adder                                          : 1
+# Counters                                             : 2
+ 13-bit up counter                                     : 1
+ 15-bit up counter                                     : 1
+# Registers                                            : 10
+ 1-bit register                                        : 3
+ 16-bit register                                       : 2
+ 19-bit register                                       : 1
+ 23-bit register                                       : 1
+ 4-bit register                                        : 1
+ 8-bit register                                        : 2
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+# Tristates                                            : 1
+ 16-bit tristate buffer                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <control/state_reg/FSM> on signal <state_reg[1:10]> with one-hot encoding.
+------------------------
+ State    | Encoding
+------------------------
+ power_up | 0000000001
+ idle     | 0000000010
+ r1       | 0000000100
+ r2       | 0000010000
+ r3       | 0000100000
+ r4       | 0001000000
+ w1       | 0000001000
+ w2       | 0010000000
+ w3       | 0100000000
+ w4       | 1000000000
+------------------------
+Reading core <chipscope_icon.ngc>.
+Reading core <chipscope_ila.ngc>.
+Loading core <chipscope_icon> for timing and area information for instance <ICON_inst>.
+Loading core <chipscope_ila> for timing and area information for instance <ILA_inst>.
+WARNING:Xst:1293 - FF/Latch <Raddr_8> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_9> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_10> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_11> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_12> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_13> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_14> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_15> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_16> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_17> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_18> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_19> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_20> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_21> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <Raddr_22> has a constant value of 0 in block <control>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 1
+ 16x7-bit ROM                                          : 1
+# Adders/Subtractors                                   : 1
+ 19-bit adder                                          : 1
+# Counters                                             : 2
+ 13-bit up counter                                     : 1
+ 15-bit up counter                                     : 1
+# Registers                                            : 97
+ Flip-Flops                                            : 97
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Decoders                                             : 1
+ 1-of-4 decoder                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <Rm2s_2> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_10> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_3> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_11> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_4> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_12> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_5> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_13> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_6> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_14> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_7> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_15> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_0> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_8> 
+INFO:Xst:2261 - The FF/Latch <Rm2s_1> in Unit <sramController> is equivalent to the following FF/Latch, which will be removed : <Rm2s_9> 
+INFO:Xst:2261 - The FF/Latch <Raddr_8> in Unit <sramController> is equivalent to the following 14 FFs/Latches, which will be removed : <Raddr_9> <Raddr_10> <Raddr_11> <Raddr_12> <Raddr_13> <Raddr_14> <Raddr_15> <Raddr_16> <Raddr_17> <Raddr_18> <Raddr_19> <Raddr_20> <Raddr_21> <Raddr_22> 
+WARNING:Xst:1293 - FF/Latch <Raddr_8> has a constant value of 0 in block <sramController>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <sramController_top> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block sramController_top, actual ratio is 8.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 112
+ Flip-Flops                                            : 112
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : sramController_top.ngr
+Top Level Output File Name         : sramController_top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 74
+
+Cell Usage :
+# BELS                             : 604
+#      GND                         : 3
+#      INV                         : 12
+#      LUT1                        : 100
+#      LUT2                        : 56
+#      LUT2_L                      : 1
+#      LUT3                        : 46
+#      LUT3_L                      : 1
+#      LUT4                        : 111
+#      LUT4_L                      : 2
+#      MUXCY                       : 49
+#      MUXCY_L                     : 74
+#      MUXF5                       : 34
+#      MUXF6                       : 9
+#      VCC                         : 3
+#      XORCY                       : 103
+# FlipFlops/Latches                : 436
+#      FD                          : 47
+#      FDC                         : 30
+#      FDCE                        : 89
+#      FDE                         : 35
+#      FDP                         : 35
+#      FDPE                        : 67
+#      FDR                         : 46
+#      FDRE                        : 72
+#      FDRS                        : 4
+#      FDS                         : 10
+#      LDC                         : 1
+# RAMS                             : 5
+#      RAMB16_S1_S9                : 5
+# Shift Registers                  : 99
+#      SRL16                       : 32
+#      SRL16E                      : 1
+#      SRLC16E                     : 66
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 73
+#      IBUF                        : 12
+#      IOBUF                       : 16
+#      OBUF                        : 45
+# Others                           : 1
+#      BSCAN_SPARTAN3              : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                      380  out of   4656     8%  
+ Number of Slice Flip Flops:            436  out of   9312     4%  
+ Number of 4 input LUTs:                428  out of   9312     4%  
+    Number used as logic:               329
+    Number used as Shift registers:      99
+ Number of IOs:                          74
+ Number of bonded IOBs:                  74  out of    232    31%  
+ Number of BRAMs:                         5  out of     20    25%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+Clock Signal                                                                    | Clock buffer(FF name)                               | Load  |
+--------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1                                      | BUFG                                                | 154   |
+ICON_inst/U0/iUPDATE_OUT                                                        | NONE(ICON_inst/U0/U_ICON/U_iDATA_CMD)               | 1     |
+clk                                                                             | BUFGP                                               | 389   |
+ICON_inst/CONTROL0<13>(ICON_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)| NONE(*)(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC)| 1     |
+--------------------------------------------------------------------------------+-----------------------------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+-------+
+Control Signal                                                                                             | Buffer(FF name)                                                                                                      | Load  |
+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+-------+
+rst(rst_cmp_eq00001:O)                                                                                     | NONE(AR_0)                                                                                                           | 97    |
+ICON_inst/CONTROL0<20>(ICON_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[0].U_HCE:O)                           | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I_SRL16.U_GANDX_SRL16/F_TW[0].U_TREG)| 64    |
+ILA_inst/N0(ILA_inst/XST_GND:G)                                                                            | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_POR)                                                                           | 33    |
+ICON_inst/U0/U_ICON/U_CMD/iSEL_n(ICON_inst/U0/U_ICON/U_CMD/U_SEL_n:O)                                      | NONE(ICON_inst/U0/U_ICON/U_CMD/G_TARGET[10].I_NE0.U_TARGET)                                                          | 10    |
+ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/iCLR(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_CLEAR:O)        | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_DOUT0)                                                              | 4     |
+ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/iCLR(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_CLEAR:O)      | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_HALT_XFER/U_DOUT0)                                                             | 4     |
+ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/iCLR(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_CLEAR:O)              | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DSL1/U_DOUT0)                                                                 | 4     |
+ILA_inst/U0/I_NO_D.U_ILA/iARM(ILA_inst/U0/I_NO_D.U_ILA/U_RST/U_ARM_XFER/U_GEN_DELAY[3].U_FD:Q)             | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDCE)                                                                   | 2     |
+ICON_inst/CONTROL0<13>(ICON_inst/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE:O)                           | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_FDPE)                                                                   | 1     |
+ICON_inst/U0/U_ICON/iSEL_n(ICON_inst/U0/U_ICON/U_iSEL_n:O)                                                 | NONE(ICON_inst/U0/U_ICON/U_iDATA_CMD)                                                                                | 1     |
+ILA_inst/U0/I_NO_D.U_ILA/U_STAT/ACTRESET_pulse(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_RESET_EDGE/I_H2L.U_DOUT:Q)| NONE(ILA_inst/U0/I_NO_D.U_ILA/U_STAT/U_RISING)                                                                       | 1     |
+ILA_inst/U0/I_NO_D.U_ILA/iRESET<1>(ILA_inst/U0/I_NO_D.U_ILA/U_RST/G_RST[1].U_RST:Q)                        | NONE(ILA_inst/U0/I_NO_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_OREG.I_YES_OREG.U_OREG)                                | 1     |
+-----------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 9.302ns (Maximum Frequency: 107.501MHz)
+   Minimum input arrival time before clock: 8.201ns
+   Maximum output required time after clock: 8.053ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Clock period: 9.302ns (frequency: 107.501MHz)
+  Total number of paths / destination ports: 2623 / 363
+-------------------------------------------------------------------------
+Delay:               9.302ns (Levels of Logic = 5)
+  Source:            ICON_inst/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (FF)
+  Destination:       ILA_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE (FF)
+  Source Clock:      ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+  Destination Clock: ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: ICON_inst/U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET to ILA_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            19   0.591   1.260  U0/U_ICON/U_CMD/G_TARGET[12].I_NE0.U_TARGET (U0/U_ICON/iCORE_ID<0>)
+     LUT4:I0->O           32   0.704   1.297  U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[0].U_LUT (U0/U_ICON/iCORE_ID_SEL<0>)
+     LUT4:I2->O           15   0.704   1.021  U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_LCE (CONTROL0<14>)
+     end scope: 'ICON_inst'
+     begin scope: 'ILA_inst'
+     LUT4:I3->O            4   0.704   0.762  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.I3.U_LUT (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/lowAddr_rst)
+     LUT2:I0->O           14   0.704   1.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.U_highAddr_ce (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/highAddr_ce)
+     FDRE:CE                   0.555          U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+    ----------------------------------------
+    Total                      9.302ns (3.962ns logic, 5.340ns route)
+                                       (42.6% logic, 57.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'ICON_inst/U0/iUPDATE_OUT'
+  Clock period: 2.554ns (frequency: 391.543MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.554ns (Levels of Logic = 1)
+  Source:            ICON_inst/U0/U_ICON/U_iDATA_CMD (FF)
+  Destination:       ICON_inst/U0/U_ICON/U_iDATA_CMD (FF)
+  Source Clock:      ICON_inst/U0/iUPDATE_OUT rising
+  Destination Clock: ICON_inst/U0/iUPDATE_OUT rising
+
+  Data Path: ICON_inst/U0/U_ICON/U_iDATA_CMD to ICON_inst/U0/U_ICON/U_iDATA_CMD
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.591   0.531  U0/U_ICON/U_iDATA_CMD (U0/U_ICON/iDATA_CMD)
+     INV:I->O              1   0.704   0.420  U0/U_ICON/U_iDATA_CMD_n (U0/U_ICON/iDATA_CMD_n)
+     FDC:D                     0.308          U0/U_ICON/U_iDATA_CMD
+    ----------------------------------------
+    Total                      2.554ns (1.603ns logic, 0.951ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.640ns (frequency: 177.305MHz)
+  Total number of paths / destination ports: 1664 / 597
+-------------------------------------------------------------------------
+Delay:               5.640ns (Levels of Logic = 20)
+  Source:            count_reg_1 (FF)
+  Destination:       count_reg_18 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count_reg_1 to count_reg_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.591   0.622  count_reg_1 (count_reg_1)
+     LUT1:I0->O            1   0.704   0.000  Madd_count_next_addsub0000_cy<1>_rt (Madd_count_next_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.464   0.000  Madd_count_next_addsub0000_cy<1> (Madd_count_next_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<2> (Madd_count_next_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<3> (Madd_count_next_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<4> (Madd_count_next_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<5> (Madd_count_next_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<6> (Madd_count_next_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<7> (Madd_count_next_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<8> (Madd_count_next_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<9> (Madd_count_next_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<10> (Madd_count_next_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<11> (Madd_count_next_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<12> (Madd_count_next_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<13> (Madd_count_next_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<14> (Madd_count_next_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<15> (Madd_count_next_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.059   0.000  Madd_count_next_addsub0000_cy<16> (Madd_count_next_addsub0000_cy<16>)
+     MUXCY:CI->O           0   0.059   0.000  Madd_count_next_addsub0000_cy<17> (Madd_count_next_addsub0000_cy<17>)
+     XORCY:CI->O           1   0.804   0.499  Madd_count_next_addsub0000_xor<18> (count_next_addsub0000<18>)
+     LUT2:I1->O            1   0.704   0.000  count_next<18>1 (count_next<18>)
+     FDC:D                     0.308          count_reg_18
+    ----------------------------------------
+    Total                      5.640ns (4.519ns logic, 1.121ns route)
+                                       (80.1% logic, 19.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Total number of paths / destination ports: 199 / 175
+-------------------------------------------------------------------------
+Offset:              8.201ns (Levels of Logic = 5)
+  Source:            ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:SHIFT (PAD)
+  Destination:       ILA_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE (FF)
+  Destination Clock: ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:SHIFT to ILA_inst/U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    BSCAN_SPARTAN3:SHIFT    3   0.000   0.610  U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS (U0/iSHIFT_OUT)
+     LUT2:I1->O           32   0.704   1.437  U0/U_ICON/U_CTRL_OUT/U_DATA_VALID (U0/U_ICON/U_CTRL_OUT/iDATA_VALID)
+     LUT4:I0->O           15   0.704   1.021  U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_LCE (CONTROL0<14>)
+     end scope: 'ICON_inst'
+     begin scope: 'ILA_inst'
+     LUT4:I3->O            4   0.704   0.762  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.I3.U_LUT (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/lowAddr_rst)
+     LUT2:I0->O           14   0.704   1.000  U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/I_NI_GT_1.U_highAddr_ce (U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/highAddr_ce)
+     FDRE:CE                   0.555          U0/I_NO_D.U_ILA/U_CAPSTOR/I_CASE1.I_NO_TB.I_RT1.I_RDADDR/U_HC/G[13].U_FDRE
+    ----------------------------------------
+    Total                      8.201ns (3.371ns logic, 4.830ns route)
+                                       (41.1% logic, 58.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 36 / 36
+-------------------------------------------------------------------------
+Offset:              1.973ns (Levels of Logic = 1)
+  Source:            btn<0> (PAD)
+  Destination:       debounced_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: btn<0> to debounced_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.218   0.447  btn_0_IBUF (btn_0_IBUF)
+     FDCE:D                    0.308          debounced_0
+    ----------------------------------------
+    Total                      1.973ns (1.526ns logic, 0.447ns route)
+                                       (77.3% logic, 22.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 281 / 40
+-------------------------------------------------------------------------
+Offset:              8.053ns (Levels of Logic = 4)
+  Source:            seven_seg_ctl/r_reg_13 (FF)
+  Destination:       seg<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: seven_seg_ctl/r_reg_13 to seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              13   0.591   1.158  seven_seg_ctl/r_reg_13 (seven_seg_ctl/r_reg_13)
+     LUT3:I0->O            1   0.704   0.000  seven_seg_ctl/Mmux_decoder_in_31 (seven_seg_ctl/Mmux_decoder_in_31)
+     MUXF5:I1->O           7   0.321   0.883  seven_seg_ctl/Mmux_decoder_in_2_f5_0 (seven_seg_ctl/decoder_in<1>)
+     LUT4:I0->O            1   0.704   0.420  seven_seg_ctl/Mrom_seg21 (seg_2_OBUF)
+     OBUF:I->O                 3.272          seg_2_OBUF (seg<2>)
+    ----------------------------------------
+    Total                      8.053ns (5.592ns logic, 2.461ns route)
+                                       (69.4% logic, 30.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              0.591ns (Levels of Logic = 0)
+  Source:            ICON_inst/U0/U_ICON/U_TDO_reg (FF)
+  Destination:       ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:TDO1 (PAD)
+  Source Clock:      ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/DRCK1 rising
+
+  Data Path: ICON_inst/U0/U_ICON/U_TDO_reg to ICON_inst/U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS:TDO1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              0   0.591   0.000  U0/U_ICON/U_TDO_reg (U0/U_ICON/iTDO)
+    BSCAN_SPARTAN3:TDO1        0.000          U0/U_ICON/I_YES_BSCAN.U_BS/I_SPARTAN3.ISYN.I_USE_SOFTBSCAN_EQ0.I_3.U_BS
+    ----------------------------------------
+    Total                      0.591ns (0.591ns logic, 0.000ns route)
+                                       (100.0% logic, 0.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 20.07 secs
+ 
+--> 
+
+Total memory usage is 281700 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   19 (   0 filtered)
+Number of infos    :   10 (   0 filtered)
+

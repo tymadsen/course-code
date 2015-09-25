@@ -1,0 +1,6 @@
+vhdl isim_temp "font_rom.vhd"
+vhdl isim_temp "char_mem.vhd"
+vhdl isim_temp "vga_timing.vhd"
+vhdl isim_temp "seven_segment_control.vhd"
+vhdl isim_temp "charGen.vhd"
+vhdl isim_temp "charGen_top.vhd"

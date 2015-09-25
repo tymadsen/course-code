@@ -1,0 +1,337 @@
+Release 14.6 - xst P.68d (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> Reading design: FourBitALU.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "FourBitALU.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "FourBitALU"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : FourBitALU
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "MUX41.v" in library work
+Compiling verilog file "FullAdder.v" in library work
+Module <MUX41> compiled
+Compiling verilog file "OneBitALU.v" in library work
+Module <FullAdder> compiled
+Compiling verilog file "FourBitALU.v" in library work
+Module <OneBitALU> compiled
+Module <FourBitALU> compiled
+No errors in compilation
+Analysis of file <"FourBitALU.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <FourBitALU> in library <work>.
+
+Analyzing hierarchy for module <OneBitALU> in library <work>.
+
+Analyzing hierarchy for module <FullAdder> in library <work>.
+
+Analyzing hierarchy for module <MUX41> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <FourBitALU>.
+Module <FourBitALU> is correct for synthesis.
+ 
+Analyzing module <OneBitALU> in library <work>.
+Module <OneBitALU> is correct for synthesis.
+ 
+Analyzing module <FullAdder> in library <work>.
+Module <FullAdder> is correct for synthesis.
+ 
+Analyzing module <MUX41> in library <work>.
+Module <MUX41> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <FullAdder>.
+    Related source file is "FullAdder.v".
+Unit <FullAdder> synthesized.
+
+
+Synthesizing Unit <MUX41>.
+    Related source file is "MUX41.v".
+WARNING:Xst:1780 - Signal <out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit 4-to-1 multiplexer for signal <Result>.
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <MUX41> synthesized.
+
+
+Synthesizing Unit <OneBitALU>.
+    Related source file is "OneBitALU.v".
+Unit <OneBitALU> synthesized.
+
+
+Synthesizing Unit <FourBitALU>.
+    Related source file is "FourBitALU.v".
+WARNING:Xst:647 - Input <Cin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <FourBitALU> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Multiplexers                                         : 4
+ 1-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Multiplexers                                         : 4
+ 1-bit 4-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <FourBitALU> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block FourBitALU, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : FourBitALU.ngr
+Top Level Output File Name         : FourBitALU
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 16
+
+Cell Usage :
+# BELS                             : 16
+#      LUT2                        : 2
+#      LUT3                        : 4
+#      LUT4                        : 7
+#      MUXF5                       : 3
+# IO Buffers                       : 15
+#      IBUF                        : 10
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                        7  out of   4656     0%  
+ Number of 4 input LUTs:                 13  out of   9312     0%  
+ Number of IOs:                          16
+ Number of bonded IOBs:                  15  out of    232     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 9.636ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 60 / 5
+-------------------------------------------------------------------------
+Delay:               9.636ns (Levels of Logic = 7)
+  Source:            control<0> (PAD)
+  Destination:       Result<3> (PAD)
+
+  Data Path: control<0> to Result<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             8   1.106   0.795  control_0_IBUF (control_0_IBUF)
+     LUT2:I0->O            4   0.612   0.651  A0/Cout_cmp_eq00001 (A0/Cout_cmp_eq0000)
+     LUT4:I0->O            2   0.612   0.383  A1/Cout1 (Cout2)
+     LUT4:I3->O            2   0.612   0.449  A2/Cout1 (Cout3)
+     LUT4:I1->O            1   0.612   0.000  A3/Multiplexor/Mmux_Result_4 (A3/Multiplexor/Mmux_Result_4)
+     MUXF5:I0->O           1   0.278   0.357  A3/Multiplexor/Mmux_Result_2_f5 (Result_3_OBUF)
+     OBUF:I->O                 3.169          Result_3_OBUF (Result<3>)
+    ----------------------------------------
+    Total                      9.636ns (7.001ns logic, 2.635ns route)
+                                       (72.7% logic, 27.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.14 secs
+ 
+--> 
+
+Total memory usage is 232832 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

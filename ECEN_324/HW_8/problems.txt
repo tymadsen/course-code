@@ -1,0 +1,30 @@
+Ty Madsen
+ECEN 324
+3/11/2014
+
+HW # 8 / 6.25, 324-4, 324-5
+
+6.25:
+The file is made up of 4000, 512-byte logical blocks.
+	Tavg seek = 4ms
+	Tmax rotation = 1/15,000RPM * 60 sec/min * 1000 ms/sec = 4ms
+	Tavg rotation = Tmax/2 = 2ms
+A) Best case: The file consistsIn the the best case, block will be read one after the other without moving the head. It takes 4 rotations (1000 sections per rotations) of the disk to read all 4000 blocks.
+
+Total time = Tavg seek + Tavg rotation + 4*Tmax rotation = 4 + 2 + 16 = 22ms
+
+B) Random case: Blocks are mapped randomly, so each of the 4000 blocks takes Tavg seek + Tavg rotation ms.
+
+Total time = (Tavg seek + Tavg rotation)*4000 = (4 + 2)*4000 = 24,000ms (24 secconds)
+
+324-4:
+
+	getcpe CPE times:
+
+	dotproduct1 CPE: 14.6
+	dotproduct2 CPE: 11.0
+	dotproduct3 CPE: 8.2
+	dotproduct4 CPE: 2.7
+	dotproduct5 CPE: 2.7
+	dotproduct6 CPE: 1.4
+	dotproduct7 CPE: 1.4

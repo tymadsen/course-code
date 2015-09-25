@@ -1,0 +1,72 @@
+   0x08048ceb <+0>:	push   %ebp
+   0x08048cec <+1>:	mov    %esp,%ebp
+   0x08048cee <+3>:	push   %ebx
+   0x08048cef <+4>:	sub    $0x14,%esp
+   0x08048cf2 <+7>:	movl   $0xa,0x8(%esp)
+   0x08048cfa <+15>:	movl   $0x0,0x4(%esp)
+   0x08048d02 <+23>:	mov    0x8(%ebp),%eax
+   0x08048d05 <+26>:	mov    %eax,(%esp)
+   0x08048d08 <+29>:	call   0x804883c <strtol@plt>
+   0x08048d0d <+34>:	mov    $0x804b7ec,%ebx
+   0x08048d12 <+39>:	mov    %eax,(%ebx)
+   0x08048d14 <+41>:	mov    %ebx,(%esp)
+   0x08048d17 <+44>:	call   0x8048bd8 <fun6>
+   0x08048d1c <+49>:	mov    0x8(%eax),%eax
+   0x08048d1f <+52>:	mov    0x8(%eax),%eax
+   0x08048d22 <+55>:	mov    (%eax),%eax
+   0x08048d24 <+57>:	cmp    (%ebx),%eax
+   0x08048d26 <+59>:	je     0x8048d2d <phase_6+66>
+   0x08048d28 <+61>:	call   0x80492fb <explode_bomb>
+   0x08048d2d <+66>:	add    $0x14,%esp
+   0x08048d30 <+69>:	pop    %ebx
+   0x08048d31 <+70>:	pop    %ebp
+   0x08048d32 <+71>:	ret  
+
+
+fun6 :
+
+ 0x08048bd8 <+0>:	push   %ebp
+   0x08048bd9 <+1>:	mov    %esp,%ebp
+   0x08048bdb <+3>:	push   %edi
+   0x08048bdc <+4>:	push   %esi
+   0x08048bdd <+5>:	push   %ebx
+   0x08048bde <+6>:	mov    0x8(%ebp),%edx
+   0x08048be1 <+9>:	mov    0x8(%edx),%esi
+   0x08048be4 <+12>:	movl   $0x0,0x8(%edx)
+   0x08048beb <+19>:	mov    %edx,%eax
+   0x08048bed <+21>:	mov    %edx,%ecx
+   0x08048bef <+23>:	mov    %edx,%edi
+   0x08048bf1 <+25>:	test   %esi,%esi
+   0x08048bf3 <+27>:	jne    0x8048c23 <fun6+75>
+   0x08048bf5 <+29>:	jmp    0x8048c2f <fun6+87>
+   0x08048bf7 <+31>:	mov    %edx,%ecx
+   0x08048bf9 <+33>:	mov    0x8(%ecx),%edx
+   0x08048bfc <+36>:	test   %edx,%edx
+   0x08048bfe <+38>:	je     0x8048c04 <fun6+44>
+   0x08048c00 <+40>:	cmp    %ebx,(%edx)
+   0x08048c02 <+42>:	jg     0x8048bf7 <fun6+31>
+   0x08048c04 <+44>:	mov    %ecx,%edi
+   0x08048c06 <+46>:	mov    %edx,%ecx
+   0x08048c08 <+48>:	cmp    %ecx,%edi
+   0x08048c0a <+50>:	jne    0x8048c10 <fun6+56>
+   0x08048c0c <+52>:	mov    %esi,%eax
+   0x08048c0e <+54>:	jmp    0x8048c13 <fun6+59>
+   0x08048c10 <+56>:	mov    %esi,0x8(%edi)
+   0x08048c13 <+59>:	mov    0x8(%esi),%edx
+   0x08048c16 <+62>:	mov    %ecx,0x8(%esi)
+   0x08048c19 <+65>:	test   %edx,%edx
+   0x08048c1b <+67>:	je     0x8048c2f <fun6+87>
+   0x08048c1d <+69>:	mov    %edx,%esi
+   0x08048c1f <+71>:	mov    %eax,%ecx
+   0x08048c21 <+73>:	mov    %eax,%edi
+   0x08048c23 <+75>:	test   %ecx,%ecx
+   0x08048c25 <+77>:	je     0x8048c08 <fun6+48>
+   0x08048c27 <+79>:	mov    (%esi),%ebx
+   0x08048c29 <+81>:	cmp    %ebx,(%ecx)
+   0x08048c2b <+83>:	jg     0x8048bf9 <fun6+33>
+   0x08048c2d <+85>:	jmp    0x8048c08 <fun6+48>
+   0x08048c2f <+87>:	pop    %ebx
+   0x08048c30 <+88>:	pop    %esi
+   0x08048c31 <+89>:	pop    %edi
+   0x08048c32 <+90>:	pop    %ebp
+   0x08048c33 <+91>:	ret    

@@ -1,0 +1,21 @@
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab9/timertest.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab9/timertest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s500e-fg320-5 "timertest.ngc" timertest.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o timertest_map.ncd timertest.ngd timertest.pcf 
+par -w -intstyle ise -ol high -t 1 timertest_map.ncd timertest.ncd timertest.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timer.ucf -p xc3s500e-fg320-5 "timertest.ngc" timertest.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o timertest_map.ncd timertest.ngd timertest.pcf 
+par -w -intstyle ise -ol high -t 1 timertest_map.ncd timertest.ncd timertest.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml timertest.twx timertest.ncd -o timertest.twr timertest.pcf -ucf timer.ucf 
+bitgen -intstyle ise -f timertest.ut timertest.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab9/timertest.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab9/timertest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timer.ucf -p xc3s500e-fg320-5 "timertest.ngc" timertest.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o timertest_map.ncd timertest.ngd timertest.pcf 
+par -w -intstyle ise -ol high -t 1 timertest_map.ncd timertest.ncd timertest.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml timertest.twx timertest.ncd -o timertest.twr timertest.pcf -ucf timer.ucf 
+bitgen -intstyle ise -f timertest.ut timertest.ncd 
+xst -intstyle ise -ifn "J:/Courses/ECEN 220/Labs/Lab9/timertest.xst" -ofn "J:/Courses/ECEN 220/Labs/Lab9/timertest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc timer.ucf -p xc3s500e-fg320-5 "timertest.ngc" timertest.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o timertest_map.ncd timertest.ngd timertest.pcf 
+par -w -intstyle ise -ol high -t 1 timertest_map.ncd timertest.ncd timertest.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml timertest.twx timertest.ncd -o timertest.twr timertest.pcf -ucf timer.ucf 
+bitgen -intstyle ise -f timertest.ut timertest.ncd 

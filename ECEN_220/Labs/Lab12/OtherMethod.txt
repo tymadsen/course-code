@@ -1,0 +1,56 @@
+module LC3Controller(
+    input [15:0] IR,
+	 input N,
+    input Z,
+    input P,
+	 input reset,
+	 input clk,
+    output [1:0] aluControl,
+    output enaALU,
+    output [2:0] SR1,
+    output [2:0] SR2,
+    output [2:0] DR,
+    output regWE,
+    output [1:0] selPC,
+    output enaMARM,
+    output selMAR,
+    output selEAB1,
+    output [1:0] selEAB2,
+    output enaPC,
+    output ldPC,
+    output ldIR,
+    output ldMAR,
+    output ldMDR,
+    output selMDR,
+    output memWE,
+    output flagWE,
+    output enaMDR
+    );
+	
+		wire [14:0] CS, NS;
+		
+		register_15 load_state(CS, clk, NS, reset, 1'b1);
+		
+		NS[0] = (CS[4] & (IR[15:12] == 4'b0001 || IR[15:12] == 4'b0101 || IR[15:12] == 4'b1001)) || 
+				(CS[7]) ||
+				(CS[14]) ||
+				(CS[6]) ||
+				(CS[10]) ||
+				(CS[13]);//(state)->Fetch0
+		NS[1] = CS[0];//Fetch0 -> Fetch1
+		NS[2] = CS[1];//Fetch1->Fetch2
+		NS[3] = CS[2];//Fetch2->Decode
+		NS[4] = CS[3] & (IR[15:12] == 4'b0001 || IR[15:12] == 4'b0101 || IR[15:12] == 4'b1001);//Decode->ALU
+		NS[5] = CS[3] & (IR[15:11] == 5'b01001);//Decode->JSR0
+		NS[6] = CS[5];//JSR0->JSR1
+		NS[7] = CS[3] & (IR[15:12] == 4'b0000);//Decode->BR
+		NS[8] = CS[3] & (IR[15:12] == 4'b0010);//Decode->LD0
+		NS[9] = CS[8];//LD0->LD1
+		NS[10] = CS[9];//LD1->LD2
+		NS[11] = CS[3] & (IR[15:12] == 4'b0011);//Decode->ST0
+		NS[12] = CS[11];//ST0->ST1
+		NS[13] = CS[12];//ST1->ST2
+		NS[14] = CS[3] & (IR[15:12] == 4'b1100);//Decode->JMPRET
+
+	
+	endmodule

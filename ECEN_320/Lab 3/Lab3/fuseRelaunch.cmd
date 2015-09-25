@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab3/Lab3/seven_seg_decode_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab3/Lab3/seven_seg_decode_beh.prj" "work.seven_seg_decode" 

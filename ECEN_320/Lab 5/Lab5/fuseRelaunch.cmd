@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab 5/Lab5/tb_vga_timing_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab 5/Lab5/tb_vga_timing_beh.prj" "work.tb_vga_timing" 

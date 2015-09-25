@@ -1,0 +1,85 @@
+#
+# Include your name and ID here.
+#
+# 	Ty Madsen 
+#	ID: tmadsen2
+#
+# -To avoid potential problems with yas,
+# leave some comments before .pos0
+#
+# Initial code
+.pos 0
+	irmovl Stack,%esp		#set stack
+	rrmovl %esp,%ebp		#set base pointer
+	irmovl $3,%eax			#move len (3) into eax
+	irmovl dest,%ecx		#move dest block into ecx
+	irmovl src,%edx			#move src block into edx
+	pushl %eax				#push len onto stack
+	pushl %ecx				#push dest block onto stack
+	pushl %edx				#push src block onto stack
+	call copy_block			#call copy_block
+	halt					#end
+.align 4
+# Source block
+src:
+.long 0x00a
+.long 0x0b0
+.long 0xc00
+# Destination block
+dest:
+.long 0x111
+.long 0x222
+.long 0x333
+	
+copy_block:
+	pushl	%ebp			#save base pointer
+	xorl	%edx, %edx		#clear edx
+	rrmovl	%esp, %ebp		#set new base pointer
+	xorl	%eax, %eax		#clear eax
+	mrmovl	16(%ebp), %ecx	#copy len into ecx
+	pushl	%edi			#save edi onto stack
+	mrmovl	8(%ebp), %edi	#copy src block into edi 
+	pushl	%esi			#save esi onto stack
+	mrmovl	12(%ebp), %esi	#copy dest block into esi
+	pushl	%ebx			#save ebx onto stack
+	andl	%ecx, %ecx		#set condition codes
+	pushl	%ebp
+	jle	End 				#jump to end if less than 0
+Loop:
+	#pushl	%edx			#save edx onto stack
+	rrmovl	%edx, %ebp
+	addl	%edi,%edx		#add edi and edx and store into edx
+	mrmovl	(%edx), %ebx	#copy value at edx in memory (one of the src block elements) into ebx 
+	#popl	%edx			#restore edx
+	#pushl	%edx			#save edx onto stack
+	rrmovl	%ebp, %edx
+	addl	%esi,%edx		#add esi and edx and store into edx
+	rmmovl	%ebx, (%edx)	#move previously copied value(a value from src block) into memoery at address edx (one of dest addresses)
+	#popl	%edx			#restore edx
+	rrmovl	%ebp, %edx
+	xorl	%ebx, %eax		#xor eax with ebx and store into ebx (update checksum)
+	#pushl	%ebx			#save ebx onto stack
+	irmovl	$4, %edx		#move 4 into edx
+	addl	%ebp,%edx		#move 4 + ebp(edx) into edx
+	#xorl	%ebx,%ebx		#clear ebx
+	irmovl	$1, %ebp		#move 1 into ebp
+	subl	%ebp,%ecx		#move decrement len counter, set condition codes
+	#popl	%ebx			#restore ebx
+	jne	Loop				#loop again if len is not 0
+
+End:
+	popl	%ebp
+	popl	%ebx			#restore all previously saved registers
+	popl	%esi			#
+	popl	%edi			#
+	popl	%ebp			#			Same for these
+	popl	%edx			#
+	popl	%ecx			#
+	popl	%eax			#
+	ret
+
+.pos 0x200
+Stack:
+#Make sure to have newline after last line of code
+
+

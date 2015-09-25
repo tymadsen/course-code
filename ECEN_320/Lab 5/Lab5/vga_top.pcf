@@ -1,0 +1,46 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Feb 11 12:09:51 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "btn<0>" LOCATE = SITE "B18" LEVEL 1;
+COMP "btn<1>" LOCATE = SITE "D18" LEVEL 1;
+COMP "clk" LOCATE = SITE "B8" LEVEL 1;
+COMP "btn<2>" LOCATE = SITE "E18" LEVEL 1;
+COMP "btn<3>" LOCATE = SITE "H13" LEVEL 1;
+COMP "Hsync" LOCATE = SITE "T4" LEVEL 1;
+COMP "vgaGreen<0>" LOCATE = SITE "N8" LEVEL 1;
+COMP "vgaGreen<1>" LOCATE = SITE "P8" LEVEL 1;
+COMP "vgaGreen<2>" LOCATE = SITE "P6" LEVEL 1;
+COMP "sw<0>" LOCATE = SITE "G18" LEVEL 1;
+COMP "sw<1>" LOCATE = SITE "H18" LEVEL 1;
+COMP "sw<2>" LOCATE = SITE "K18" LEVEL 1;
+COMP "sw<3>" LOCATE = SITE "K17" LEVEL 1;
+COMP "sw<4>" LOCATE = SITE "L14" LEVEL 1;
+COMP "sw<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "vgaBlue<0>" LOCATE = SITE "U5" LEVEL 1;
+COMP "sw<6>" LOCATE = SITE "N17" LEVEL 1;
+COMP "Vsync" LOCATE = SITE "U3" LEVEL 1;
+COMP "vgaBlue<1>" LOCATE = SITE "U4" LEVEL 1;
+COMP "sw<7>" LOCATE = SITE "R17" LEVEL 1;
+COMP "vgaRed<0>" LOCATE = SITE "R9" LEVEL 1;
+COMP "vgaRed<1>" LOCATE = SITE "T8" LEVEL 1;
+COMP "vgaRed<2>" LOCATE = SITE "R8" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk = BEL "vgaGreen_0" BEL "vgaGreen_1" BEL "vgaGreen_2" BEL
+        "vgaBlue_0" BEL "vgaBlue_1" BEL "vga_color_bar/r_reg_HPC_9" BEL
+        "vga_color_bar/r_reg_HPC_8" BEL "vga_color_bar/r_reg_HPC_7" BEL
+        "vga_color_bar/r_reg_HPC_6" BEL "vga_color_bar/r_reg_HPC_5" BEL
+        "vga_color_bar/r_reg_HPC_4" BEL "vga_color_bar/r_reg_HPC_3" BEL
+        "vga_color_bar/r_reg_HPC_2" BEL "vga_color_bar/r_reg_HPC_1" BEL
+        "vga_color_bar/r_reg_HPC_0" BEL "vga_color_bar/r_reg" BEL
+        "vga_color_bar/r_reg_VPC_9" BEL "vga_color_bar/r_reg_VPC_8" BEL
+        "vga_color_bar/r_reg_VPC_7" BEL "vga_color_bar/r_reg_VPC_6" BEL
+        "vga_color_bar/r_reg_VPC_5" BEL "vga_color_bar/r_reg_VPC_4" BEL
+        "vga_color_bar/r_reg_VPC_3" BEL "vga_color_bar/r_reg_VPC_2" BEL
+        "vga_color_bar/r_reg_VPC_1" BEL "vga_color_bar/r_reg_VPC_0" BEL
+        "Hsync" BEL "Vsync" BEL "vgaRed_0" BEL "vgaRed_1" BEL "vgaRed_2" BEL
+        "clk_BUFGP/BUFG.GCLKMUX" BEL "clk_BUFGP/BUFG";
+TS_clk = PERIOD TIMEGRP "clk" 20 ns HIGH 50%;
+SCHEMATIC END;
+

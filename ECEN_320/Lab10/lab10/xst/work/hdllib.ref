@@ -1,0 +1,14 @@
+AR char_mem arch //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/char_mem.vhd sub00/vhpl01 1427243238
+AR chargen behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen.vhd sub00/vhpl07 1427243244
+AR seven_segment_control behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/seven_segment_control.vhd sub00/vhpl09 1427243246
+AR chargen_top behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen_top.vhd sub00/vhpl11 1427243248
+AR font_rom_ex arch //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom_ex.vhd sub00/vhpl13 1426819284
+EN chargen NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen.vhd sub00/vhpl06 1427243243
+EN chargen_top NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/charGen_top.vhd sub00/vhpl10 1427243247
+AR vga_timing behavioral //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/vga_timing.vhd sub00/vhpl05 1427243242
+EN vga_timing NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/vga_timing.vhd sub00/vhpl04 1427243241
+EN font_rom NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom.vhd sub00/vhpl02 1427243239
+EN char_mem NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/char_mem.vhd sub00/vhpl00 1427243237
+AR font_rom arch //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom.vhd sub00/vhpl03 1427243240
+EN font_rom_ex NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/font_rom_ex.vhd sub00/vhpl12 1426819283
+EN seven_segment_control NULL //fs-caedm/tmadsen2/Courses/ECEN_320/Lab10/lab10/seven_segment_control.vhd sub00/vhpl08 1427243245

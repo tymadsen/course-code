@@ -1,0 +1,50 @@
+#
+# Include your name and ID here.
+#
+# 	Ty Madsen 
+#	ID: tmadsen2
+#
+# -To avoid potential problems with yas,
+# leave some comments before .pos0
+#
+# Initial code
+.pos 0
+	irmovl Stack,%esp		#set stack
+	rrmovl %esp,%ebp		#set base pointer
+	irmovl ele1,%edx		#move first element of linked list into edx
+	pushl %edx				#push linked list onto stack
+	call rsum_list			#call sum stack function
+	halt					#end
+		
+# Sample linked list
+.align 4
+ele1:
+	.long 0x00a
+	.long ele2
+ele2:
+	.long 0x0b0
+	.long ele3
+ele3:
+	.long 0xc00
+	.long 0
+	
+rsum_list:
+	pushl	%ebp			#push base pointer onto stack
+	xorl	%eax,%eax		#clear eax
+	rrmovl	%esp,%ebp		#set basepointer to stack pointer
+	mrmovl	8(%ebp),%edx	#put address of ele1 into edx
+	andl	%edx,%edx		#set condition codes
+	je	End 				#end loop if equal
+Loop:
+	mrmovl	(%edx),%ecx		#put next element into esi
+	mrmovl	4(%edx),%edx	#put next element's next pointer into edx
+	addl	%ecx,%eax		#add esi to edx (val of last element)
+	andl	%edx,%edx		#set condition code (edx == 0)
+	jne	Loop 				#jump if next element is not null (not 0)
+End:
+	popl	%ebp			#restore base pointer
+	ret
+
+.pos 0x200
+Stack:
+#Make sure to have newline after last line of code

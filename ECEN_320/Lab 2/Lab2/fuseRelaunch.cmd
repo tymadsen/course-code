@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "J:/Courses/ECEN_320/Lab2/Lab2/nexys2_testbench_isim_beh.exe" -prj "J:/Courses/ECEN_320/Lab2/Lab2/nexys2_testbench_beh.prj" "work.nexys2_testbench" 

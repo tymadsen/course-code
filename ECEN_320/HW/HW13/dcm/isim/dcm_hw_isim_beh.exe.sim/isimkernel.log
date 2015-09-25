@@ -1,0 +1,28 @@
+Command line:
+   dcm_hw_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50976
+
+Mon Apr 13 22:06:28 2015
+
+
+ Elaboration Time: 0.062401 sec
+
+ Current Memory Usage: 1315.64 Meg
+
+ Total Signals          : 252
+ Total Nets             : 253
+ Total Signal Drivers   : 131
+ Total Blocks           : 18
+ Total Primitive Blocks : 15
+ Total Processes        : 85
+ Total Traceable Variables  : 148
+ Total Scalar Nets and Variables : 4943
+
+ Total Simulation Time: 0.140402 sec
+
+ Current Memory Usage: 686.469 Meg
+
+Mon Apr 13 22:16:07 2015
+

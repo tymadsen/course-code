@@ -1,0 +1,98 @@
+--------------------------------------------------------------------------------
+Release 14.6 Trace  (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.6\ISE_DS\ISE\bin\nt\unwrapped\trce.exe -intstyle ise -v 3 -s 5 -n
+3 -fastpaths -xml FourBitALU.twx FourBitALU.ncd -o FourBitALU.twr
+FourBitALU.pcf -ucf FourBitALU.ucf
+
+Design file:              FourBitALU.ncd
+Physical constraint file: FourBitALU.pcf
+Device,package,speed:     xc3s500e,fg320,-5 (PRODUCTION 1.27 2013-06-08)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+A<0>           |Cout           |   11.185|
+A<0>           |Result<0>      |    6.157|
+A<0>           |Result<1>      |    8.251|
+A<0>           |Result<2>      |    8.010|
+A<0>           |Result<3>      |   10.428|
+A<1>           |Cout           |   10.503|
+A<1>           |Result<1>      |    7.353|
+A<1>           |Result<2>      |    7.328|
+A<1>           |Result<3>      |    9.746|
+A<2>           |Cout           |    9.100|
+A<2>           |Result<2>      |    6.434|
+A<2>           |Result<3>      |    8.343|
+A<3>           |Cout           |    9.304|
+A<3>           |Result<3>      |    7.424|
+B<0>           |Cout           |   11.293|
+B<0>           |Result<0>      |    5.527|
+B<0>           |Result<1>      |    8.359|
+B<0>           |Result<2>      |    8.118|
+B<0>           |Result<3>      |   10.536|
+B<1>           |Cout           |   10.518|
+B<1>           |Result<1>      |    7.789|
+B<1>           |Result<2>      |    7.343|
+B<1>           |Result<3>      |    9.761|
+B<2>           |Cout           |    8.838|
+B<2>           |Result<2>      |    5.883|
+B<2>           |Result<3>      |    8.081|
+B<3>           |Cout           |    8.035|
+B<3>           |Result<3>      |    6.135|
+control<0>     |Cout           |   12.157|
+control<0>     |Result<0>      |    6.236|
+control<0>     |Result<1>      |    9.223|
+control<0>     |Result<2>      |    8.982|
+control<0>     |Result<3>      |   11.400|
+control<1>     |Cout           |   11.834|
+control<1>     |Result<0>      |    5.957|
+control<1>     |Result<1>      |    8.900|
+control<1>     |Result<2>      |    8.659|
+control<1>     |Result<3>      |   11.077|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Oct 09 18:46:08 2013 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 164 MB
+
+
+
