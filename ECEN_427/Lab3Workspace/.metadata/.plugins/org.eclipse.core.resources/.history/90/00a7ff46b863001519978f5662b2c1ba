@@ -1,0 +1,53 @@
+/*
+ * globals.c
+ *
+ *  Created on: Sep 25, 2015
+ *      Author: superman
+ */
+point_t tankPosition;
+point_t tankBulletPosition;
+point_t alienBlockPosition;
+point_t aBullet0;
+point_t aBullet1;
+point_t aBullet2;
+point_t aBullet3;
+short aBulletType0;
+short aBulletType1;
+short aBulletType2;
+short aBulletType3;
+short bunker0State;
+short bunker1State;
+short bunker2State;
+short bunker3State;
+short alienDeaths[55] = 0;
+
+
+point_t getTankPosition();
+void setTankPosition(signed short pixels);
+point_t getTankBulletPosition();
+void setTankButlletPosition(point_t point);
+point_t getAlienBlockPosition();
+void setAlienBlockPosition(point_t point);
+
+point_t getAlienBullet0();
+void setAlienBullet0(point_t point, unsigned short type);
+point_t getAlienBullet1();
+void setAlienBullet1(point_t point, unsigned short type);
+point_t getAlienBullet2();
+void setAlienBullet2(point_t point, unsigned short type);
+point_t getAlienBullet3();
+void setAlienBullet3(point_t point, unsigned short type);
+
+unsigned short getBunkerErosion0();
+void setBunkerErosion0();
+unsigned short getBunkerErosion1();
+void setBunkerErosion1();
+unsigned short getBunkerErosion2();
+void setBunkerErosion2();
+unsigned short getBunkerErosion3();
+void setBunkerErosion3();
+
+short* getAlienDeaths();
+void setAlienDeaths(short alien, short dead);
+void updateBullets();
+void updateAlienBlock();
