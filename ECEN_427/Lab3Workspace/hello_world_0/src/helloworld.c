@@ -190,29 +190,8 @@ int main()
 	  // Each line of the alien is a 32-bit integer. We just need to strip the bits out and send
 	  // them to stdout.
 	  // MSB is the left-most pixel for the alien, so start from the MSB as we print from left to right.
-//	  int row, column;
-	int row = 0;
-	int col = 0;
 	initScreen();
-	  for (row=0; row<ALIEN_HEIGHT; row++) {
-		for (col=0; col<WORD_WIDTH; col++) {
-		  if ((topOutAlienSymbol[row] & (1<<(WORD_WIDTH-1-col)))) {
-//			  printf("#");
-			  framePointer0[row*640 + col] = WHITE;
-		  } else {
-//			  printf(" ");
-			  framePointer0[row*640 + col] = BLACK;
-		  }
-		  if ((topInAlienSymbol[row] & (1<<(WORD_WIDTH-1-col)))) {
-		  //			  printf("#");
-		  	  framePointer1[row*640 + col] = WHITE;
-		  } else {
-		  //			  printf(" ");
-			  framePointer1[row*640 + col] = BLACK;
-		  		  }
-		}
-//		printf("\n");
-	  }
+
      // This tells the HDMI controller the resolution of your display (there must be a better way to do this).
      XIo_Out32(XPAR_AXI_HDMI_0_BASEADDR, 640*480);
 
@@ -229,9 +208,9 @@ int main()
      // Oscillate between frame 0 and frame 1.
      int sillyTimer = MAX_SILLY_TIMER;  // Just a cheap delay between frames.
      while (1) {
-    	 while (sillyTimer) sillyTimer--;    // Decrement the timer.
+    	// while (sillyTimer) sillyTimer--;    // Decrement the timer.
     	 sillyTimer = MAX_SILLY_TIMER;       // Reset the timer.
-         frameIndex = (frameIndex + 1) % 2;  // Alternate between frame 0 and frame 1.
+         frameIndex = 0;//(frameIndex + 1) % 2;  // Alternate between frame 0 and frame 1.
          if (XST_FAILURE == XAxiVdma_StartParking(&videoDMAController, frameIndex,  XAXIVDMA_READ)) {
         	 xil_printf("vdma parking failed\n\r");
          }

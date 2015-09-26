@@ -101,25 +101,25 @@ unsigned short getBunkerErosion0() {
 	return bunker0State;
 }
 void setBunkerErosion0() {
-	bunker0State--;
+	bunker0State++;
 }
 unsigned short getBunkerErosion1() {
 	return bunker1State;
 }
 void setBunkerErosion1() {
-	bunker1State--;
+	bunker1State++;
 }
 unsigned short getBunkerErosion2() {
 	return bunker2State;
 }
 void setBunkerErosion2() {
-	bunker2State--;
+	bunker2State++;
 }
 unsigned short getBunkerErosion3() {
 	return bunker3State;
 }
 void setBunkerErosion3() {
-	bunker3State--;
+	bunker3State++;
 }
 
 short* getAlienDeaths() {
