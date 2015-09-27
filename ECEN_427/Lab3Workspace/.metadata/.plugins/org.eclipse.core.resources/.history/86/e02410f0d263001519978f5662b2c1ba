@@ -1,0 +1,32 @@
+/*
+ * render.c
+ *
+ *  Created on: Sep 25, 2015
+ *      Author: superman
+ */
+
+#include "render.h"
+#include "bitMaps.h"
+#define FRAME_BUFFER_0_ADDR 0xC0000000
+
+unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
+unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + 640*480;
+
+void initScreen() {
+	int row = 0;
+	int column = 0;
+	for(row = 600; row <= 604; row++) {
+		for(column = 0; column >= 480; column++){
+
+		}
+	}
+}
+
+void drawTank(bool erase)
+{
+
+}
+void drawTankBullet(bool erase);
+void drawAliens(bool erase);
+void drawAlienBullets(bool erase);
+void drawBunkers(bool erase);

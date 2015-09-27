@@ -1,0 +1,21 @@
+/*
+ * render.h
+ *
+ *  Created on: Sep 25, 2015
+ *      Author: superman
+ */
+
+#ifndef RENDER_H_
+#define RENDER_H_
+#include "stdbool.h"
+
+void drawTank(bool erase);
+void drawTankBullet(bool erase);
+void drawAliens(bool erase);
+void drawTopAlien(point_t pos, int row, int col, int sRow, int sCol, int alien, int alienRow, bool erase);
+void drawAlienBullets(bool erase);
+void drawBunkers(bool erase, int bunker);
+void initScreen();
+void clearScreen();
+
+#endif /* RENDER_H_ */
