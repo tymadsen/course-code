@@ -1,0 +1,69 @@
+/*
+ * globals.h
+ *
+ *  Created on: Sep 25, 2015
+ *      Author: superman
+ */
+
+#ifndef GLOBALS_H_
+#define GLOBALS_H_
+#include "stdbool.h"
+#include "stdint.h"
+#define tank_render_mask 0x1
+#define tank_bullet_render_mask 0x2
+#define alien_block_render_mask 0x4
+#define alien_bullet_0_render_mask 0x8
+#define alien_bullet_1_render_mask 0x10
+#define alien_bullet_2_render_mask 0x20
+#define alien_bullet_3_render_mask 0x40
+#define bunker_render_mask 0x128
+#define alien_pixel_adjustment 4
+#define alien_height 8
+
+#define col1_mask 0x1
+#define col2_mask 0x2
+#define col3_mask 0x4
+#define col4_mask 0x8
+#define col5_mask 0x10
+#define col6_mask 0x20
+#define col7_mask 0x40
+#define col8_mask 0x80
+#define col9_mask 0x100
+#define col10_mask 0x200
+#define col11_mask 0x400
+
+typedef struct { signed short x; signed short y;} point_t;
+typedef struct { point_t pos; unsigned short type; bool free;} aBullet;
+
+point_t getTankPosition();
+void setTankPosition(signed short pixels);
+void setTankPositionPoint(int x, int y);
+point_t getTankBulletPosition();
+void setTankBulletPosition(point_t point);
+point_t getAlienBlockPosition();
+void setAlienBlockPosition(point_t point);
+
+aBullet getAlienBullet0();
+void setAlienBullet0(point_t point, unsigned short type, bool free);
+aBullet getAlienBullet1();
+void setAlienBullet1(point_t point, unsigned short type, bool free);
+aBullet getAlienBullet2();
+void setAlienBullet2(point_t point, unsigned short type, bool free);
+aBullet getAlienBullet3();
+void setAlienBullet3(point_t point, unsigned short type, bool free);
+
+unsigned uint32_t getBunkerErosion0();
+void setBunkerErosion0(short block);
+unsigned uint32_t getBunkerErosion1();
+void setBunkerErosion1(short block);
+unsigned uint32_t getBunkerErosion2();
+void setBunkerErosion2(short block);
+unsigned uint32_t getBunkerErosion3();
+void setBunkerErosion3(short block);
+
+bool* getAlienDeaths();
+void setAlienDeaths(short alien, bool dead);
+void updateBullets();
+void updateAlienBlock();
+
+#endif /* GLOBALS_H_ */

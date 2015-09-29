@@ -27,10 +27,10 @@ bool alienRight = true;
 bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
-uint32_t bunker0State;
-uint32_t bunker1State;
-uint32_t bunker2State;
-uint32_t bunker3State;
+uint32_t bunker0State = 0;
+uint32_t bunker1State = 0;
+uint32_t bunker2State = 0;
+uint32_t bunker3State = 0;
 bool alienDeaths[55] = {true, true, true, false, false, true, false, false, false, false, true,
 		true, true, true, false, true, false, false, false, false, false, true,
 		true, true, true, false, false, true, false, true, false, false, true,
@@ -113,41 +113,41 @@ void setAlienBullet3(point_t point, unsigned short type, bool free) {
 //point_t getAlienBullet3();
 //void setAlienBullet3(point_t point, unsigned short type);
 
-unsigned short getBunkerErosion0() {
+uint32_t getBunkerErosion0() {
 	return bunker0State;
 }
 void setBunkerErosion0(short block) {
-	if(((bunker0State & (0x3 << block)) >> block) == 0x3)
+	if(((bunker0State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
 		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
 	else
-		bunker0State += (0x1 << block);
+		bunker0State += (0x1 << (3*block));
 }
-unsigned short getBunkerErosion1() {
+uint32_t getBunkerErosion1() {
 	return bunker1State;
 }
 void setBunkerErosion1(short block) {
-	if(((bunker1State & (0x3 << block)) >> block) == 0x3)
+	if(((bunker1State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
 		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
 	else
-		bunker1State += (0x1 << block);
+		bunker1State += (0x1 << (3*block));
 }
-unsigned short getBunkerErosion2() {
+uint32_t getBunkerErosion2() {
 	return bunker2State;
 }
 void setBunkerErosion2(short block) {
-	if(((bunker2State & (0x3 << block)) >> block) == 0x3)
+	if(((bunker2State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
 		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
 	else
-		bunker2State += (0x1 << block);
+		bunker2State += (0x1 << (3*block));
 }
-unsigned short getBunkerErosion3() {
+uint32_t getBunkerErosion3() {
 	return bunker3State;
 }
 void setBunkerErosion3(short block) {
-	if(((bunker3State & (0x3 << block)) >> block) == 0x3)
+	if(((bunker3State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
 		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
 	else
-		bunker3State += (0x1 << block);
+		bunker3State += (0x1 << (3*block));
 }
 
 bool* getAlienDeaths() {
