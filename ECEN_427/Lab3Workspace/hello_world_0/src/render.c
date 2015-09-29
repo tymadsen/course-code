@@ -38,6 +38,8 @@
 #define BUNKERXSPACING 45
 #define BUNKERSTARTY 335
 #define BUNKERSTARTX 89
+#define BLOCKWIDTH 6
+#define BLOCKHEIGHT 6
 #define ALIENHEIGHT 8
 #define ALIENWIDTH 12
 #define ALIENXSPACING 2
@@ -47,13 +49,11 @@
 #define ALIENSPERROW 11
 #define SCORELABELX 20
 #define SCORELABELY 15
-#define SCOREX	90
-#define SCOREY	15
+#define SCOREX 90
+#define SCOREY 15
 
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
-
-bool alien_in = true;
 
 void clearScreen() {
 	int row, col;
@@ -87,7 +87,14 @@ void initScreen() {
 	//set and draw the lives tanks
 	drawLives();
 	//Set and draw the bunkers
-	drawBunkers();
+	drawNewBunkers();
+	
+	//TEST code, delete it
+	drawBunkerErosion(0,3);
+	drawBunkerErosion(1,7);
+	drawBunkerErosion(2,8);
+	drawBunkerErosion(3,9);
+
 	//set and draw the aliens
 	setTankPositionPoint(TANKSTARTX, TANKSTARTY);
 	drawTank(false);
@@ -105,7 +112,7 @@ void render(bool erase, int render_objects_mask) {
 	if(render_objects_mask & tank_bullet_render_mask != 0)
 		drawTankBullet(erase);
 	if(render_objects_mask & alien_block_render_mask != 0){
-		drawAliens(erase, alien_in);
+		drawAliens(erase, false);
 		if(!erase)
 			alien_in = !alien_in;
 	}
@@ -118,8 +125,7 @@ void render(bool erase, int render_objects_mask) {
 	if(render_objects_mask & alien_bullet_3_render_mask != 0)
 		drawAlienBullet(erase, 3);
 	if(render_objects_mask & bunker_render_mask != 0)
-		drawBunkers();
-
+		drawBunkerErosion(0,0);
 }
 
 void drawScoreLabel() {
@@ -147,12 +153,49 @@ void drawLives() {
 	drawBitmapRepeat(tank_15x8, lives_pos, 15, 8, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
 }
 
-void drawBunkers() {
+void drawNewBunkers() {
 	point_t bunker_pos;
 	bunker_pos.y = BUNKERSTARTY;
 	bunker_pos.x = BUNKERSTARTX;
 	// TODO: this will need to change to draw each bunker individually
-	drawBitmapRepeat(bunker_24x18, bunker_pos, 24, 18, true, GREEN, false, BUNKERXSPACING, 4);
+	drawBitmapRepeat(bunker_24x18, bunker_pos, BUNKERWIDTH, BUNKERHEIGHT, true, GREEN, false, BUNKERXSPACING, 4);
+}
+
+void drawBunkerErosion(short bunker, short block){
+	point_t block_pos;
+	/* Set x position to the start of the bunkers, and then add an offset of 
+	 * twice the bunker number (since we are doubling the bitmap to pixel ratio) times the width of
+	 * the bunker plus the gap between bunkers. Also adds the width of the block
+	*/
+	short row = block/4;
+	short col = block - (row*4);
+	//comment this out if we want to say the bottom right block is block 11 instead of block 9
+	if(block == 9)
+		col = 3;
+	block_pos.x = BUNKERSTARTX + (2*(bunker*(BUNKERWIDTH+BUNKERXSPACING) + (BLOCKWIDTH*col)));
+	block_pos.y = BUNKERSTARTY + (2*BLOCKHEIGHT*(row))
+	// Get erosion state to know which bitmap to use
+	uint32_t erosionState;
+	switch(bunker){
+		case 0: erosionState = getBunkerState0();
+		break;
+		case 1: erosionState = getBunkerState1();
+		break;
+		case 2: erosionState = getBunkerState2();
+		break;
+		case 3: erosionState = getBunkerState3();
+		break;
+		default: break;
+	}
+	short erosion_block = (short) ((erosionState & (0x3 << block)) >> block);
+	// Draw bunker erosion using (erase = true) flag
+	if(erosionBlock == 0x3)
+		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, false);
+	else if(erosionBlock == 0x2)
+		drawBitmap(bunkerDamage2_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, false);
+	else if(erosionBlock == 0x1)
+		drawBitmap(bunkerDamage1_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, false);
+
 }
 
 void drawTank(bool erase) {
@@ -173,12 +216,6 @@ void drawAliens(bool erase, bool in_pose) {
 	for(alienRow = 0; alienRow < 5; alienRow++){
 		color = (alienRow == 0) ? TURQ : (alienRow == 1 || alienRow == 2) ? MAGENTA : ORANGE;
 		//Will print the right color if we are not erasing
-		if(alienRow == 0)
-			bitmap = in_pose ? alien_top_in_12x8 : alien_top_out_12x8;
-		else if(alienRow == 1 || alienRow == 2)
-			bitmap = in_pose ? alien_middle_in_12x8 : alien_middle_out_12x8;
-		else
-			bitmap = in_pose ? alien_bottom_in_12x8 : alien_bottom_out_12x8;
 
 		int col;
 		point_t new_pos = pos;
@@ -190,8 +227,26 @@ void drawAliens(bool erase, bool in_pose) {
 					new_pos.x += offset;
 			}
 			// drawBitmap(bitmap, pos, width, height, double_size, color, erase);
-			if(! deaths[col+(ALIENSPREROW*alienRow)])
-				drawBitmap(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+			if(! deaths[col+(ALIENSPREROW*alienRow)]){
+				if(alienRow == 0){
+					if(in_pose)
+						drawBitmap(alien_top_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+					else
+						drawBitmap(alien_top_out_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+				}
+				else if(alienRow == 1 || alienRow == 2){
+					if(in_pose)
+						drawBitmap(alien_middle_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+					else
+						drawBitmap(alien_middle_out_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+				}
+				else{
+					if(in_pose)
+						drawBitmap(alien_bottom_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+					else
+						drawBitmap(alien_bottom_out_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+				}
+			}
 		}
 			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
 			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
@@ -211,17 +266,17 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 		for(col = 0, sCol=0; col < width; col++, sCol+=2) {
 			//Will print the right color if we are not erasing
 			if ((bitmap[row] & (1<<(width-1-col))) && !erase) {
-				//Print the same pixel to the immediate 4 pixels
-				if(!double_size)
+				if(!double_size)//Only print the bitmap to size
 					framePointer0[(pos.y*SCREENWIDTH + pos.x)] = color;
 				else{
+					//Expand each pixel to 4 pixels
 					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = color;
 					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = color;
 					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
-			else {
+			else {//paint black
 				if(!double_size)
 					framePointer0[(pos.y*SCREENWIDTH + pos.x)] = BLACK;
 				else{

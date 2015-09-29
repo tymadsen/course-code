@@ -101,26 +101,37 @@ unsigned short getBunkerErosion0() {
 	return bunker0State;
 }
 void setBunkerErosion0(short block) {
-
-	bunker0State &= (0xFFFFFFF3 << block);
+	if(((bunker0State & (0x3 << block)) >> block) == 0x3)
+		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+	else
+		bunker0State += (0x1 << block);
 }
 unsigned short getBunkerErosion1() {
 	return bunker1State;
 }
 void setBunkerErosion1(short block) {
-	bunker1State++;
+	if(((bunker1State & (0x3 << block)) >> block) == 0x3)
+		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+	else
+		bunker1State += (0x1 << block);
 }
 unsigned short getBunkerErosion2() {
 	return bunker2State;
 }
 void setBunkerErosion2(short block) {
-	bunker2State++;
+	if(((bunker2State & (0x3 << block)) >> block) == 0x3)
+		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+	else
+		bunker2State += (0x1 << block);
 }
 unsigned short getBunkerErosion3() {
 	return bunker3State;
 }
 void setBunkerErosion3(short block) {
-	bunker3State++;
+	if(((bunker3State & (0x3 << block)) >> block) == 0x3)
+		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+	else
+		bunker3State += (0x1 << block);
 }
 
 short* getAlienDeaths() {
