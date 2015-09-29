@@ -46,7 +46,7 @@
 #define ALIENSPERROW 11
 #define SCORELABELX 20
 #define SCORELABELY 15
-#define SCOREX	90
+#define SCOREX	95
 #define SCOREY	15
 
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;

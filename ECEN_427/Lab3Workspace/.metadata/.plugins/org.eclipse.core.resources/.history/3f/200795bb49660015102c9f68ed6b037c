@@ -46,8 +46,6 @@
 #define ALIENSPERROW 11
 #define SCORELABELX 20
 #define SCORELABELY 15
-#define SCOREX	90
-#define SCOREY	15
 
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
@@ -104,7 +102,7 @@ void drawScoreLabel() {
 
 void drawScore() {
 	point_t score_pos;
-	score_pos.x = SCOREX, score_pos.y = SCOREY;
+	score_pos.x = SCORELABELX, score_pos.y = SCORELABELY;
 	drawBitmap(number_0_5x5, score_pos, 5, 5, true, GREEN, false);
 }
 
@@ -189,14 +187,10 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 }
 
 void drawBitmapRepeat(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase, int x_space, int times){
-	int element_num;
-	int offset = width+x_space;
 	for(element_num = 0; element_num < times; element_num++){
-		if(element_num >0){
-			pos.x += offset;
-			if(double_size)
-				pos.x += offset;
-		}
+		pos.x = element_num*(width+x_space);
+		if(double_size)
+			pos.x =  2*pos.x;
 		drawBitmap(bitmap, pos, width, height, double_size, color, erase);
 	}
 }
