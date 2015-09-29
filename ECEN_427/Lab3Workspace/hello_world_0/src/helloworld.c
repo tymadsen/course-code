@@ -31,8 +31,9 @@
 #define DEBUG
 void print(char *str);
 
-#define FRAME_BUFFER_0_ADDR 0xC0000000  // Starting location in DDR where we will store the images that we display.
+#define FRAME_BUFFER_0_ADDR 0xC1000000  // Starting location in DDR where we will store the images that we display.
 #define MAX_SILLY_TIMER 10000000;
+#define PIXEL_ADJUSTMENT 4
 
 #define ALIEN_HEIGHT 16
 #define WORD_WIDTH 32
@@ -102,8 +103,7 @@ int main()
 	 myFrameBuffer.FrameStoreStartAddr[0] = FRAME_BUFFER_0_ADDR;
 	 myFrameBuffer.FrameStoreStartAddr[1] = FRAME_BUFFER_0_ADDR + 4*640*480;
 
-	 if(XST_FAILURE == XAxiVdma_DmaSetBufferAddr(&videoDMAController, XAXIVDMA_READ,
-							 myFrameBuffer.FrameStoreStartAddr)) {
+	 if(XST_FAILURE == XAxiVdma_DmaSetBufferAddr(&videoDMAController, XAXIVDMA_READ,myFrameBuffer.FrameStoreStartAddr)) {
 		 xil_printf("DMA Set Address Failed Failed\r\n");
 	 }
 	 // Print a sanity message if you get this far.
@@ -111,8 +111,6 @@ int main()
 	 // Now, let's get ready to start displaying some stuff on the screen.
 	 // The variables framePointer and framePointer1 are just pointers to the base address
 	 // of frame 0 and frame 1.
-	 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
-	 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + 640*480;
 	 // Just paint some large red, green, blue, and white squares in different
 	 // positions of the image for each frame in the buffer (framePointer0 and framePointer1).
 
@@ -120,11 +118,7 @@ int main()
 	// Each line of the alien is a 32-bit integer. We just need to strip the bits out and send
 	// them to stdout.
 	// MSB is the left-most pixel for the alien, so start from the MSB as we print from left to right.
-	initScreen();
-	char input;
-	while(1) {
-		input = getChar();
-	}
+
 
 	// This tells the HDMI controller the resolution of your display (there must be a better way to do this).
 	XIo_Out32(XPAR_AXI_HDMI_0_BASEADDR, 640*480);
@@ -138,6 +132,55 @@ int main()
 	// Note that you have to start the DMA process before parking on a frame.
 	if (XST_FAILURE == XAxiVdma_StartParking(&videoDMAController, frameIndex,  XAXIVDMA_READ)) {
 		xil_printf("vdma parking failed\n\r");
+	}
+	initScreen();
+	char input;
+
+	setvbuf(stdin, NULL, _IONBF, 0);
+	input = getchar();
+	xil_printf("%c\r\n", input);
+	while(input != 'q') {
+//		xil_printf("%c\r\n", input);
+		if(input == '4'){
+			xil_printf("Move tank to the left\r\n");
+			//render(erase)
+			render(true);
+			//change position
+			setTankPosition(-PIXEL_ADJUSTMENT);
+			//render(draw)
+			render(false);
+		}
+		else if(input == '6') {
+			xil_printf("Move tank to the right\r\n");
+			render(true);
+			//change position
+			setTankPosition(PIXEL_ADJUSTMENT);
+			//render(draw)
+			render(false);
+		}
+		else if(input == '8') {
+			xil_printf("Update Alien position\r\n");
+		}
+		else if(input == '2') {
+			xil_printf("kill Alien\r\n");
+		}
+		else if(input == '5') {
+			xil_printf("Fire tank bullet\r\n");
+		}
+		else if(input == '3'){
+			xil_printf("Fire alien bullet\r\n");
+		}
+		else if(input == '9') {
+			xil_printf("Update all bullets\r\n");
+		}
+		else if(input == '7') {
+			xil_printf("Erode Bunker\r\n");
+		}
+		else {
+		}
+		input = getchar();
+//		int i = MAX_SILLY_TIMER;
+//		while(i) i--;
 	}
 	// Oscillate between frame 0 and frame 1.
 	// int sillyTimer = MAX_SILLY_TIMER;  // Just a cheap delay between frames.

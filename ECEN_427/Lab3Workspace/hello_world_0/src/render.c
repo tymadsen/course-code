@@ -8,7 +8,7 @@
 #include "render.h"
 #include "bitMaps.h"
 #include "globals.h"
-#define FRAME_BUFFER_0_ADDR 0xC0000000
+#define FRAME_BUFFER_0_ADDR 0xC1000000
 #define SCREENWIDTH 640
 #define SCREENHEIGHT 480
 #define WORD_WIDTH 32
@@ -65,7 +65,7 @@ void clearScreen() {
 
 void initScreen() {
 	clearScreen();
-	xil_printf("Screen cleared.");
+	xil_printf("Screen cleared.\r\n");
 	int row;
 	int col;
 	//Draws the green line at the bottom of the frame
