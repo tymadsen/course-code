@@ -53,16 +53,17 @@
 #define BULLETHEIGHT 7
 #define BULLETWIDTH 3
 
-unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
-unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
+unsigned int * foreground = (unsigned int *) FRAME_BUFFER_0_ADDR;
+unsigned int * background = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
+unsigned int * activeFramePointer = (unsigned int *) FRAME_BUFFER_0_ADDR;
 bool alien_in = true;
 void clearScreen() {
 	int row, col;
 	//Clear the screen by initializing every pixel to black (0)
 	for(row=0; row<SCREENHEIGHT; row++) {
 		 for(col=0; col<SCREENWIDTH; col++) {
-			 framePointer0[row*SCREENWIDTH+col] = 0;
-			 framePointer1[row*SCREENWIDTH+col] = 0;
+			 foreground[row*SCREENWIDTH+col] = 0;
+			 background[row*SCREENWIDTH+col] = 0;
 		 }
 	}
 	return;
@@ -76,8 +77,8 @@ void initScreen() {
 	//Draws the green line at the bottom of the frame
 	for(row = SCREENHEIGHT-30; row < SCREENHEIGHT-28; row++) {
 		for(col = 0; col < SCREENWIDTH; col++){
-			framePointer0[row*SCREENWIDTH + col] = GREEN;
-			framePointer1[row*SCREENWIDTH + col] = GREEN;
+			foreground[row*SCREENWIDTH + col] = GREEN;
+			background[row*SCREENWIDTH + col] = GREEN;
 		}
 	}
 	//Write the score on top of the frame
@@ -90,11 +91,21 @@ void initScreen() {
 	drawLives();
 	//Set and draw the bunkers
 	drawNewBunkers();
+	activeFramePointer = background;
+	drawNewBunkers();
+	activeFramePointer = foreground;
 	
 	//TEST code, delete it
+	setBunkerErosion0(3);
 	drawBunkerErosion(0,3);
+	setBunkerErosion1(7);
+	setBunkerErosion1(7);
 	drawBunkerErosion(1,7);
+	setBunkerErosion2(8);
+	setBunkerErosion2(8);
+	setBunkerErosion2(8);
 	drawBunkerErosion(2,8);
+	setBunkerErosion3(9);
 	drawBunkerErosion(3,9);
 
 	//set and draw the aliens
@@ -178,6 +189,8 @@ void drawBunkerErosion(short bunker, short block){
 	block_pos.x = BUNKERSTARTX + (2*(bunker*(BUNKERWIDTH+BUNKERXSPACING) + (BLOCKWIDTH*col)));
 	block_pos.y = BUNKERSTARTY + (2*BLOCKHEIGHT*(row));
 	// Get erosion state to know which bitmap to use
+//	xil_printf("Bunker: %d\r\n", bunker);
+//	xil_printf("Block: %d\r\n", block);
 	uint32_t erosionState = 0;
 	switch(bunker){
 		case 0: erosionState = getBunkerErosion0();
@@ -190,17 +203,30 @@ void drawBunkerErosion(short bunker, short block){
 		break;
 		default: break;
 	}
-//	xil_printf("erosion state: %d\r\n", erosionState);
-	short erosion_block = 1;
-//	short erosion_block = (short) ((erosionState & (0x3 << (block*2))) >> (2*block));
-//	xil_printf("erosion_block: %d \r\n", erosion_block);
+//	xil_printf("erosion state: 0x%08x\r\n", erosionState);
+//	short erosion_block = 1;
+	uint32_t erosion_block = ((erosionState & (0x7 << (3*block))) >> (3*block));
+//	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
 	// Draw bunker erosion using (erase = true) flag
-	if(erosion_block == 0x3)
-		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, true);
-	else if(erosion_block == 0x2)
-		drawBitmap(bunkerDamage2_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, true);
-	else if(erosion_block == 0x1)
-		drawBitmap(bunkerDamage1_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, GREEN, true);
+	if(erosion_block == 0x0){
+		//do nothing
+	}
+	else if(erosion_block == 0x1){
+//		xil_printf("erosion 0 drawn on bunker: %d, block: %d \r\n", bunker, block);
+		drawBitmap(bunkerDamage0_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else if(erosion_block == 0x2){
+//		xil_printf("erosion 1 drawn on bunker: %d, block: %d \r\n", bunker, block);
+		drawBitmap(bunkerDamage1_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else if(erosion_block == 0x3){
+//		xil_printf("erosion 2 drawn on bunker: %d, block: %d \r\n", bunker, block);
+		drawBitmap(bunkerDamage2_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else {
+//		xil_printf("erosion 3 drawn on bunker: %d, block: %d \r\n", bunker, block);
+		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
 
 }
 
@@ -215,7 +241,7 @@ void drawTankBullet(bool erase) {
 
 void drawAliens(bool erase, bool in_pose) {
 	//Use row and col to traverse the bit map of each alien
-	//xil_printf("We are in the drawAliens Function %d\r\n", in_pose);
+	xil_printf("We are in the drawAliens Function %d\r\n", in_pose);
 	int  alienRow, color;
 	point_t pos = getAlienBlockPosition();
 	bool* deaths = getAlienDeaths();
@@ -272,28 +298,29 @@ void drawAlienBullet(bool erase, int bullet_number) {
 
 void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase) {
 	int sRow, sCol, row, col;
+
 	for(row = 0, sRow=0; row < height; row++, sRow+=2) {
 		for(col = 0, sCol=0; col < width; col++, sCol+=2) {
 			//Will print the right color if we are not erasing
 			if ((bitmap[row] & (1<<(width-1-col))) && !erase) {
 				if(!double_size)//Only print the bitmap to size
-					framePointer0[(pos.y*SCREENWIDTH + pos.x)] = color;
+					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = color;
 				else{
 					//Expand each pixel to 4 pixels
-					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = color;
-					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = color;
-					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = color;
-					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
+					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = color;
+					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = color;
+					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = color;
+					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
 			else {//paint black
 				if(!double_size)
-					framePointer0[(pos.y*SCREENWIDTH + pos.x)] = BLACK;
+					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
 				else{
-					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = BLACK;
-					framePointer0[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = BLACK;
-					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = BLACK;
-					framePointer0[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = BLACK;
+					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)];
+					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)];
+					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)];
+					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)];
 				}
 			}
 		}
