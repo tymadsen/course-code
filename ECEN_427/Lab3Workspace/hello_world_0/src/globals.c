@@ -4,6 +4,7 @@
  *  Created on: Sep 25, 2015
  *      Author: superman
  */
+#include <stdio.h>
 #include "globals.h"
 
 point_t tankPosition;
@@ -26,7 +27,8 @@ short bunker1State;
 short bunker2State;
 short bunker3State;
 short alienDeaths[55];
-
+bool alienRight = true;
+int alien_block_width = 4*10 + 11*12*2;
 
 point_t getTankPosition() {
 	return tankPosition;
@@ -132,5 +134,25 @@ void updateBullets(){
 
 }
 void updateAlienBlock(){
-
+	//If the alien is moving right, add pixels
+	if(alienRight == true) {
+		alienBlockPosition.x += alien_pixel_adjustment;
+		xil_printf("We are in the true loop\r\n");}
+	//If the block is moving left, detract the pixels
+	else {
+		alienBlockPosition.x -= alien_pixel_adjustment;}
+	//If the block has hit the right side of the screen, set them equal to the screen and move them down
+	xil_printf("X: %d, alienRight: %d\r\n", alienBlockPosition.x, alienRight);
+	if((alienBlockPosition.x + alien_block_width) > 640) {
+		alienBlockPosition.x = 640-alien_block_width;
+		alienBlockPosition.y += alien_height;
+		alienRight = false;
+		xil_printf("X: %d, alienRight: %d, blockWidth: %d\r\n", alienBlockPosition.x, alienRight, alien_block_width);
+	}
+	else if(alienBlockPosition.x <= 0) {
+		alienBlockPosition.x = 0;
+		alienBlockPosition.y += alien_height;
+		alienRight = true;
+	}
+	return;
 }

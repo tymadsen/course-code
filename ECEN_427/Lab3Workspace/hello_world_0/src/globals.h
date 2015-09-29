@@ -8,8 +8,18 @@
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
 #include "stdbool.h"
+#define tank_render_mask 0x1
+#define tank_bullet_render_mask 0x2
+#define alien_block_render_mask 0x4
+#define alien_bullet_0_render_mask 0x8
+#define alien_bullet_1_render_mask 0x16
+#define alien_bullet_2_render_mask 0x32
+#define alien_bullet_3_render_mask 0x64
+#define bunker_render_mask 0x128
+#define alien_pixel_adjustment 4
+#define alien_height 8
 
-typedef struct { unsigned short x; unsigned short y;} point_t;
+typedef struct { signed short x; unsigned short y;} point_t;
 typedef struct { point_t pos; unsigned short type; bool free;} aBullet;
 
 point_t getTankPosition();
