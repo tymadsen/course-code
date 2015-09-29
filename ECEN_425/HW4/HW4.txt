@@ -1,0 +1,24 @@
+﻿Ty Madsen
+Dr. Archibald
+ECEN 425
+HW 4
+
+Problem 1
+Round-robin with interrupts because all I need to know is if there is a car or pedestrian waiting to go, and set the flag accordingly, so if the first task code is running, say north/south bound green light, then if a car or pedestrian going east or west comes to the intersection, as soon as the timer expires and turns the light red for the north/south bound traffic, the east/west bound traffic light will turn green. My decision may be different, if we needed higher priority tasks or interrupts, like if pedestrians had higher priority than cars or vice versa. But for a simple intersection, I believe this architecture would work.
+
+
+Problem 2
+Function-queue-scheduling because the function code for lower priority functions cannot be interrupted by higher ones, but at the time of deciding which code to run, the highest priority is done.
+
+Problem 3
+1. This macro replaces the inputs A and B in the expression and returns the result. So the greater of the two, if they are the same then it returns the value B
+2. Using a function makes copies of the values, where a macro passes whatever is passed in the call, including expressions. So it is as if the macro replaces the call with a custom expression with the inputs replaced.
+3. With this example, the macro will increment both i and j in the comparison, and then increments again whichever was greater before incrementing, but returns the value before incrementing it. So, it is like: return (i++) > (j++) ? (i++) : (j++);
+4. This returns the value y+1*y+1 or y+(1*y)+1 which is 2*y + 1. 
+5. It must be changed to (x) * (x). So add parentheses around each x.
+
+
+Problem 4
+1. argWord = 0x1243, argByte = 0x20, localWord = 0x0321, localByte = 0xB9
+2. Return address = 0x02EA
+3. Old BP = 0xFFF6
