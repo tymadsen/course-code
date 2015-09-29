@@ -8,6 +8,7 @@
 #include "render.h"
 #include "bitMaps.h"
 #include "globals.h"
+
 #define FRAME_BUFFER_0_ADDR 0xC0000000
 #define SCREENWIDTH 640
 #define SCREENHEIGHT 480
@@ -96,6 +97,26 @@ void initScreen() {
 	return;
 }
 
+void render(bool erase, int render_objects_mask) {
+	if(render_objects_mask & tank_render_mask != 0)
+		drawTank(erase);
+	if(render_objects_mask & tank_bullet_render_mask != 0)
+		drawTankBullet(erase);
+	if(render_objects_mask & alien_block_render_mask != 0)
+		drawAliens(erase);
+	if(render_objects_mask & alien_bullet_0_render_mask != 0)
+		drawAlienBullet(erase, 0);
+	if(render_objects_mask & alien_bullet_1_render_mask != 0)
+		drawAlienBullet(erase, 1);
+	if(render_objects_mask & alien_bullet_2_render_mask != 0)
+		drawAlienBullet(erase, 2);
+	if(render_objects_mask & alien_bullet_3_render_mask != 0)
+		drawAlienBullet(erase, 3);
+	if(render_objects_mask & bunker_render_mask != 0)
+		drawBunkers();
+
+}
+
 void drawScoreLabel() {
 	point_t score_label_pos;
 	score_label_pos.x = SCORELABELX, score_label_pos.y = SCORELABELY;
@@ -120,7 +141,7 @@ void drawLives() {
 	drawBitmapRepeat(tank_15x8, lives_pos, 15, 8, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
 }
 
-void drawBunkers(){
+void drawBunkers() {
 	point_t bunker_pos;
 	bunker_pos.y = BUNKERSTARTY;
 	bunker_pos.x = BUNKERSTARTX;
@@ -132,11 +153,11 @@ void drawTank(bool erase) {
 	drawBitmap(tank_15x8, tank_pos, 15, 8, true, GREEN, erase);
 }
 
-void drawTankBullet(bool erase){
+void drawTankBullet(bool erase) {
 
 }
 
-void drawAliens(bool erase){
+void drawAliens(bool erase, bool in_pose) {
 	//Use row and col to traverse the bit map of each alien
 	int  alienRow, color;
 	point_t pos = getAlienBlockPosition();
@@ -154,7 +175,7 @@ void drawAliens(bool erase){
 	return;
 }
 
-void drawAlienBullets(bool erase){
+void drawAlienBullet(bool erase, int bullet_number) {
 
 }
 
@@ -188,7 +209,7 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 	}
 }
 
-void drawBitmapRepeat(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase, int x_space, int times){
+void drawBitmapRepeat(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase, int x_space, int times) {
 	int element_num;
 	int offset = width+x_space;
 	for(element_num = 0; element_num < times; element_num++){

@@ -13,6 +13,7 @@
 
 void clearScreen();
 void initScreen();
+void render(bool erase, int render_objects_mask);
 void drawScoreLabel();
 void drawScore();
 void drawLivesLabel();
@@ -20,8 +21,8 @@ void drawLives();
 void drawBunkers();
 void drawTank(bool erase);
 void drawTankBullet(bool erase);
-void drawAliens(bool erase);
-void drawAlienBullets(bool erase);
+void drawAliens(bool erase, bool in_pose);
+void drawAlienBullet(bool erase, int bullet_number);
 void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase);
 void drawBitmapRepeat(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase, int x_space, int times);
 
