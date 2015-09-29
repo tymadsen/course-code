@@ -53,6 +53,8 @@
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
 
+bool alien_in = true;
+
 void clearScreen() {
 	int row, col;
 	for(row=0; row<SCREENHEIGHT; row++) {
@@ -92,7 +94,7 @@ void initScreen() {
 	point_t aBP;
 	aBP.x = ALIENBLOCKSTARTX, aBP.y = ALIENBLOCKSTARTY;
 	setAlienBlockPosition(aBP);
-	drawAliens(false);
+	drawAliens(false, true);
 
 	return;
 }
@@ -102,8 +104,11 @@ void render(bool erase, int render_objects_mask) {
 		drawTank(erase);
 	if(render_objects_mask & tank_bullet_render_mask != 0)
 		drawTankBullet(erase);
-	if(render_objects_mask & alien_block_render_mask != 0)
-		drawAliens(erase);
+	if(render_objects_mask & alien_block_render_mask != 0){
+		drawAliens(erase, alien_in);
+		if(!erase)
+			alien_in = !alien_in;
+	}
 	if(render_objects_mask & alien_bullet_0_render_mask != 0)
 		drawAlienBullet(erase, 0);
 	if(render_objects_mask & alien_bullet_1_render_mask != 0)
@@ -138,6 +143,7 @@ void drawLivesLabel() {
 void drawLives() {
 	point_t lives_pos;
 	lives_pos.x = LIFESTARTX, lives_pos.y = LIFESTARTY;
+	bool lives[] = {true, true, true, true};
 	drawBitmapRepeat(tank_15x8, lives_pos, 15, 8, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
 }
 
@@ -145,6 +151,7 @@ void drawBunkers() {
 	point_t bunker_pos;
 	bunker_pos.y = BUNKERSTARTY;
 	bunker_pos.x = BUNKERSTARTX;
+	// TODO: this will need to change to draw each bunker individually
 	drawBitmapRepeat(bunker_24x18, bunker_pos, 24, 18, true, GREEN, false, BUNKERXSPACING, 4);
 }
 
@@ -161,15 +168,34 @@ void drawAliens(bool erase, bool in_pose) {
 	//Use row and col to traverse the bit map of each alien
 	int  alienRow, color;
 	point_t pos = getAlienBlockPosition();
+	bool* deaths = getAlienDeaths();
+	const uint32_t* bitmap;
 	for(alienRow = 0; alienRow < 5; alienRow++){
 		color = (alienRow == 0) ? TURQ : (alienRow == 1 || alienRow == 2) ? MAGENTA : ORANGE;
 		//Will print the right color if we are not erasing
 		if(alienRow == 0)
-			drawBitmapRepeat(alien_top_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = in_pose ? alien_top_in_12x8 : alien_top_out_12x8;
 		else if(alienRow == 1 || alienRow == 2)
-			drawBitmapRepeat(alien_middle_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = in_pose ? alien_middle_in_12x8 : alien_middle_out_12x8;
 		else
-			drawBitmapRepeat(alien_bottom_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = in_pose ? alien_bottom_in_12x8 : alien_bottom_out_12x8;
+
+		int col;
+		point_t new_pos = pos;
+		int offset = ALIENWIDTH+ALIENXSPACING;
+		for(col = 0; col < ALIENSPERROW; col++){
+			if(col > 0){
+				new_pos.x += offset;
+				if(double_size)
+					new_pos.x += offset;
+			}
+			// drawBitmap(bitmap, pos, width, height, double_size, color, erase);
+			if(! deaths[col+(ALIENSPREROW*alienRow)])
+				drawBitmap(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+		}
+			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
+			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
+		new_pos.x = pos.x;
 		pos.y += (ALIENHEIGHT+ALIENYSPACING);
 	}
 	return;

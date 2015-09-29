@@ -21,11 +21,11 @@ aBullet aBullet3;
 //short aBulletType1;
 //short aBulletType2;
 //short aBulletType3;
-short bunker0State;
-short bunker1State;
-short bunker2State;
-short bunker3State;
-short alienDeaths[55];
+uint32_t bunker0State;
+uint32_t bunker1State;
+uint32_t bunker2State;
+uint32_t bunker3State;
+bool alienDeaths[55];
 
 
 point_t getTankPosition() {
@@ -100,32 +100,33 @@ void setAlienBullet3(point_t point, unsigned short type, bool free) {
 unsigned short getBunkerErosion0() {
 	return bunker0State;
 }
-void setBunkerErosion0() {
-	bunker0State++;
+void setBunkerErosion0(short block) {
+
+	bunker0State &= (0xFFFFFFF3 << block);
 }
 unsigned short getBunkerErosion1() {
 	return bunker1State;
 }
-void setBunkerErosion1() {
+void setBunkerErosion1(short block) {
 	bunker1State++;
 }
 unsigned short getBunkerErosion2() {
 	return bunker2State;
 }
-void setBunkerErosion2() {
+void setBunkerErosion2(short block) {
 	bunker2State++;
 }
 unsigned short getBunkerErosion3() {
 	return bunker3State;
 }
-void setBunkerErosion3() {
+void setBunkerErosion3(short block) {
 	bunker3State++;
 }
 
 short* getAlienDeaths() {
 	return alienDeaths;
 }
-void setAlienDeaths(short alien, short dead) {
+void setAlienDeaths(short alien, bool dead) {
 	alienDeaths[alien] = dead;
 }
 void updateBullets(){
