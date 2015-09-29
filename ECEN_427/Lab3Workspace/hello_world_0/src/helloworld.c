@@ -176,6 +176,7 @@ int main()
 		}
 		else if(input == '5') {
 			xil_printf("Fire tank bullet\r\n");
+			fireTankBullet;
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");

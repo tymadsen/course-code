@@ -50,6 +50,8 @@
 #define SCORELABELY 15
 #define SCOREX 90
 #define SCOREY 15
+#define BULLETHEIGHT 7
+#define BULLETWIDTH 3
 
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
@@ -208,7 +210,7 @@ void drawTank(bool erase) {
 }
 
 void drawTankBullet(bool erase) {
-
+	drawBitmap(tank_bullet_7x3, getTankBulletPosition(), BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
 }
 
 void drawAliens(bool erase, bool in_pose) {

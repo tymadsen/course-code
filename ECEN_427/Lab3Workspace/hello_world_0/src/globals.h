@@ -19,6 +19,11 @@
 #define bunker_render_mask 0x128
 #define alien_pixel_adjustment 4
 #define alien_height 8
+#define TANKHEIGHT 8
+#define tank_bullet_startx TANKKHEIGHT*2
+#define pixel_adjustment 4
+#define bullet_height 7
+#define bullet_offscreen 1000
 
 #define col1_mask 0x1
 #define col2_mask 0x2
@@ -33,7 +38,7 @@
 #define col11_mask 0x400
 
 typedef struct { signed short x; signed short y;} point_t;
-typedef struct { point_t pos; unsigned short type; bool free;} aBullet;
+typedef struct { point_t pos; unsigned short type; bool isFree; short counter} aBullet;
 
 point_t getTankPosition();
 void setTankPosition(signed short pixels);
@@ -44,13 +49,13 @@ point_t getAlienBlockPosition();
 void setAlienBlockPosition(point_t point);
 
 aBullet getAlienBullet0();
-void setAlienBullet0(point_t point, unsigned short type, bool free);
+void setAlienBullet0(point_t point, unsigned short type, bool isFree, short counter);
 aBullet getAlienBullet1();
-void setAlienBullet1(point_t point, unsigned short type, bool free);
+void setAlienBullet1(point_t point, unsigned short type, bool isFree, short counter);
 aBullet getAlienBullet2();
-void setAlienBullet2(point_t point, unsigned short type, bool free);
+void setAlienBullet2(point_t point, unsigned short type, bool isFree, short counter);
 aBullet getAlienBullet3();
-void setAlienBullet3(point_t point, unsigned short type, bool free);
+void setAlienBullet3(point_t point, unsigned short type, bool isFree, short counter);
 
 unsigned short getBunkerErosion0();
 void setBunkerErosion0(short block);
@@ -65,5 +70,7 @@ bool* getAlienDeaths();
 void setAlienDeaths(short alien, bool dead);
 void updateBullets();
 void updateAlienBlock();
+void fireTankBullet();
+void fireAlienBullet();
 
 #endif /* GLOBALS_H_ */

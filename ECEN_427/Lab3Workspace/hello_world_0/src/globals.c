@@ -68,6 +68,14 @@ void setTankBulletPosition(point_t point) {
 	return;
 }
 
+void fireTankBulletPosition() {
+	if((tankBulletPosition.x == bullet_offscreen) && (tankBulletPosition.y == bullet_offscreen)) {
+		tankBulletPosition.x -= tank_bullet_startx;
+		tankBulletPosition.y = tankPosition.y;	
+	}
+	return;
+}
+
 point_t getAlienBlockPosition() {
 	return alienBlockPosition;
 }
@@ -79,31 +87,45 @@ void setAlienBlockPosition(point_t point) {
 aBullet getAlienBullet0() {
 	return aBullet0;
 }
-void setAlienBullet0(point_t point, unsigned short type, bool free) {
+void setAlienBullet0(point_t point, unsigned short type, bool isFree, short counter) {
 	aBullet0.pos = point;
 	aBullet0.type = type;
+	aBullet0.isFree = isFree;
+	aBullet0.counter = counter;
 }
 aBullet getAlienBullet1() {
 	return aBullet1;
 }
-void setAlienBullet1(point_t point, unsigned short type, bool free) {
+void setAlienBullet1(point_t point, unsigned short type, bool isFree, short counter) {
 	aBullet1.pos = point;
 	aBullet1.type = type;
+	aBullet1.isFree = isFree;
+	aBullet1.counter = counter;
 }
 aBullet getAlienBullet2() {
 	return aBullet2;
 }
-void setAlienBullet2(point_t point, unsigned short type, bool free) {
+void setAlienBullet2(point_t point, unsigned short type, bool isFree, short counter) {
 	aBullet2.pos = point;
 	aBullet2.type = type;
+	aBullet2.isFree = isFree;
+	aBullet2.counter = counter;
 }
 aBullet getAlienBullet3() {
 	return aBullet3;
 }
-void setAlienBullet3(point_t point, unsigned short type, bool free) {
+void setAlienBullet3(point_t point, unsigned short type, bool isFree, short counter) {
 	aBullet3.pos = point;
 	aBullet3.type = type;
+	aBullet3.isFree = isFree;
+	aBullet3.counter = counter;
 }
+
+void fireAlienBullet() {
+	if()
+	return;
+}
+
 //point_t getAlienBullet1() {
 //	return
 //}
@@ -153,12 +175,22 @@ void setBunkerErosion3(short block) {
 bool* getAlienDeaths() {
 	return alienDeaths;
 }
+
 void setAlienDeaths(short alien, bool dead) {
 	alienDeaths[alien] = dead;
 }
+
 void updateBullets(){
+	//Update the tank bullet first
+	tankBulletPosition.x -= pixel_adjustment;
+	if(tankBulletPosition.x < -bullet_height) {
+		tankBulletPosition.x = bullet_offscreen;
+		tankBulletPosition.y = bullet_offscreen;
+	}
+	//Update each of the alien bullets
 
 }
+
 void updateAlienBlock(){
 	int rightOffset = 0;
 	int leftOffset = 0;
