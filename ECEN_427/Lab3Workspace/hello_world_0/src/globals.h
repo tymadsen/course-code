@@ -8,18 +8,31 @@
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
 #include "stdbool.h"
+#include "stdint.h"
 #define tank_render_mask 0x1
 #define tank_bullet_render_mask 0x2
 #define alien_block_render_mask 0x4
 #define alien_bullet_0_render_mask 0x8
-#define alien_bullet_1_render_mask 0x16
-#define alien_bullet_2_render_mask 0x32
-#define alien_bullet_3_render_mask 0x64
+#define alien_bullet_1_render_mask 0x10
+#define alien_bullet_2_render_mask 0x20
+#define alien_bullet_3_render_mask 0x40
 #define bunker_render_mask 0x128
 #define alien_pixel_adjustment 4
 #define alien_height 8
 
-typedef struct { signed short x; unsigned short y;} point_t;
+#define col1_mask 0x1
+#define col2_mask 0x2
+#define col3_mask 0x4
+#define col4_mask 0x8
+#define col5_mask 0x10
+#define col6_mask 0x20
+#define col7_mask 0x40
+#define col8_mask 0x80
+#define col9_mask 0x100
+#define col10_mask 0x200
+#define col11_mask 0x400
+
+typedef struct { signed short x; signed short y;} point_t;
 typedef struct { point_t pos; unsigned short type; bool free;} aBullet;
 
 point_t getTankPosition();
@@ -40,16 +53,16 @@ aBullet getAlienBullet3();
 void setAlienBullet3(point_t point, unsigned short type, bool free);
 
 unsigned short getBunkerErosion0();
-void setBunkerErosion0();
+void setBunkerErosion0(short block);
 unsigned short getBunkerErosion1();
-void setBunkerErosion1();
+void setBunkerErosion1(short block);
 unsigned short getBunkerErosion2();
-void setBunkerErosion2();
+void setBunkerErosion2(short block);
 unsigned short getBunkerErosion3();
-void setBunkerErosion3();
+void setBunkerErosion3(short block);
 
-short* getAlienDeaths();
-void setAlienDeaths(short alien, short dead);
+bool* getAlienDeaths();
+void setAlienDeaths(short alien, bool dead);
 void updateBullets();
 void updateAlienBlock();
 

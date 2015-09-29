@@ -53,10 +53,9 @@ void print(char *str);
 #define tank_bullet_render_mask 0x2
 #define alien_block_render_mask 0x4
 #define alien_bullet_0_render_mask 0x8
-#define alien_bullet_1_render_mask 0x16
-#define alien_bullet_2_render_mask 0x32
-#define alien_bullet_3_render_mask 0x64
-#define bunker_0_render_mask 0x128
+#define alien_bullet_1_render_mask 0x10
+#define alien_bullet_2_render_mask 0x20
+#define alien_bullet_3_render_mask 0x40
 
 int main()
 {

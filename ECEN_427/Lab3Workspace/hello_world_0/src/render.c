@@ -52,8 +52,11 @@
 unsigned int * framePointer0 = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * framePointer1 = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
 
+bool alien_in = true;
+
 void clearScreen() {
 	int row, col;
+	//Clear the screen by initializing every pixel to black (0)
 	for(row=0; row<SCREENHEIGHT; row++) {
 		 for(col=0; col<SCREENWIDTH; col++) {
 			 framePointer0[row*SCREENWIDTH+col] = 0;
@@ -97,12 +100,24 @@ void initScreen() {
 }
 
 void render(bool erase, int render_objects_mask) {
+//	xil_printf("Objects mask: %d\r\n", render_objects_mask);
+//	xil_printf("anded: %d\r\n",(render_objects_mask & alien_block_render_mask));
 	if((render_objects_mask & tank_render_mask) != 0)
 		drawTank(erase);
 	if((render_objects_mask & tank_bullet_render_mask) != 0)
 		drawTankBullet(erase);
 	if((render_objects_mask & alien_block_render_mask) != 0)
 		drawAliens(erase, true);
+	if((render_objects_mask & alien_bullet_0_render_mask) != 0)
+	if((render_objects_mask & alien_block_render_mask) != 0){
+		drawAliens(erase, alien_in);
+//		if(erase == false) {
+//			if(alien_in == true)
+//				alien_in = false;
+//			else
+//				alien_in = true;
+//		}
+	}
 	if((render_objects_mask & alien_bullet_0_render_mask) != 0)
 		drawAlienBullet(erase, 0);
 	if((render_objects_mask & alien_bullet_1_render_mask) != 0)
@@ -144,6 +159,7 @@ void drawBunkers() {
 	point_t bunker_pos;
 	bunker_pos.y = BUNKERSTARTY;
 	bunker_pos.x = BUNKERSTARTX;
+	// TODO: this will need to change to draw each bunker individually
 	drawBitmapRepeat(bunker_24x18, bunker_pos, 24, 18, true, GREEN, false, BUNKERXSPACING, 4);
 }
 
@@ -158,17 +174,41 @@ void drawTankBullet(bool erase) {
 
 void drawAliens(bool erase, bool in_pose) {
 	//Use row and col to traverse the bit map of each alien
+	//xil_printf("We are in the drawAliens Function %d\r\n", in_pose);
 	int  alienRow, color;
 	point_t pos = getAlienBlockPosition();
+	bool* deaths = getAlienDeaths();
+	const uint32_t* bitmap;
 	for(alienRow = 0; alienRow < 5; alienRow++){
 		color = (alienRow == 0) ? TURQ : (alienRow == 1 || alienRow == 2) ? MAGENTA : ORANGE;
 		//Will print the right color if we are not erasing
+		//Chooses if the legs are in or out, depending on the input
 		if(alienRow == 0)
-			drawBitmapRepeat(alien_top_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = (in_pose==true) ? alien_top_in_12x8 : alien_top_out_12x8;
 		else if(alienRow == 1 || alienRow == 2)
-			drawBitmapRepeat(alien_middle_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = (in_pose==true) ? alien_middle_in_12x8 : alien_middle_out_12x8;
 		else
-			drawBitmapRepeat(alien_bottom_in_12x8, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW);
+			bitmap = (in_pose==true) ? alien_bottom_in_12x8 : alien_bottom_out_12x8;
+
+		int col;
+		point_t new_pos = pos;
+		//offset is the distance between the x position of each new alien
+		int offset = ALIENWIDTH+ALIENXSPACING;
+		//Go through each alien in the row and drawing them. Will draw if its not dead
+		for(col = 0; col < ALIENSPERROW; col++){
+			//Will only apply the offset to every alien but the first one
+			if(col > 0){
+				new_pos.x += 2*offset;
+			}
+			// drawBitmap(bitmap, pos, width, height, double_size, color, erase);
+			//Will set the color to black if the alien is dead
+			if(! deaths[col+(ALIENSPERROW*alienRow)])
+				drawBitmap(bitmap, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
+		}
+			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
+			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
+		//Update the position by putting x back at the starting point and moving y down to the next row
+		new_pos.x = pos.x;
 		pos.y += (ALIENHEIGHT+ALIENYSPACING);
 	}
 	return;
