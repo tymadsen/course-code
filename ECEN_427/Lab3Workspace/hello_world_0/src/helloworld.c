@@ -49,14 +49,14 @@ void print(char *str);
  (b15 << 15) | (b14 << 14) | (b13 << 13) | (b12 << 12) | (b11 << 11) | (b10 << 10) | (b9  << 9 ) | (b8  << 8 ) |						  \
  (b7  << 7 ) | (b6  << 6 ) | (b5  << 5 ) | (b4  << 4 ) | (b3  << 3 ) | (b2  << 2 ) | (b1  << 1 ) | (b0  << 0 ) )
 
-#define tank_render_mask 0x1
-#define tank_bullet_render_mask 0x2
-#define alien_block_render_mask 0x4
-#define alien_bullet_0_render_mask 0x8
-#define alien_bullet_1_render_mask 0x10
-#define alien_bullet_2_render_mask 0x20
-#define alien_bullet_3_render_mask 0x40
-#define all_bullet_render_mask tank_bullet_render_mask | alien_bullet_0_render_mask | alien_bullet_1_render_mask | alien_bullet_2_render_mask | alien_bullet_3_render_mask
+//#define tank_render_mask 0x1
+//#define tank_bullet_render_mask 0x2
+//#define alien_block_render_mask 0x4
+//#define alien_bullet_0_render_mask 0x8
+//#define alien_bullet_1_render_mask 0x10
+//#define alien_bullet_2_render_mask 0x20
+//#define alien_bullet_3_render_mask 0x40
+#define all_bullet_render_mask tank_bullet_render_mask | alien_bullet_render_mask
 
 int main()
 {
@@ -152,52 +152,60 @@ int main()
 		if(input == '4'){
 			xil_printf("Move tank to the left\r\n");
 			//render(erase)
-			render(true, tank_render_mask);
+			render(true, tank_render_mask, 0);
 			//change position
 			setTankPosition(-PIXEL_ADJUSTMENT);
 			//render(draw)
-			render(false, tank_render_mask);
+			render(false, tank_render_mask, 0);
 		}
 		else if(input == '6') {
 			xil_printf("Move tank to the right\r\n");
-			render(true, tank_render_mask);
+			render(true, tank_render_mask, 0);
 			//change position
 			setTankPosition(PIXEL_ADJUSTMENT);
 			//render(draw)
-			render(false, tank_render_mask);
+			render(false, tank_render_mask, 0);
 		}
 		else if(input == '8') {
 			xil_printf("Update Alien position\r\n");
-			render(true, alien_block_render_mask);
+			render(true, alien_block_render_mask, 0);
 			updateAlienBlock();
-			render(false,alien_block_render_mask);
+			render(false,alien_block_render_mask, 0);
 		}
 		else if(input == '2') {
 			xil_printf("Which alien would you like to kill?\r\n");
-			render(false,alien_block_render_mask);
+			render(false,alien_block_render_mask, 0);
 			//Take in both characters and compute the alien to kill
-			input = getchar();
-			char input2 = getchar();
+			char input2;
+			while(input == 0xD || input2 == 0xFFFFFF8C){
+				input = getchar();
+				input2 = getchar();
+			}
+
+			xil_printf("char1: %c (0x%x), char2: %c (0x%x)", input, input, input2, input2);
 			int alien = ((int)(input-'0')*10 + (int)(input2-'0'));
+			xil_printf("Alien to delete: %d \r\n", alien);
 			setAlienDeaths(alien, true);
-			render(false,alien_block_render_mask);
+			render(true,alien_block_render_mask, 0);
+			render(false,alien_block_render_mask, 0);
 		}
 		else if(input == '5') {
 			xil_printf("Fire tank bullet\r\n");
 			fireTankBullet();
-			render(false, tank_bullet_render_mask);
+			render(false, tank_bullet_render_mask, 0);
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");
 		}
 		else if(input == '9') {
 			xil_printf("Update all bullets\r\n");
-			render(true, all_bullet_render_mask);
+			render(true, all_bullet_render_mask, 0);
 			updateBullets();
-			render(false, all_bullet_render_mask);
+			render(false, all_bullet_render_mask, 0);
 		}
 		else if(input == '7') {
 			xil_printf("Erode Bunker\r\n");
+
 		}
 		else {
 		}

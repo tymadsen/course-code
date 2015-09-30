@@ -7,17 +7,18 @@
 
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
+#include "stdio.h"
+#include "stdlib.h"
+//#include "time.h"
 #include "stdbool.h"
 #include "stdint.h"
-#include "stdlib.h"
+
 #define tank_render_mask 0x1
 #define tank_bullet_render_mask 0x2
 #define alien_block_render_mask 0x4
-#define alien_bullet_0_render_mask 0x8
-#define alien_bullet_1_render_mask 0x10
-#define alien_bullet_2_render_mask 0x20
-#define alien_bullet_3_render_mask 0x40
-#define bunker_render_mask 0x128
+#define alien_bullet_render_mask 0x8
+#define bunker_render_mask 0x10
+
 #define alien_pixel_adjustment 4
 #define alien_height 8
 #define TANKHEIGHT 8

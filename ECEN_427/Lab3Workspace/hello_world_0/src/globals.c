@@ -4,7 +4,7 @@
  *  Created on: Sep 25, 2015
  *      Author: superman
  */
-#include <stdio.h>
+
 #include "globals.h"
 
 #define TANKWIDTH 15
@@ -28,8 +28,11 @@ bool alienRight = true;
 bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
-time_t t;
-//srand(time(NULL));
+
+//srand((unsigned)time(NULL));
+
+//int t = rand();
+
 uint32_t bunker0State = 0;
 uint32_t bunker1State = 0;
 uint32_t bunker2State = 0;
@@ -205,6 +208,7 @@ bool* getAlienDeaths() {
 }
 
 void setAlienDeaths(short alien, bool dead) {
+	xil_printf("alien value: %d\r\n", alien);
 	if(alien >= 0 && alien < 55) {
 		alienDeaths[alien] = dead;
 	}

@@ -120,7 +120,7 @@ void initScreen() {
 	return;
 }
 
-void render(bool erase, int render_objects_mask) {
+void render(bool erase, int render_objects_mask, short index) {
 //	xil_printf("Objects mask: %d\r\n", render_objects_mask);
 //	xil_printf("anded: %d\r\n",(render_objects_mask & alien_block_render_mask));
 	if((render_objects_mask & tank_render_mask) != 0)
@@ -132,16 +132,10 @@ void render(bool erase, int render_objects_mask) {
 		if(!erase) {
 			alien_in = !alien_in; }
 	}
-	if((render_objects_mask & alien_bullet_0_render_mask) != 0)
-		drawAlienBullet(erase, 0);
-	if((render_objects_mask & alien_bullet_1_render_mask) != 0)
-		drawAlienBullet(erase, 1);
-	if((render_objects_mask & alien_bullet_2_render_mask) != 0)
-		drawAlienBullet(erase, 2);
-	if((render_objects_mask & alien_bullet_3_render_mask) != 0)
-		drawAlienBullet(erase, 3);
+	if((render_objects_mask & alien_bullet_render_mask) != 0)
+		drawAlienBullet(erase, index);
 	if((render_objects_mask & bunker_render_mask) != 0)
-		drawBunkerErosion(0,0);
+		drawBunkerErosion(index,0);
 }
 
 void drawScoreLabel() {
@@ -295,7 +289,7 @@ void drawAliens(bool erase, bool in_pose) {
 	return;
 }
 
-void drawAlienBullet(bool erase, int bullet_number) {
+void drawAlienBullet(bool erase, short bullet_number) {
 
 }
 
