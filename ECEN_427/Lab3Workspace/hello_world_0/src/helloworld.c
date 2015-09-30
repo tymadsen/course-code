@@ -172,11 +172,18 @@ int main()
 			render(false,alien_block_render_mask);
 		}
 		else if(input == '2') {
-			xil_printf("kill Alien\r\n");
+			xil_printf("Which alien would you like to kill?\r\n");
+			render(false,alien_block_render_mask);
+			//Take in both characters and compute the alien to kill
+			input = getchar();
+			char input2 = getchar();
+			int alien = ((int)(input-'0')*10 + (int)(input2-'0'));
+			setAlienDeaths(alien, true);
+			render(false,alien_block_render_mask);
 		}
 		else if(input == '5') {
 			xil_printf("Fire tank bullet\r\n");
-			fireTankBullet;
+			fireTankBullet();
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");

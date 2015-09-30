@@ -9,6 +9,7 @@
 #define GLOBALS_H_
 #include "stdbool.h"
 #include "stdint.h"
+#include "stdlilb.h"
 #define tank_render_mask 0x1
 #define tank_bullet_render_mask 0x2
 #define alien_block_render_mask 0x4

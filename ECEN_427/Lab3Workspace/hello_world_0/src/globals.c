@@ -27,15 +27,17 @@ bool alienRight = true;
 bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
+time_t t;
+srand(time(NULL));
 uint32_t bunker0State = 0;
 uint32_t bunker1State = 0;
 uint32_t bunker2State = 0;
 uint32_t bunker3State = 0;
-bool alienDeaths[55] = {true, true, true, false, false, true, false, false, false, false, true,
-		true, true, true, false, true, false, false, false, false, false, true,
-		true, true, true, false, false, true, false, true, false, false, true,
-		true, true, true, false, true, false, false, false, true, false, true,
-		true, true, true, false, false, false, true, false, false, true, true};
+bool alienDeaths[55] = {false, false, false, false, false, false, false, false, false, false, false,
+		false, false, false, false, false, false, false, false, false, false, false,
+		false, false, false, false, false, false, false, false, false, false, false,
+		false, false, false, false, false, false, false, false, false, false, false,
+		false, false, false, false, false, false, false, false, false, false, false};
 
 
 point_t getTankPosition() {
@@ -122,7 +124,22 @@ void setAlienBullet3(point_t point, unsigned short type, bool isFree, short coun
 }
 
 void fireAlienBullet() {
-	if()
+	point_t temp;
+	if(aBullet0.isFree) {
+
+	}
+	else if(aBullet1.isFree) {
+
+	}
+	else if(aBullet2.isFree) {
+
+	}
+	else if(aBullet3.isFree) {
+
+	}
+	else {
+		//Do nothing because the maximum number of bullets are on the screen
+	}
 	return;
 }
 
@@ -177,7 +194,9 @@ bool* getAlienDeaths() {
 }
 
 void setAlienDeaths(short alien, bool dead) {
-	alienDeaths[alien] = dead;
+	if(alien >= 0 && alien < 55) {
+		alienDeaths[alien] = dead;
+	}
 }
 
 void updateBullets(){
