@@ -185,7 +185,10 @@ int main()
 		else if(input == '5') {
 			xil_printf("Fire tank bullet\r\n");
 			fireTankBullet();
+<<<<<<< HEAD
 			render(false, tank_bullet_render_mask);
+=======
+>>>>>>> a3f9867eb53a4c2c8c57e97f8d01baa2dede4ac4
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");

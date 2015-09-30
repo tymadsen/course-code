@@ -29,7 +29,7 @@ bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
 time_t t;
-//srand(time(NULL));
+srand(time(NULL));
 uint32_t bunker0State = 0;
 uint32_t bunker1State = 0;
 uint32_t bunker2State = 0;

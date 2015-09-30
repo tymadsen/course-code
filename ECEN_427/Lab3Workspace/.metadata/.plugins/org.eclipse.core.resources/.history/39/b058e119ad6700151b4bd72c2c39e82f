@@ -29,7 +29,7 @@ bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
 time_t t;
-//srand(time(NULL));
+srand(time(NULL));
 uint32_t bunker0State = 0;
 uint32_t bunker1State = 0;
 uint32_t bunker2State = 0;
@@ -135,6 +135,9 @@ void setAlienBullet3(point_t point, unsigned short type, bool isFree, short coun
 }
 
 void fireAlienBullet() {
+<<<<<<< HEAD
+	if(false){}
+=======
 	point_t temp;
 	if(aBullet0.isFree) {
 
@@ -151,6 +154,7 @@ void fireAlienBullet() {
 	else {
 		//Do nothing because the maximum number of bullets are on the screen
 	}
+>>>>>>> a3f9867eb53a4c2c8c57e97f8d01baa2dede4ac4
 	return;
 }
 
