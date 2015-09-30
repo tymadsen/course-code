@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="5" key="selection"/>
+		<item value="fireTankBullet" key="selection"/>
 		<list key="findhistory">
+			<item value="fireTankBullet"/>
+			<item value="tank"/>
+			<item value="tankkheight"/>
+			<item value="tank_bullet_position"/>
+			<item value="TANKKHEIGHT"/>
+			<item value="initScreen"/>
 			<item value="5"/>
 			<item value="20"/>
-			<item value="alienRow"/>
-			<item value="alien"/>
-			<item value="ALIENWIDTH"/>
-			<item value="ALIENHEIGHT"/>
-			<item value="uint_t"/>
-			<item value="int"/>
 		</list>
 		<list key="replacehistory">
 			<item value="col_space"/>

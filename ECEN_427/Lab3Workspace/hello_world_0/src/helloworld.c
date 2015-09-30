@@ -56,6 +56,7 @@ void print(char *str);
 #define alien_bullet_1_render_mask 0x10
 #define alien_bullet_2_render_mask 0x20
 #define alien_bullet_3_render_mask 0x40
+#define all_bullet_render_mask tank_bullet_render_mask | alien_bullet_0_render_mask | alien_bullet_1_render_mask | alien_bullet_2_render_mask | alien_bullet_3_render_mask
 
 int main()
 {
@@ -176,13 +177,17 @@ int main()
 		}
 		else if(input == '5') {
 			xil_printf("Fire tank bullet\r\n");
-			fireTankBullet;
+			fireTankBullet();
+			render(false, tank_bullet_render_mask);
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");
 		}
 		else if(input == '9') {
 			xil_printf("Update all bullets\r\n");
+			render(true, all_bullet_render_mask);
+			updateBullets();
+			render(false, all_bullet_render_mask);
 		}
 		else if(input == '7') {
 			xil_printf("Erode Bunker\r\n");

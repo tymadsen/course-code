@@ -50,7 +50,7 @@
 #define SCORELABELY 15
 #define SCOREX 90
 #define SCOREY 15
-#define BULLETHEIGHT 7
+#define BULLETHEIGHT 5
 #define BULLETWIDTH 3
 
 unsigned int * foreground = (unsigned int *) FRAME_BUFFER_0_ADDR;
@@ -111,6 +111,7 @@ void initScreen() {
 	//set and draw the aliens
 	setTankPositionPoint(TANKSTARTX, TANKSTARTY);
 	drawTank(false);
+	setTankBulletPositionXY(bullet_offscreen, bullet_offscreen);
 	point_t aBP;
 	aBP.x = ALIENBLOCKSTARTX, aBP.y = ALIENBLOCKSTARTY;
 	setAlienBlockPosition(aBP);
@@ -128,8 +129,8 @@ void render(bool erase, int render_objects_mask) {
 		drawTankBullet(erase);
 	if((render_objects_mask & alien_block_render_mask) != 0){
 		drawAliens(erase, alien_in);
-		if(!erase)
-			alien_in = !alien_in;
+		if(!erase) {
+			alien_in = !alien_in; }
 	}
 	if((render_objects_mask & alien_bullet_0_render_mask) != 0)
 		drawAlienBullet(erase, 0);
@@ -236,12 +237,14 @@ void drawTank(bool erase) {
 }
 
 void drawTankBullet(bool erase) {
-	drawBitmap(tank_bullet_7x3, getTankBulletPosition(), BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
+	point_t tankBulletPosition = getTankBulletPosition();
+	drawBitmap(tank_bullet_5x3, tankBulletPosition, BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
+	return;
 }
 
 void drawAliens(bool erase, bool in_pose) {
 	//Use row and col to traverse the bit map of each alien
-	xil_printf("We are in the drawAliens Function %d\r\n", in_pose);
+	//xil_printf("We are in the drawAliens Function %d\r\n", in_pose);
 	int  alienRow, color;
 	point_t pos = getAlienBlockPosition();
 	bool* deaths = getAlienDeaths();

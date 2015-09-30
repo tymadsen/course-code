@@ -8,6 +8,7 @@
 #include "globals.h"
 
 #define TANKWIDTH 15
+#define TANKHEIGHT 8
 point_t tankPosition;
 point_t tankBulletPosition;
 point_t alienBlockPosition;
@@ -63,16 +64,26 @@ point_t getTankBulletPosition() {
 	return tankBulletPosition;
 }
 
+void setTankBulletPositionXY(int x, int y){
+	tankBulletPosition.x = x;
+	tankBulletPosition.y = y;
+	return;
+}
+
 void setTankBulletPosition(point_t point) {
 	tankBulletPosition = point;
 	return;
 }
 
-void fireTankBulletPosition() {
-	if((tankBulletPosition.x == bullet_offscreen) && (tankBulletPosition.y == bullet_offscreen)) {
-		tankBulletPosition.x -= tank_bullet_startx;
-		tankBulletPosition.y = tankPosition.y;	
+void fireTankBullet() {
+	xil_printf("Position x: %d, Position y: %d\r\n", tankPosition.x, tankPosition.y);
+	point_t temp;
+	if((tankBulletPosition.x > SCREENWIDTH) && (tankBulletPosition.y > SCREENHEIGHT)) {
+		temp.y = tankPosition.y - tank_bullet_height*2+5;
+		temp.x = tankPosition.x + TANKWIDTH - 3;
+		setTankBulletPosition(temp);
 	}
+	xil_printf("Position x: %d, Position y: %d\r\n", tankBulletPosition.x, tankBulletPosition.y);
 	return;
 }
 
@@ -122,7 +133,7 @@ void setAlienBullet3(point_t point, unsigned short type, bool isFree, short coun
 }
 
 void fireAlienBullet() {
-	if()
+	if(false){}
 	return;
 }
 
@@ -182,8 +193,8 @@ void setAlienDeaths(short alien, bool dead) {
 
 void updateBullets(){
 	//Update the tank bullet first
-	tankBulletPosition.x -= pixel_adjustment;
-	if(tankBulletPosition.x < -bullet_height) {
+	tankBulletPosition.y -= pixel_adjustment;
+	if(tankBulletPosition.y < -bullet_height) {
 		tankBulletPosition.x = bullet_offscreen;
 		tankBulletPosition.y = bullet_offscreen;
 	}

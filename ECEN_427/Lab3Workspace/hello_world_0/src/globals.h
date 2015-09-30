@@ -20,10 +20,14 @@
 #define alien_pixel_adjustment 4
 #define alien_height 8
 #define TANKHEIGHT 8
-#define tank_bullet_startx TANKKHEIGHT*2
+#define tank_bullet_height 7
+#define tank_bullet_width 3
 #define pixel_adjustment 4
 #define bullet_height 7
 #define bullet_offscreen 1000
+#define bullety_offscreen 988
+#define SCREENWIDTH 640
+#define SCREENHEIGHT 480
 
 #define col1_mask 0x1
 #define col2_mask 0x2
@@ -38,13 +42,14 @@
 #define col11_mask 0x400
 
 typedef struct { signed short x; signed short y;} point_t;
-typedef struct { point_t pos; unsigned short type; bool isFree; short counter} aBullet;
+typedef struct { point_t pos; unsigned short type; bool isFree; short counter;} aBullet;
 
 point_t getTankPosition();
 void setTankPosition(signed short pixels);
 void setTankPositionPoint(int x, int y);
 point_t getTankBulletPosition();
 void setTankBulletPosition(point_t point);
+void setTankBulletPositionXY(int x, int y);
 point_t getAlienBlockPosition();
 void setAlienBlockPosition(point_t point);
 
