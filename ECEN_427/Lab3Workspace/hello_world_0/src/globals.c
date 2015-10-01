@@ -272,21 +272,25 @@ void updateBullets(){
 	if(aBullet0.y > GREENLINEY - alien_bullet_height) {
 		aBullet0.x = bullet_offscreen;
 		aBullet0.y = bullet_offscreen;
+		aBullet0.isFree = true;
 	}
 	aBullet1.y += pixel_adjustment;
 	if(aBullet1.y > GREENLINEY - alien_bullet_height) {
 		aBullet1.x = bullet_offscreen;
 		aBullet1.y = bullet_offscreen;
+		aBullet1.isFree = true;
 	}
 	aBullet2.y += pixel_adjustment;
 	if(aBullet2.y > GREENLINEY-alien_bullet_height) {
 		aBullet2.x = bullet_offscreen;
 		aBullet2.y = bullet_offscreen;
+		aBullet2.isFree = true;
 	}
 	aBullet3.y += pixel_adjustment;
 	if(aBullet3.y > GREENLINEY - alien_bullet_height) {
 		aBullet3.x = bullet_offscreen;
 		aBullet3.y = bullet_offscreen;
+		aBullet3.isFree = true;
 	}
 }
 
