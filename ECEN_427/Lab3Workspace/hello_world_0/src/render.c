@@ -289,7 +289,56 @@ void drawAliens(bool erase, bool in_pose) {
 }
 
 void drawAlienBullet(bool erase, short bullet_number) {
+	aBullet tempBullet;
+	const uint32_t* bitmap;
+	//Determine which bullet to use
+	if(bullet_number == 0) {
+		tempBullet = getAlienBullet0();
+	}
+	else if(bullet_number == 1){
+		tempBullet = getAlienBullet1();
+	}
+	else if(bullet_number == 2) {
+		tempBullet = getAlienBullet2();
+	}
+	else if(bullet_number == 3) {
+		tempBullet = getAlienBullet3();
+	}
+	else //Invalide bullet number
+	{}
+	//Assign the bitmap
+	bitmap = determineAlienBulletBitmap(tempBullet.type, tempBullet.counter);
+	//Draw the bullet
+	drawBitmap(bitmap, tempBullet.pos, 3, 7, true, GREEN, false);
+}
 
+void determineAlienBulletBitmap(short bulletType, short counter)
+{
+	if(bulletType == 1){
+		if(counter == 0){
+			return alien_bullet_21_7x3;
+		}
+		else if(counter == 1){
+			return alien_bullet_22_7x3;
+		}
+		else if(counter == 2){
+			return alien_bullet_23_7x3;
+		}
+		else {}
+	}
+	else if(bulletType == 0) {
+		if(counter == 0){
+			return alien_bullet_11_7x3;
+		}
+		else if(counter == 1){
+			return alien_bullet_12_7x3;
+		}
+		else if(counter == 2){
+			return alien_bullet_13_7x3;
+		}
+		else {}
+	}
+	else {}
 }
 
 void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase) {

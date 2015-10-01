@@ -199,6 +199,7 @@ int main()
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");
 			fireAlienBullet();
+			render(false, alien_bullet_render_mask);
 		}
 		else if(input == '9') {
 			xil_printf("Update all bullets\r\n");

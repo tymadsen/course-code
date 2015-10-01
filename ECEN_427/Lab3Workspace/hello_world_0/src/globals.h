@@ -19,17 +19,21 @@
 #define alien_bullet_render_mask 0x8
 #define bunker_render_mask 0x10
 
-#define alien_pixel_adjustment 4
 #define alien_height 8
-#define TANKHEIGHT 8
-#define tank_bullet_height 7
-#define tank_bullet_width 3
+#define alien_width 12
+#define tank_height 8
+#define tank_width 15
+#define tank_bullet_height 5
+#define bullet_width 3
+#define alien_bullet_height 7
 #define pixel_adjustment 4
-#define bullet_height 7
 #define bullet_offscreen 1000
 #define bullety_offscreen 988
-#define SCREENWIDTH 640
-#define SCREENHEIGHT 480
+#define screen_width 640
+#define screen_height 480
+#define alien_x_spacing 2
+#define alien_y_spacing 20
+#define green_line_y screen_height-28
 
 #define col1_mask 0x1
 #define col2_mask 0x2
@@ -79,5 +83,6 @@ void updateBullets();
 void updateAlienBlock();
 void fireTankBullet();
 void fireAlienBullet();
+void updateAlienBulletCounters();
 
 #endif /* GLOBALS_H_ */
