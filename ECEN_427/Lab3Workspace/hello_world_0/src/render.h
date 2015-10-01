@@ -23,6 +23,7 @@ void drawBunkerErosion(short bunker, short block);
 void drawTank(bool erase);
 void drawTankBullet(bool erase);
 void drawAliens(bool erase, bool in_pose);
+const uint32_t* determineAlienBulletBitmap(short bulletType, short counter);
 void drawAlienBullet(bool erase, short bullet_number);
 void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase);
 void drawBitmapRepeat(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase, int x_space, int times);

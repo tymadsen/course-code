@@ -7,8 +7,6 @@
 
 #include "globals.h"
 
-#define TANKWIDTH 15
-#define TANKHEIGHT 8
 point_t tankPosition;
 point_t tankBulletPosition;
 point_t alienBlockPosition;
@@ -53,8 +51,8 @@ void setTankPosition(signed short pixels) {
 	if(tankPosition.x < 0){
 		tankPosition.x = 0;
 	}
-	if(tankPosition.x + (TANKWIDTH*2) > 640){
-		tankPosition.x = 640 - (TANKWIDTH*2);
+	if(tankPosition.x + (tank_width*2) > 640){
+		tankPosition.x = 640 - (tank_width*2);
 	}
 	return;
 }
@@ -82,9 +80,9 @@ void setTankBulletPosition(point_t point) {
 
 void fireTankBullet() {
 	point_t temp;
-	if((tankBulletPosition.x > SCREENWIDTH) && (tankBulletPosition.y > SCREENHEIGHT)) {
+	if((tankBulletPosition.x > screen_width) && (tankBulletPosition.y > screen_height)) {
 		temp.y = tankPosition.y - tank_bullet_height*2+5;
-		temp.x = tankPosition.x + TANKWIDTH - 3;
+		temp.x = tankPosition.x + tank_width - 3;
 		setTankBulletPosition(temp);
 	}
 	return;
@@ -151,22 +149,53 @@ void fireAlienBullet() {
 		}
 	}
 	//Set the right coordinates
+	int row = idx/col;
+	temp.x = alienBlockPosition.x + (col*(2*alien_width)) + (col*alien_x_spacing) + (alien_width);
+	temp.y = alienBlockPosition.y + (col*(2*(alien_height+1)) + (col*alien_y_spacing);
+	//Choose what type the bullet will be. 1 = squiggly, 0 = cross
+	unsigned short bulletType = rand()%2;
 	//Choose which bullet to place
 	if(aBullet0.isFree) {
-
+		aBullet0.pos = temp;
+		aBullet0.type = bulletType;
+		aBullet0.isFree = false;
+		aBullet0.counter = 0;
 	}
 	else if(aBullet1.isFree) {
-
+		aBullet1.pos = temp;
+		aBullet1.type = bulletType;
+		aBullet1.isFree = false;
+		aBullet1.counter = 0;
 	}
 	else if(aBullet2.isFree) {
-
+		aBullet2.pos = temp;
+		aBullet2.type = bulletType;
+		aBullet2.isFree = false;
+		aBullet2.counter = 0;
 	}
 	else if(aBullet3.isFree) {
-
+		aBullet3.pos = temp;
+		aBullet3.type = bulletType;
+		aBullet3.isFree = false;
+		aBullet3.counter = 0;
 	}
 	else {
 		//Do nothing because the maximum number of bullets are on the screen
 	}
+	return;
+}
+
+void updateAlienBulletCounters()
+{
+	//Increment each bullet counter, If the counter is equal to three (Maximum bitmaps), reset to 0
+	aBullet0.counter += 1;
+	if(aBullet0.counter >= 3) { aBullet0.counter = 0; }
+	aBullet1.counter += 1;
+	if(aBullet1.counter >= 3) { aBullet1.counter = 0; }
+	aBullet2.counter += 1;
+	if(aBullet2.counter >= 3) { aBullet2.counter = 0; }
+	aBullet3.counter += 1;
+	if(aBullet3.counter >= 3) { aBullet3.counter = 0; }
 	return;
 }
 
@@ -222,6 +251,7 @@ bool* getAlienDeaths() {
 
 void setAlienDeaths(short alien, bool dead) {
 	xil_printf("alien value: %d\r\n", alien);
+	//If there is a valid alien in the block, set the corresponding value in the array to true (passed in)
 	if(alien >= 0 && alien < 55) {
 		alienDeaths[alien] = dead;
 	}
@@ -235,7 +265,33 @@ void updateBullets(){
 		tankBulletPosition.y = bullet_offscreen;
 	}
 	//Update each of the alien bullets
-
+	//Will change the bitmap used for each of them
+	updateAlienBulletCounters();
+	//Will update the position of each bullet
+	aBullet0.y += pixel_adjustment;
+	if(aBullet0.y > GREENLINEY - alien_bullet_height) {
+		aBullet0.x = bullet_offscreen;
+		aBullet0.y = bullet_offscreen;
+		aBullet0.isFree = true;
+	}
+	aBullet1.y += pixel_adjustment;
+	if(aBullet1.y > GREENLINEY - alien_bullet_height) {
+		aBullet1.x = bullet_offscreen;
+		aBullet1.y = bullet_offscreen;
+		aBullet1.isFree = true;
+	}
+	aBullet2.y += pixel_adjustment;
+	if(aBullet2.y > GREENLINEY-alien_bullet_height) {
+		aBullet2.x = bullet_offscreen;
+		aBullet2.y = bullet_offscreen;
+		aBullet2.isFree = true;
+	}
+	aBullet3.y += pixel_adjustment;
+	if(aBullet3.y > GREENLINEY - alien_bullet_height) {
+		aBullet3.x = bullet_offscreen;
+		aBullet3.y = bullet_offscreen;
+		aBullet3.isFree = true;
+	}
 }
 
 void updateAlienBlock(){
