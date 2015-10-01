@@ -12,6 +12,7 @@
 #define SCREENWIDTH 640
 #define SCREENHEIGHT 480
 #define WORD_WIDTH 32
+// Colors
 #define WHITE 	0x00FFFFFF
 #define RED 	0x00FF0000
 #define GREEN 	0x0000FF00
@@ -22,16 +23,28 @@
 #define ORANGE 	0x00FF6600
 #define PINK 	0x00FF99CC
 #define BLACK 	0x00000000
+// Life dimension/spacing
 #define LIFESTARTX 410
 #define LIFESTARTY 10
 #define LIFEXSPACING 5
 #define LIVESLABELX 350
 #define LIVESLABELY 15
 #define LIVESLEFT 3
+#define LIVESLABELWIDTH 24
+#define LABELHEIGHT 5
+// Score dimension/spacing
+#define SCORELABELX 20
+#define SCORELABELY 15
+#define SCOREX 90
+#define SCOREY 15
+#define SCORELABELWIDTH 30
+#define NUMBERWIDTH 5
+// Tank dimenstion/spacing
 #define TANKSTARTY 400
 #define TANKSTARTX 98
 #define TANKHEIGHT 8
 #define TANKWIDTH 15
+// Bunker/damage block dimension/spacing
 #define BUNKERWIDTH 24
 #define BUNKERHEIGHT 18
 #define BUNKERXSPACING 45
@@ -39,6 +52,7 @@
 #define BUNKERSTARTX 89
 #define BLOCKWIDTH 6
 #define BLOCKHEIGHT 6
+// Alien/alien block dimension/spacing
 #define ALIENHEIGHT 8
 #define ALIENWIDTH 12
 #define ALIENXSPACING 2
@@ -46,10 +60,7 @@
 #define ALIENBLOCKSTARTX 200
 #define ALIENBLOCKSTARTY 100
 #define ALIENSPERROW 11
-#define SCORELABELX 20
-#define SCORELABELY 15
-#define SCOREX 90
-#define SCOREY 15
+// Bullet dimension/spacing
 #define BULLETHEIGHT 5
 #define BULLETWIDTH 3
 
@@ -134,32 +145,38 @@ void render(bool erase, int render_objects_mask, short index) {
 	}
 	if((render_objects_mask & alien_bullet_render_mask) != 0)
 		drawAlienBullet(erase, index);
-	if((render_objects_mask & bunker_render_mask) != 0)
-		drawBunkerErosion(index,0);
+	if((render_objects_mask & bunker_0_render_mask) != 0)
+		drawBunkerErosion(0, index);
+	if((render_objects_mask & bunker_1_render_mask) != 0)
+		drawBunkerErosion(1, index);
+	if((render_objects_mask & bunker_2_render_mask) != 0)
+		drawBunkerErosion(2, index);
+	if((render_objects_mask & bunker_3_render_mask) != 0)
+		drawBunkerErosion(3, index);
 }
 
 void drawScoreLabel() {
 	point_t score_label_pos;
 	score_label_pos.x = SCORELABELX, score_label_pos.y = SCORELABELY;
-	drawBitmap(word_score_30x5, score_label_pos, 30, 5, true, WHITE, false);
+	drawBitmap(word_score_30x5, score_label_pos, SCORELABELWIDTH, LABELHEIGHT, true, WHITE, false);
 }
 
 void drawScore() {
 	point_t score_pos;
 	score_pos.x = SCOREX, score_pos.y = SCOREY;
-	drawBitmap(number_0_5x5, score_pos, 5, 5, true, GREEN, false);
+	drawBitmap(number_0_5x5, score_pos, NUMBERWIDTH, LABELHEIGHT, true, GREEN, false);
 }
 
 void drawLivesLabel() { 
 	point_t lives_label_pos;
 	lives_label_pos.x = LIVESLABELX, lives_label_pos.y = LIVESLABELY;
-	drawBitmap(word_lives_24x5, lives_label_pos, 24, 5, true, WHITE, false);
+	drawBitmap(word_lives_24x5, lives_label_pos, LIVESLABELWIDTH, LABELHEIGHT, true, WHITE, false);
 }
 
 void drawLives() {
 	point_t lives_pos;
 	lives_pos.x = LIFESTARTX, lives_pos.y = LIFESTARTY;
-	drawBitmapRepeat(tank_15x8, lives_pos, 15, 8, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
+	drawBitmapRepeat(tank_15x8, lives_pos, TANKWIDTH, TANKHEIGHT, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
 }
 
 void drawNewBunkers() {

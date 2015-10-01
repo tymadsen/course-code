@@ -17,7 +17,10 @@
 #define tank_bullet_render_mask 0x2
 #define alien_block_render_mask 0x4
 #define alien_bullet_render_mask 0x8
-#define bunker_render_mask 0x10
+#define bunker_0_render_mask 0x10
+#define bunker_1_render_mask 0x20
+#define bunker_2_render_mask 0x40
+#define bunker_3_render_mask 0x80
 
 #define alien_pixel_adjustment 4
 #define alien_height 8
