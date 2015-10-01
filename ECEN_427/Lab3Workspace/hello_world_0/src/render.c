@@ -258,27 +258,26 @@ void drawAliens(bool erase, bool in_pose) {
 				new_pos.x += 2*offset;
 			}
 			// drawBitmap(bitmap, pos, width, height, double_size, color, erase);
-
-			if(! deaths[col+(ALIENSPERROW*alienRow)]){
-				if(alienRow == 0){
-					if(in_pose)
-						drawBitmap(alien_top_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-					else
-						drawBitmap(alien_top_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-				}
-				else if(alienRow == 1 || alienRow == 2){
-					if(in_pose)
-						drawBitmap(alien_middle_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-					else
-						drawBitmap(alien_middle_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-				}
-				else{
-					if(in_pose)
-						drawBitmap(alien_bottom_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-					else
-						drawBitmap(alien_bottom_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase);
-				}
+			bool eraseDead = erase || deaths[col+(ALIENSPERROW*alienRow)];
+			if(alienRow == 0){
+				if(in_pose)
+					drawBitmap(alien_top_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
+				else
+					drawBitmap(alien_top_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
 			}
+			else if(alienRow == 1 || alienRow == 2){
+				if(in_pose)
+					drawBitmap(alien_middle_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
+				else
+					drawBitmap(alien_middle_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
+			}
+			else{
+				if(in_pose)
+					drawBitmap(alien_bottom_in_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
+				else
+					drawBitmap(alien_bottom_out_12x8, new_pos, ALIENWIDTH, ALIENHEIGHT, true, color, eraseDead);
+			}
+
 		}
 			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);
 			// drawBitmapRepeat(bitmap, pos, ALIENWIDTH, ALIENHEIGHT, true, color, erase, ALIENXSPACING, ALIENSPERROW, true);

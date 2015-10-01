@@ -8,7 +8,7 @@
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
 #include "stdio.h"
-#include "stdlib.h"
+#include <stdlib.h>
 //#include "time.h"
 #include "stdbool.h"
 #include "stdint.h"

@@ -174,19 +174,21 @@ int main()
 		}
 		else if(input == '2') {
 			xil_printf("Which alien would you like to kill?\r\n");
-			render(false,alien_block_render_mask, 0);
 			//Take in both characters and compute the alien to kill
-			char input2;
-			while(input == 0xD || input2 == 0xFFFFFF8C){
-				input = getchar();
-				input2 = getchar();
+			int alien = 0;
+			input = getchar();
+			int i;
+			while(1) {
+				for(i = 10; i >= 1; i-=9) {
+					while(((input-'0') > 9) || ((input-'0')<0)){
+						input = getchar();
+					}
+					alien += ((int)(input-'0'))*i;
+					input = getchar();
+				}
+				break;
 			}
-
-			xil_printf("char1: %c (0x%x), char2: %c (0x%x)", input, input, input2, input2);
-			int alien = ((int)(input-'0')*10 + (int)(input2-'0'));
-			xil_printf("Alien to delete: %d \r\n", alien);
 			setAlienDeaths(alien, true);
-			render(true,alien_block_render_mask, 0);
 			render(false,alien_block_render_mask, 0);
 		}
 		else if(input == '5') {
@@ -196,6 +198,7 @@ int main()
 		}
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");
+			fireAlienBullet();
 		}
 		else if(input == '9') {
 			xil_printf("Update all bullets\r\n");

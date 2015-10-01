@@ -38,10 +38,10 @@ uint32_t bunker1State = 0;
 uint32_t bunker2State = 0;
 uint32_t bunker3State = 0;
 bool alienDeaths[55] = {false, false, false, false, false, false, false, false, false, false, false,
-		false, false, false, false, false, false, false, false, false, false, false,
-		false, false, false, false, false, false, false, false, false, false, false,
-		false, false, false, false, false, false, false, false, false, false, false,
-		false, false, false, false, false, false, false, false, false, false, false};
+						false, false, false, false, false, false, false, false, false, false, false,
+						false, false, false, false, false, false, false, false, false, false, false,
+						false, false, false, false, false, false, false, false, false, false, false,
+						false, false, false, false, false, false, false, false, false, false, false};
 
 
 point_t getTankPosition() {
@@ -81,14 +81,12 @@ void setTankBulletPosition(point_t point) {
 }
 
 void fireTankBullet() {
-	xil_printf("Position x: %d, Position y: %d\r\n", tankPosition.x, tankPosition.y);
 	point_t temp;
 	if((tankBulletPosition.x > SCREENWIDTH) && (tankBulletPosition.y > SCREENHEIGHT)) {
 		temp.y = tankPosition.y - tank_bullet_height*2+5;
 		temp.x = tankPosition.x + TANKWIDTH - 3;
 		setTankBulletPosition(temp);
 	}
-	xil_printf("Position x: %d, Position y: %d\r\n", tankBulletPosition.x, tankBulletPosition.y);
 	return;
 }
 
@@ -139,6 +137,21 @@ void setAlienBullet3(point_t point, unsigned short type, bool isFree, short coun
 
 void fireAlienBullet() {
 	point_t temp;
+	//Pick which column we are firing from
+	int col = rand()%11;
+	bool emptyCol = true;
+	//Determine which alien it is coming from
+	while(emptyCol) {
+		int idx = col + 44;
+		if(!alienDeaths[idx] || !alienDeaths[idx-=11] || !alienDeaths[idx-=11] || !alienDeaths[idx-=11] || !alienDeaths[idx-=11]) {
+			emptyCol = false;
+		}
+		else {
+			col = rand()%11;
+		}
+	}
+	//Set the right coordinates
+	//Choose which bullet to place
 	if(aBullet0.isFree) {
 
 	}

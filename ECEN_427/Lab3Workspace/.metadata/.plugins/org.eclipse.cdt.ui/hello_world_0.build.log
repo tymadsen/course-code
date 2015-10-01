@@ -2,4 +2,34 @@
 **** Build of configuration Debug for project hello_world_0 ****
 
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/globals.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../hello_world_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -MMD -MP -MF"src/globals.d" -MT"src/globals.d" -o"src/globals.o" "../src/globals.c"
+../src/globals.c: In function 'fireAlienBullet':
+../src/globals.c:139: warning: unused variable 'temp'
+Finished building: ../src/globals.c
+' '
+Building target: hello_world_0.elf
+Invoking: MicroBlaze gcc linker
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../hello_world_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -o"hello_world_0.elf"  ./src/globals.o ./src/helloworld.o ./src/platform.o ./src/render.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: hello_world_0.elf
+' '
+Invoking: MicroBlaze Print Size
+mb-size hello_world_0.elf  |tee "hello_world_0.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33340	   1448	   2288	  37076	   90d4	hello_world_0.elf
+Finished building: hello_world_0.elf.size
+' '
+Invoking: Xilinx ELF Check
+elfcheck hello_world_0.elf -hw ../../SpaceInvadersHW_hw_platform/system.xml -pe microblaze_0  |tee "hello_world_0.elf.elfcheck"
+elfcheck
+Xilinx EDK 13.4 Build EDK_O.87xd
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../SpaceInvadersHW_hw_platform/system.xml -pe
+microblaze_0 hello_world_0.elf 
+
+ELF file	: hello_world_0.elf
+elfcheck passed.
+Finished building: hello_world_0.elf.elfcheck
+' '
