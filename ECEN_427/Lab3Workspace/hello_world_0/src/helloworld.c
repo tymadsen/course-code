@@ -56,7 +56,6 @@ void print(char *str);
 //#define alien_bullet_1_render_mask 0x10
 //#define alien_bullet_2_render_mask 0x20
 //#define alien_bullet_3_render_mask 0x40
-#define all_bullet_render_mask tank_bullet_render_mask | alien_bullet_render_mask
 
 int main()
 {
@@ -144,7 +143,7 @@ int main()
 	initScreen();
 	char input;
 
-	setvbuf(stdin, NULL, _IONBF, 0);
+	//setvbuf(stdin, NULL, _IONBF, 0);
 	input = getchar();
 	xil_printf("%c\r\n", input);
 	while(1) {
@@ -203,7 +202,7 @@ int main()
 		else if(input == '3'){
 			xil_printf("Fire alien bullet\r\n");
 			fireAlienBullet();
-			render(false, alien_bullet_render_mask);
+			render(false, alien_bullet_render_mask,0);
 		}// Move all bullets
 		else if(input == '9') {
 			xil_printf("Update all bullets\r\n");
@@ -216,7 +215,6 @@ int main()
 			// Take in one character to compute the bunker
 			int bunker = 0;
 			input = getchar();
-			int i;
 			// Number must be between 0 and 3 to select a bunker, otherwise it will wait for a valid entry
 			while(((input-'0') > 3) || ((input-'0') < 0)){
 				input = getchar();
@@ -225,22 +223,27 @@ int main()
 			bunker = (int)(input-'0');
 			// Choose a random block from 0-9 to erode
 			int block = rand()%10;
+			xil_printf("This is the bunker: %d and block: %d\r\n", bunker, block);
 			// Depending on which bunker was selected, erode the random block of that bunker by setting the erosion
 			// and rendering that damage bitmap
 			if(bunker == 0){
+				xil_printf("Erode bunker 0\r\n");
 				setBunkerErosion0(block);
 				render(false, bunker_0_render_mask, block);
 			}
 			else if(bunker == 1){
-				setBunkerErosion0(block);
+				xil_printf("Erode bunker 1\r\n");
+				setBunkerErosion1(block);
 				render(false, bunker_1_render_mask, block);
 			}
 			else if(bunker == 2){
-				setBunkerErosion0(block);
+				xil_printf("Erode bunker 2\r\n");
+				setBunkerErosion2(block);
 				render(false, bunker_2_render_mask, block);
 			}
 			else if(bunker == 3){
-				setBunkerErosion0(block);
+				xil_printf("Erode bunker 3\r\n");
+				setBunkerErosion3(block);
 				render(false, bunker_3_render_mask, block);
 			}
 		}// Exit program

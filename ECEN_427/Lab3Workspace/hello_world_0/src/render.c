@@ -57,12 +57,14 @@
 #define ALIENWIDTH 12
 #define ALIENXSPACING 2
 #define ALIENYSPACING 20
-#define ALIENBLOCKSTARTX 200
-#define ALIENBLOCKSTARTY 100
+#define ALIENBLOCKSTARTX 167
+#define ALIENBLOCKSTARTY 75
 #define ALIENSPERROW 11
 // Bullet dimension/spacing
-#define BULLETHEIGHT 5
+#define BULLETHEIGHT 7
 #define BULLETWIDTH 3
+#define TANKBULLETWIDTH 1
+#define TANKBULLETHEIGHT 3
 
 unsigned int * foreground = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * background = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
@@ -105,24 +107,17 @@ void initScreen() {
 	activeFramePointer = background;
 	drawNewBunkers();
 	activeFramePointer = foreground;
-	
-	//TEST code, delete it
-	setBunkerErosion0(3);
-	drawBunkerErosion(0,3);
-	setBunkerErosion1(7);
-	setBunkerErosion1(7);
-	drawBunkerErosion(1,7);
-	setBunkerErosion2(8);
-	setBunkerErosion2(8);
-	setBunkerErosion2(8);
-	drawBunkerErosion(2,8);
-	setBunkerErosion3(9);
-	drawBunkerErosion(3,9);
 
 	//set and draw the aliens
 	setTankPositionPoint(TANKSTARTX, TANKSTARTY);
 	drawTank(false);
 	setTankBulletPositionXY(bullet_offscreen, bullet_offscreen);
+	point_t tempOffScreen;
+	tempOffScreen.x = bullet_offscreen; tempOffScreen.y = bullet_offscreen;
+	setAlienBullet0(tempOffScreen, 0, true,0);
+	setAlienBullet1(tempOffScreen, 0, true,0);
+	setAlienBullet2(tempOffScreen, 0, true,0);
+	setAlienBullet3(tempOffScreen, 0, true,0);
 	point_t aBP;
 	aBP.x = ALIENBLOCKSTARTX, aBP.y = ALIENBLOCKSTARTY;
 	setAlienBlockPosition(aBP);
@@ -134,8 +129,16 @@ void initScreen() {
 void render(bool erase, int render_objects_mask, short index) {
 //	xil_printf("Objects mask: %d\r\n", render_objects_mask);
 //	xil_printf("anded: %d\r\n",(render_objects_mask & alien_block_render_mask));
+	//If a certain mask is set, render that object
 	if((render_objects_mask & tank_render_mask) != 0)
 		drawTank(erase);
+	if((render_objects_mask & all_bullet_render_mask) != 0) {
+		drawTankBullet(erase);
+		drawAlienBullet(erase, 0);
+		drawAlienBullet(erase, 1);
+		drawAlienBullet(erase, 2);
+		drawAlienBullet(erase, 3);
+	}
 	if((render_objects_mask & tank_bullet_render_mask) != 0)
 		drawTankBullet(erase);
 	if((render_objects_mask & alien_block_render_mask) != 0){
@@ -201,8 +204,9 @@ void drawBunkerErosion(short bunker, short block){
 	block_pos.x = BUNKERSTARTX + (2*(bunker*(BUNKERWIDTH+BUNKERXSPACING) + (BLOCKWIDTH*col)));
 	block_pos.y = BUNKERSTARTY + (2*BLOCKHEIGHT*(row));
 	// Get erosion state to know which bitmap to use
-//	xil_printf("Bunker: %d\r\n", bunker);
-//	xil_printf("Block: %d\r\n", block);
+	xil_printf("Position of bunker x: %d, y: %d\r\n", block_pos.x, block_pos.y);
+	xil_printf("Bunker: %d\r\n", bunker);
+	xil_printf("Block: %d\r\n", block);
 	uint32_t erosionState = 0;
 	switch(bunker){
 		case 0: erosionState = getBunkerErosion0();
@@ -215,28 +219,24 @@ void drawBunkerErosion(short bunker, short block){
 		break;
 		default: break;
 	}
-//	xil_printf("erosion state: 0x%08x\r\n", erosionState);
+	xil_printf("erosion state: 0x%08x\r\n", erosionState);
 //	short erosion_block = 1;
 	uint32_t erosion_block = ((erosionState & (0x7 << (3*block))) >> (3*block));
-//	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
+	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
 	// Draw bunker erosion using (erase = true) flag
 	if(erosion_block == 0x0){
 		//do nothing
 	}
 	else if(erosion_block == 0x1){
-//		xil_printf("erosion 0 drawn on bunker: %d, block: %d \r\n", bunker, block);
 		drawBitmap(bunkerDamage0_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
 	}
 	else if(erosion_block == 0x2){
-//		xil_printf("erosion 1 drawn on bunker: %d, block: %d \r\n", bunker, block);
 		drawBitmap(bunkerDamage1_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
 	}
 	else if(erosion_block == 0x3){
-//		xil_printf("erosion 2 drawn on bunker: %d, block: %d \r\n", bunker, block);
 		drawBitmap(bunkerDamage2_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
 	}
 	else {
-//		xil_printf("erosion 3 drawn on bunker: %d, block: %d \r\n", bunker, block);
 		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
 	}
 
@@ -249,7 +249,7 @@ void drawTank(bool erase) {
 
 void drawTankBullet(bool erase) {
 	point_t tankBulletPosition = getTankBulletPosition();
-	drawBitmap(tank_bullet_5x3, tankBulletPosition, BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
+	drawBitmap(tank_bullet_5x3, tankBulletPosition, TANKBULLETWIDTH, TANKBULLETHEIGHT, true, GREEN, erase);
 	return;
 }
 
@@ -261,7 +261,7 @@ void drawAliens(bool erase, bool in_pose) {
 	bool* deaths = getAlienDeaths();
 //	const uint32_t* bitmap;
 	for(alienRow = 0; alienRow < 5; alienRow++){
-		color = (alienRow == 0) ? TURQ : (alienRow == 1 || alienRow == 2) ? MAGENTA : ORANGE;
+		color = WHITE;
 		//Will print the right color if we are not erasing
 
 		int col;
@@ -326,11 +326,12 @@ void drawAlienBullet(bool erase, short bullet_number) {
 	//Assign the bitmap
 	bitmap = determineAlienBulletBitmap(tempBullet.type, tempBullet.counter);
 	//Draw the bullet
-	drawBitmap(bitmap, tempBullet.pos, 3, 7, true, GREEN, false);
+	drawBitmap(bitmap, tempBullet.pos, BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
 }
 
-void determineAlienBulletBitmap(short bulletType, short counter)
+const uint32_t* determineAlienBulletBitmap(short bulletType, short counter)
 {
+	//Return the correct bitmap for the bulletType
 	if(bulletType == 1){
 		if(counter == 0){
 			return alien_bullet_21_7x3;
@@ -356,6 +357,7 @@ void determineAlienBulletBitmap(short bulletType, short counter)
 		else {}
 	}
 	else {}
+	return 0;
 }
 
 void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool double_size, int color, bool erase) {

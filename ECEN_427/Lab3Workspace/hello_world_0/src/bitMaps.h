@@ -384,12 +384,6 @@ static const uint32_t alien_bullet_23_7x3[] = {
 	packword3(1,0,0),
 };
 
-static const uint32_t tank_bullet_5x3[] = {
-	packword3(0,1,0),
-	packword3(0,1,0),
-	packword3(0,1,0),
-	packword3(0,1,0),
-	packword3(0,1,0),
-};
+static const uint32_t tank_bullet_5x3[] = { 111 };
 
 #endif /* BITMAPS_H_ */
