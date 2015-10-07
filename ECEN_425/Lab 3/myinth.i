@@ -45,6 +45,7 @@ void tickHandler(){
  printUInt(tickCount);
  printNewLine();
 }
+
 void keyHandler(){
  printNewLine();
  if (KeyBuffer != 'd'){

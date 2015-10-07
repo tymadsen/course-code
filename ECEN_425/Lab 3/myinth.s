@@ -69,29 +69,29 @@ L_myinth_8:
 	DB	"KEYPRESS (",0
 	ALIGN	2
 keyHandler:
-	; >>>>> Line:	19
+	; >>>>> Line:	20
 	; >>>>> void keyHandler(){ 
 	jmp	L_myinth_12
 L_myinth_13:
-	; >>>>> Line:	20
+	; >>>>> Line:	21
 	; >>>>> printNewLine(); 
 	call	printNewLine
-	; >>>>> Line:	21
+	; >>>>> Line:	22
 	; >>>>> if (KeyBuffer != 'd'){ 
 	cmp	word [KeyBuffer], 100
 	je	L_myinth_14
-	; >>>>> Line:	22
+	; >>>>> Line:	23
 	; >>>>> printString("KEYPRESS ("); 
 	mov	ax, L_myinth_8
 	push	ax
 	call	printString
 	add	sp, 2
-	; >>>>> Line:	23
+	; >>>>> Line:	24
 	; >>>>> printChar(KeyBuffer); 
 	push	word [KeyBuffer]
 	call	printChar
 	add	sp, 2
-	; >>>>> Line:	24
+	; >>>>> Line:	25
 	; >>>>> printString(") IGNORED"); 
 	mov	ax, L_myinth_9
 	push	ax
@@ -99,37 +99,37 @@ L_myinth_13:
 	add	sp, 2
 	jmp	L_myinth_15
 L_myinth_14:
-	; >>>>> Line:	26
+	; >>>>> Line:	27
 	; >>>>> printString("DELAY KEY PRESSED"); 
 	mov	ax, L_myinth_10
 	push	ax
 	call	printString
 	add	sp, 2
-	; >>>>> Line:	27
+	; >>>>> Line:	28
 	; >>>>> delay = 0; 
 	mov	word [delay], 0
-	; >>>>> Line:	28
+	; >>>>> Line:	29
 	; >>>>> while(delay < 5000) 
 	jmp	L_myinth_17
 L_myinth_16:
-	; >>>>> Line:	29
+	; >>>>> Line:	30
 	; >>>>> delay++; 
 	inc	word [delay]
 L_myinth_17:
 	cmp	word [delay], 5000
 	jb	L_myinth_16
 L_myinth_18:
-	; >>>>> Line:	30
+	; >>>>> Line:	31
 	; >>>>> printNewLine(); 
 	call	printNewLine
-	; >>>>> Line:	31
+	; >>>>> Line:	32
 	; >>>>> printString("DELAY COMPLETE"); 
 	mov	ax, L_myinth_11
 	push	ax
 	call	printString
 	add	sp, 2
 L_myinth_15:
-	; >>>>> Line:	33
+	; >>>>> Line:	34
 	; >>>>> printNewLine(); 
 	call	printNewLine
 	mov	sp, bp
