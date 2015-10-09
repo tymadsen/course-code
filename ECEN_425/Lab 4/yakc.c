@@ -1,8 +1,21 @@
 #include "yakk.h"
 #include "yaku.h"
+#include "clib.h"
 
-int YKoolRunnings;
-int YKIntDepth;
+unsigned int YKoolRunnings; 		// Set when OS is running
+unsigned int YKIntDepth;				// Interrupt level counter
+
+unsigned int YKCtxSwCount; 			// must be incremented each time a context switch occurs, defined as the dispatching of a task other than the task that ran most recently.
+unsigned int YKIdleCount; 			// must be incremented by the idle task in its while(1) loop. If desired, the user code can use this value to determine CPU utilization.
+unsigned int YKTickNum; 				// must be incremented each time the kernel's tick handler runs.
+
+TCBptr YKCurrTask; 							// This will point the currently running (or interrupted) task
+TCBptr YKReadyTask; 						// This will point the the highest priority item with ready status
+TCBptr YKTaskList; 							// This will hold the pointer to the beginning of the list
+TCBptr YKAvailTCBList; 					// This points to the next available task slot in the list
+
+TCB YKTCBArray[MAXTASKS + 1]; 	// Declare size of TCB array
+
 
 void YKInitialize(void){
 	int i;
@@ -15,65 +28,72 @@ void YKInitialize(void){
 	YKIdleCount = 0;
 	YKoolRunnings = 0;
 	YKIntDepth = 0;
+	YKCtxSwCount = 0;
+	YKTickNum = 0;
 
-	/* code to construct singly linked available TCB list from initial
-		 array */ 
+	YKAvailTCBList = &(YKTCBArray[0]); // Point to the first item in the YKTCBArray
+	for (i = 0; i <= MAXTASKS; i++){ //Go through list and set the next and prev pointers for doubly linked list
+		if(i == 0)// Beginning edge case
+			YKTCBArray[i].prev = NULL;
+		else
+			YKTCBArray[i].prev = &(YKTCBArray[i-1]); 
 
-	YKAvailTCBList = &(YKTCBArray[0]);
-	for (i = 0; i < MAXTASKS; i++)
-		YKTCBArray[i].next = &(YKTCBArray[i+1]);
-	KTCBArray[MAXTASKS].next = NULL;
+		if(i == MAXTASKS)// End edge case
+			YKTCBArray[i].next = NULL;
+		else
+			YKTCBArray[i].next = &(YKTCBArray[i+1]);
+	}
 	//create idle task
 	YKNewTask(&YKIdleTask, &idleTaskStack[IDLETASKSTACKSIZE], 100);
 }
 
-void YKEnterMutex(void){
-	//Disable interrupts
-	//This will be in assembly
-}
-
-void YKExitMutex(void){
-	//Enable interrupts
-	//This will be in assembly
-}
-
 void YKIdleTask(void){
+	// Keep incrementing the IdleCount for ever
 	while(1){
 		YKIdleCount++;
 	}
 }
 
-void YKNewTask(void (* task)(void), void *taskStack, unsigned char priority){
+void YKNewTask(void (*task)(void), void *taskStack, unsigned char priority){
 	TCBptr tmp;
 	TCBptr tmp2;
-	//IN C:
-		//Save context
-	saveNewTaskCtx();
-		//Get next available TCB, 
-	/* code to grab an unused TCB from the available list */
 
+	printString("New task called ...\n");
+	printString("Taskstack ptr val: ");
+	printWord((int)taskStack);
+	printNewLine();
+	printString("Taskcode ptr val: ");
+	printWord((int)task);
+	printNewLine();
+	//Get next available TCB, 
 	tmp = YKAvailTCBList;
 	YKAvailTCBList = tmp->next;
-	//Set priority, and sp
-	//set state to ready (1)
-	//Set delay count
-	tmp->sp = taskStack;
-	tmp->priority = priority;
-	tmp->state = 1; //Ready
-	tmp->delay = 0;
-
+	//Save context
+	saveNewTaskCtx();
+	tmp->priority = priority; //Set priority
+	tmp->state = 1; //set state to ready (1)
+	tmp->delay = 0; //Set delay count to 0
+	printString("new TCB values: sp: ");
+	printWord((int)tmp->sp);
+	printNewLine();
+	printString("Priority: ");
+	printInt((int)tmp->priority);
+	printNewLine();
 	/* code to insert an entry in doubly linked ready list sorted by
 		 priority numbers (lowest number first).  tmp points to TCB
 		 to be inserted */ 
-
-	if (YKTaskList == NULL)	/* is this first insertion? */
+	// If first insertion
+	if (YKTaskList == NULL)
 	{
+		// printString("first task created...\n");
 		YKTaskList = tmp;
 		tmp->next = NULL;
 		tmp->prev = NULL;
+		YKCurrTask=YKTaskList;
 	}
-	else			/* not first insertion */
+	else
 	{
+		// printString("not first task created...\n");
 		tmp2 = YKTaskList;	/* insert in sorted ready list */
 		while (tmp2->priority < tmp->priority)
 			tmp2 = tmp2->next;	/* assumes idle task is at end */
@@ -88,42 +108,42 @@ void YKNewTask(void (* task)(void), void *taskStack, unsigned char priority){
 	//Determine if we call scheduler
 	if(YKoolRunnings)
 		YKScheduler(0);
-	else
-		YKCurrTask = YKTaskList; // Set current task to highest priority task
-
 }
 
 void YKRun(void){
-	YKoolRunnings = 1;
-	if(YKTaskList != NULL && YKTaskList->priority != 100)
-		YKScheduler(0);
-	// If there is a task
-	// Call the scheduler for the first time 
 	// Set global flag to indicate the the system is running
+	// printString("YK running...\n");
+	YKoolRunnings = 1;
+	// If there is a task
+	if(YKTaskList != NULL && YKTaskList->priority != 100)
+		YKScheduler(0); // Call the scheduler for the first time 
 }
 
 void YKDelayTask(unsigned count){
-// 	If count is greater than 0
+// 	If count should be set
 	if(count > 0){
 		YKCurrTask->delay = count; // set count of current task TCB
 		YKCurrTask->state = 2; // Change the state of the task to blocked
 		YKScheduler(1); // Call the scheduler with saveContext flag
 	}
-	else
-		return;
-// else
-// 	return
 }
 
 void YKEnterISR(void){
 	// If first ISR level, save context
-
+	if(YKIntDepth == 0)
+		saveSP();
 	// Increment the interrupt depth counter
 	YKIntDepth++;
+	// printString("ISR depth: ");
+	// printInt(YKIntDepth);
+	// printNewLine();
 }
 
 void YKExitISR(void){
 	// decrement the interrupt depth counter
+	// printString("ISR depth: ");
+	// printInt(YKIntDepth);
+	// printNewLine();
 	YKIntDepth--;
 	// Call scheduler if leaving bottom level ISR
 	if(YKIntDepth == 0)
@@ -132,28 +152,38 @@ void YKExitISR(void){
 
 void YKScheduler(int saveCtxFlag){
 	TCBptr tmp;
-	tmp = YKTaskList;
-	while(tmp->next != NULL){ //Iterate over all tasks
-		if(tmp->state == 2 && tmp->delay == 0){// If task is blocked and delay counter is 0
-			tmp->state = 1; // Make it ready
-		}
-		tmp = tmp->next;
-	}
+	// printString("YKScheduler called ...\n");
 	// Get first ready task in list
 	tmp = YKTaskList;
 	while(tmp->state != 1) // Iterate over tasks until we find a ready one
 		tmp = tmp->next;
-
+	// printString("We have a ready task: ");
+	// printInt(tmp->priority);
+	// printNewLine();
+	YKReadyTask = tmp;// Update ready task
+	printString("YKCurrTask priority: ");
+	printInt(YKCurrTask->priority);
+	printNewLine();
+	printString("YKReadyTask priority: ");
+	printInt(YKReadyTask->priority);
+	printNewLine();
 	// If the task is different than the currently running task, call dispatcher
-	if(tmp != YKCurrTask)
+	if(YKReadyTask != YKCurrTask){
+		// printString("calling dispatcher...\n");
+		YKCtxSwCount++;
 		YKDispatcher(saveCtxFlag);
-	else
-		return;
+		// printString("returning from dispatcher...\n");
+	}
 }
+// C Dispatcher for debugging assembly (see how the compiler does it)
+// void YKDispatcher(int saveCtx){
+// 	void* ptr;	
+// 	if(saveCtx)
+// 		printNewLine();
+// 	else
+// 	{
+// 		ptr = YKCurrTask->sp;
+// 		YKCurrTask = YKReadyTask;
+// 	}
+// }
 
-void YKTickHandler(void){
-	// for(each task in blocked)
-	// 	decrement delayCount
-	// if count is 0
-	// 	set state to ready
-}

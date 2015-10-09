@@ -1,4 +1,6 @@
 #include "clib.h"
+#include "yakk.h"
+#include "yaku.h"
 
 extern int KeyBuffer;
 unsigned tickCount = 0;
@@ -9,12 +11,26 @@ void resetHandler(){
 	exit(0);
 }
 
-void tickHandler(){
-	tickCount++;
+void YKTickHandler(void){
+	TCBptr tmp;
+
+	YKTickNum++;
 	printNewLine();
 	printString("TICK ");
-	printUInt(tickCount);
+	printUInt(YKTickNum);
 	printNewLine();
+
+	tmp = YKTaskList;
+	while(tmp->next != NULL){ //Iterate over all tasks
+		tmp->delay--;
+		if(tmp->state == 2 && tmp->delay == 0){// If task is blocked and delay counter is 0
+			tmp->state = 1; // Make it ready
+		}
+		tmp = tmp->next;
+	}
+	// printNewLine();
+	// printString("Finished TICK");
+	// printNewLine();
 }
 
 void keyHandler(){
