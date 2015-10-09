@@ -1,0 +1,14 @@
+#Thu Oct 08 22:45:38 MDT 2015
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.sbss2=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.sbss=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.data=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:Heap-size=1024
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.bss=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.sdata=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:Stack=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.sdata2=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+eclipse.preferences.version=1
+com.xilinx.sdk.linkgen.prefs.helloWorld\:Heap=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:Stack-size=4096
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.rodata=microblaze_0_i_bram_ctrl_microblaze_0_d_bram_ctrl
+com.xilinx.sdk.linkgen.prefs.helloWorld\:.text=MCB_DDR2_S0_AXI_BASEADDR
