@@ -77,6 +77,7 @@ void drawNewBunkers();
 void drawBunkerErosion(int bunker, int block);
 void drawTank(bool erase, int direction);
 void drawTankBullet(bool erase);
+void drawSpaceship(bool erase, int direction);
 void drawAliens(bool erase, bool in_pose);
 const uint32_t* determineAlienBulletBitmap(short bulletType, short counter);
 void drawAlienBullet(bool erase, short bullet_number);

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="21" version="2.0">
 <workbenchAdvisor/>
+<<<<<<< HEAD
 <window height="1160" minimized="true" width="1413" x="0" y="0">
+=======
+<window height="1160" maximized="true" width="1413" x="136" y="-27">
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 <fastViewData fastViewLocation="1024"/>
 <intro standby="true"/>
 <perspectiveBar>
@@ -49,6 +53,7 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="9860" selectionTopPixel="5488"/>
 </editor>
+<<<<<<< HEAD
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.h" partName="globals.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/globals.h" title="globals.h" tooltip="helloWorld/src/globals.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="3091" selectionTopPixel="1048"/>
@@ -84,6 +89,39 @@
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.h" partName="renderHelper.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.h" title="renderHelper.h" tooltip="helloWorld/src/renderHelper.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/renderHelper.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="293" selectionTopPixel="0"/>
+=======
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="helloworld.c" partName="helloworld.c" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/helloworld.c" title="helloworld.c" tooltip="helloWorld/src/helloworld.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/helloworld.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4034" selectionTopPixel="3720"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="render.c" partName="render.c" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/render.c" title="render.c" tooltip="helloWorld/src/render.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/render.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="13637" selectionTopPixel="6693"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="render.h" partName="render.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/render.h" title="render.h" tooltip="helloWorld/src/render.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/render.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="594" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.h" partName="renderHelper.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.h" title="renderHelper.h" tooltip="helloWorld/src/renderHelper.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/renderHelper.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="340" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.c" partName="renderHelper.c" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.c" title="renderHelper.c" tooltip="helloWorld/src/renderHelper.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/renderHelper.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1555" selectionTopPixel="658"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.c" partName="globals.c" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/globals.c" title="globals.c" tooltip="helloWorld/src/globals.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2588" selectionTopPixel="1122"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="globals.h" partName="globals.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/globals.h" title="globals.h" tooltip="helloWorld/src/globals.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1284" selectionTopPixel="284"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="bitMaps.h" partName="bitMaps.h" path="C:/Users/superman/Desktop/madsen/course-code/ECEN_427/Lab4Workspace/helloWorld/src/bitMaps.h" title="bitMaps.h" tooltip="helloWorld/src/bitMaps.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/bitMaps.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="510"/>
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 </editor>
 </editors>
 <views>
@@ -96,8 +134,11 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
+<<<<<<< HEAD
 <category IMemento.internal.id="Warnings (4 items)"/>
 <category IMemento.internal.id="Warnings"/>
+=======
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
@@ -220,7 +261,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="topRight" ratio="0.7493333" ratioLeft="562" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="topRight" ratio="0.7880702" ratioLeft="1123" ratioRight="302" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.cdt.make.ui.views.MakeView" label="Make Target"/>
@@ -237,12 +278,18 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<<<<<<< HEAD
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.h"/>
+=======
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.c"/>
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/helloworld.c"/>
+<<<<<<< HEAD
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.h"/>
 </editors>
 <item historyLabel="globals.c" index="2">
@@ -394,6 +441,161 @@
 </item>
 <item active="true" historyLabel="globals.h" index="1">
 <position info="not_deleted" x="3091" y="14"/>
+=======
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.c"/>
+</editors>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="2098" y="0"/>
+</item>
+<item historyLabel="renderHelper.h" index="0">
+<position info="not_deleted" x="340" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1473" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1237" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1229" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1281" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1396" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="1849" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2071" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2072" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2340" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2341" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2545" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2548" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="2098" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4011" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1396" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1573" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1586" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2548" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1555" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2064" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2833" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4029" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="2629" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="3118" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="3501" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="3782" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="3">
+<position info="not_deleted" x="4034" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2407" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="render.h" index="5">
+<position info="not_deleted" x="594" y="0"/>
+</item>
+<item historyLabel="render.c" index="6">
+<position info="not_deleted" x="8553" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2434" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="1">
+<position info="not_deleted" x="1555" y="0"/>
+</item>
+<item historyLabel="render.c" index="6">
+<position info="not_deleted" x="8553" y="0"/>
+</item>
+<item historyLabel="globals.h" index="4">
+<position info="not_deleted" x="1284" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2434" y="0"/>
+</item>
+<item historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="render.h" index="5">
+<position info="not_deleted" x="594" y="0"/>
+</item>
+<item historyLabel="render.c" index="6">
+<position info="not_deleted" x="13637" y="0"/>
+</item>
+<item active="true" historyLabel="globals.c" index="2">
+<position info="not_deleted" x="2588" y="0"/>
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -420,8 +622,19 @@
 </trimLayout>
 </window>
 <mruList>
+<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.h" tooltip="helloWorld/src/renderHelper.h">
 <persistable path="/helloWorld/src/renderHelper.h"/>
+=======
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="bitMaps.h" tooltip="helloWorld/src/bitMaps.h">
+<persistable path="/helloWorld/src/bitMaps.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.h" tooltip="helloWorld/src/globals.h">
+<persistable path="/helloWorld/src/globals.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.c" tooltip="helloWorld/src/globals.c">
+<persistable path="/helloWorld/src/globals.c"/>
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.c" tooltip="helloWorld/src/renderHelper.c">
 <persistable path="/helloWorld/src/renderHelper.c"/>

@@ -2,33 +2,16 @@
 **** Build of configuration Debug for project helloWorld ****
 
 make all 
-Building file: ../src/helloworld.c
-Invoking: MicroBlaze gcc compiler
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../hello_world_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.d" -o"src/helloworld.o" "../src/helloworld.c"
-../src/helloworld.c:35:1: warning: "LEFT" redefined
-In file included from ../src/helloworld.c:32:
-../src/render.h:62:1: warning: this is the location of the previous definition
-../src/helloworld.c:36:1: warning: "RIGHT" redefined
-../src/render.h:63:1: warning: this is the location of the previous definition
-../src/helloworld.c: In function 'main':
-../src/helloworld.c:252: warning: unused variable 'randSpaceshipTime'
-../src/helloworld.c:251: warning: unused variable 'randBulletTime'
-../src/helloworld.c:250: warning: unused variable 'input'
-Finished building: ../src/helloworld.c
+Invoking: Xilinx ELF Check
+elfcheck helloWorld.elf -hw ../../SpaceInvaderTestHW2_hw_platform/system.xml -pe microblaze_0  |tee "helloWorld.elf.elfcheck"
+elfcheck
+Xilinx EDK 13.4 Build EDK_O.87xd
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../SpaceInvaderTestHW2_hw_platform/system.xml -pe
+microblaze_0 helloWorld.elf 
+
+ELF file	: helloWorld.elf
+elfcheck passed.
+Finished building: helloWorld.elf.elfcheck
 ' '
-Building file: ../src/renderHelper.c
-Invoking: MicroBlaze gcc compiler
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../hello_world_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -MMD -MP -MF"src/renderHelper.d" -MT"src/renderHelper.d" -o"src/renderHelper.o" "../src/renderHelper.c"
-../src/renderHelper.c: In function 'flySpaceship':
-../src/renderHelper.c:64: warning: implicit declaration of function 'getSpaceship'
-../src/renderHelper.c:64: error: request for member 'isFree' in something not a structure or union
-../src/renderHelper.c:67: warning: implicit declaration of function 'setSpaceship'
-../src/renderHelper.c:68: error: 'spaceship_render_mask' undeclared (first use in this function)
-../src/renderHelper.c:68: error: (Each undeclared identifier is reported only once
-../src/renderHelper.c:68: error: for each function it appears in.)
-../src/renderHelper.c: In function 'updateSpaceshipHelper':
-../src/renderHelper.c:78: error: 'spaceship_render_mask' undeclared (first use in this function)
-../src/renderHelper.c:78: error: request for member 'direction' in something not a structure or union
-../src/renderHelper.c:79: warning: implicit declaration of function 'updateSpaceship'
-../src/renderHelper.c:80: error: request for member 'direction' in something not a structure or union
-make: *** [src/renderHelper.o] Error 1

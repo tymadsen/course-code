@@ -61,6 +61,15 @@ void initScreen() {
 	setAlienBullet1(tempOffScreen, 0, true,0);
 	setAlienBullet2(tempOffScreen, 0, true,0);
 	setAlienBullet3(tempOffScreen, 0, true,0);
+	aBullet temp = getAlienBullet0();
+//	xil_printf("bullet1: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
+	temp = getAlienBullet1();
+//	xil_printf("bullet2: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
+	temp = getAlienBullet2();
+//	xil_printf("bullet3: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
+	temp = getAlienBullet3();
+//	xil_printf("bullet4: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
+	setInitialSpaceship(tempOffScreen);
 	point_t aBP;
 	aBP.x = ALIENBLOCKSTARTX, aBP.y = ALIENBLOCKSTARTY;
 	setAlienBlockPosition(aBP);
@@ -89,8 +98,10 @@ void render(bool erase, int render_objects_mask, short index, int direction) {
 		if(!erase) {
 			alien_in = !alien_in; }
 	}
-	if((render_objects_mask & alien_bullet_render_mask) != 0)
+	if((render_objects_mask & alien_bullet_render_mask) != 0){
+//		xil_printf("We are drawing an alien bullet\r\n");
 		drawAlienBullet(erase, index);
+	}
 	if((render_objects_mask & bunker_0_render_mask) != 0)
 		drawBunkerErosion(0, index);
 	if((render_objects_mask & bunker_1_render_mask) != 0)
@@ -99,6 +110,8 @@ void render(bool erase, int render_objects_mask, short index, int direction) {
 		drawBunkerErosion(2, index);
 	if((render_objects_mask & bunker_3_render_mask) != 0)
 		drawBunkerErosion(3, index);
+	if((render_objects_mask & spaceship_render_mask) != 0)
+		drawSpaceship(erase, direction);
 }
 
 void drawScoreLabel() {
@@ -185,6 +198,16 @@ void drawBunkerErosion(int bunker, int block){
 
 }
 
+void drawSpaceship(bool erase, int direction){
+	if(erase){
+		eraseBitmap(getSpaceship().pos, spaceship_width, spaceship_height, true, RED, direction);
+	}
+	else {
+		drawBitmap(saucer_16x7, getSpaceship().pos, spaceship_width, spaceship_height, true, RED, false);
+	}
+	return;
+}
+
 void drawTank(bool erase, int direction) {
 	point_t tank_pos = getTankPosition();
 	if(erase == true){
@@ -263,6 +286,7 @@ void drawAliens(bool erase, bool in_pose) {
 }
 
 void drawAlienBullet(bool erase, short bullet_number) {
+//	xil_printf("We are printing bullet #%d\r\n", bullet_number);
 	aBullet tempBullet;
 	const uint32_t* bitmap;
 	//Determine which bullet to use
@@ -281,9 +305,15 @@ void drawAlienBullet(bool erase, short bullet_number) {
 	else //Invalide bullet number
 	{}
 	//Assign the bitmap
-	bitmap = determineAlienBulletBitmap(tempBullet.type, tempBullet.counter);
 	//Draw the bullet
-	drawBitmap(bitmap, tempBullet.pos, BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
+	if(!erase && (!tempBullet.isFree)){
+		bitmap = determineAlienBulletBitmap(tempBullet.type, tempBullet.counter);
+		drawBitmap(bitmap, tempBullet.pos, BULLETWIDTH, BULLETHEIGHT, true, GREEN, erase);
+	}
+	else if(erase){
+		eraseBitmap(tempBullet.pos, BULLETWIDTH, BULLETHEIGHT, true, GREEN, DOWN);
+	}
+	return;
 }
 
 const uint32_t* determineAlienBulletBitmap(short bulletType, short counter)
@@ -334,7 +364,11 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
+<<<<<<< HEAD
 			else {//paint background
+=======
+			else {//paint the background color
+>>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 				if(!double_size)
 					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
 				else{
