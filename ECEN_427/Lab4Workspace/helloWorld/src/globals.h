@@ -93,14 +93,16 @@ void setAlienBullet3(point_t point, unsigned short type, bool isFree, short coun
 bool getAlienRight();
 bool getAlienDown();
 
-uint32_t getBunkerErosion0();
-void setBunkerErosion0(short block);
-uint32_t getBunkerErosion1();
-void setBunkerErosion1(short block);
-uint32_t getBunkerErosion2();
-void setBunkerErosion2(short block);
-uint32_t getBunkerErosion3();
-void setBunkerErosion3(short block);
+uint32_t getBunkerErosion();
+void setBunkerErosion(int bunker, int block);
+//uint32_t getBunkerErosion0();
+//void setBunkerErosion0(short block);
+//uint32_t getBunkerErosion1();
+//void setBunkerErosion1(short block);
+//uint32_t getBunkerErosion2();
+//void setBunkerErosion2(short block);
+//uint32_t getBunkerErosion3();
+//void setBunkerErosion3(short block);
 
 bool* getAlienDeaths();
 void setAlienDeaths(short alien, bool dead);

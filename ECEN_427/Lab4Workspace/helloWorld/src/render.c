@@ -8,57 +8,6 @@
 #include "render.h"
 #include "bitMaps.h"
 #include "globals.h"
-#define FRAME_BUFFER_0_ADDR 0xC1000000
-#define SCREENWIDTH 640
-#define SCREENHEIGHT 480
-#define WORD_WIDTH 32
-// Life dimension/spacing
-#define LIFESTARTX 410
-#define LIFESTARTY 10
-#define LIFEXSPACING 5
-#define LIVESLABELX 350
-#define LIVESLABELY 15
-#define LIVESLEFT 3
-#define LIVESLABELWIDTH 24
-#define LABELHEIGHT 5
-// Score dimension/spacing
-#define SCORELABELX 20
-#define SCORELABELY 15
-#define SCOREX 90
-#define SCOREY 15
-#define SCORELABELWIDTH 30
-#define NUMBERWIDTH 5
-// Tank dimenstion/spacing
-#define TANKSTARTY 400
-#define TANKSTARTX 98
-#define TANKHEIGHT 8
-#define TANKWIDTH 15
-// Bunker/damage block dimension/spacing
-#define BUNKERWIDTH 24
-#define BUNKERHEIGHT 18
-#define BUNKERXSPACING 45
-#define BUNKERSTARTY 335
-#define BUNKERSTARTX 89
-#define BLOCKWIDTH 6
-#define BLOCKHEIGHT 6
-// Alien/alien block dimension/spacing
-#define ALIENHEIGHT 8
-#define ALIENWIDTH 12
-#define ALIENXSPACING 2
-#define ALIENYSPACING 20
-#define ALIENBLOCKSTARTX 167
-#define ALIENBLOCKSTARTY 75
-#define ALIENSPERROW 11
-// Bullet dimension/spacing
-#define BULLETHEIGHT 7
-#define BULLETWIDTH 3
-#define TANKBULLETWIDTH 1
-#define TANKBULLETHEIGHT 3
-//Erase directions
-#define DOWN 0
-#define UP 1
-#define LEFT 2
-#define RIGHT 3
 
 unsigned int * foreground = (unsigned int *) FRAME_BUFFER_0_ADDR;
 unsigned int * background = ((unsigned int *) FRAME_BUFFER_0_ADDR) + SCREENWIDTH*SCREENHEIGHT;
@@ -184,7 +133,7 @@ void drawNewBunkers() {
 	drawBitmapRepeat(bunker_24x18, bunker_pos, BUNKERWIDTH, BUNKERHEIGHT, true, GREEN, false, BUNKERXSPACING, 4);
 }
 
-void drawBunkerErosion(short bunker, short block){
+void drawBunkerErosion(int bunker, int block){
 	point_t block_pos;
 	/* Set x position to the start of the bunkers, and then add an offset of 
 	 * twice the bunker number (since we are doubling the bitmap to pixel ratio) times the width of
@@ -203,13 +152,13 @@ void drawBunkerErosion(short bunker, short block){
 	xil_printf("Block: %d\r\n", block);
 	uint32_t erosionState = 0;
 	switch(bunker){
-		case 0: erosionState = getBunkerErosion0();
+		case 0: erosionState = getBunkerErosion(0);
 		break;
-		case 1: erosionState = getBunkerErosion1();
+		case 1: erosionState = getBunkerErosion(1);
 		break;
-		case 2: erosionState = getBunkerErosion2();
+		case 2: erosionState = getBunkerErosion(2);
 		break;
-		case 3: erosionState = getBunkerErosion3();
+		case 3: erosionState = getBunkerErosion(3);
 		break;
 		default: break;
 	}
@@ -385,7 +334,7 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
-			else {//paint black
+			else {//paint background
 				if(!double_size)
 					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
 				else{

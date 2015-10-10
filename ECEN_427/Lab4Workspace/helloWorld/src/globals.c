@@ -34,10 +34,10 @@ int alienSpacing = 12*2+4;
 
 //int t = rand();
 
-uint32_t bunker0State = 0;
-uint32_t bunker1State = 0;
-uint32_t bunker2State = 0;
-uint32_t bunker3State = 0;
+uint32_t bunkerStates[] = {0,0,0,0};
+//uint32_t bunker1State = 0;
+//uint32_t bunker2State = 0;
+//uint32_t bunker3State = 0;
 bool alienDeaths[55] = {false, false, false, false, false, false, false, false, false, false, false,
 						false, false, false, false, false, false, false, false, false, false, false,
 						false, false, false, false, false, false, false, false, false, false, false,
@@ -217,48 +217,60 @@ void updateAlienBulletCounters()
 	return;
 }
 
-uint32_t getBunkerErosion0() {
-	return bunker0State;
+uint32_t getBunkerErosion(int bunker) {
+	return bunkerStates[bunker];
 }
-void setBunkerErosion0(short block) {
+void setBunkerErosion(int bunker, int block) {
 	//Creating a mask to see if the corresponding block is completely eroded
-	if(((bunker0State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
-		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+	if(((bunkerStates[bunker] & (0x7 << (3*block))) >> (3*block)) >= 0x4)
+		xil_printf("Bunker %d, Block %d is already completely eroded!!!", bunker, block);
 	else {
 		//If it is not completely eroded, add a 1 to the state of the block
-		bunker0State += (0x1 << (3*block));
+		bunkerStates[bunker] += (0x1 << (3*block));
 	}
 }
-uint32_t getBunkerErosion1() {
-	return bunker1State;
-}
-void setBunkerErosion1(short block) {
-	//Creating a mask to see if the corresponding block is completely eroded
-	if(((bunker1State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
-		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
-	else
-		bunker1State += (0x1 << (3*block));
-}
-uint32_t getBunkerErosion2() {
-	return bunker2State;
-}
-void setBunkerErosion2(short block) {
-	//Creating a mask to see if the corresponding block is completely eroded
-	if(((bunker2State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
-		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
-	else
-		bunker2State += (0x1 << (3*block));
-}
-uint32_t getBunkerErosion3() {
-	return bunker3State;
-}
-void setBunkerErosion3(short block) {
-	//Creating a mask to see if the corresponding block is completely eroded
-	if(((bunker3State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
-		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
-	else
-		bunker3State += (0x1 << (3*block));
-}
+//uint32_t getBunkerErosion0() {
+//	return bunker0State;
+//}
+//void setBunkerErosion0(short block) {
+//	//Creating a mask to see if the corresponding block is completely eroded
+//	if(((bunker0State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
+//		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+//	else {
+//		//If it is not completely eroded, add a 1 to the state of the block
+//		bunker0State += (0x1 << (3*block));
+//	}
+//}
+//uint32_t getBunkerErosion1() {
+//	return bunker1State;
+//}
+//void setBunkerErosion1(short block) {
+//	//Creating a mask to see if the corresponding block is completely eroded
+//	if(((bunker1State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
+//		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+//	else
+//		bunker1State += (0x1 << (3*block));
+//}
+//uint32_t getBunkerErosion2() {
+//	return bunker2State;
+//}
+//void setBunkerErosion2(short block) {
+//	//Creating a mask to see if the corresponding block is completely eroded
+//	if(((bunker2State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
+//		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+//	else
+//		bunker2State += (0x1 << (3*block));
+//}
+//uint32_t getBunkerErosion3() {
+//	return bunker3State;
+//}
+//void setBunkerErosion3(short block) {
+//	//Creating a mask to see if the corresponding block is completely eroded
+//	if(((bunker3State & (0x7 << (3*block))) >> (3*block)) >= 0x4)
+//		xil_printf("Block %d selected to erode is already completely eroded!!!", block);
+//	else
+//		bunker3State += (0x1 << (3*block));
+//}
 
 bool* getAlienDeaths() {
 	return alienDeaths;
@@ -275,7 +287,81 @@ void setAlienDeaths(short alien, bool dead) {
 void updateBullets(){
 	//Update the tank bullet first
 	if(!tankBulletFree) {
-		tankBulletPosition.y -= pixel_adjustment;
+		// Check to see if the bullet will collide with something
+		// Get pixel above current tankBullet
+		int y = tankBulletPosition.y;
+		int x = tankBulletPosition.x;
+		int pixColor = activeFramePointer[(y-1)*SCREENWIDTH + x];
+		// If so, destroy/erode it
+		if(pixColor != BLACK){
+			int left_check_pos;
+			point_t alien_pos = getAlienBlockPosition();
+			// What did it hit?
+			// Was it a bunker?
+			if(y >= BUNKERSTARTY){
+				//#define BUNKERWIDTH 24
+				//#define BUNKERHEIGHT 18
+				//#define BUNKERXSPACING 45
+				//#define BUNKERSTARTY 335
+				//#define BUNKERSTARTX 89
+				//#define BLOCKWIDTH 6
+				//#define BLOCKHEIGHT 6
+
+				left_check_pos = BUNKERSTARTX;
+				int bunker = 1;
+				bool off_screen = false;
+				while((x < left_check_pos || x > left_check_pos+2*BUNKERWIDTH)
+						&& !off_screen){
+					left_check_pos += 2*(BUNKERXSPACING+BUNKERWIDTH);
+					if(left_check_pos > SCREENWIDTH)
+						off_screen = true;
+					else
+						bunker++;
+				}
+				// Now find which block it was
+				if(! off_screen){
+					int block_col = (x-left_check_pos)/(2*BLOCKWIDTH);
+					int block_row = (y-BUNKERSTARTY)/(2*BLOCKHEIGHT);
+					int block = (block_row*4)+block_col;
+					// Set to block 9 if it was greater than 9, since we
+					// don't use 10 or 11
+					block = (block > 9) ? 9 : block;
+					setBunkerErosion(bunker, block);
+					// Erase bullet
+					render(true, tank_bullet_render_mask, 0, UP);
+				}
+
+			}// Was it an alien?! (Hopefully)
+			else if(y >= alien_pos.y){
+				//#define ALIENHEIGHT 8
+				//#define ALIENWIDTH 12
+				//#define ALIENXSPACING 2
+				//#define ALIENYSPACING 20
+				//#define ALIENBLOCKSTARTX 167
+				//#define ALIENBLOCKSTARTY 75
+				//#define ALIENSPERROW 11
+//				left_check_pos = alien_pos.x;
+//				xil_printf("Params: x:%d\ny:%d\n,alien_blk_x:%d\n,alien_blk_y:%d\nAlienWidth:%d\nAlienHeight:%d\nXspc:%d\nYspc:%d\n",x,y,alien_pos.x,alien_pos.y,ALIENWIDTH,ALIENHEIGHT,ALIENXSPACING,ALIENYSPACING);
+				int alien_col = (x-alien_pos.x)/(2*(ALIENWIDTH+ALIENXSPACING));
+				int alien_row = (y-alien_pos.y)/(ALIENHEIGHT+ALIENYSPACING);
+				short alien_index = (short)((alien_row*ALIENSPERROW)+alien_col);
+//				xil_printf("alien col: %d\n", alien_col);
+//				xil_printf("alien row: %d\n", alien_row);
+//				xil_printf("Killing alien: %d\n", alien_index);
+				// Kill alien at alien_index
+				setAlienDeaths(alien_index, true);
+				// Erase alien
+				// Draw Explosion
+				// Erase tank bullet
+				render(true, tank_bullet_render_mask, 0, UP);
+			}
+
+			// Move bullet so it will be reset, and made free
+			tankBulletPosition.y = -(tank_bullet_height+1);
+
+		}
+		else// Else just increment
+			tankBulletPosition.y -= pixel_adjustment;
 	}
 	if(tankBulletPosition.y < -tank_bullet_height) {
 		tankBulletPosition.x = bullet_offscreen;
