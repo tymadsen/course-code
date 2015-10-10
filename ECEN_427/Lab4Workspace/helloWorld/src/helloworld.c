@@ -53,22 +53,30 @@ void print(char *str);
 
 int fitCounter = 0;			// Counter for fit interrupts, goes up to 100 and resets
 int screenUpdateCounter = 0;		// Counter for updating the time, goes up to 20 and resets
+int updateSpaceshipCounter = 0;
 int currentButtonState;		// Value the button interrupt handler saves button values to
+int alienBulletCounter = 0;		//Contains the count until the random time an alien bullet will be fired
+int spaceshipCounter = 0;		//Counts to the next time a spaceship will appear
+int randBulletTime = 0;
+int randSpaceshipTime = 0;
+bool started = false;
 
 XGpio gpLED;  // This is a handle for the LED GPIO block.
 XGpio gpPB;   // This is a handle for the push-button GPIO block.
 
 
 void updateScreenElements(){
-	updateAllBullets();
-	if(currentButtonState & LEFT){
-		moveTankLeft();
-	}
-	else if(currentButtonState & RIGHT) {
-		moveTankRight();
-	}
-	if(currentButtonState & CENTER){
-		shootTankBullet();
+	if(started){
+		updateAllBullets();
+		if(currentButtonState & LEFT){
+			moveTankLeft();
+		}
+		else if(currentButtonState & RIGHT) {
+			moveTankRight();
+		}
+		if(currentButtonState & CENTER){
+			shootTankBullet();
+		}
 	}
 	return;
 }
@@ -76,16 +84,43 @@ void updateScreenElements(){
 void timer_interrupt_handler() {
 	fitCounter++;
 	screenUpdateCounter++;
+	alienBulletCounter++;
+	spaceshipCounter++;
+	updateSpaceshipCounter++;
 	// The FIT counter that will update the aliens every half second
 	if(fitCounter >= 50) {
-		updateAliens();
+		if(started)
+			updateAliens();
 		fitCounter = 0;
 	}
-	// The screen will update every 10ms
+	// The screen will update every 5ms
 	if(screenUpdateCounter >= 5) {
 		//Call function to update the screen
 		updateScreenElements();
 		screenUpdateCounter = 0;
+	}
+	//An alienBullet will fire at a random time between (1*25 - 10*25)
+	if(alienBulletCounter >= randBulletTime){
+//		xil_printf("Fire Alien Bullet\r\n");
+		if(started)
+			fireAlienBulletHelper();
+		randBulletTime = (rand()%10)*25;
+		alienBulletCounter = 0;
+	}
+	//The spaceship will go across the screen at a random time between 1-20 seconds;
+	if(spaceshipCounter >= randSpaceshipTime){
+		xil_printf("Send out the saucer\r\n");
+		if(started)
+			flySpaceship();
+		randSpaceshipTime = (rand()%25)*100;
+		spaceshipCounter = 0;
+	}
+	//Will move the spaceship across the screen
+	if(updateSpaceshipCounter >= 10){
+//		xil_printf("We are updating the saucer position\r\n");
+		if(started)
+			updateSpaceshipHelper();
+		updateSpaceshipCounter = 0;
 	}
 }
 
@@ -213,10 +248,11 @@ int main()
 	}
 	initScreen();
 	char input;
-
-	//setvbuf(stdin, NULL, _IONBF, 0);
-	input = getchar();
+	int randBulletTime = (rand()%10)*25;
+	int randSpaceshipTime = (rand()%20)*100;
+	//setvbuf(stdin, NULL, _IONBF, 0)
 	while(1) {
+		started = true;
 		// Move tank left
 //		if(input == '4'){
 //			xil_printf("Move tank to the left\r\n");

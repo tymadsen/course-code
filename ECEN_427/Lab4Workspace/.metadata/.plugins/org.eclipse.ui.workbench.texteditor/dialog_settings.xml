@@ -2,19 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="327" key="DIALOG_Y_ORIGIN"/>
+		<item value="366" key="DIALOG_Y_ORIGIN"/>
+		<item value="826" key="DIALOG_X_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="528" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="drawBitmapRepeat" key="selection"/>
+		<item value="getBunkerErosion0" key="selection"/>
 		<list key="findhistory">
+			<item value="getBunkerErosion0"/>
+			<item value="bunker1State"/>
+			<item value="bunker"/>
+			<item value="updateBullets"/>
+			<item value="SCREENWIDTH"/>
 			<item value="drawBitmapRepeat"/>
 			<item value="packWord"/>
 		</list>
