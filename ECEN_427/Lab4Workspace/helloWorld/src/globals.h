@@ -22,6 +22,7 @@
 #define bunker_2_render_mask 0x40
 #define bunker_3_render_mask 0x80
 #define all_bullet_render_mask (tank_bullet_render_mask | alien_bullet_render_mask)
+#define spaceship_render_mask 0x100
 
 #define alien_height 8
 #define alien_width 12
@@ -31,14 +32,20 @@
 #define bullet_width 1
 #define alien_bullet_height 7
 #define pixel_adjustment 4
-#define bullet_offscreen 1000
-#define bullety_offscreen 988
+#define bullet_offscreen 800
+#define bullety_offscreen 800
 #define screen_width 640
 #define screen_height 480
 #define alien_x_spacing 2
 #define alien_y_spacing 20
 #define green_line_y screen_height-28
 #define alien_y_actual_spacing (alien_y_spacing-alien_height)
+
+#define spaceship_height 7
+#define spaceship_width 16
+#define spaceship_left_x 0
+#define spaceship_right_x screen_width - spaceship_width*2
+#define spaceship_y 50
 
 #define col1_mask 0x1
 #define col2_mask 0x2
@@ -72,6 +79,7 @@
 
 typedef struct { signed short x; signed short y;} point_t;
 typedef struct { point_t pos; unsigned short type; bool isFree; short counter;} aBullet;
+typedef struct { point_t pos; bool isFree; int direction;} saucer;
 
 point_t getTankPosition();
 void setTankPosition(signed short pixels);
@@ -101,6 +109,11 @@ uint32_t getBunkerErosion2();
 void setBunkerErosion2(short block);
 uint32_t getBunkerErosion3();
 void setBunkerErosion3(short block);
+
+void setSpaceship(int direction);
+void setInitialSpaceship(point_t pos);
+saucer getSpaceship();
+void updateSpaceship();
 
 bool* getAlienDeaths();
 void setAlienDeaths(short alien, bool dead);

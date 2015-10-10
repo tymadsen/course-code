@@ -14,5 +14,8 @@ void moveTankLeft();
 void moveTankRight();
 void shootTankBullet();
 void updateAllBullets();
+void fireAlienBulletHelper();
+void flySpaceship();
+void updateSpaceshipHelper();
 
 #endif /* RENDERHELPER_H_ */

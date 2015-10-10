@@ -7,11 +7,13 @@
 
 #include "globals.h"
 #include "render.h"
+#include "bitmaps.h"
 
 point_t tankPosition;
 point_t tankBulletPosition;
 bool tankBulletFree = true;
 point_t alienBlockPosition;
+saucer spaceship;
 aBullet aBullet0;
 aBullet aBullet1;
 aBullet aBullet2;
@@ -44,6 +46,61 @@ bool alienDeaths[55] = {false, false, false, false, false, false, false, false, 
 						false, false, false, false, false, false, false, false, false, false, false,
 						false, false, false, false, false, false, false, false, false, false, false};
 
+void setSpaceship(int direction){
+	if(spaceship.isFree){
+		if(direction == LEFT){
+			//If the direction of the saucer is left, we will start on the right side
+			spaceship.pos.x = spaceship_right_x;
+		}
+		else {
+			spaceship.pos.x = spaceship_left_x;
+		}
+		spaceship.pos.y = spaceship_y;
+		spaceship.isFree = false;
+		spaceship.direction = direction;
+	}
+}
+
+void setInitialSpaceship(point_t pos){
+	spaceship.pos = pos;
+	spaceship.isFree = true;
+	drawBitmap(saucer_16x7, pos,spaceship_width, spaceship_height, true, BLACK, false);
+	return;
+}
+
+saucer getSpaceship(){
+	return spaceship;
+}
+
+void updateSpaceship(){
+	if(!spaceship.isFree){
+		bool offscreen = false;
+		if(spaceship.direction == LEFT){
+//			xil_printf("The direction is left \r\n");
+			//make the saucer go left by pixel_adjustment
+			spaceship.pos.x -= pixel_adjustment;
+			//Check to see if the saucer is off the screen yet
+			if(spaceship.pos.x <= (0)){
+				offscreen = true;
+			}
+		}
+		else{
+//			xil_printf("The direction is right\r\n");
+			spaceship.pos.x += pixel_adjustment;
+			if(spaceship.pos.x >= screen_width-spaceship_width*2){
+				offscreen = true;
+			}
+		}
+		if(offscreen){
+			xil_printf("The saucer has gone offscreen\r\n");
+			spaceship.pos.x = bullet_offscreen;
+			spaceship.pos.y = bullet_offscreen;
+			spaceship.isFree = true;
+			//Erasing the last of the spaceship, the direction doesn't matter
+			drawBitmap(saucer_16x7, spaceship.pos,spaceship_width, spaceship_height, true, GREEN, true);
+		}
+	}
+}
 
 point_t getTankPosition() {
 	return tankPosition;
@@ -177,8 +234,8 @@ void fireAlienBullet() {
 	temp.x = alienBlockPosition.x + (col*(2*alien_width)) + (col*2*alien_x_spacing) + (alien_width-alien_x_spacing-1);
 	temp.y = alienBlockPosition.y + (row*(2*(alien_height))) + ((row)*alien_y_actual_spacing) + (alien_height*2);
 	//Choose what type the bullet will be. 1 = squiggly, 0 = cross
-	xil_printf("row: %d, idx: %d, col: %d\r\n", row, idx, col);
-	xil_printf("These are the coordinates of the bullets: x- %d, y- %d\r\n", temp.x, temp.y);
+//	xil_printf("row: %d, idx: %d, col: %d\r\n", row, idx, col);
+//	xil_printf("These are the coordinates of the bullets: x- %d, y- %d\r\n", temp.x, temp.y);
 	unsigned short bulletType = rand()%2;
 	//Choose which bullet to place
 	if(aBullet0.isFree) {
@@ -286,29 +343,37 @@ void updateBullets(){
 	//Will change the bitmap used for each of them
 	updateAlienBulletCounters();
 	//Will update the position of each bullet
-	aBullet0.pos.y += pixel_adjustment;
-	if(aBullet0.pos.y > green_line_y - (2*alien_bullet_height)) {
-		aBullet0.pos.x = bullet_offscreen;
-		aBullet0.pos.y = bullet_offscreen;
-		aBullet0.isFree = true;
+	if(!aBullet0.isFree) {
+		aBullet0.pos.y += pixel_adjustment;
+		if(aBullet0.pos.y > green_line_y - (2*alien_bullet_height)) {
+			aBullet0.pos.x = bullet_offscreen;
+			aBullet0.pos.y = bullet_offscreen;
+			aBullet0.isFree = true;
+		}
 	}
+	if(!aBullet1.isFree){
 	aBullet1.pos.y += pixel_adjustment;
-	if(aBullet1.pos.y > green_line_y - (2*alien_bullet_height)) {
-		aBullet1.pos.x = bullet_offscreen;
-		aBullet1.pos.y = bullet_offscreen;
-		aBullet1.isFree = true;
+		if(aBullet1.pos.y > green_line_y - (2*alien_bullet_height)) {
+			aBullet1.pos.x = bullet_offscreen;
+			aBullet1.pos.y = bullet_offscreen;
+			aBullet1.isFree = true;
+		}
 	}
-	aBullet2.pos.y += pixel_adjustment;
-	if(aBullet2.pos.y > green_line_y-(2*alien_bullet_height)) {
-		aBullet2.pos.x = bullet_offscreen;
-		aBullet2.pos.y = bullet_offscreen;
-		aBullet2.isFree = true;
+	if(!aBullet2.isFree){
+		aBullet2.pos.y += pixel_adjustment;
+		if(aBullet2.pos.y > green_line_y-(2*alien_bullet_height)) {
+			aBullet2.pos.x = bullet_offscreen;
+			aBullet2.pos.y = bullet_offscreen;
+			aBullet2.isFree = true;
+		}
 	}
-	aBullet3.pos.y += pixel_adjustment;
-	if(aBullet3.pos.y > green_line_y - (2*alien_bullet_height)) {
-		aBullet3.pos.x = bullet_offscreen;
-		aBullet3.pos.y = bullet_offscreen;
-		aBullet3.isFree = true;
+	if(!aBullet3.isFree){
+		aBullet3.pos.y += pixel_adjustment;
+		if(aBullet3.pos.y > green_line_y - (2*alien_bullet_height)) {
+			aBullet3.pos.x = bullet_offscreen;
+			aBullet3.pos.y = bullet_offscreen;
+			aBullet3.isFree = true;
+		}
 	}
 }
 
@@ -413,16 +478,18 @@ void updateAlienBlock(){
 		alienBlockPosition.x -= pixel_adjustment;}
 	//If the block has hit the right side of the screen, set them equal to the screen and move them down
 	if((alienBlockPosition.x + alien_block_width-rightOffset*2) > 640) {
+		alienDown = true;
+		//call the render function
+		render(true,alien_block_render_mask, 0, DOWN);
 		alienBlockPosition.x = 640-alien_block_width+rightOffset*2;
 		alienBlockPosition.y += alien_height;
 		//Make the aliens go left instead of right
 		alienRight = false;
-		alienDown = true;
 	}
 	//Will move the alien block down a row
 	else if(alienOnLeftScreen) {
-		alienBlockPosition.y += alien_height;
 		alienBlockPosition.x = -leftOffset*2;
+		alienBlockPosition.y += alien_height;
 		alienOnLeftScreen = false;
 		alienDown = true;
 	}
