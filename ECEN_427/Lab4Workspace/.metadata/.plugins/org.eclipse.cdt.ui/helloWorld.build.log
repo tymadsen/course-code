@@ -2,4 +2,639 @@
 **** Build of configuration Debug for project helloWorld ****
 
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/globals.c
+Invoking: MicroBlaze gcc compiler
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../hello_world_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -MMD -MP -MF"src/globals.d" -MT"src/globals.d" -o"src/globals.o" "../src/globals.c"
+In file included from ../src/globals.c:10:
+../src/bitmaps.h: In function 'printSpaceshipValue':
+../src/bitmaps.h:58: error: storage class specified for parameter 'saucer_16x7'
+../src/bitmaps.h:58: error: parameter 'saucer_16x7' is initialized
+../src/bitmaps.h:60: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:61: warning: excess elements in scalar initializer
+../src/bitmaps.h:61: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:62: warning: excess elements in scalar initializer
+../src/bitmaps.h:62: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:63: warning: excess elements in scalar initializer
+../src/bitmaps.h:63: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:64: warning: excess elements in scalar initializer
+../src/bitmaps.h:64: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:65: warning: excess elements in scalar initializer
+../src/bitmaps.h:65: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:67: warning: excess elements in scalar initializer
+../src/bitmaps.h:67: warning: (near initialization for 'saucer_16x7')
+../src/bitmaps.h:69: error: storage class specified for parameter 'alien_explosion_12x10'
+../src/bitmaps.h:69: error: parameter 'alien_explosion_12x10' is initialized
+../src/bitmaps.h:72: warning: excess elements in scalar initializer
+../src/bitmaps.h:72: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:73: warning: excess elements in scalar initializer
+../src/bitmaps.h:73: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:74: warning: excess elements in scalar initializer
+../src/bitmaps.h:74: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:75: warning: excess elements in scalar initializer
+../src/bitmaps.h:75: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:76: warning: excess elements in scalar initializer
+../src/bitmaps.h:76: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:77: warning: excess elements in scalar initializer
+../src/bitmaps.h:77: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:78: warning: excess elements in scalar initializer
+../src/bitmaps.h:78: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:79: warning: excess elements in scalar initializer
+../src/bitmaps.h:79: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:81: warning: excess elements in scalar initializer
+../src/bitmaps.h:81: warning: (near initialization for 'alien_explosion_12x10')
+../src/bitmaps.h:83: error: storage class specified for parameter 'alien_top_in_12x8'
+../src/bitmaps.h:83: error: parameter 'alien_top_in_12x8' is initialized
+../src/bitmaps.h:85: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:86: warning: excess elements in scalar initializer
+../src/bitmaps.h:86: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:87: warning: excess elements in scalar initializer
+../src/bitmaps.h:87: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:88: warning: excess elements in scalar initializer
+../src/bitmaps.h:88: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:89: warning: excess elements in scalar initializer
+../src/bitmaps.h:89: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:90: warning: excess elements in scalar initializer
+../src/bitmaps.h:90: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:91: warning: excess elements in scalar initializer
+../src/bitmaps.h:91: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:93: warning: excess elements in scalar initializer
+../src/bitmaps.h:93: warning: (near initialization for 'alien_top_in_12x8')
+../src/bitmaps.h:95: error: storage class specified for parameter 'alien_top_out_12x8'
+../src/bitmaps.h:95: error: parameter 'alien_top_out_12x8' is initialized
+../src/bitmaps.h:97: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:98: warning: excess elements in scalar initializer
+../src/bitmaps.h:98: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:99: warning: excess elements in scalar initializer
+../src/bitmaps.h:99: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:100: warning: excess elements in scalar initializer
+../src/bitmaps.h:100: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:101: warning: excess elements in scalar initializer
+../src/bitmaps.h:101: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:102: warning: excess elements in scalar initializer
+../src/bitmaps.h:102: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:103: warning: excess elements in scalar initializer
+../src/bitmaps.h:103: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:105: warning: excess elements in scalar initializer
+../src/bitmaps.h:105: warning: (near initialization for 'alien_top_out_12x8')
+../src/bitmaps.h:107: error: storage class specified for parameter 'alien_middle_in_12x8'
+../src/bitmaps.h:107: error: parameter 'alien_middle_in_12x8' is initialized
+../src/bitmaps.h:109: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:110: warning: excess elements in scalar initializer
+../src/bitmaps.h:110: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:111: warning: excess elements in scalar initializer
+../src/bitmaps.h:111: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:112: warning: excess elements in scalar initializer
+../src/bitmaps.h:112: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:113: warning: excess elements in scalar initializer
+../src/bitmaps.h:113: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:114: warning: excess elements in scalar initializer
+../src/bitmaps.h:114: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:115: warning: excess elements in scalar initializer
+../src/bitmaps.h:115: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:117: warning: excess elements in scalar initializer
+../src/bitmaps.h:117: warning: (near initialization for 'alien_middle_in_12x8')
+../src/bitmaps.h:119: error: storage class specified for parameter 'alien_middle_out_12x8'
+../src/bitmaps.h:119: error: parameter 'alien_middle_out_12x8' is initialized
+../src/bitmaps.h:121: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:122: warning: excess elements in scalar initializer
+../src/bitmaps.h:122: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:123: warning: excess elements in scalar initializer
+../src/bitmaps.h:123: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:124: warning: excess elements in scalar initializer
+../src/bitmaps.h:124: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:125: warning: excess elements in scalar initializer
+../src/bitmaps.h:125: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:126: warning: excess elements in scalar initializer
+../src/bitmaps.h:126: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:127: warning: excess elements in scalar initializer
+../src/bitmaps.h:127: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:129: warning: excess elements in scalar initializer
+../src/bitmaps.h:129: warning: (near initialization for 'alien_middle_out_12x8')
+../src/bitmaps.h:131: error: storage class specified for parameter 'alien_bottom_in_12x8'
+../src/bitmaps.h:131: error: parameter 'alien_bottom_in_12x8' is initialized
+../src/bitmaps.h:133: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:134: warning: excess elements in scalar initializer
+../src/bitmaps.h:134: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:135: warning: excess elements in scalar initializer
+../src/bitmaps.h:135: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:136: warning: excess elements in scalar initializer
+../src/bitmaps.h:136: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:137: warning: excess elements in scalar initializer
+../src/bitmaps.h:137: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:138: warning: excess elements in scalar initializer
+../src/bitmaps.h:138: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:139: warning: excess elements in scalar initializer
+../src/bitmaps.h:139: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:141: warning: excess elements in scalar initializer
+../src/bitmaps.h:141: warning: (near initialization for 'alien_bottom_in_12x8')
+../src/bitmaps.h:143: error: storage class specified for parameter 'alien_bottom_out_12x8'
+../src/bitmaps.h:143: error: parameter 'alien_bottom_out_12x8' is initialized
+../src/bitmaps.h:145: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:146: warning: excess elements in scalar initializer
+../src/bitmaps.h:146: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:147: warning: excess elements in scalar initializer
+../src/bitmaps.h:147: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:148: warning: excess elements in scalar initializer
+../src/bitmaps.h:148: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:149: warning: excess elements in scalar initializer
+../src/bitmaps.h:149: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:150: warning: excess elements in scalar initializer
+../src/bitmaps.h:150: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:151: warning: excess elements in scalar initializer
+../src/bitmaps.h:151: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:153: warning: excess elements in scalar initializer
+../src/bitmaps.h:153: warning: (near initialization for 'alien_bottom_out_12x8')
+../src/bitmaps.h:155: error: storage class specified for parameter 'tank_15x8'
+../src/bitmaps.h:155: error: parameter 'tank_15x8' is initialized
+../src/bitmaps.h:157: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:158: warning: excess elements in scalar initializer
+../src/bitmaps.h:158: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:159: warning: excess elements in scalar initializer
+../src/bitmaps.h:159: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:160: warning: excess elements in scalar initializer
+../src/bitmaps.h:160: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:161: warning: excess elements in scalar initializer
+../src/bitmaps.h:161: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:162: warning: excess elements in scalar initializer
+../src/bitmaps.h:162: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:163: warning: excess elements in scalar initializer
+../src/bitmaps.h:163: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:165: warning: excess elements in scalar initializer
+../src/bitmaps.h:165: warning: (near initialization for 'tank_15x8')
+../src/bitmaps.h:169: error: storage class specified for parameter 'bunker_24x18'
+../src/bitmaps.h:169: error: parameter 'bunker_24x18' is initialized
+../src/bitmaps.h:171: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:172: warning: excess elements in scalar initializer
+../src/bitmaps.h:172: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:173: warning: excess elements in scalar initializer
+../src/bitmaps.h:173: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:174: warning: excess elements in scalar initializer
+../src/bitmaps.h:174: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:175: warning: excess elements in scalar initializer
+../src/bitmaps.h:175: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:176: warning: excess elements in scalar initializer
+../src/bitmaps.h:176: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:177: warning: excess elements in scalar initializer
+../src/bitmaps.h:177: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:178: warning: excess elements in scalar initializer
+../src/bitmaps.h:178: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:179: warning: excess elements in scalar initializer
+../src/bitmaps.h:179: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:180: warning: excess elements in scalar initializer
+../src/bitmaps.h:180: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:181: warning: excess elements in scalar initializer
+../src/bitmaps.h:181: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:182: warning: excess elements in scalar initializer
+../src/bitmaps.h:182: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:183: warning: excess elements in scalar initializer
+../src/bitmaps.h:183: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:184: warning: excess elements in scalar initializer
+../src/bitmaps.h:184: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:185: warning: excess elements in scalar initializer
+../src/bitmaps.h:185: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:186: warning: excess elements in scalar initializer
+../src/bitmaps.h:186: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:187: warning: excess elements in scalar initializer
+../src/bitmaps.h:187: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:189: warning: excess elements in scalar initializer
+../src/bitmaps.h:189: warning: (near initialization for 'bunker_24x18')
+../src/bitmaps.h:194: error: storage class specified for parameter 'bunkerDamage0_6x6'
+../src/bitmaps.h:194: error: parameter 'bunkerDamage0_6x6' is initialized
+../src/bitmaps.h:195: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:196: warning: excess elements in scalar initializer
+../src/bitmaps.h:196: warning: (near initialization for 'bunkerDamage0_6x6')
+../src/bitmaps.h:197: warning: excess elements in scalar initializer
+../src/bitmaps.h:197: warning: (near initialization for 'bunkerDamage0_6x6')
+../src/bitmaps.h:198: warning: excess elements in scalar initializer
+../src/bitmaps.h:198: warning: (near initialization for 'bunkerDamage0_6x6')
+../src/bitmaps.h:199: warning: excess elements in scalar initializer
+../src/bitmaps.h:199: warning: (near initialization for 'bunkerDamage0_6x6')
+../src/bitmaps.h:201: warning: excess elements in scalar initializer
+../src/bitmaps.h:201: warning: (near initialization for 'bunkerDamage0_6x6')
+../src/bitmaps.h:203: error: storage class specified for parameter 'bunkerDamage1_6x6'
+../src/bitmaps.h:203: error: parameter 'bunkerDamage1_6x6' is initialized
+../src/bitmaps.h:204: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:205: warning: excess elements in scalar initializer
+../src/bitmaps.h:205: warning: (near initialization for 'bunkerDamage1_6x6')
+../src/bitmaps.h:206: warning: excess elements in scalar initializer
+../src/bitmaps.h:206: warning: (near initialization for 'bunkerDamage1_6x6')
+../src/bitmaps.h:207: warning: excess elements in scalar initializer
+../src/bitmaps.h:207: warning: (near initialization for 'bunkerDamage1_6x6')
+../src/bitmaps.h:208: warning: excess elements in scalar initializer
+../src/bitmaps.h:208: warning: (near initialization for 'bunkerDamage1_6x6')
+../src/bitmaps.h:210: warning: excess elements in scalar initializer
+../src/bitmaps.h:210: warning: (near initialization for 'bunkerDamage1_6x6')
+../src/bitmaps.h:212: error: storage class specified for parameter 'bunkerDamage2_6x6'
+../src/bitmaps.h:212: error: parameter 'bunkerDamage2_6x6' is initialized
+../src/bitmaps.h:213: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:214: warning: excess elements in scalar initializer
+../src/bitmaps.h:214: warning: (near initialization for 'bunkerDamage2_6x6')
+../src/bitmaps.h:215: warning: excess elements in scalar initializer
+../src/bitmaps.h:215: warning: (near initialization for 'bunkerDamage2_6x6')
+../src/bitmaps.h:216: warning: excess elements in scalar initializer
+../src/bitmaps.h:216: warning: (near initialization for 'bunkerDamage2_6x6')
+../src/bitmaps.h:217: warning: excess elements in scalar initializer
+../src/bitmaps.h:217: warning: (near initialization for 'bunkerDamage2_6x6')
+../src/bitmaps.h:219: warning: excess elements in scalar initializer
+../src/bitmaps.h:219: warning: (near initialization for 'bunkerDamage2_6x6')
+../src/bitmaps.h:221: error: storage class specified for parameter 'bunkerDamage3_6x6'
+../src/bitmaps.h:221: error: parameter 'bunkerDamage3_6x6' is initialized
+../src/bitmaps.h:222: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:223: warning: excess elements in scalar initializer
+../src/bitmaps.h:223: warning: (near initialization for 'bunkerDamage3_6x6')
+../src/bitmaps.h:224: warning: excess elements in scalar initializer
+../src/bitmaps.h:224: warning: (near initialization for 'bunkerDamage3_6x6')
+../src/bitmaps.h:225: warning: excess elements in scalar initializer
+../src/bitmaps.h:225: warning: (near initialization for 'bunkerDamage3_6x6')
+../src/bitmaps.h:226: warning: excess elements in scalar initializer
+../src/bitmaps.h:226: warning: (near initialization for 'bunkerDamage3_6x6')
+../src/bitmaps.h:228: warning: excess elements in scalar initializer
+../src/bitmaps.h:228: warning: (near initialization for 'bunkerDamage3_6x6')
+../src/bitmaps.h:230: error: storage class specified for parameter 'word_score_30x5'
+../src/bitmaps.h:230: error: parameter 'word_score_30x5' is initialized
+../src/bitmaps.h:231: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:232: warning: excess elements in scalar initializer
+../src/bitmaps.h:232: warning: (near initialization for 'word_score_30x5')
+../src/bitmaps.h:233: warning: excess elements in scalar initializer
+../src/bitmaps.h:233: warning: (near initialization for 'word_score_30x5')
+../src/bitmaps.h:234: warning: excess elements in scalar initializer
+../src/bitmaps.h:234: warning: (near initialization for 'word_score_30x5')
+../src/bitmaps.h:236: warning: excess elements in scalar initializer
+../src/bitmaps.h:236: warning: (near initialization for 'word_score_30x5')
+../src/bitmaps.h:238: error: storage class specified for parameter 'word_lives_24x5'
+../src/bitmaps.h:238: error: parameter 'word_lives_24x5' is initialized
+../src/bitmaps.h:239: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:240: warning: excess elements in scalar initializer
+../src/bitmaps.h:240: warning: (near initialization for 'word_lives_24x5')
+../src/bitmaps.h:241: warning: excess elements in scalar initializer
+../src/bitmaps.h:241: warning: (near initialization for 'word_lives_24x5')
+../src/bitmaps.h:242: warning: excess elements in scalar initializer
+../src/bitmaps.h:242: warning: (near initialization for 'word_lives_24x5')
+../src/bitmaps.h:244: warning: excess elements in scalar initializer
+../src/bitmaps.h:244: warning: (near initialization for 'word_lives_24x5')
+../src/bitmaps.h:247: error: storage class specified for parameter 'number_0_5x5'
+../src/bitmaps.h:247: error: parameter 'number_0_5x5' is initialized
+../src/bitmaps.h:248: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:249: warning: excess elements in scalar initializer
+../src/bitmaps.h:249: warning: (near initialization for 'number_0_5x5')
+../src/bitmaps.h:250: warning: excess elements in scalar initializer
+../src/bitmaps.h:250: warning: (near initialization for 'number_0_5x5')
+../src/bitmaps.h:251: warning: excess elements in scalar initializer
+../src/bitmaps.h:251: warning: (near initialization for 'number_0_5x5')
+../src/bitmaps.h:253: warning: excess elements in scalar initializer
+../src/bitmaps.h:253: warning: (near initialization for 'number_0_5x5')
+../src/bitmaps.h:255: error: storage class specified for parameter 'number_1_5x5'
+../src/bitmaps.h:255: error: parameter 'number_1_5x5' is initialized
+../src/bitmaps.h:256: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:257: warning: excess elements in scalar initializer
+../src/bitmaps.h:257: warning: (near initialization for 'number_1_5x5')
+../src/bitmaps.h:258: warning: excess elements in scalar initializer
+../src/bitmaps.h:258: warning: (near initialization for 'number_1_5x5')
+../src/bitmaps.h:259: warning: excess elements in scalar initializer
+../src/bitmaps.h:259: warning: (near initialization for 'number_1_5x5')
+../src/bitmaps.h:261: warning: excess elements in scalar initializer
+../src/bitmaps.h:261: warning: (near initialization for 'number_1_5x5')
+../src/bitmaps.h:263: error: storage class specified for parameter 'number_2_5x5'
+../src/bitmaps.h:263: error: parameter 'number_2_5x5' is initialized
+../src/bitmaps.h:264: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:265: warning: excess elements in scalar initializer
+../src/bitmaps.h:265: warning: (near initialization for 'number_2_5x5')
+../src/bitmaps.h:266: warning: excess elements in scalar initializer
+../src/bitmaps.h:266: warning: (near initialization for 'number_2_5x5')
+../src/bitmaps.h:267: warning: excess elements in scalar initializer
+../src/bitmaps.h:267: warning: (near initialization for 'number_2_5x5')
+../src/bitmaps.h:269: warning: excess elements in scalar initializer
+../src/bitmaps.h:269: warning: (near initialization for 'number_2_5x5')
+../src/bitmaps.h:271: error: storage class specified for parameter 'number_3_5x5'
+../src/bitmaps.h:271: error: parameter 'number_3_5x5' is initialized
+../src/bitmaps.h:272: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:273: warning: excess elements in scalar initializer
+../src/bitmaps.h:273: warning: (near initialization for 'number_3_5x5')
+../src/bitmaps.h:274: warning: excess elements in scalar initializer
+../src/bitmaps.h:274: warning: (near initialization for 'number_3_5x5')
+../src/bitmaps.h:275: warning: excess elements in scalar initializer
+../src/bitmaps.h:275: warning: (near initialization for 'number_3_5x5')
+../src/bitmaps.h:276: warning: excess elements in scalar initializer
+../src/bitmaps.h:276: warning: (near initialization for 'number_3_5x5')
+../src/bitmaps.h:279: error: storage class specified for parameter 'number_4_5x5'
+../src/bitmaps.h:279: error: parameter 'number_4_5x5' is initialized
+../src/bitmaps.h:280: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:281: warning: excess elements in scalar initializer
+../src/bitmaps.h:281: warning: (near initialization for 'number_4_5x5')
+../src/bitmaps.h:282: warning: excess elements in scalar initializer
+../src/bitmaps.h:282: warning: (near initialization for 'number_4_5x5')
+../src/bitmaps.h:283: warning: excess elements in scalar initializer
+../src/bitmaps.h:283: warning: (near initialization for 'number_4_5x5')
+../src/bitmaps.h:285: warning: excess elements in scalar initializer
+../src/bitmaps.h:285: warning: (near initialization for 'number_4_5x5')
+../src/bitmaps.h:287: error: storage class specified for parameter 'number_5_5x5'
+../src/bitmaps.h:287: error: parameter 'number_5_5x5' is initialized
+../src/bitmaps.h:288: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:289: warning: excess elements in scalar initializer
+../src/bitmaps.h:289: warning: (near initialization for 'number_5_5x5')
+../src/bitmaps.h:290: warning: excess elements in scalar initializer
+../src/bitmaps.h:290: warning: (near initialization for 'number_5_5x5')
+../src/bitmaps.h:291: warning: excess elements in scalar initializer
+../src/bitmaps.h:291: warning: (near initialization for 'number_5_5x5')
+../src/bitmaps.h:292: warning: excess elements in scalar initializer
+../src/bitmaps.h:292: warning: (near initialization for 'number_5_5x5')
+../src/bitmaps.h:295: error: storage class specified for parameter 'number_6_5x5'
+../src/bitmaps.h:295: error: parameter 'number_6_5x5' is initialized
+../src/bitmaps.h:296: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:297: warning: excess elements in scalar initializer
+../src/bitmaps.h:297: warning: (near initialization for 'number_6_5x5')
+../src/bitmaps.h:298: warning: excess elements in scalar initializer
+../src/bitmaps.h:298: warning: (near initialization for 'number_6_5x5')
+../src/bitmaps.h:299: warning: excess elements in scalar initializer
+../src/bitmaps.h:299: warning: (near initialization for 'number_6_5x5')
+../src/bitmaps.h:301: warning: excess elements in scalar initializer
+../src/bitmaps.h:301: warning: (near initialization for 'number_6_5x5')
+../src/bitmaps.h:303: error: storage class specified for parameter 'number_7_5x5'
+../src/bitmaps.h:303: error: parameter 'number_7_5x5' is initialized
+../src/bitmaps.h:304: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:305: warning: excess elements in scalar initializer
+../src/bitmaps.h:305: warning: (near initialization for 'number_7_5x5')
+../src/bitmaps.h:306: warning: excess elements in scalar initializer
+../src/bitmaps.h:306: warning: (near initialization for 'number_7_5x5')
+../src/bitmaps.h:307: warning: excess elements in scalar initializer
+../src/bitmaps.h:307: warning: (near initialization for 'number_7_5x5')
+../src/bitmaps.h:308: warning: excess elements in scalar initializer
+../src/bitmaps.h:308: warning: (near initialization for 'number_7_5x5')
+../src/bitmaps.h:311: error: storage class specified for parameter 'number_8_5x5'
+../src/bitmaps.h:311: error: parameter 'number_8_5x5' is initialized
+../src/bitmaps.h:312: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:313: warning: excess elements in scalar initializer
+../src/bitmaps.h:313: warning: (near initialization for 'number_8_5x5')
+../src/bitmaps.h:314: warning: excess elements in scalar initializer
+../src/bitmaps.h:314: warning: (near initialization for 'number_8_5x5')
+../src/bitmaps.h:315: warning: excess elements in scalar initializer
+../src/bitmaps.h:315: warning: (near initialization for 'number_8_5x5')
+../src/bitmaps.h:316: warning: excess elements in scalar initializer
+../src/bitmaps.h:316: warning: (near initialization for 'number_8_5x5')
+../src/bitmaps.h:319: error: storage class specified for parameter 'number_9_5x5'
+../src/bitmaps.h:319: error: parameter 'number_9_5x5' is initialized
+../src/bitmaps.h:320: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:321: warning: excess elements in scalar initializer
+../src/bitmaps.h:321: warning: (near initialization for 'number_9_5x5')
+../src/bitmaps.h:322: warning: excess elements in scalar initializer
+../src/bitmaps.h:322: warning: (near initialization for 'number_9_5x5')
+../src/bitmaps.h:323: warning: excess elements in scalar initializer
+../src/bitmaps.h:323: warning: (near initialization for 'number_9_5x5')
+../src/bitmaps.h:325: warning: excess elements in scalar initializer
+../src/bitmaps.h:325: warning: (near initialization for 'number_9_5x5')
+../src/bitmaps.h:327: error: storage class specified for parameter 'alien_bullet_11_7x3'
+../src/bitmaps.h:327: error: parameter 'alien_bullet_11_7x3' is initialized
+../src/bitmaps.h:328: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:329: warning: excess elements in scalar initializer
+../src/bitmaps.h:329: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:330: warning: excess elements in scalar initializer
+../src/bitmaps.h:330: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:331: warning: excess elements in scalar initializer
+../src/bitmaps.h:331: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:332: warning: excess elements in scalar initializer
+../src/bitmaps.h:332: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:333: warning: excess elements in scalar initializer
+../src/bitmaps.h:333: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:334: warning: excess elements in scalar initializer
+../src/bitmaps.h:334: warning: (near initialization for 'alien_bullet_11_7x3')
+../src/bitmaps.h:337: error: storage class specified for parameter 'alien_bullet_12_7x3'
+../src/bitmaps.h:337: error: parameter 'alien_bullet_12_7x3' is initialized
+../src/bitmaps.h:338: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:339: warning: excess elements in scalar initializer
+../src/bitmaps.h:339: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:340: warning: excess elements in scalar initializer
+../src/bitmaps.h:340: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:341: warning: excess elements in scalar initializer
+../src/bitmaps.h:341: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:342: warning: excess elements in scalar initializer
+../src/bitmaps.h:342: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:343: warning: excess elements in scalar initializer
+../src/bitmaps.h:343: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:344: warning: excess elements in scalar initializer
+../src/bitmaps.h:344: warning: (near initialization for 'alien_bullet_12_7x3')
+../src/bitmaps.h:347: error: storage class specified for parameter 'alien_bullet_13_7x3'
+../src/bitmaps.h:347: error: parameter 'alien_bullet_13_7x3' is initialized
+../src/bitmaps.h:348: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:349: warning: excess elements in scalar initializer
+../src/bitmaps.h:349: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:350: warning: excess elements in scalar initializer
+../src/bitmaps.h:350: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:351: warning: excess elements in scalar initializer
+../src/bitmaps.h:351: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:352: warning: excess elements in scalar initializer
+../src/bitmaps.h:352: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:353: warning: excess elements in scalar initializer
+../src/bitmaps.h:353: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:354: warning: excess elements in scalar initializer
+../src/bitmaps.h:354: warning: (near initialization for 'alien_bullet_13_7x3')
+../src/bitmaps.h:357: error: storage class specified for parameter 'alien_bullet_21_7x3'
+../src/bitmaps.h:357: error: parameter 'alien_bullet_21_7x3' is initialized
+../src/bitmaps.h:358: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:359: warning: excess elements in scalar initializer
+../src/bitmaps.h:359: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:360: warning: excess elements in scalar initializer
+../src/bitmaps.h:360: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:361: warning: excess elements in scalar initializer
+../src/bitmaps.h:361: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:362: warning: excess elements in scalar initializer
+../src/bitmaps.h:362: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:363: warning: excess elements in scalar initializer
+../src/bitmaps.h:363: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:364: warning: excess elements in scalar initializer
+../src/bitmaps.h:364: warning: (near initialization for 'alien_bullet_21_7x3')
+../src/bitmaps.h:367: error: storage class specified for parameter 'alien_bullet_22_7x3'
+../src/bitmaps.h:367: error: parameter 'alien_bullet_22_7x3' is initialized
+../src/bitmaps.h:368: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:369: warning: excess elements in scalar initializer
+../src/bitmaps.h:369: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:370: warning: excess elements in scalar initializer
+../src/bitmaps.h:370: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:371: warning: excess elements in scalar initializer
+../src/bitmaps.h:371: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:372: warning: excess elements in scalar initializer
+../src/bitmaps.h:372: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:373: warning: excess elements in scalar initializer
+../src/bitmaps.h:373: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:374: warning: excess elements in scalar initializer
+../src/bitmaps.h:374: warning: (near initialization for 'alien_bullet_22_7x3')
+../src/bitmaps.h:377: error: storage class specified for parameter 'alien_bullet_23_7x3'
+../src/bitmaps.h:377: error: parameter 'alien_bullet_23_7x3' is initialized
+../src/bitmaps.h:378: warning: initialization makes pointer from integer without a cast
+../src/bitmaps.h:379: warning: excess elements in scalar initializer
+../src/bitmaps.h:379: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:380: warning: excess elements in scalar initializer
+../src/bitmaps.h:380: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:381: warning: excess elements in scalar initializer
+../src/bitmaps.h:381: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:382: warning: excess elements in scalar initializer
+../src/bitmaps.h:382: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:383: warning: excess elements in scalar initializer
+../src/bitmaps.h:383: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:384: warning: excess elements in scalar initializer
+../src/bitmaps.h:384: warning: (near initialization for 'alien_bullet_23_7x3')
+../src/bitmaps.h:387: error: storage class specified for parameter 'tank_bullet_5x3'
+../src/bitmaps.h:387: error: parameter 'tank_bullet_5x3' is initialized
+../src/bitmaps.h:387: warning: initialization makes pointer from integer without a cast
+../src/globals.c:14: error: parameter 'tankBulletFree' is initialized
+../src/globals.c:29: error: parameter 'alienRight' is initialized
+../src/globals.c:30: error: parameter 'alienDown' is initialized
+../src/globals.c:31: error: parameter 'alienOnLeftScreen' is initialized
+../src/globals.c:32: error: parameter 'alien_block_width' is initialized
+../src/globals.c:33: error: parameter 'alienSpacing' is initialized
+../src/globals.c:34: error: parameter 'lives' is initialized
+../src/globals.c:35: error: parameter 'score' is initialized
+../src/globals.c:41: error: parameter 'bunkerStates' is initialized
+../src/globals.c:41: warning: excess elements in scalar initializer
+../src/globals.c:41: warning: (near initialization for 'bunkerStates')
+../src/globals.c:41: warning: excess elements in scalar initializer
+../src/globals.c:41: warning: (near initialization for 'bunkerStates')
+../src/globals.c:41: warning: excess elements in scalar initializer
+../src/globals.c:41: warning: (near initialization for 'bunkerStates')
+../src/globals.c:45: error: parameter 'alienDeaths' is initialized
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:45: warning: excess elements in scalar initializer
+../src/globals.c:45: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:46: warning: excess elements in scalar initializer
+../src/globals.c:46: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:47: warning: excess elements in scalar initializer
+../src/globals.c:47: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:48: warning: excess elements in scalar initializer
+../src/globals.c:48: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:49: warning: excess elements in scalar initializer
+../src/globals.c:49: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:50: warning: excess elements in scalar initializer
+../src/globals.c:50: warning: (near initialization for 'alienDeaths')
+../src/globals.c:52: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:66: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:73: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:77: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:106: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:110: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:114: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:118: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:131: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:137: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:141: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:147: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:152: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:165: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:169: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:173: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:177: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:183: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:187: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:193: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:197: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:203: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:207: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:214: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:272: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:293: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:296: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:348: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:352: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:359: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:531: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:537: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:669: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:681: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:685: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:720: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:775: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+../src/globals.c:777: error: old-style parameter declarations in prototyped function definition
+make: *** [src/globals.o] Error 1

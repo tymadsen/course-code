@@ -13,17 +13,19 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="getBunkerErosion0" key="selection"/>
+		<item value="drawSpaceship" key="selection"/>
 		<list key="findhistory">
-			<item value="getBunkerErosion0"/>
-			<item value="bunker1State"/>
-			<item value="bunker"/>
-			<item value="updateBullets"/>
-			<item value="SCREENWIDTH"/>
-			<item value="drawBitmapRepeat"/>
-			<item value="packWord"/>
+			<item value="tankBulletFree"/>
+			<item value="drawSpaceship"/>
+			<item value="spaceship"/>
+			<item value="erosion state"/>
+			<item value="The saucer"/>
+			<item value="The saucer has gone offscreen"/>
+			<item value="alien value"/>
+			<item value="isGameOver"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pix_color"/>
 		</list>
 	</section>
 </section>

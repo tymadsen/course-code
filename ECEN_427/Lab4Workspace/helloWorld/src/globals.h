@@ -7,11 +7,11 @@
 
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
-#include "stdio.h"
+#include <stdio.h>
 #include <stdlib.h>
 //#include "time.h"
-#include "stdbool.h"
-#include "stdint.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 #define tank_render_mask 0x1
 #define tank_bullet_render_mask 0x2
