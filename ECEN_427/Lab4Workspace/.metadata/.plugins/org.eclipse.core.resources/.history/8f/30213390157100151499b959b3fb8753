@@ -385,9 +385,6 @@ void updateBullets(){
 					// don't use 10 or 11
 					block = (block > 9) ? 9 : block;
 					setBunkerErosion(bunker, block);
-					// Draw erosion
-					int mask = (bunker == 3) ? bunker_3_render_mask : (bunker == 2) ? bunker_2_render_mask : (bunker == 1) ? bunker_1_render_mask : bunker_0_render_mask;
-					render(false, mask, block, 0);
 					// Erase bullet
 					render(true, tank_bullet_render_mask, 0, UP);
 				}
@@ -413,10 +410,6 @@ void updateBullets(){
 				setAlienDeaths(alien_index, true);
 				// Erase alien
 				// Draw Explosion
-				point_t pos;
-				pos.x = alien_pos.x + (alien_col*2*(ALIENWIDTH+ALIENXSPACING));
-				pos.y = alien_pos.y + (alien_row*(ALIENHEIGHT+ALIENYSPACING)) - 2;
-				drawBitmap(alien_explosion_12x10, pos, 12, 10, true, WHITE, false);
 				// Erase tank bullet
 				render(true, tank_bullet_render_mask, 0, UP);
 			}
