@@ -30,6 +30,7 @@
 #define SCOREY 15
 #define SCORELABELWIDTH 30
 #define NUMBERWIDTH 5
+#define NUMBERSPACING 5
 // Tank dimenstion/spacing
 #define TANKSTARTY 400
 #define TANKSTARTX 98
@@ -70,14 +71,17 @@ void clearScreen();
 void initScreen();
 void render(bool erase, int render_objects_mask, short index, int direction);
 void drawScoreLabel();
-void drawScore();
+void drawScore(int index, int number);
+const uint32_t* getNumberBitmap(int number);
 void drawLivesLabel();
 void drawLives();
+void eraseLife(int lives);
 void drawNewBunkers();
 void drawBunkerErosion(int bunker, int block);
 void drawTank(bool erase, int direction);
 void drawTankBullet(bool erase);
 void drawSpaceship(bool erase, int direction);
+void printSpaceshipValue(int spaceshipValue)
 void drawAliens(bool erase, bool in_pose);
 const uint32_t* determineAlienBulletBitmap(short bulletType, short counter);
 void drawAlienBullet(bool erase, short bullet_number);

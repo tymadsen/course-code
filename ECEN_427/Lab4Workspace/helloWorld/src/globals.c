@@ -32,6 +32,7 @@ bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
 int lives = 3;
+int score = 0;
 
 //srand((unsigned)time(NULL));
 
@@ -633,12 +634,15 @@ void updateAlienBlock(){
 }
 
 void setLives(bool increment){
+	//Increment or decrement the lives
 	if(increment){
 		lives++;
 	}
 	else {
 		lives--;
 	}
+	//Redraw the number of lives by erasing the last life
+	eraseLife(lives);
 	return;
 }
 
@@ -673,4 +677,63 @@ bool isGameOver(){
 		gameOver = true;
 	}
 	return gameOver;
+}
+
+void incScore(int alienNum, bool spaceshipHit){
+	//alienNum of -1 means just the spaceship is hit
+	int oldScore = score;
+	//Increment the score to reflect the value of the alien just killed
+	//If the alien is in the bottom two rows, it is worth 10 pts
+	if((alienNum >= 0) && (alienNum < 22)){
+		score += bottom_row_pts;
+	} //If the alien is in the middle two rows, it is worth 20 pts
+	else if( (alienNum >= 22) && (alienNum < 44)){
+		score += middle_row_pts;
+	}	//If the alien is in the top row, it is worth 40 pts
+	else if((alienNum >= 44)){
+		score += top_row_pts;
+	}
+	//add the value of the spaceship
+	if(spaceshipHit){
+		int spaceScore= (rand()%7 + 1) * spaceship_multiple;
+		//Print the value of the spaceship underneath the ship
+		printSpaceshipValue(spaceScore);
+		score += spaceScore;
+	}
+	tempScore = score;
+	int index = 0;
+	//Update the screen to reflect the new score
+	//Update the first number?
+	if((score > 999)){
+		if((oldScore/1000 != tempScore/1000)){
+			drawScore(index, tempScore/1000);
+		}
+		index++;
+	}
+	oldScore = oldScore%1000;
+	tempScore = tempScore%1000;
+	if((score > 99)){
+		if(oldScore/100 != tempScore/100){
+			drawScore(index, tempScore/100);
+		}
+		index++;
+		//update drawScore(index, number)
+	}	//Update the second number?
+	oldScore = oldScore%100;
+	tempScore = tempScore%100;
+	if((score > 9)){
+		if((oldScore/10 != tempScore/10)){
+			drawScore(index, tempScore/10);
+		}
+		index++;
+	}
+	oldScore = oldScore%10;
+	tempScore = tempScore%10;
+	//update the third number?
+	drawScore(index, tempScore);
+	//Draw the last number of the score
+}
+
+int getScore(){
+	return score;
 }

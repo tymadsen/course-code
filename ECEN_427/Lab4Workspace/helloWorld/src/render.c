@@ -130,10 +130,48 @@ void drawScoreLabel() {
 	drawBitmap(word_score_30x5, score_label_pos, SCORELABELWIDTH, LABELHEIGHT, true, WHITE, false);
 }
 
-void drawScore() {
+void drawScore(int index, int number) {
 	point_t score_pos;
-	score_pos.x = SCOREX, score_pos.y = SCOREY;
-	drawBitmap(number_0_5x5, score_pos, NUMBERWIDTH, LABELHEIGHT, true, GREEN, false);
+	//Put the starting position in the right place depending on the index
+	score_pos.x = SCOREX + (index*NUMBERWIDTH*2) + (index*NUMBERSPACING);
+	score_pos.y = SCOREY;
+	//Get the bitmap for the number we are going to show
+	const uint32_t* bitmap = getNumberBitmap(number);
+	drawBitmap(bitmap, score_pos, NUMBERWIDTH, LABELHEIGHT, true, GREEN, false);
+}
+
+void printSpaceshipValue(int spaceshipValue){
+	point_t position = getSpaceship().pos;
+	int tempVal = 0;
+	int index = spaceshipValue;
+	const uint32_t* bitmap;
+	//Draw the 100s digit if our value is over 99
+	if(spaceshipValue > 99){
+		bitmap = getNumberBitmap(tempVal/100);
+		drawBitmap(bitmap, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+		tempVal = spaceshipValue%100;
+		position.x += NUMBERWIDTH + NUMBERSPACING;
+	}
+	//Draw the 10s digit
+	bitmap = getNumberBitmap(tempVal/10);
+	drawBitmap(bitmap, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+	position.x += NUMBERSPACING + NUMBERWIDTH;
+	//Draw the 1s digit which will always be 0
+	drawBitmap(number_0_5x5, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+	return;
+}
+
+const uint32_t* getNumberBitmap(int number){
+	if(number == 0) { return number_0_5x5;	}
+	else if(number == 1) {	return number_1_5x5;	}
+	else if(number == 2) {	return number_2_5x5;	}
+	else if(number == 3) {	return number_3_5x5;	}
+	else if(number == 4) {	return number_4_5x5;	}
+	else if(number == 5) {	return number_5_5x5;	}
+	else if(number == 6) {	return number_6_5x5;	}
+	else if(number == 7) { 	return number_7_5x5;	}
+	else if(number == 8) { 	return number_8_5x5;	}
+	else {	return number_9_5x5;	}
 }
 
 void drawLivesLabel() { 
@@ -146,6 +184,16 @@ void drawLives() {
 	point_t lives_pos;
 	lives_pos.x = LIFESTARTX, lives_pos.y = LIFESTARTY;
 	drawBitmapRepeat(tank_15x8, lives_pos, TANKWIDTH, TANKHEIGHT, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
+}
+
+void eraseLife(int lives){
+	//Update the position to be at the top left of the life to be erased
+	point_t lifePos;
+	lifePos.x = LIFESTARTX, lifePos.y = LIFESTARTY;
+	lifePos.x += ((lives-1)*LIFEXSPACING) + (2*(lives-1)*TANKWIDTH);
+	//erase the bitmap of the life.
+	drawBitmap(tank_15x8, lifePos, TANKWIDTH, TANKHEIGHT, true, BLACK, true);
+	return;
 }
 
 void drawNewBunkers() {
