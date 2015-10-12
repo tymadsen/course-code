@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="13" version="2.0">
+<workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="876" y="-14">
 <fastViewData fastViewLocation="1024"/>
@@ -42,7 +42,7 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.c" partName="renderHelper.c" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.c" title="renderHelper.c" tooltip="helloWorld/src/renderHelper.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.c" partName="renderHelper.c" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.c" title="renderHelper.c" tooltip="helloWorld/src/renderHelper.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/renderHelper.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1221" selectionTopPixel="550"/>
 </editor>
@@ -50,34 +50,37 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/render.c"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1133" selectionTopPixel="51"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.h" partName="renderHelper.h" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.h" title="renderHelper.h" tooltip="helloWorld/src/renderHelper.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="renderHelper.h" partName="renderHelper.h" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/renderHelper.h" title="renderHelper.h" tooltip="helloWorld/src/renderHelper.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/renderHelper.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="render.h" partName="render.h" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/render.h" title="render.h" tooltip="helloWorld/src/render.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="render.h" partName="render.h" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/render.h" title="render.h" tooltip="helloWorld/src/render.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/render.h"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="567" selectionTopPixel="686"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="helloworld.c" partName="helloworld.c" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/helloworld.c" title="helloworld.c" tooltip="helloWorld/src/helloworld.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="helloworld.c" partName="helloworld.c" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/helloworld.c" title="helloworld.c" tooltip="helloWorld/src/helloworld.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/helloworld.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10098" selectionTopPixel="3627"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10002" selectionTopPixel="3627"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.h" partName="globals.h" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/globals.h" title="globals.h" tooltip="helloWorld/src/globals.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="globals.h" partName="globals.h" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/globals.h" title="globals.h" tooltip="helloWorld/src/globals.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3703" selectionTopPixel="516"/>
+<editorState selectionHorizontalPixel="0" selectionLength="28" selectionOffset="848" selectionTopPixel="1502"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="globals.c" partName="globals.c" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/globals.c" title="globals.c" tooltip="helloWorld/src/globals.c" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="globals.c" partName="globals.c" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/globals.c" title="globals.c" tooltip="helloWorld/src/globals.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/globals.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="17009" selectionTopPixel="9254"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="11585" selectionTopPixel="6103"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="bitMaps.h" partName="bitMaps.h" path="C:/Users/superman/Desktop/Madsen/ECEN_427/Lab4Workspace/helloWorld/src/bitMaps.h" title="bitMaps.h" tooltip="helloWorld/src/bitMaps.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="bitMaps.h" partName="bitMaps.h" path="C:/Users/superman/Desktop/Madsen-code/course-code/ECEN_427/Lab4Workspace/helloWorld/src/bitMaps.h" title="bitMaps.h" tooltip="helloWorld/src/bitMaps.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/helloWorld/src/bitMaps.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="5123"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3550" selectionTopPixel="2369"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.ProgressView" partName="Progress">
+<viewState/>
 </view>
 <view id="org.eclipse.ui.views.PropertySheet" partName="Properties"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView" partName="Make Target"/>
@@ -86,8 +89,7 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
+<expanded>&#x0A;<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
@@ -160,6 +162,7 @@
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.views.PropertySheet"/>
 <view id="org.eclipse.tm.terminal.view.TerminalView"/>
+<view id="org.eclipse.ui.views.ProgressView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.eclipse.cdt.make.ui.views.MakeView"/>
 <fastViewBars/>
@@ -191,12 +194,14 @@
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.tm.terminal.view.TerminalView" label="Terminal 1"/>
+<page content="org.eclipse.ui.views.ProgressView" label="Progress"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -218,162 +223,167 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/helloworld.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/renderHelper.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/render.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/globals.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/bitMaps.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/helloWorld/src/helloworld.c"/>
 </editors>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="18391" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="18871" y="0"/>
-</item>
-<item historyLabel="globals.h" index="3">
-<position info="not_deleted" x="3703" y="0"/>
-</item>
 <item historyLabel="render.c" index="0">
 <position info="not_deleted" x="1133" y="0"/>
 </item>
-<item historyLabel="render.h" index="1">
-<position info="not_deleted" x="929" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="18870" y="0"/>
-</item>
-<item historyLabel="render.c" index="0">
-<position info="not_deleted" x="1133" y="0"/>
-</item>
-<item historyLabel="render.h" index="1">
-<position info="not_deleted" x="929" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="18870" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="18141" y="0"/>
-</item>
-<item historyLabel="helloworld.c" index="2">
-<position info="not_deleted" x="10098" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="2858" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
-<position info="not_deleted" x="3703" y="0"/>
-</item>
-<item historyLabel="helloworld.c" index="2">
-<position info="not_deleted" x="10098" y="0"/>
-</item>
-<item historyLabel="render.c" index="0">
-<position info="not_deleted" x="1133" y="0"/>
-</item>
-<item historyLabel="render.h" index="1">
-<position info="not_deleted" x="567" y="0"/>
-</item>
-<item historyLabel="render.c" index="0">
-<position info="not_deleted" x="1133" y="0"/>
-</item>
-<item historyLabel="globals.c" index="4">
-<position info="not_deleted" x="2858" y="0"/>
-</item>
-<item historyLabel="renderHelper.h" index="5">
+<item historyLabel="renderHelper.h" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="renderHelper.c" index="6">
+<item historyLabel="renderHelper.c" index="5">
 <position info="not_deleted" x="1221" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="2858" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18450" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18451" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18481" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18494" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18495" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18525" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18538" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18539" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18570" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18583" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18584" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18821" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18140" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3685" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18140" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18140" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18140" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18677" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18685" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="18685" y="0"/>
 </item>
-<item historyLabel="helloworld.c" index="2">
+<item historyLabel="helloworld.c" index="1">
 <position info="not_deleted" x="10098" y="0"/>
 </item>
-<item historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
 </item>
-<item historyLabel="globals.c" index="4">
+<item historyLabel="globals.c" index="3">
 <position info="not_deleted" x="17009" y="0"/>
 </item>
-<item active="true" historyLabel="globals.h" index="3">
+<item historyLabel="globals.h" index="2">
 <position info="not_deleted" x="3703" y="0"/>
+</item>
+<item historyLabel="renderHelper.h" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="renderHelper.c" index="7">
+<position info="not_deleted" x="1221" y="0"/>
+</item>
+<item historyLabel="render.h" index="8">
+<position info="not_deleted" x="567" y="0"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position info="not_deleted" x="17653" y="0"/>
+</item>
+<item historyLabel="bitMaps.h" index="10">
+<position info="not_deleted" x="3550" y="0"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position info="not_deleted" x="12495" y="0"/>
+</item>
+<item historyLabel="globals.h" index="2">
+<position info="not_deleted" x="3759" y="0"/>
+</item>
+<item historyLabel="helloworld.c" index="11">
+<position info="not_deleted" x="1420" y="0"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position info="not_deleted" x="12981" y="0"/>
+</item>
+<item historyLabel="globals.h" index="2">
+<position info="not_deleted" x="848" y="28"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position/>
+</item>
+<item historyLabel="globals.h" index="2">
+<position info="not_deleted" x="848" y="28"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position info="not_deleted" x="10024" y="0"/>
+</item>
+<item historyLabel="globals.c" index="9">
+<position/>
+</item>
+<item historyLabel="helloworld.c" index="11">
+<position info="not_deleted" x="10002" y="0"/>
+</item>
+<item active="true" historyLabel="globals.c" index="9">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

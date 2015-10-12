@@ -33,6 +33,7 @@
 #define alien_bullet_height 7
 #define alien_bullet_width 3
 #define pixel_adjustment 4
+#define tank_bullet_pixel_adjustment pixel_adjustment*2
 #define bullet_offscreen 1000
 #define screen_width 640
 #define screen_height 480

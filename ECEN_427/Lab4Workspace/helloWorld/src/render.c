@@ -39,19 +39,29 @@ void initScreen() {
 	}
 	point_t tempOffScreen;
 	tempOffScreen.x = bullet_offscreen; tempOffScreen.y = bullet_offscreen;
-	//Write the score on top of the frame
+	// Write the score label on top of the frame
 	drawScoreLabel();
+	// Draw score
 	drawScore();
-	//Write Lives
-	//Draw the lives
+	// Draw the lives label
 	drawLivesLabel();
-	//set and draw the lives tanks
+	// Draw the lives
 	drawLives();
 	setInitialSpaceship(tempOffScreen);
-	//Set and draw the bunkers
+	// Draw the bunkers
 	drawNewBunkers();
+
+	// Move to background
 	activeFramePointer = background;
+	// Write the score and label in background
+	drawScoreLabel();
+	drawScore();
+	// Draw the lives and label in background
+	drawLivesLabel();
+	drawLives();
+	// Draw background bunkers
 	drawNewBunkers();
+	// Switch back to foreground
 	activeFramePointer = foreground;
 
 	//set and draw the aliens
@@ -160,9 +170,9 @@ void drawBunkerErosion(int bunker, int block){
 	block_pos.x = BUNKERSTARTX + (2*(bunker*(BUNKERWIDTH+BUNKERXSPACING) + (BLOCKWIDTH*col)));
 	block_pos.y = BUNKERSTARTY + (2*BLOCKHEIGHT*(row));
 	// Get erosion state to know which bitmap to use
-	xil_printf("Position of bunker x: %d, y: %d\r\n", block_pos.x, block_pos.y);
-	xil_printf("Bunker: %d\r\n", bunker);
-	xil_printf("Block: %d\r\n", block);
+//	xil_printf("Position of bunker x: %d, y: %d\r\n", block_pos.x, block_pos.y);
+//	xil_printf("Bunker: %d\r\n", bunker);
+//	xil_printf("Block: %d\r\n", block);
 	uint32_t erosionState = 0;
 	switch(bunker){
 		case 0: erosionState = getBunkerErosion(0);
@@ -175,10 +185,10 @@ void drawBunkerErosion(int bunker, int block){
 		break;
 		default: break;
 	}
-	xil_printf("erosion state: 0x%08x\r\n", erosionState);
+//	xil_printf("erosion state: 0x%08x\r\n", erosionState);
 //	short erosion_block = 1;
 	uint32_t erosion_block = ((erosionState & (0x7 << (3*block))) >> (3*block));
-	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
+//	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
 	// Draw bunker erosion using (erase = true) flag
 	if(erosion_block == 0x0){
 		//do nothing
@@ -365,13 +375,18 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 				}
 			}
 			else {//paint the background color
+				int new_color = background[(pos.y*SCREENWIDTH + pos.x)];
+				int index = (pos.y*SCREENWIDTH + pos.x);
 				if(!double_size)
-					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
+					activeFramePointer[index] = (background != activeFramePointer) ? new_color : BLACK;
 				else{
-					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)];
-					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)];
-					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)];
-					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)];
+					new_color = (background != activeFramePointer) ? background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] : BLACK;
+					index = (sRow+pos.y)*SCREENWIDTH + (sCol+pos.x);
+					activeFramePointer[index] = new_color;
+					activeFramePointer[index+1] = new_color;
+					index += SCREENWIDTH;
+					activeFramePointer[index] = new_color;
+					activeFramePointer[index+1] = new_color;
 				}
 			}
 		}

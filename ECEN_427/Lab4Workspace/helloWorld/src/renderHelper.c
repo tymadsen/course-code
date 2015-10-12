@@ -75,7 +75,9 @@ void flySpaceship(){
 }
 
 void updateSpaceshipHelper(){
-	render(true, spaceship_render_mask, 0, getSpaceship().direction);
-	updateSpaceship();
-	render(false, spaceship_render_mask, 0, getSpaceship().direction);
+	if(!getSpaceship().isFree){
+		render(true, spaceship_render_mask, 0, getSpaceship().direction);
+		updateSpaceship();
+		render(false, spaceship_render_mask, 0, getSpaceship().direction);
+	}
 }

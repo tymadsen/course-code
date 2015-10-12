@@ -93,7 +93,6 @@ void updateSpaceship(){
 			}
 		}
 		if(offscreen){
-			xil_printf("The saucer has gone offscreen\r\n");
 			//Erasing the last of the spaceship, the direction doesn't matter
 			drawBitmap(saucer_16x7, spaceship.pos,spaceship_width, spaceship_height, true, RED, true);
 			spaceship.pos.x = bullet_offscreen;
@@ -335,7 +334,6 @@ bool* getAlienDeaths() {
 }
 
 void setAlienDeaths(short alien, bool dead) {
-	xil_printf("alien value: %d\r\n", alien);
 	//If there is a valid alien in the block, set the corresponding value in the array to true (passed in)
 	if(alien >= 0 && alien < 55) {
 		alienDeaths[alien] = dead;
@@ -346,17 +344,20 @@ void updateBullets(){
 	//Update the tank bullet first
 	if(!tankBulletFree) {
 		// Check to see if the bullet will collide with something
-		// Get pixel above current tankBullet
 		int y = tankBulletPosition.y;
 		int x = tankBulletPosition.x;
-		int pixColor = activeFramePointer[(y-1)*SCREENWIDTH + x];
-		// If so, destroy/erode it
-		if(pixColor != BLACK){
+		// Get 4 pixels above the top of the current tankBullet posiiton
+		// Set color to the color of the first non-black thing it will go over, (if none, then it will be black)
+		int pix_color = BLACK;
+		// did it hit something?
+		if((pix_color = activeFramePointer[(y-1)*SCREENWIDTH + x]) || (pix_color = activeFramePointer[(y-2)*SCREENWIDTH + x]) || (pix_color = activeFramePointer[(y-3)*SCREENWIDTH + x]) || (pix_color = activeFramePointer[(y-4)*SCREENWIDTH + x])){
+			xil_printf("We hit something..\n");
 			int left_check_pos;
 			point_t alien_pos = getAlienBlockPosition();
 			// What did it hit?
 			// Was it a bunker?
 			if(y >= BUNKERSTARTY){
+				xil_printf("It was below the top of the bunker (bunker or bullet)\n");
 				//#define BUNKERWIDTH 24
 				//#define BUNKERHEIGHT 18
 				//#define BUNKERXSPACING 45
@@ -366,7 +367,7 @@ void updateBullets(){
 				//#define BLOCKHEIGHT 6
 
 				left_check_pos = BUNKERSTARTX;
-				int bunker = 1;
+				int bunker = 0;
 				bool off_screen = false;
 				while((x < left_check_pos || x > left_check_pos+2*BUNKERWIDTH)
 						&& !off_screen){
@@ -378,22 +379,32 @@ void updateBullets(){
 				}
 				// Now find which block it was
 				if(! off_screen){
+					xil_printf("It is not offscreen, Bunker: %d\n",bunker);
 					int block_col = (x-left_check_pos)/(2*BLOCKWIDTH);
 					int block_row = (y-BUNKERSTARTY)/(2*BLOCKHEIGHT);
 					int block = (block_row*4)+block_col;
 					// Set to block 9 if it was greater than 9, since we
 					// don't use 10 or 11
 					block = (block > 9) ? 9 : block;
+					xil_printf("Block: %d\n",block);
 					setBunkerErosion(bunker, block);
 					// Draw erosion
 					int mask = (bunker == 3) ? bunker_3_render_mask : (bunker == 2) ? bunker_2_render_mask : (bunker == 1) ? bunker_1_render_mask : bunker_0_render_mask;
 					render(false, mask, block, 0);
 					// Erase bullet
 					render(true, tank_bullet_render_mask, 0, UP);
+					// Move bullet so it will be reset, and made free
+					tankBulletPosition.y = -(tank_bullet_height+1);
+				}else{
+					tankBulletPosition.y -= tank_bullet_pixel_adjustment;
+					xil_printf("It was offscreen (or a bullet)\n");
 				}
 
-			}// Was it an alien?! (Hopefully)
-			else if(y >= alien_pos.y){
+
+			}// Was it an alien?! If the pix_color was not green then its not a bullet
+			else if(y >= alien_pos.y && pix_color != GREEN){
+				xil_printf("We hit an alien...Pix_color: %d\n",pix_color);
+
 				//#define ALIENHEIGHT 8
 				//#define ALIENWIDTH 12
 				//#define ALIENXSPACING 2
@@ -419,14 +430,28 @@ void updateBullets(){
 				drawBitmap(alien_explosion_12x10, pos, 12, 10, true, WHITE, false);
 				// Erase tank bullet
 				render(true, tank_bullet_render_mask, 0, UP);
+				// Move bullet so it will be reset, and made free
+				tankBulletPosition.y = -(tank_bullet_height+1);
 			}
-
-			// Move bullet so it will be reset, and made free
-			tankBulletPosition.y = -(tank_bullet_height+1);
+			else if(pix_color == RED){
+				xil_printf("You hit the spaceship!!!\n");
+				// Erase tank bullet
+				render(true, tank_bullet_render_mask, 0, UP);
+				tankBulletPosition.y = -(tank_bullet_height+1);
+				// Erase Spaceship
+				drawBitmap(saucer_16x7, getSpaceship().pos, spaceship_width, spaceship_height, true, RED, true);
+				//TODO: Show score with spaceship.pos
+				spaceship.pos.x = bullet_offscreen, spaceship.pos.y = bullet_offscreen;
+				spaceship.isFree = true;
+			}
+			else {
+				xil_printf("It was above the alien block, and not green...\n");
+				tankBulletPosition.y -= tank_bullet_pixel_adjustment;
+			}
 
 		}
 		else// Else just increment
-			tankBulletPosition.y -= pixel_adjustment;
+			tankBulletPosition.y -= tank_bullet_pixel_adjustment;
 	}
 	if(tankBulletPosition.y < -tank_bullet_height) {
 		tankBulletPosition.x = bullet_offscreen;
@@ -642,7 +667,7 @@ bool isGameOver(){
 	else if((i < 33) && (i >= 22)) {	row = 3;	}
 	else if((i < 22) && (i >= 11)) {	row = 2;	}
 	else	{ row = 1;	}
-	xil_printf("This is the row of the last live alien: %d\r\n", row);
+//	xil_printf("This is the row of the last live alien: %d\r\n", row);
 	//If the last live alien reaches the bottom of the bunkers, the game is over
 	if((alienBlockPosition.y + (row*alien_height*2) + (row-1)*(alienSpacing)) >= (BUNKERSTARTY+BUNKERHEIGHT*2)){
 		gameOver = true;

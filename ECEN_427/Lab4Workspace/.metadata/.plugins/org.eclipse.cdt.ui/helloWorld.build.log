@@ -2,32 +2,4 @@
 **** Build of configuration Debug for project helloWorld ****
 
 make all 
-Building file: ../src/globals.c
-Invoking: MicroBlaze gcc compiler
-mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../hello_world_bsp_0/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -MMD -MP -MF"src/globals.d" -MT"src/globals.d" -o"src/globals.o" "../src/globals.c"
-Finished building: ../src/globals.c
-' '
-Building target: helloWorld.elf
-Invoking: MicroBlaze gcc linker
-mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../hello_world_bsp_0/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.20.b -mno-xl-soft-mul -o"helloWorld.elf"  ./src/globals.o ./src/helloworld.o ./src/platform.o ./src/render.o ./src/renderHelper.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
-Finished building target: helloWorld.elf
-' '
-Invoking: MicroBlaze Print Size
-mb-size helloWorld.elf  |tee "helloWorld.elf.size"
-   text	   data	    bss	    dec	    hex	filename
-  37922	   1516	   5442	  44880	   af50	helloWorld.elf
-Finished building: helloWorld.elf.size
-' '
-Invoking: Xilinx ELF Check
-elfcheck helloWorld.elf -hw ../../SpaceInvaderTestHW2_hw_platform/system.xml -pe microblaze_0  |tee "helloWorld.elf.elfcheck"
-elfcheck
-Xilinx EDK 13.4 Build EDK_O.87xd
-Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
-
-Command Line: elfcheck -hw ../../SpaceInvaderTestHW2_hw_platform/system.xml -pe
-microblaze_0 helloWorld.elf 
-
-ELF file	: helloWorld.elf
-elfcheck passed.
-Finished building: helloWorld.elf.elfcheck
-' '
+make: Nothing to be done for `all'.
