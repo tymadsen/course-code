@@ -47,6 +47,11 @@
 #define spaceship_right_x screen_width - spaceship_width*2
 #define spaceship_y 50
 
+#define bottom_row_pts 10
+#define middle_row_pts 20
+#define top_row_pts 40
+#define spaceship_multiple 50
+
 #define col1_mask 0x1
 #define col2_mask 0x2
 #define col3_mask 0x4
@@ -130,7 +135,7 @@ void setLives(bool increment);
 int getLives();
 bool isGameOver();
 
-void incScore(int alienNum);
+void incScore(int alienNum, bool spaceshipHit);
 int getScore();
 
 #endif /* GLOBALS_H_ */
