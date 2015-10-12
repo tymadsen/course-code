@@ -34,7 +34,7 @@
 #define DEBUG
 #define LEFTBTN 0x8			// Left (Hour) button mask
 #define RIGHTBTN 0x2			// Right (Second) button mask
-#define CENTERBTN 0x1			// Center (Minute) button mask
+#define CENTER 0x1			// Center (Minute) button mask
 #define TRUE 1
 #define FALSE 0
 void print(char *str);
@@ -74,7 +74,7 @@ void updateScreenElements(){
 		else if(currentButtonState & RIGHTBTN) {
 			moveTankRight();
 		}
-		if(currentButtonState & CENTERBTN){
+		if(currentButtonState & CENTER){
 			shootTankBullet();
 		}
 	}
@@ -109,10 +109,12 @@ void timer_interrupt_handler() {
 	}
 	//The spaceship will go across the screen at a random time between 1-20 seconds;
 	if(spaceshipCounter >= randSpaceshipTime){
-		xil_printf("Send out the saucer\r\n");
-		if(started)
+//		xil_printf("Send out the saucer\r\n");
+		if(started){
 			flySpaceship();
-		randSpaceshipTime = (rand()%25)*100;
+//			xil_printf("We are sending out the saucer\r\n");
+		}
+		randSpaceshipTime = (rand()%25)*100 + 1000;
 		spaceshipCounter = 0;
 	}
 	//Will move the spaceship across the screen
@@ -247,116 +249,12 @@ int main()
 		xil_printf("vdma parking failed\n\r");
 	}
 	initScreen();
-//	char input;
-//	int randBulletTime = (rand()%10)*25;
-//	int randSpaceshipTime = (rand()%20)*100;
+	randBulletTime = (rand()%10)*25;
+	randSpaceshipTime = (rand()%25)*100 + 1000;
 	//setvbuf(stdin, NULL, _IONBF, 0)
-	while(1) {
+	while(!isGameOver()) {
 		started = true;
-		// Move tank left
-//		if(input == '4'){
-//			xil_printf("Move tank to the left\r\n");
-//			//render(erase)
-//			render(true, tank_render_mask, 0);
-//			//change position
-//			setTankPosition(-PIXEL_ADJUSTMENT);
-//			//render(draw)
-//			render(false, tank_render_mask, 0);
-//		}// Move tank right
-//		else if(input == '6') {
-//			xil_printf("Move tank to the right\r\n");
-//			render(true, tank_render_mask, 0);
-//			//change position
-//			setTankPosition(PIXEL_ADJUSTMENT);
-//			//render(draw)
-//			render(false, tank_render_mask, 0);
-//		}// Move aliens properly left, right or down
-//		else if(input == '8') {
-//			xil_printf("Update Alien position\r\n");
-//			render(true, alien_block_render_mask, 0);
-//			updateAlienBlock();
-//			render(false,alien_block_render_mask, 0);
-//		}// Prompt for input to kill an alien
-//		else if(input == '2') {
-//			xil_printf("Which alien would you like to kill? (00 - 54)\r\n");
-//			//Take in both characters and compute the alien to kill
-//			int alien = 0;
-//			input = getchar();
-//			int i;
-//			// while(1) {
-//			// Requires 2 digits This odd for statment allows us to compute the decimal value of the input cahracters
-//			for(i = 10; i >= 1; i-=9) {
-//				// Input must be digits. If not, keep trying
-//				while(((input-'0') > 9) || ((input-'0')<0)){
-//					input = getchar();
-//				}
-//				// Compute the alien index from the character entered.
-//				alien += ((int)(input-'0'))*i;
-//				input = getchar();
-//			}
-//				// break;
-//			// }
-//			// Update array that tracks which aliens are dead
-//			setAlienDeaths(alien, true);
-//			render(false,alien_block_render_mask, 0);
-//		}// Fire tank bullet
-//		else if(input == '5') {
-//			xil_printf("Fire tank bullet\r\n");
-//			fireTankBullet();
-//			render(false, tank_bullet_render_mask, 0);
-//		}// Fire random alien bullet
-//		else if(input == '3'){
-//			xil_printf("Fire alien bullet\r\n");
-//			fireAlienBullet();
-//			render(false, alien_bullet_render_mask,0);
-//		}// Move all bullets
-//		else if(input == '9') {
-//			xil_printf("Update all bullets\r\n");
-//			render(true, all_bullet_render_mask, 0);
-//			updateBullets();
-//			render(false, all_bullet_render_mask, 0);
-//		}// Prompt user for which bunker to erode, randomly select a block and erode it
-//		else if(input == '7') {
-//			xil_printf("Which bunker would you like to erode? (0-3)\r\n");
-//			// Take in one character to compute the bunker
-//			int bunker = 0;
-//			input = getchar();
-//			// Number must be between 0 and 3 to select a bunker, otherwise it will wait for a valid entry
-//			while(((input-'0') > 3) || ((input-'0') < 0)){
-//				input = getchar();
-//			}
-//			// Compute bunker number
-//			bunker = (int)(input-'0');
-//			// Choose a random block from 0-9 to erode
-//			int block = rand()%10;
-//			xil_printf("This is the bunker: %d and block: %d\r\n", bunker, block);
-//			// Depending on which bunker was selected, erode the random block of that bunker by setting the erosion
-//			// and rendering that damage bitmap
-//			if(bunker == 0){
-//				xil_printf("Erode bunker 0\r\n");
-//				setBunkerErosion0(block);
-//				render(false, bunker_0_render_mask, block);
-//			}
-//			else if(bunker == 1){
-//				xil_printf("Erode bunker 1\r\n");
-//				setBunkerErosion1(block);
-//				render(false, bunker_1_render_mask, block);
-//			}
-//			else if(bunker == 2){
-//				xil_printf("Erode bunker 2\r\n");
-//				setBunkerErosion2(block);
-//				render(false, bunker_2_render_mask, block);
-//			}
-//			else if(bunker == 3){
-//				xil_printf("Erode bunker 3\r\n");
-//				setBunkerErosion3(block);
-//				render(false, bunker_3_render_mask, block);
-//			}
-//		}// Exit program
-//		else if(input == 'q'){
-//			break;
-//		}
-//		input = getchar();
+		// Mput = getchar();
 	}
 	cleanup_platform();
 

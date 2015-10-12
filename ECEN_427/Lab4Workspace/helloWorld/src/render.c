@@ -37,6 +37,8 @@ void initScreen() {
 			background[row*SCREENWIDTH + col] = GREEN;
 		}
 	}
+	point_t tempOffScreen;
+	tempOffScreen.x = bullet_offscreen; tempOffScreen.y = bullet_offscreen;
 	//Write the score on top of the frame
 	drawScoreLabel();
 	drawScore();
@@ -45,6 +47,7 @@ void initScreen() {
 	drawLivesLabel();
 	//set and draw the lives tanks
 	drawLives();
+	setInitialSpaceship(tempOffScreen);
 	//Set and draw the bunkers
 	drawNewBunkers();
 	activeFramePointer = background;
@@ -55,8 +58,6 @@ void initScreen() {
 	setTankPositionPoint(TANKSTARTX, TANKSTARTY);
 	drawTank(false, RIGHT);
 	setTankBulletPositionXY(bullet_offscreen, bullet_offscreen);
-	point_t tempOffScreen;
-	tempOffScreen.x = bullet_offscreen; tempOffScreen.y = bullet_offscreen;
 	setAlienBullet0(tempOffScreen, 0, true,0);
 	setAlienBullet1(tempOffScreen, 0, true,0);
 	setAlienBullet2(tempOffScreen, 0, true,0);
@@ -69,7 +70,6 @@ void initScreen() {
 //	xil_printf("bullet3: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
 	temp = getAlienBullet3();
 //	xil_printf("bullet4: x:%d, y:%d, type:%d, isFree:%d\r\n", temp.pos.x, temp.pos.y, temp.type, temp.isFree);
-	setInitialSpaceship(tempOffScreen);
 	point_t aBP;
 	aBP.x = ALIENBLOCKSTARTX, aBP.y = ALIENBLOCKSTARTY;
 	setAlienBlockPosition(aBP);
@@ -364,7 +364,7 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
-			else {//paint background
+			else {//paint the background color
 				if(!double_size)
 					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
 				else{

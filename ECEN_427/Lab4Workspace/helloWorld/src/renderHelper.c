@@ -62,7 +62,7 @@ void updateAllBullets(){
 void flySpaceship(){
 	int direction = rand()%2;
 	if(getSpaceship().isFree){
-		xil_printf("we are adding a saucer\r\n");
+//		xil_printf("we are adding a saucer\r\n");
 		if(direction == 0){
 			setSpaceship(LEFT);
 			render(false, spaceship_render_mask, 0, LEFT);

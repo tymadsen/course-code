@@ -31,6 +31,7 @@ bool alienDown = false;
 bool alienOnLeftScreen = false;
 int alien_block_width = 4*10 + 11*12*2;
 int alienSpacing = 12*2+4;
+int lives = 3;
 
 //srand((unsigned)time(NULL));
 
@@ -64,7 +65,7 @@ void setSpaceship(int direction){
 void setInitialSpaceship(point_t pos){
 	spaceship.pos = pos;
 	spaceship.isFree = true;
-	drawBitmap(saucer_16x7, pos,spaceship_width, spaceship_height, true, BLACK, false);
+//	drawBitmap(saucer_16x7, pos,spaceship_width, spaceship_height, true, BLACK, true);
 	return;
 }
 
@@ -93,11 +94,11 @@ void updateSpaceship(){
 		}
 		if(offscreen){
 			xil_printf("The saucer has gone offscreen\r\n");
+			//Erasing the last of the spaceship, the direction doesn't matter
+			drawBitmap(saucer_16x7, spaceship.pos,spaceship_width, spaceship_height, true, RED, true);
 			spaceship.pos.x = bullet_offscreen;
 			spaceship.pos.y = bullet_offscreen;
 			spaceship.isFree = true;
-			//Erasing the last of the spaceship, the direction doesn't matter
-			drawBitmap(saucer_16x7, spaceship.pos,spaceship_width, spaceship_height, true, GREEN, true);
 		}
 	}
 }
@@ -365,7 +366,7 @@ void updateBullets(){
 				//#define BLOCKHEIGHT 6
 
 				left_check_pos = BUNKERSTARTX;
-				int bunker = 0;
+				int bunker = 1;
 				bool off_screen = false;
 				while((x < left_check_pos || x > left_check_pos+2*BUNKERWIDTH)
 						&& !off_screen){
@@ -383,12 +384,7 @@ void updateBullets(){
 					// Set to block 9 if it was greater than 9, since we
 					// don't use 10 or 11
 					block = (block > 9) ? 9 : block;
-					xil_printf("Bunker: %d\nBlock: %d\n",bunker,block);
-					// Erode bunker
 					setBunkerErosion(bunker, block);
-					// Draw erosion
-					int mask = (bunker == 3) ? bunker_3_render_mask : (bunker == 2) ? bunker_2_render_mask : (bunker == 1) ? bunker_1_render_mask : bunker_0_render_mask;
-					render(false, mask, block, 0);
 					// Erase bullet
 					render(true, tank_bullet_render_mask, 0, UP);
 				}
@@ -414,10 +410,6 @@ void updateBullets(){
 				setAlienDeaths(alien_index, true);
 				// Erase alien
 				// Draw Explosion
-				point_t pos;
-				pos.x = alien_pos.x + (alien_col*2*(ALIENWIDTH+ALIENXSPACING));
-				pos.y = alien_pos.y + (alien_row*(ALIENHEIGHT+ALIENYSPACING)) - 2;
-				drawBitmap(alien_explosion_12x10, pos, 12, 10, true, WHITE, false);
 				// Erase tank bullet
 				render(true, tank_bullet_render_mask, 0, UP);
 			}
@@ -441,6 +433,7 @@ void updateBullets(){
 	if(!aBullet0.isFree) {
 		aBullet0.pos.y += pixel_adjustment;
 		if(aBullet0.pos.y > green_line_y - (2*alien_bullet_height)) {
+			eraseBullet(aBullet0.pos, aBullet0.type);
 			aBullet0.pos.x = bullet_offscreen;
 			aBullet0.pos.y = bullet_offscreen;
 			aBullet0.isFree = true;
@@ -449,6 +442,7 @@ void updateBullets(){
 	if(!aBullet1.isFree){
 	aBullet1.pos.y += pixel_adjustment;
 		if(aBullet1.pos.y > green_line_y - (2*alien_bullet_height)) {
+			eraseBullet(aBullet1.pos, aBullet1.type);
 			aBullet1.pos.x = bullet_offscreen;
 			aBullet1.pos.y = bullet_offscreen;
 			aBullet1.isFree = true;
@@ -457,6 +451,7 @@ void updateBullets(){
 	if(!aBullet2.isFree){
 		aBullet2.pos.y += pixel_adjustment;
 		if(aBullet2.pos.y > green_line_y-(2*alien_bullet_height)) {
+			eraseBullet(aBullet2.pos, aBullet2.type);
 			aBullet2.pos.x = bullet_offscreen;
 			aBullet2.pos.y = bullet_offscreen;
 			aBullet2.isFree = true;
@@ -465,11 +460,17 @@ void updateBullets(){
 	if(!aBullet3.isFree){
 		aBullet3.pos.y += pixel_adjustment;
 		if(aBullet3.pos.y > green_line_y - (2*alien_bullet_height)) {
+			eraseBullet(aBullet3.pos, aBullet3.type);
 			aBullet3.pos.x = bullet_offscreen;
 			aBullet3.pos.y = bullet_offscreen;
 			aBullet3.isFree = true;
 		}
 	}
+}
+
+void eraseBullet(point_t pos, unsigned short type){
+	drawBitmap(alien_bullet_11_7x3, pos, alien_bullet_width, alien_bullet_height, true, GREEN, true);
+	return;
 }
 
 void updateAlienBlock(){
@@ -597,4 +598,47 @@ void updateAlienBlock(){
 		alienDown = true;
 	}
 	return;
+}
+
+void setLives(bool increment){
+	if(increment){
+		lives++;
+	}
+	else {
+		lives--;
+	}
+	return;
+}
+
+int getLives(){
+	return lives;
+}
+
+
+bool isGameOver(){
+	int i;
+	int row = 0;
+	bool gameOver = false;
+	//If the player has no lives left, the game is over
+	if(lives == 0){
+		return true;
+	}
+	//If all of the aliens are dead, the game is over
+	for(i = 55; i < 0; i--){
+		if(alienDeaths[i-1] == false){
+			gameOver = false;
+		}
+	}
+	i--;
+	if((i >= 44)){	row = 5; }
+	else if((i < 44) && (i >= 33)){	row = 4; }
+	else if((i < 33) && (i >= 22)) {	row = 3;	}
+	else if((i < 22) && (i >= 11)) {	row = 2;	}
+	else	{ row = 1;	}
+	xil_printf("This is the row of the last live alien: %d\r\n", row);
+	//If the last live alien reaches the bottom of the bunkers, the game is over
+	if((alienBlockPosition.y + (row*alien_height*2) + (row-1)*(alienSpacing)) >= (BUNKERSTARTY+BUNKERHEIGHT*2)){
+		gameOver = true;
+	}
+	return gameOver;
 }

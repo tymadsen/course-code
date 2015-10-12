@@ -31,9 +31,9 @@
 #define tank_bullet_height 3
 #define bullet_width 1
 #define alien_bullet_height 7
+#define alien_bullet_width 3
 #define pixel_adjustment 4
-#define bullet_offscreen 800
-#define bullety_offscreen 800
+#define bullet_offscreen 1000
 #define screen_width 640
 #define screen_height 480
 #define alien_x_spacing 2
@@ -116,6 +116,7 @@ void setSpaceship(int direction);
 void setInitialSpaceship(point_t pos);
 saucer getSpaceship();
 void updateSpaceship();
+void eraseBullet(point_t pos, unsigned short type);
 
 bool* getAlienDeaths();
 void setAlienDeaths(short alien, bool dead);
@@ -124,5 +125,12 @@ void updateAlienBlock();
 void fireTankBullet();
 void fireAlienBullet();
 void updateAlienBulletCounters();
+
+void setLives(bool increment);
+int getLives();
+bool isGameOver();
+
+void incScore(int alienNum);
+int getScore();
 
 #endif /* GLOBALS_H_ */
