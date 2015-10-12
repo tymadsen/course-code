@@ -1,6 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
-<<<<<<< HEAD
-  39376	   1512	   5408	  46296	   b4d8	helloWorld.elf
-=======
-  36698	   1512	   5446	  43656	   aa88	helloWorld.elf
->>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
+  37186	   1512	   5446	  44144	   ac70	helloWorld.elf

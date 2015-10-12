@@ -364,11 +364,7 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
-<<<<<<< HEAD
 			else {//paint background
-=======
-			else {//paint the background color
->>>>>>> 9a8d3348863f6993064fca4f0ccc8d6803a40f90
 				if(!double_size)
 					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
 				else{

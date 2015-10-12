@@ -365,7 +365,7 @@ void updateBullets(){
 				//#define BLOCKHEIGHT 6
 
 				left_check_pos = BUNKERSTARTX;
-				int bunker = 1;
+				int bunker = 0;
 				bool off_screen = false;
 				while((x < left_check_pos || x > left_check_pos+2*BUNKERWIDTH)
 						&& !off_screen){
@@ -383,7 +383,12 @@ void updateBullets(){
 					// Set to block 9 if it was greater than 9, since we
 					// don't use 10 or 11
 					block = (block > 9) ? 9 : block;
+					xil_printf("Bunker: %d\nBlock: %d\n",bunker,block);
+					// Erode bunker
 					setBunkerErosion(bunker, block);
+					// Draw erosion
+					int mask = (bunker == 3) ? bunker_3_render_mask : (bunker == 2) ? bunker_2_render_mask : (bunker == 1) ? bunker_1_render_mask : bunker_0_render_mask;
+					render(false, mask, block, 0);
 					// Erase bullet
 					render(true, tank_bullet_render_mask, 0, UP);
 				}
@@ -409,6 +414,10 @@ void updateBullets(){
 				setAlienDeaths(alien_index, true);
 				// Erase alien
 				// Draw Explosion
+				point_t pos;
+				pos.x = alien_pos.x + (alien_col*2*(ALIENWIDTH+ALIENXSPACING));
+				pos.y = alien_pos.y + (alien_row*(ALIENHEIGHT+ALIENYSPACING)) - 2;
+				drawBitmap(alien_explosion_12x10, pos, 12, 10, true, WHITE, false);
 				// Erase tank bullet
 				render(true, tank_bullet_render_mask, 0, UP);
 			}

@@ -32,9 +32,9 @@
 #include "render.h"
 #include "renderHelper.h"
 #define DEBUG
-#define LEFT 0x8			// Left (Hour) button mask
-#define RIGHT 0x2			// Right (Second) button mask
-#define CENTER 0x1			// Center (Minute) button mask
+#define LEFTBTN 0x8			// Left (Hour) button mask
+#define RIGHTBTN 0x2			// Right (Second) button mask
+#define CENTERBTN 0x1			// Center (Minute) button mask
 #define TRUE 1
 #define FALSE 0
 void print(char *str);
@@ -68,13 +68,13 @@ XGpio gpPB;   // This is a handle for the push-button GPIO block.
 void updateScreenElements(){
 	if(started){
 		updateAllBullets();
-		if(currentButtonState & LEFT){
+		if(currentButtonState & LEFTBTN){
 			moveTankLeft();
 		}
-		else if(currentButtonState & RIGHT) {
+		else if(currentButtonState & RIGHTBTN) {
 			moveTankRight();
 		}
-		if(currentButtonState & CENTER){
+		if(currentButtonState & CENTERBTN){
 			shootTankBullet();
 		}
 	}
@@ -247,9 +247,9 @@ int main()
 		xil_printf("vdma parking failed\n\r");
 	}
 	initScreen();
-	char input;
-	int randBulletTime = (rand()%10)*25;
-	int randSpaceshipTime = (rand()%20)*100;
+//	char input;
+//	int randBulletTime = (rand()%10)*25;
+//	int randSpaceshipTime = (rand()%20)*100;
 	//setvbuf(stdin, NULL, _IONBF, 0)
 	while(1) {
 		started = true;
