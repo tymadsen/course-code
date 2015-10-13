@@ -7,11 +7,11 @@
 
 #ifndef GLOBALS_H_
 #define GLOBALS_H_
-#include "stdio.h"
+#include <stdio.h>
 #include <stdlib.h>
 //#include "time.h"
-#include "stdbool.h"
-#include "stdint.h"
+#include <stdbool.h>
+#include <stdint.h>
 
 #define tank_render_mask 0x1
 #define tank_bullet_render_mask 0x2
@@ -33,6 +33,7 @@
 #define alien_bullet_height 7
 #define alien_bullet_width 3
 #define pixel_adjustment 4
+#define tank_bullet_pixel_adjustment pixel_adjustment*2
 #define bullet_offscreen 1000
 #define screen_width 640
 #define screen_height 480
@@ -46,6 +47,11 @@
 #define spaceship_left_x 0
 #define spaceship_right_x screen_width - spaceship_width*2
 #define spaceship_y 50
+
+#define bottom_row_pts 10
+#define middle_row_pts 20
+#define top_row_pts 40
+#define spaceship_multiple 50
 
 #define col1_mask 0x1
 #define col2_mask 0x2
@@ -130,7 +136,7 @@ void setLives(bool increment);
 int getLives();
 bool isGameOver();
 
-void incScore(int alienNum);
+void incScore(int alienNum, bool spaceshipHit);
 int getScore();
 
 #endif /* GLOBALS_H_ */

@@ -39,19 +39,29 @@ void initScreen() {
 	}
 	point_t tempOffScreen;
 	tempOffScreen.x = bullet_offscreen; tempOffScreen.y = bullet_offscreen;
-	//Write the score on top of the frame
+	// Write the score label on top of the frame
 	drawScoreLabel();
+	// Draw score
 	drawScore();
-	//Write Lives
-	//Draw the lives
+	// Draw the lives label
 	drawLivesLabel();
-	//set and draw the lives tanks
+	// Draw the lives
 	drawLives();
 	setInitialSpaceship(tempOffScreen);
-	//Set and draw the bunkers
+	// Draw the bunkers
 	drawNewBunkers();
+
+	// Move to background
 	activeFramePointer = background;
+	// Write the score and label in background
+	drawScoreLabel();
+	drawScore();
+	// Draw the lives and label in background
+	drawLivesLabel();
+	drawLives();
+	// Draw background bunkers
 	drawNewBunkers();
+	// Switch back to foreground
 	activeFramePointer = foreground;
 
 	//set and draw the aliens
@@ -120,10 +130,48 @@ void drawScoreLabel() {
 	drawBitmap(word_score_30x5, score_label_pos, SCORELABELWIDTH, LABELHEIGHT, true, WHITE, false);
 }
 
-void drawScore() {
+void drawScore(int index, int number) {
 	point_t score_pos;
-	score_pos.x = SCOREX, score_pos.y = SCOREY;
-	drawBitmap(number_0_5x5, score_pos, NUMBERWIDTH, LABELHEIGHT, true, GREEN, false);
+	//Put the starting position in the right place depending on the index
+	score_pos.x = SCOREX + (index*NUMBERWIDTH*2) + (index*NUMBERSPACING);
+	score_pos.y = SCOREY;
+	//Get the bitmap for the number we are going to show
+	const uint32_t* bitmap = getNumberBitmap(number);
+	drawBitmap(bitmap, score_pos, NUMBERWIDTH, LABELHEIGHT, true, GREEN, false);
+}
+
+void printSpaceshipValue(int spaceshipValue){
+	point_t position = getSpaceship().pos;
+	int tempVal = 0;
+	int index = spaceshipValue;
+	const uint32_t* bitmap;
+	//Draw the 100s digit if our value is over 99
+	if(spaceshipValue > 99){
+		bitmap = getNumberBitmap(tempVal/100);
+		drawBitmap(bitmap, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+		tempVal = spaceshipValue%100;
+		position.x += NUMBERWIDTH + NUMBERSPACING;
+	}
+	//Draw the 10s digit
+	bitmap = getNumberBitmap(tempVal/10);
+	drawBitmap(bitmap, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+	position.x += NUMBERSPACING + NUMBERWIDTH;
+	//Draw the 1s digit which will always be 0
+	drawBitmap(number_0_5x5, position, NUMBERWIDTH, LABELHEIGHT, false, RED, false);
+	return;
+}
+
+const uint32_t* getNumberBitmap(int number){
+	if(number == 0) { return number_0_5x5;	}
+	else if(number == 1) {	return number_1_5x5;	}
+	else if(number == 2) {	return number_2_5x5;	}
+	else if(number == 3) {	return number_3_5x5;	}
+	else if(number == 4) {	return number_4_5x5;	}
+	else if(number == 5) {	return number_5_5x5;	}
+	else if(number == 6) {	return number_6_5x5;	}
+	else if(number == 7) { 	return number_7_5x5;	}
+	else if(number == 8) { 	return number_8_5x5;	}
+	else {	return number_9_5x5;	}
 }
 
 void drawLivesLabel() { 
@@ -136,6 +184,16 @@ void drawLives() {
 	point_t lives_pos;
 	lives_pos.x = LIFESTARTX, lives_pos.y = LIFESTARTY;
 	drawBitmapRepeat(tank_15x8, lives_pos, TANKWIDTH, TANKHEIGHT, true, GREEN, false, LIFEXSPACING, LIVESLEFT);
+}
+
+void eraseLife(int lives){
+	//Update the position to be at the top left of the life to be erased
+	point_t lifePos;
+	lifePos.x = LIFESTARTX, lifePos.y = LIFESTARTY;
+	lifePos.x += ((lives-1)*LIFEXSPACING) + (2*(lives-1)*TANKWIDTH);
+	//erase the bitmap of the life.
+	drawBitmap(tank_15x8, lifePos, TANKWIDTH, TANKHEIGHT, true, BLACK, true);
+	return;
 }
 
 void drawNewBunkers() {
@@ -160,9 +218,9 @@ void drawBunkerErosion(int bunker, int block){
 	block_pos.x = BUNKERSTARTX + (2*(bunker*(BUNKERWIDTH+BUNKERXSPACING) + (BLOCKWIDTH*col)));
 	block_pos.y = BUNKERSTARTY + (2*BLOCKHEIGHT*(row));
 	// Get erosion state to know which bitmap to use
-	xil_printf("Position of bunker x: %d, y: %d\r\n", block_pos.x, block_pos.y);
-	xil_printf("Bunker: %d\r\n", bunker);
-	xil_printf("Block: %d\r\n", block);
+//	xil_printf("Position of bunker x: %d, y: %d\r\n", block_pos.x, block_pos.y);
+//	xil_printf("Bunker: %d\r\n", bunker);
+//	xil_printf("Block: %d\r\n", block);
 	uint32_t erosionState = 0;
 	switch(bunker){
 		case 0: erosionState = getBunkerErosion(0);
@@ -175,10 +233,10 @@ void drawBunkerErosion(int bunker, int block){
 		break;
 		default: break;
 	}
-	xil_printf("erosion state: 0x%08x\r\n", erosionState);
+//	xil_printf("erosion state: 0x%08x\r\n", erosionState);
 //	short erosion_block = 1;
 	uint32_t erosion_block = ((erosionState & (0x7 << (3*block))) >> (3*block));
-	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
+//	xil_printf("erosion_block: 0x%03x \r\n", erosion_block);
 	// Draw bunker erosion using (erase = true) flag
 	if(erosion_block == 0x0){
 		//do nothing
@@ -365,13 +423,18 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 				}
 			}
 			else {//paint the background color
+				int new_color = background[(pos.y*SCREENWIDTH + pos.x)];
+				int index = (pos.y*SCREENWIDTH + pos.x);
 				if(!double_size)
-					activeFramePointer[(pos.y*SCREENWIDTH + pos.x)] = background[(pos.y*SCREENWIDTH + pos.x)];
+					activeFramePointer[index] = (background != activeFramePointer) ? new_color : BLACK;
 				else{
-					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)];
-					activeFramePointer[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x+1)];
-					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x)];
-					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = background[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)];
+					new_color = (background != activeFramePointer) ? background[(sRow+pos.y)*SCREENWIDTH + (sCol+pos.x)] : BLACK;
+					index = (sRow+pos.y)*SCREENWIDTH + (sCol+pos.x);
+					activeFramePointer[index] = new_color;
+					activeFramePointer[index+1] = new_color;
+					index += SCREENWIDTH;
+					activeFramePointer[index] = new_color;
+					activeFramePointer[index+1] = new_color;
 				}
 			}
 		}

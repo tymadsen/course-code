@@ -249,7 +249,7 @@ int main()
 		xil_printf("vdma parking failed\n\r");
 	}
 	initScreen();
-	randBulletTime = (rand()%10)*25;
+	randBulletTime = (rand()%10)*50;
 	randSpaceshipTime = (rand()%25)*100 + 1000;
 	//setvbuf(stdin, NULL, _IONBF, 0)
 	while(!isGameOver()) {
