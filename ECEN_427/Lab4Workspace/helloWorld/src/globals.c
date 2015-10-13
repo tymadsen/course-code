@@ -33,6 +33,9 @@ int alien_block_width = 4 * 10 + 11 * alien_width * 2;
 int alienSpacing = alien_width * 2 + alien_x_spacing*2;
 int lives = 3;
 int score = 0;
+int spaceshipScore = 0;
+point_t oldSpaceshipLocation;
+bool spaceshipHit = false;
 
 //srand((unsigned)time(NULL));
 
@@ -42,6 +45,7 @@ uint32_t bunkerStates[] = { 0, 0, 0, 0 };
 //uint32_t bunker1State = 0;
 //uint32_t bunker2State = 0;
 //uint32_t bunker3State = 0;
+int liveAliens = 55;
 bool alienDeaths[55] = { false, false, false, false, false, false, false, false, false, false, false,
 						false, false, false, false, false, false, false, false, false, false, false,
 						false, false, false, false, false, false, false, false, false, false, false,
@@ -347,6 +351,7 @@ void setAlienDeaths(short alien, bool dead) {
 	//If there is a valid alien in the block, set the corresponding value in the array to true (passed in)
 	if (alien >= 0 && alien < 55) {
 		alienDeaths[alien] = dead;
+		liveAliens --;
 	}
 	return;
 }
@@ -436,7 +441,7 @@ void updateBullets() {
 				// Kill alien at alien_index
 				setAlienDeaths(alien_index, true);
 //				xil_printf("We hit alien %d \r\n", alien_index);
-				incScore(alien_index, false, false);
+				incScore(alien_index, false);
 				// Erase alien
 				// Draw Explosion
 				point_t pos;
@@ -455,7 +460,9 @@ void updateBullets() {
 				tankBulletPosition.y = -(tank_bullet_height + 1);
 				// Erase Spaceship
 				drawBitmap(saucer_16x7, getSpaceship().pos, spaceship_width,spaceship_height, true, RED, true);
-				incScore(-1, true, false);
+				oldSpaceshipLocation = spaceship.pos;
+				incScore(-1, true);
+				setSpaceshipHit(true);
 				//TODO: Show score with spaceship.pos
 				spaceship.pos.x = bullet_offscreen, spaceship.pos.y = bullet_offscreen;
 				spaceship.isFree = true;
@@ -515,6 +522,19 @@ void updateBullets() {
 			aBullet3.isFree = true;
 		}
 	}
+}
+
+bool isSpaceshipHit(){
+	return spaceshipHit;
+}
+
+void setSpaceshipHit(bool hit){
+	spaceshipHit = hit;
+	return;
+}
+
+point_t getOldSpaceshipLoc(){
+	return oldSpaceshipLocation;
 }
 
 void eraseBullet(point_t pos, unsigned short type) {
@@ -705,7 +725,7 @@ bool isGameOver() {
 	return gameOver;
 }
 
-void incScore(int alienNum, bool spaceshipHit, bool erase) {
+void incScore(int alienNum, bool isSpaceshipHit) {
 	//alienNum of -1 means just the spaceship is hit
 	int oldScore = score;
 	if(alienNum != -1){
@@ -725,52 +745,54 @@ void incScore(int alienNum, bool spaceshipHit, bool erase) {
 		}
 	}
 	//add the value of the spaceship
-	if (spaceshipHit) {
-		int spaceScore = (rand() % 6 + 1) * spaceship_multiple;
+	if (isSpaceshipHit) {
+		spaceshipScore = (rand() % 6 + 1) * spaceship_multiple;
 		//Print the value of the spaceship underneath the ship
-		printSpaceshipValue(spaceScore, erase);
+		printSpaceshipValue(spaceshipScore, getOldSpaceshipLoc(), false);
 //		xil_printf("The spaceship score is: %d\r\n", spaceScore);
-		if(!erase)
-			score += spaceScore;
+		score += spaceshipScore;
 	}
-	if(!erase) {
-		int tempScore = score;
-		int index = 0;
-		//Update the screen to reflect the new score
-		//Update the first number?
-		if ((score > 999)) {
-	//		xil_printf("The first number is %d \r\n",tempScore/1000);
-			if ((oldScore / 1000 != tempScore / 1000)) {
-				drawScore(index, tempScore / 1000);
-			}
-			index++;
+	int tempScore = score;
+	int index = 0;
+	//Update the screen to reflect the new score
+	//Update the first number?
+	if ((score > 999)) {
+//		xil_printf("The first number is %d \r\n",tempScore/1000);
+		if ((oldScore / 1000 != tempScore / 1000)) {
+			drawScore(index, tempScore / 1000);
 		}
-		oldScore = oldScore % 1000;
-		tempScore = tempScore % 1000;
-		if ((score > 99)) {
-	//		xil_printf("The second number is %d \r\n",tempScore/100);
-			if (oldScore / 100 != tempScore / 100) {
-				drawScore(index, tempScore / 100);
-			}
-			index++;
-			//update drawScore(index, number)
-		} //Update the second number?
-		oldScore = oldScore % 100;
-		tempScore = tempScore % 100;
-		if ((score > 9)) {
-	//		xil_printf("The third number is %d \r\n",tempScore/10);
-			if ((oldScore / 10 != tempScore / 10)) {
-				drawScore(index, tempScore / 10);
-			}
-			index++;
-		}
-		oldScore = oldScore % 10;
-		tempScore = tempScore % 10;
-		//update the third number?
-	//	xil_printf("The last number is %d \r\n",tempScore);
-		drawScore(index, tempScore);
-		//Draw the last number of the score
+		index++;
 	}
+	oldScore = oldScore % 1000;
+	tempScore = tempScore % 1000;
+	if ((score > 99)) {
+//		xil_printf("The second number is %d \r\n",tempScore/100);
+		if (oldScore / 100 != tempScore / 100) {
+			drawScore(index, tempScore / 100);
+		}
+		index++;
+		//update drawScore(index, number)
+	} //Update the second number?
+	oldScore = oldScore % 100;
+	tempScore = tempScore % 100;
+	if ((score > 9)) {
+//		xil_printf("The third number is %d \r\n",tempScore/10);
+		if ((oldScore / 10 != tempScore / 10)) {
+			drawScore(index, tempScore / 10);
+		}
+		index++;
+	}
+	oldScore = oldScore % 10;
+	tempScore = tempScore % 10;
+	//update the third number?
+//	xil_printf("The last number is %d \r\n",tempScore);
+	drawScore(index, tempScore);
+	//Draw the last number of the score
+
+}
+
+int getSpaceshipValue(){
+	return spaceshipScore;
 }
 
 int getScore() {
@@ -778,17 +800,11 @@ int getScore() {
 }
 
 int getAlienUpdateTime() {
-	int numAliens;
-	int i = 0;
-	for(i = 0; i < 55; i++){
-		if(alienDeaths[i] == false){
-			numAliens++;
-		}
-	}
-	if(numAliens/11 >= 4) {	return 60;	}
-	else if(numAliens/11 == 3)	{ 	return 55;	}
-	else if(numAliens/11 == 2)	{	return 50;	}
-	else if(numAliens/11 == 1)	{	return 40;	}
-	else if(numAliens/11 == 0)	{	return 30;	}
+
+	if(liveAliens/11 >= 4) {	return 60;	}
+	else if(liveAliens/11 == 3)	{ 	return 55;	}
+	else if(liveAliens/11 == 2)	{	return 50;	}
+	else if(liveAliens/11 == 1)	{	return 40;	}
+	else if(liveAliens/11 == 0)	{	return 30;	}
 	else return 0;
 }

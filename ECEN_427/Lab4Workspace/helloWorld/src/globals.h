@@ -122,6 +122,10 @@ void setSpaceship(int direction);
 void setInitialSpaceship(point_t pos);
 saucer getSpaceship();
 void updateSpaceship();
+int getSpaceshipValue();
+point_t getOldSpaceshipLoc();
+bool isSpaceshipHit();
+void setSpaceshipHit(bool hit);
 void eraseBullet(point_t pos, unsigned short type);
 
 bool* getAlienDeaths();
@@ -136,7 +140,7 @@ void setLives(bool increment);
 int getLives();
 bool isGameOver();
 
-void incScore(int alienNum, bool spaceshipHit, bool erase);
+void incScore(int alienNum, bool spaceshipHit);
 int getScore();
 
 #endif /* GLOBALS_H_ */

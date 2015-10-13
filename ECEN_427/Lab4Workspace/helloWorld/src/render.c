@@ -145,9 +145,8 @@ void drawScore(int index, int number) {
 	drawBitmap(bitmap, score_pos, NUMBERWIDTH, NUMBERHEIGHT, true, GREEN, false);
 }
 
-void printSpaceshipValue(int spaceshipValue, bool erase){
-//	xil_printf("We are printing the value: %d\r\n", spaceshipValue);
-	point_t position = getSpaceship().pos;
+void printSpaceshipValue(int spaceshipValue, point_t position, bool erase){
+//	xil_printf("We are printing the score at %d, %d\r\n", position.x, position.y);
 	int index = spaceshipValue;
 	const uint32_t* bitmap;
 	//Draw the 100s digit if our value is over 99
