@@ -169,15 +169,15 @@ void printSpaceshipValue(int spaceshipValue, point_t position, bool erase){
 
 const uint32_t* getNumberBitmap(int number){
 	if(number == 0) { return number_0_5x5;	}
-	else if(number == 1) {return number_1_5x5;	}
-	else if(number == 2) {return number_2_5x5;	}
-	else if(number == 3) {return number_3_5x5;	}
-	else if(number == 4) {return number_4_5x5;	}
-	else if(number == 5) {return number_5_5x5;	}
-	else if(number == 6) {return number_6_5x5;	}
-	else if(number == 7) {return number_7_5x5;	}
-	else if(number == 8) {return number_8_5x5;	}
-	else {return number_9_5x5;	}
+	else if(number == 1) {	return number_1_5x5;	}
+	else if(number == 2) {	return number_2_5x5;	}
+	else if(number == 3) {	return number_3_5x5;	}
+	else if(number == 4) {	return number_4_5x5;	}
+	else if(number == 5) {	return number_5_5x5;	}
+	else if(number == 6) {	return number_6_5x5;	}
+	else if(number == 7) { 	return number_7_5x5;	}
+	else if(number == 8) { 	return number_8_5x5;	}
+	else {	return number_9_5x5;	}
 }
 
 void drawLivesLabel() { 
@@ -259,6 +259,23 @@ void drawBunkerErosion(int bunker, int block){
 	else {
 		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
 	}
+	activeFramePointer = background;
+	if(erosion_block == 0x0){
+		//do nothing
+	}
+	else if(erosion_block == 0x1){
+		drawBitmap(bunkerDamage0_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else if(erosion_block == 0x2){
+		drawBitmap(bunkerDamage1_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else if(erosion_block == 0x3){
+		drawBitmap(bunkerDamage2_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	else {
+		drawBitmap(bunkerDamage3_6x6, block_pos, BLOCKWIDTH, BLOCKHEIGHT, true, BLACK, false);
+	}
+	activeFramePointer = foreground;
 
 }
 
@@ -285,7 +302,7 @@ void drawTank(bool erase, int direction) {
 
 void drawTankBullet(bool erase) {
 	point_t tankBulletPosition = getTankBulletPosition();
-	drawBitmap(tank_bullet_5x3, tankBulletPosition, TANKBULLETWIDTH, TANKBULLETHEIGHT, true, GREEN, erase);
+	drawBitmap(tank_bullet_1x3, tankBulletPosition, TANKBULLETWIDTH, TANKBULLETHEIGHT, true, GREEN, erase);
 	return;
 }
 
@@ -385,25 +402,25 @@ const uint32_t* determineAlienBulletBitmap(short bulletType, short counter)
 	//Return the correct bitmap for the bulletType
 	if(bulletType == 1){
 		if(counter == 0){
-			return alien_bullet_21_7x3;
+			return alien_bullet_21_3x7;
 		}
 		else if(counter == 1){
-			return alien_bullet_22_7x3;
+			return alien_bullet_22_3x7;
 		}
 		else if(counter == 2){
-			return alien_bullet_23_7x3;
+			return alien_bullet_23_3x7;
 		}
 		else {}
 	}
 	else if(bulletType == 0) {
 		if(counter == 0){
-			return alien_bullet_11_7x3;
+			return alien_bullet_11_3x7;
 		}
 		else if(counter == 1){
-			return alien_bullet_12_7x3;
+			return alien_bullet_12_3x7;
 		}
 		else if(counter == 2){
-			return alien_bullet_13_7x3;
+			return alien_bullet_13_3x7;
 		}
 		else {}
 	}
@@ -428,18 +445,17 @@ void drawBitmap(const uint32_t* bitmap, point_t pos, int width, int height, bool
 					activeFramePointer[(sRow+pos.y+1)*SCREENWIDTH + (sCol+pos.x+1)] = color;
 				}
 			}
-			else {//paint the background color
-				bool use_new_color = (background != activeFramePointer);
+			else if(activeFramePointer != background){//ignore the color
 				int index = (pos.y*SCREENWIDTH + pos.x);
 				if(!double_size)
-					activeFramePointer[index] = use_new_color ? background[index] : BLACK;
+					activeFramePointer[index] = background[index];
 				else{
 					index = (sRow+pos.y)*SCREENWIDTH + (sCol+pos.x);
-					activeFramePointer[index] = use_new_color ? background[index] : BLACK;
-					activeFramePointer[index+1] = use_new_color ? background[index+1] : BLACK;
+					activeFramePointer[index] = background[index];
+					activeFramePointer[index+1] = background[index+1];
 					index += SCREENWIDTH;
-					activeFramePointer[index] = use_new_color ? background[index] : BLACK;
-					activeFramePointer[index+1] = use_new_color ? background[index+1] : BLACK;
+					activeFramePointer[index] = background[index];
+					activeFramePointer[index+1] = background[index+1];
 				}
 			}
 		}
