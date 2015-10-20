@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;hello_world_0/src/gmaePlay.c&apos; to &apos;gamePlay.c&apos;" description="Rename resource &apos;gmaePlay.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/gmaePlay.c" name="gamePlay.c" stamp="1444157623935" updateReferences="true"/>
-</session>

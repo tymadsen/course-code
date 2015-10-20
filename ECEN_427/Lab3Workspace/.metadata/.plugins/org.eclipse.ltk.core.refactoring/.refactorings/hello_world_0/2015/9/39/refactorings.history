@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;hello_world_0/src/graphics.h&apos; to &apos;bitMaps.h&apos;" description="Rename resource &apos;graphics.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/graphics.h" name="bitMaps.h" stamp="1443218206801" updateReferences="true"/>
-</session>
